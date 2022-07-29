@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,47 +126,6 @@
 
   .shadow {
     text-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
-  }  
-  
-
-  /*SNACKBAR*/
-  .snackbarBox {
-    width: 100%; 
-    position: fixed; 
-    bottom: 0; 
-    display: flex; 
-    flex-direction: column-reverse; 
-    align-items: center; 
-    pointer-events: none; 
-    z-index: 200;
-  }
-  
-  .snackbar {
-    padding: 15px; 
-    border-radius: 15px; 
-    background: var(--button); 
-    box-shadow: var(--shadowBig);
-    opacity: 0;
-    animation: snackbar 3s forwards;
-  }
-
-  @keyframes snackbar {
-    0% { 
-      transform: translateY(0); 
-      opacity: 0;
-    }
-    25% { 
-      transform: translateY(-20px);
-      opacity: 1; 
-    }
-    75% { 
-      transform: translateY(-20px);
-      opacity: 1; 
-    }
-    100% { 
-      transform: translateY(0); 
-      opacity: 0;
-    }
   }
 
 
@@ -181,7 +140,7 @@
     justify-content: center;
 
     font-family: roboto;
-    font-size: 14px;
+    font-size: .93rem;
     white-space: nowrap;
     color: var(--text);
 
@@ -203,7 +162,7 @@
     justify-content: center;
 
     font-family: roboto;
-    font-size: 14px;
+    font-size: .93rem;
     white-space: nowrap;
     color: var(--text);
 
@@ -244,7 +203,7 @@
   .tBtn {
     display: flex;
     font-family: roboto;
-    font-size: 14px;
+    font-size: .93rem;
     cursor: pointer;
   }
 
@@ -265,7 +224,7 @@
     align-items: center;
     padding: 0 20px;
     font-family: roboto;
-    font-size: 14px;
+    font-size: .93rem;
     cursor: pointer;
     transition: background .1s;
   }
@@ -276,27 +235,47 @@
     margin: 10px 10px 10px 0;
     filter: var(--textFilter);
   }
+  
 
-
-  /*ENTER*/
-  .enter {
+  /*OVERLAY*/
+  .overlay {
     height: 100%; 
     width: 100%; 
+  }
+
+
+  /*SNACKBAR*/
+  .snackbar {
+    padding: 15px; 
     position: fixed; 
-    z-index: 100; 
-    background: var(--bg); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: all 1s;
+    bottom: 0;
+    left: 50%;
+    border-radius: 15px; 
+    background: var(--button); 
+    box-shadow: var(--shadowBig);
+    pointer-events: none; 
+    opacity: 0;
+    z-index: 200;
+    animation: snackbar 3s forwards;
   }
 
-  .enBtn {
-    transition: transform .3s;
-  }
-
-  .enBtn:hover {
-    transform: scale(.95, .95);
+  @keyframes snackbar {
+    0% { 
+      transform: translateY(0) translateX(-50%); 
+      opacity: 0;
+    }
+    25% { 
+      transform: translateY(-20px) translateX(-50%);
+      opacity: 1; 
+    }
+    75% { 
+      transform: translateY(-20px) translateX(-50%);
+      opacity: 1; 
+    }
+    100% { 
+      transform: translateY(0) translateX(-50%); 
+      opacity: 0;
+    }
   }
 
 
@@ -557,6 +536,28 @@
   }
 
 
+  /*ENTER*/
+  .enter {
+    height: 100%; 
+    width: 100%; 
+    position: fixed; 
+    z-index: 100; 
+    background: var(--bg); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 1s;
+  }
+
+  .enBtn {
+    transition: transform .3s;
+  }
+
+  .enBtn:hover {
+    transform: scale(.95, .95);
+  }
+
+
   /*HOME*/
   .hoLine {
     animation: line 1s infinite;
@@ -607,7 +608,7 @@
     flex-grow: 1; 
     display: flex; 
     flex-direction: column; 
-    gap: 40px;
+    gap: calc(2 * var(--pageGap));
   }
 
 
@@ -761,7 +762,7 @@
     margin-left: 20px; 
     margin-right: 20px; 
     font-family: roboto; 
-    font-size: 13px; 
+    font-size: .86rem; 
     font-weight: 700; 
     color: var(--text2);
   }
@@ -780,7 +781,7 @@
   .pr > div:nth-of-type(2) > div:nth-child(2) span:nth-child(1) {
     width: 100%; 
     font-family: phonk; 
-    font-size: 22px; 
+    font-size: 1.46rem; 
   }
 
   .pr > div:nth-of-type(2) > div:nth-child(2) span:nth-child(2) {
@@ -808,7 +809,7 @@
   }
 
   .pr2 > span:nth-of-type(1) {
-    font-size: 22px; 
+    font-size: 1.46rem; 
     font-family: phonk;
   }
 
@@ -818,7 +819,7 @@
   }
 
   .pr2 > span:nth-of-type(3) {
-    font-size: 13px; 
+    font-size: .86rem; 
     font-family: roboto; 
     font-weight: 700; 
     color: var(--text2); 
@@ -840,132 +841,133 @@
 
 
 
-<body id="body" style="overflow: hidden;">
-  <!-- TOP BAR -->
-  <div id="enter" class="enter">
-    <div id="enBtn" class="btn2 enBtn" onclick="enterPancoverse()">ENTER THE PANCOVERSE</div>
-  </div>
+<body style="overflow: auto;">
+  <!-- OVERLAY -->
+  <div class="overlay">  
+    <!-- TOP BAR -->
+    <div id="topBar" class="top1">
+      <div id="topTint" style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; position: absolute; z-index: -1;"></div>
+      <div id="topH1" class="tBtn" onclick="goto('home')">
+        <span>00.&nbsp;</span>
+        <span id="topH1T">Home</span>
+      </div>
+      <div id="topA1" class="tBtn" onclick="goto('about')">
+        <span>01.&nbsp;</span>
+        <span id="topA1T">About</span>
+      </div>
+      <div id="topS1" class="tBtn" onclick="goto('skills')">
+        <span>02.&nbsp;</span>
+        <span id="topS1T">Skills</span>
+      </div>
+      <div id="topP1" class="tBtn" onclick="goto('projects')">
+        <span>03.&nbsp;</span>
+        <span id="topP1T">Projects</span>
+      </div>
+      <div class="iBtn" onclick="toggleMenu()">
+        <img src="Data/Images/Icons/more.png">
+      </div>
+    </div>
 
-  <!-- TOP BAR -->
-  <div id="topBar" class="top1">
-    <div id="topTint" style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; position: absolute; z-index: -1;"></div>
-    <div id="topH1" class="tBtn" onclick="goto('home')">
-      <span>00.&nbsp;</span>
-      <span id="topH1T">Home</span>
-    </div>
-    <div id="topA1" class="tBtn" onclick="goto('about')">
-      <span>01.&nbsp;</span>
-      <span id="topA1T">About</span>
-    </div>
-    <div id="topS1" class="tBtn" onclick="goto('skills')">
-      <span>02.&nbsp;</span>
-      <span id="topS1T">Skills</span>
-    </div>
-    <div id="topP1" class="tBtn" onclick="goto('projects')">
-      <span>03.&nbsp;</span>
-      <span id="topP1T">Projects</span>
-    </div>
-    <div class="iBtn" onclick="toggleMenu()">
-      <img src="Data/Images/Icons/more.png">
-    </div>
-  </div>
-
-  <!-- TOP MENU -->
-  <div id="topMBG" class="topMBG" onclick="toggleMenu()"> 
-    <div id="topMenu" class="topMenu" onclick="event.stopPropagation()">
-      <div style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; border-radius: 8px; position: absolute; z-index: -1;"></div>
-      <div id="topH2" class="tBtn2" onclick="goto('home')">
-        <img src="Data/Images/Icons/home.png">
-        <span id="topH2T">Home</span>
-      </div>
-      <div id="topA2" class="tBtn2" onclick="goto('about')">
-        <img src="Data/Images/Icons/about.png">
-        <span id="topA2T">About</span>
-      </div>
-      <div id="topS2" class="tBtn2" onclick="goto('skills')">
-        <img src="Data/Images/Icons/skills.png">
-        <span id="topS2T">Skills</span>
-      </div>
-      <div id="topP2" class="tBtn2" onclick="goto('projects')">
-        <img src="Data/Images/Icons/projects.png">
-        <span id="topP2T">Projects</span>
-      </div>
-      <div class="tBtn2" onclick="switchTheme()">
-        <img id="topTheImg" src="Data/Images/Icons/dark.png">
-        <span id="topThe">Theme</span>
-      </div>
-      <div class="tBtn2" onclick="switchLan()">
-        <img src="Data/Images/Icons/language.png">
-        <span id="topLan">English</span>
-      </div>
-      <div class="tBtn2" onclick="toggleAchi()">
-        <img src="Data/Images/Icons/cup.png">
-        <span id="topAch">Achievements</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ACHIEVENTS -->
-  <div id="ach" class="achBG" onclick="toggleAchi()">
-    <div id="achMenu" class="ach" onclick="event.stopPropagation()">
-      <div></div>
-      <span id="achTit">ACHIEVEMENTS</span>
-      <div class="iBtn" style="position: absolute; top: 20px; right: 20px; border-radius: 40px;" onclick="toggleAchi()">
-        <img style="height: 15px; width: 15px;" src="Data/Images/Icons/close.png">
-      </div>
-      <div>
-        <div id="achi1" class="achi" locked>
-          <img src="Data/Images/Achievements/socials.jpg">
-          <div>
-            <div id="achi1Tit">Interested fellow</div>
-            <div id="achi1Con">Given after opening all my social links</div>
-          </div>
-          <span id="achi1Lock">LOCKED</span>
+    <!-- TOP MENU -->
+    <div id="topMBG" class="topMBG" onclick="toggleMenu()"> 
+      <div id="topMenu" class="topMenu" onclick="event.stopPropagation()">
+        <div style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; border-radius: 8px; position: absolute; z-index: -1;"></div>
+        <div id="topH2" class="tBtn2" onclick="goto('home')">
+          <img src="Data/Images/Icons/home.png">
+          <span id="topH2T">Home</span>
         </div>
-        <div id="achi2" class="achi" locked>
-          <img src="Data/Images/Achievements/artyom.jpg">
-          <div>
-            <div id="achi2Tit">Best friends</div>
-            <div id="achi2Con">Given after clicking 7 times on Artyom (my gecko)</div>
-          </div>
-          <span id="achi2Lock">LOCKED</span>
+        <div id="topA2" class="tBtn2" onclick="goto('about')">
+          <img src="Data/Images/Icons/about.png">
+          <span id="topA2T">About</span>
         </div>
-        <div id="achi3" class="achi" locked>
-          <img src="Data/Images/Achievements/drill.jpg">
-          <div>
-            <div id="achi3Tit">Go with the flow</div>
-            <div id="achi3Con">Given after finding the secret Drill glasses</div>
-          </div>
-          <span id="achi3Lock">LOCKED</span>
+        <div id="topS2" class="tBtn2" onclick="goto('skills')">
+          <img src="Data/Images/Icons/skills.png">
+          <span id="topS2T">Skills</span>
+        </div>
+        <div id="topP2" class="tBtn2" onclick="goto('projects')">
+          <img src="Data/Images/Icons/projects.png">
+          <span id="topP2T">Projects</span>
+        </div>
+        <div class="tBtn2" onclick="switchTheme()">
+          <img id="topTheImg" src="Data/Images/Icons/dark.png">
+          <span id="topThe">Theme</span>
+        </div>
+        <div class="tBtn2" onclick="switchLan()">
+          <img src="Data/Images/Icons/language.png">
+          <span id="topLan">English</span>
+        </div>
+        <div class="tBtn2" onclick="toggleAchi()">
+          <img src="Data/Images/Icons/cup.png">
+          <span id="topAch">Achievements</span>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SOCIALS LEFT MENU -->
-  <div id="soMenu" class="so">
-    <div class="soLine"></div>
-    <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
-    <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
-    <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
-    <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
-  </div>
+    <!-- ACHIEVENTS -->
+    <div id="ach" class="achBG" onclick="toggleAchi()">
+      <div id="achMenu" class="ach" onclick="event.stopPropagation()">
+        <div></div>
+        <span id="achTit">ACHIEVEMENTS</span>
+        <div class="iBtn" style="position: absolute; top: 20px; right: 20px; border-radius: 40px;" onclick="toggleAchi()">
+          <img style="height: 15px; width: 15px;" src="Data/Images/Icons/close.png">
+        </div>
+        <div>
+          <div id="achi1" class="achi" locked>
+            <img src="Data/Images/Achievements/socials.jpg">
+            <div>
+              <div id="achi1Tit">Interested fellow</div>
+              <div id="achi1Con">Given after opening all my social links</div>
+            </div>
+            <span id="achi1Lock">LOCKED</span>
+          </div>
+          <div id="achi2" class="achi" locked>
+            <img src="Data/Images/Achievements/artyom.jpg">
+            <div>
+              <div id="achi2Tit">Best friends</div>
+              <div id="achi2Con">Given after clicking 7 times on Artyom (my gecko)</div>
+            </div>
+            <span id="achi2Lock">LOCKED</span>
+          </div>
+          <div id="achi3" class="achi" locked>
+            <img src="Data/Images/Achievements/drill.jpg">
+            <div>
+              <div id="achi3Tit">Go with the flow</div>
+              <div id="achi3Con">Given after finding the secret Drill glasses</div>
+            </div>
+            <span id="achi3Lock">LOCKED</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- BALLS -->
-  <div id="balls" class="balls">
-    <div id="ball1" class="ball" checked></div>
-    <div id="ball2" class="ball"></div>
-    <div id="ball3" class="ball"></div>
-    <div id="ball4" class="ball"></div>
-  </div>
+    <!-- SOCIALS -->
+    <div id="soMenu" class="so">
+      <div class="soLine"></div>
+      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
+      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
+      <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
+      <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
+    </div>
 
-  <!-- SNACKBAR -->
-  <div class="snackbarBox">
+    <!-- BALLS -->
+    <div id="balls" class="balls">
+      <div id="ball1" class="ball" checked></div>
+      <div id="ball2" class="ball"></div>
+      <div id="ball3" class="ball"></div>
+      <div id="ball4" class="ball"></div>
+    </div>
+
+    <!-- SNACKBAR -->
     <div id="snackbar"></div>
   </div>
 
+  <!-- ENTER -->
+  <div id="enter" class="enter" style="display: none;">
+    <div id="enBtn" class="btn2 enBtn" onclick="enterPancoverse()">ENTER THE PANCOVERSE</div>
+  </div>
+
   <!-- HOME -->
-  <div id="home" class="page" style="justify-content: center; gap: 25px;">
+  <div id="home" class="page" style="justify-content: center; gap: var(--pageGap);">
     <div id="hoMe" class="vc" style="height: min(50vh, 60vw); width: min(50vh, 60vw); margin: 0 auto; position: absolute; right: 15%;">
       <img id="hoMe1" style="height: 100%; width: 100%; z-index: 10; border-radius: 50vh; margin: 2px;" src="Data/Images/me.png">
       <div id="hoMe2" style="height: 100%; width: 100%; z-index: -1; border-radius: 50vh; border: solid var(--accent) 2px; position: absolute;"></div>
@@ -976,13 +978,13 @@
     <span id="hoDT" class="shadow" style="width: var(--homeW); font-size: 16px; z-index: 11;">
       <span id="hoDesc" style="text-align: justify; display: flex;">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
       <span id="hoType1">I consider myself</span>
-      <span id="hoType2"></span><span class="hoLine">|</span>
+      <span id="hoType2">a 3D printing hobbyist</span><span class="hoLine">|</span>
     </span>
     <div id="hoAbout" class="btn2" style="margin-top: 10px;" onclick="goto('about')">See more about me!</div>
   </div>
   
   <!-- ABOUT -->
-  <div id="about" class="page" style="flex-direction: row; align-items: center; gap: 60px;">
+  <div id="about" class="page" style="flex-direction: row; align-items: center; gap: calc(3 * var(--pageGap));">
     <div id="abTextBox" class="abTextBox">
       <div class="hc" style="align-items: center; gap: 20px;">
         <div class="paTit">
@@ -1006,7 +1008,7 @@
   </div>
 
   <!-- SKILLS -->
-  <div id="skills" class="page" style="justify-content: center; gap: 40px;">
+  <div id="skills" class="page" style="justify-content: center; gap: calc(2 * var(--pageGap));">
     <div id="skTop" class="vc" style="margin-right: calc(42vh + 60px);">
       <div class="hc" style="align-items: center; gap: 20px;">
         <div class="paTit">
@@ -1019,8 +1021,8 @@
       <span id="skDesc" style="margin-top: 40px; text-align: justify;">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
     </div>
 
-    <div class="vc" style="gap: 30px;">
-      <div class="skBar" onscroll="console.log('a')">
+    <div class="vc" style="gap: calc(1.5 * var(--pageGap));">
+      <div class="skBar">
         <div>
           <span id="skWebTit">Web Development</span>
           <span id="skWebPro">Advanced</span>
@@ -1100,7 +1102,7 @@
       <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
     </div>
 
-    <div class="vc" style="margin-top: 60px; gap: 100px;">
+    <div class="vc" style="margin-top: 60px; gap: calc(5 * var(--pageGap));">
       <div class="pr">
         <div>
           <img src="Data/Images/Projects/assAndroid.jpg">
@@ -1279,8 +1281,6 @@
   | $$\  $ | $$| $$  | $$  | $$  | $$\  $$$
   | $$ \/  | $$| $$  | $$ /$$$$$$| $$ \  $$
   |__/     |__/|__/  |__/|______/|__/  \_*/
-
-  window.scrollTo(0, 0)
   
   //ENTER
   function enterPancoverse() {
@@ -1293,6 +1293,7 @@
     homeType()
   }
 
+
   //GOTO
   function goto(id) {
     document.getElementById(id).scrollIntoView({behavior: "smooth"})
@@ -1301,6 +1302,7 @@
     menu.style.opacity = '0'
     menu.style.pointerEvents = 'none'
   }
+
 
   //SCROLL
   let scrollI = 0
@@ -1348,12 +1350,16 @@
     return !(rect.bottom < 100 || rect.top - viewHeight >= 100);
   }
 
+
   //RESIZE
   resized()
   window.onresize = resized
   function resized() {
+    let html = document.getElementById("html")
     if (window.innerHeight < window.innerWidth) {
-      document.body.style.setProperty('--pageW', '75vw')
+      html.style.fontSize = '15px'
+      html.style.setProperty('--pageW', '75vw')
+      html.style.setProperty('--pageGap', '20px')
       //TOP
       document.getElementById('topBar').style.backdropFilter = ''
       document.getElementById('topBar').style.boxShadow = ''
@@ -1374,7 +1380,7 @@
       document.getElementById('hoHi').style.fontSize = '20px'
       document.getElementById('hoTit1').style.fontSize = '45px'
       document.getElementById('hoTit2').style.fontSize = '30px'
-      document.body.style.setProperty('--homeW', '60%')
+      html.style.setProperty('--homeW', '60%')
       document.getElementById('hoDT').style.fontSize = '16px'
       //ABOUT
       document.getElementById('about').style.flexDirection = 'row'
@@ -1389,7 +1395,7 @@
         elem.style.flexDirection = '' 
         elem.removeAttribute('mobile') 
       }
-      document.body.style.setProperty('--pr2W', 'calc(50% - 90px)')
+      html.style.setProperty('--pr2W', 'calc(50% - 90px)')
       //SOCIALS
       document.getElementById('soMenu').style.display = 'flex'
       //BALLS
@@ -1398,7 +1404,9 @@
       document.getElementById('bot').style.marginTop = '30px'
       document.getElementById('bot').style.fontSize = '1vw'
     } else {
-      document.body.style.setProperty('--pageW', '90vw')
+      html.style.fontSize = '13px'
+      html.style.setProperty('--pageW', '90vw')
+      html.style.setProperty('--pageGap', '10px')
       //TOP
       document.getElementById('topBar').style.backdropFilter = 'none'
       document.getElementById('topBar').style.boxShadow = 'none'
@@ -1412,15 +1420,15 @@
       document.getElementById('topS2').style.display = 'flex'
       document.getElementById('topP2').style.display = 'flex'
       //HOME
-      document.getElementById('hoMe').style.height = 'min(50vh, 80vw)'
-      document.getElementById('hoMe').style.width = 'min(50vh, 80vw)'
+      document.getElementById('hoMe').style.height = 'min(50vh, 70vw)'
+      document.getElementById('hoMe').style.width = 'min(50vh, 70vw)'
       document.getElementById('hoMe').style.position = 'relative'
       document.getElementById('hoMe').style.right = ''
-      document.getElementById('hoHi').style.fontSize = '2.5vh'
-      document.getElementById('hoTit1').style.fontSize = '4vh'
-      document.getElementById('hoTit2').style.fontSize = '2.5vh'
-      document.body.style.setProperty('--homeW', '100%')
-      document.getElementById('hoDT').style.fontSize = '1.7vh'
+      document.getElementById('hoHi').style.fontSize = '1.5rem'
+      document.getElementById('hoTit1').style.fontSize = '2rem'
+      document.getElementById('hoTit2').style.fontSize = '1.5rem'
+      html.style.setProperty('--homeW', '100%')
+      document.getElementById('hoDT').style.fontSize = '1em'
       //ABOUT
       document.getElementById('about').style.flexDirection = 'column-reverse'
       document.getElementById('abTextBox').style.width = '100%'
@@ -1431,10 +1439,10 @@
       //PROJECTS
       document.getElementById('prTop').style.marginRight = ''
       for (elem of document.getElementsByClassName('pr')) { 
-        elem.style.flexDirection = 'column' 
-        elem.setAttribute('mobile', '') 
+        elem.style.flexDirection = 'column'
+        elem.setAttribute('mobile', '')
       }
-      document.body.style.setProperty('--pr2W', '100%')
+      html.style.setProperty('--pr2W', '100%')
       //SOCIALS
       document.getElementById('soMenu').style.display = 'none'
       //BALLS
@@ -1444,6 +1452,7 @@
       document.getElementById('bot').style.fontSize = '3vw'
     }
   }
+
 
   //MENU
   let menuOpen = false
@@ -1467,6 +1476,7 @@
     }
   }
 
+
   //CHANGE TITLE
   changeTitle()
   window.onblur = changeTitle
@@ -1480,6 +1490,7 @@
                   '🍜']
     document.title = 'Pancoverse '+emojis[Math.floor(Math.random() * emojis.length)]
   }
+
 
   //SOCIALS
   let sGit = false
@@ -1506,6 +1517,7 @@
     }
   }
   
+
   //SNACKBAR & CONFETTI 🎊
   let snacks = []
 
@@ -1936,6 +1948,7 @@
   if (localStorage.getItem('pancoLan') == 'es') lan = lans.es
   let abIndex = Math.floor(Math.random() * lan.a.names.length)
 
+
   //SET LANGUAGE
   setLan()
   function setLan() {
@@ -2024,6 +2037,7 @@
     document.getElementById('prT45Con').innerHTML = lan.p.t45.con
   }
 
+
   //SWITCH LANGUAGE
   function switchLan() {
     toggleMenu()
@@ -2069,6 +2083,7 @@
   window.onfocus = () => {
     if (sGit && sIG && sDrib) giveAchievement('socials')
   }
+
 
   //GIVE & RESET & SHOW ACHIEVEMENTS
   function giveAchievement(name) {
@@ -2132,6 +2147,7 @@
     document.getElementById('achi3').setAttribute('locked', '')
   }
   
+
   //ACHI MENU
   let achiOpen = false
   function toggleAchi() {
@@ -2249,6 +2265,7 @@
     document.getElementById('abImg').src = imgs[abIndex]
   })();
 
+
   //ARTYOM CLICK
   function abClick() {
     if (abIndex != 0) return
@@ -2280,6 +2297,7 @@
     document.getElementById('prFrameImg').src = ''
     document.getElementById('prFrameImg').src = 'Data/Images/Projects/'+frames[frame]
   }
+
 
   //HOODIE
   let hoodie = 0
