@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" id="html">
+<html id="html" lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,11 @@
   <link rel="icon" href="Data/Images/artyom.png">
   <script src="Data/Scripts/confetti.browser.min.js"></script>
 </head>
+
+
+
+
+
 
 
 
@@ -836,12 +841,7 @@
 
 
 
-
-
-
-
-
-<body style="overflow: auto;">
+<body style="overflow: hidden;">
   <!-- OVERLAY -->
   <div class="overlay">  
     <!-- TOP BAR -->
@@ -962,7 +962,7 @@
   </div>
 
   <!-- ENTER -->
-  <div id="enter" class="enter" style="display: none;">
+  <div id="enter" class="enter">
     <div id="enBtn" class="btn2 enBtn" onclick="enterPancoverse()">ENTER THE PANCOVERSE</div>
   </div>
 
@@ -1103,7 +1103,7 @@
     </div>
 
     <div class="vc" style="margin-top: 60px; gap: calc(5 * var(--pageGap));">
-      <div class="pr">
+      <div id="androidAssistant" class="pr">
         <div>
           <img src="Data/Images/Projects/assAndroid.jpg">
         </div>
@@ -1119,11 +1119,11 @@
               At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.
             </span>
           </div>
-          <div id="prAsisAnB1" class="btn" onclick="window.open('Data/Orion Assistant 1.7.2.apk')">Download v1.7.2</div>
+          <div id="prAsisAnB1" class="btn" onclick="window.open('Data/Orion Assistant 1.7.11.apk')">Download v1.7.11</div>
         </div>
       </div>
   
-      <div class="pr" reverse>
+      <div id="pcAssistant" class="pr" reverse>
         <div>
           <img src="Data/Images/Projects/assPC.jpg">
         </div>
@@ -1147,7 +1147,7 @@
         </div>
       </div>
 
-      <div class="pr">
+      <div id="framework" class="pr">
         <div>
           <img id="prFrameImg" src="Data/Images/Projects/frame1.jpg">
           <div onclick="nextFramework()">
@@ -1169,7 +1169,7 @@
         </div>
       </div>
   
-      <div class="pr" reverse>
+      <div id="hoodie" class="pr" reverse>
         <div>
           <img id="prHoodieImg" src="Data/Images/Projects/hoodie1.jpg">
           <div onclick="nextHoodie()">
@@ -1193,7 +1193,7 @@
       </div>
 
       <div class="hc" style="gap: 100px; position: relative; flex-wrap: wrap;">
-        <div class="pr2">
+        <div id="modding" class="pr2">
           <img src="Data/Images/Projects/mod1.jpg"> 
           <span id="prModTit">PC Modding</span>
           <span id="prModCon">
@@ -1208,7 +1208,7 @@
           <span id="prModInf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
         </div>
 
-        <div class="pr2">
+        <div id="usb" class="pr2">
           <img src="Data/Images/Projects/usb.jpg"> 
           <span id="prUsbTit">GTX Usb</span>
           <span id="prUsbCon">
@@ -1221,7 +1221,7 @@
           <span id="prUsbInf">3D Modeling · 3D Printing · Electronics · DIY</span>
         </div>
 
-        <div class="pr2">
+        <div id="bots" class="pr2">
           <img src="Data/Images/Projects/disbots.jpg"> 
           <span id="prDisTit">Discord Bots</span>
           <span id="prDisCon">
@@ -1236,7 +1236,7 @@
           <span id="prDisInf">JS · Audition · Discord API</span>
         </div>
 
-        <div class="pr2">
+        <div id="t45" class="pr2">
           <img src="Data/Images/Projects/t45.jpg"> 
           <span id="prT45Tit">T45 Helmet</span>
           <span id="prT45Con">
@@ -1257,11 +1257,6 @@
     <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
   </div>
 </body>
-
-
-
-
-
 
 
 
@@ -1710,7 +1705,7 @@
                 <br><br> 
                 After leaving the app for some time I decided to rename it and give it a modern design in Android Studio. 
                 At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.`,
-          b1: 'Download v1.7.2'
+          b1: 'Download v1.7.11'
         },
         asisPC: {
           inf: 'Batch · HTML · CSS · JS · ElectronJS · UI/UX Design',
@@ -1867,7 +1862,7 @@
                 <br><br> 
                 Tras dejar la app durante un tiempo decidí renombrarla y darle un diseño moderno en Android Studio. 
                 Actualmente la app tiene reproductores de música y video, una caja fuerte de fotos, notas, un buscador, un lector de QR y una manera de pasar datos a la versión de PC de la app.`,
-          b1: 'Descargar v1.7.2'
+          b1: 'Descargar v1.7.11'
         },
         asisPC: {
           inf: 'Batch · HTML · CSS · JS · ElectronJS · Diseño UI/UX',
