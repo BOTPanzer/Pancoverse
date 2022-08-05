@@ -1255,6 +1255,12 @@
   <div id="bot" class="vc cc" style="width: calc(100% - 40px); margin-top: 5vh; padding: 20px; gap: 10px; font-size: 1vw;">
     <div id="botFrom" style="font-size: 1em; font-family: lemon;">Arcane</div>
     <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
+    <div id="botSocials" class="hc" style="gap: 20px;">
+      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
+      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
+      <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
+      <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
+    </div>
   </div>
 </body>
 
@@ -1398,6 +1404,7 @@
       //BOTTOM
       document.getElementById('bot').style.marginTop = '30px'
       document.getElementById('bot').style.fontSize = '1vw'
+      document.getElementById('botSocials').style.display = 'none'
     } else {
       html.style.fontSize = '13px'
       html.style.setProperty('--pageW', '90vw')
@@ -1445,6 +1452,7 @@
       //BOTTOM
       document.getElementById('bot').style.marginTop = ''
       document.getElementById('bot').style.fontSize = '3vw'
+      document.getElementById('botSocials').style.display = 'flex'
     }
   }
 
