@@ -17,6 +17,11 @@
 
 
 
+
+
+
+
+
 <style>
   @font-face { font-family: poppins; src: url('Data/Fonts/Poppins.ttf'); }
   @font-face { font-family: comfortaa; src: url('Data/Fonts/Comfortaa.ttf'); }
@@ -24,6 +29,7 @@
   @font-face { font-family: lemon; src: url('Data/Fonts/LemonMilk.ttf'); }
   @font-face { font-family: orbitron; src: url('Data/Fonts/Orbitron.ttf'); }
   @font-face { font-family: roboto; src: url('Data/Fonts/RobotoMono.ttf'); }
+  @font-face { font-family: blender; src: url('Data/Fonts/BlenderPro.ttf'); }
 
   html {
     height: 100%;
@@ -46,6 +52,9 @@
     --accentT: #dc224a31;
     --accentFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
     --shadowBig: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
+
+    /*WAVES*/
+    --waveBot: 0;
 
     /*SKILLS*/
     --sk1: 0;
@@ -554,12 +563,136 @@
     transition: opacity 1s;
   }
 
-  .enBtn {
-    transition: transform .3s;
+  .enBox {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform .1s;
+    --glitchOp: 0;
   }
 
-  .enBtn:hover {
-    transform: scale(.95, .95);
+  .enBox:hover {
+    transform: scale(1.025, 1.025);
+    --glitchOp: 1;
+  }
+
+  .enBtn {
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+    --a1: rgb(243, 14, 64);
+    --a2: #00d6f4;
+    color: #f5f5f5;
+    padding: 16px 20px;
+    font-family: blender;
+    font-size: 18px;
+    background: linear-gradient(45deg, transparent 5%, var(--a1) 5%);
+    border: 0;
+    letter-spacing: 2px;
+    line-height: 1;
+    box-shadow: 2px 0px 0px var(--a2);
+    cursor: pointer;
+  }
+
+  .enBtn[glitch] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, transparent 3%, var(--a2) 3%, var(--a2) 5%, var(--a1) 5%);
+    text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
+    animation: .5s glitch infinite;
+    opacity: var(--glitchOp);
+    pointer-events: none;
+  }
+
+  @keyframes glitch {
+    0% {
+      clip-path: var(--slice-1);
+      transform: translate(-20px, -10px);
+    }
+
+    10% {
+      clip-path: var(--slice-3);
+      transform: translate(10px, 10px);
+    }
+
+    20% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 10px);
+    }
+
+    30% {
+      clip-path: var(--slice-3);
+      transform: translate(0px, 5px);
+    }
+
+    40% {
+      clip-path: var(--slice-2);
+      transform: translate(-5px, 0px);
+    }
+
+    50% {
+      clip-path: var(--slice-3);
+      transform: translate(5px, 0px);
+    }
+
+    60% {
+      clip-path: var(--slice-4);
+      transform: translate(5px, 10px);
+    }
+
+    70% {
+      clip-path: var(--slice-2);
+      transform: translate(-10px, 10px);
+    }
+
+    80% {
+      clip-path: var(--slice-5);
+      transform: translate(20px, -10px);
+    }
+
+    90% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 0px);
+    }
+
+    100% {
+      clip-path: var(--slice-1);
+      transform: translate(0);
+    }
+  }
+
+  .wave {
+    position: absolute;
+    bottom: var(--waveBot);
+    pointer-events: none;
+    fill: var(--accent);
+    width: 200vw;
+    animation: wave 10s ease infinite;
+    opacity: 0.8;
+    transition: bottom 1s;
+  }
+
+  .wave:nth-of-type(2) {
+    animation: wave 18s ease reverse infinite;
+    opacity: 0.5;
+  }
+
+  .wave:nth-of-type(3) {
+    animation: wave 20s -6s ease infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes wave {
+    0% {transform: translateX(0);}
+    50% {transform: translateX(-50%);}
+    100% {transform: translateX(0);}
   }
 
 
@@ -841,7 +974,7 @@
 
 
 
-<body style="overflow: hidden;">
+<body>
   <!-- OVERLAY -->
   <div class="overlay">  
     <!-- TOP BAR -->
@@ -963,7 +1096,22 @@
 
   <!-- ENTER -->
   <div id="enter" class="enter">
-    <div id="enBtn" class="btn2 enBtn" onclick="enterPancoverse()">ENTER THE PANCOVERSE</div>
+    <div id="enBox" class="enBox">
+      <div id="enBtn1" class="enBtn" onclick="enterPancoverse()">DIVE INTO THE PANCOVERSE</div>
+      <div id="enBtn2" class="enBtn" glitch >DIVE PANCOVERSE INTO THE</div>
+    </div>
+    <div style="position: absolute; bottom: 0; width: 100vw;">
+      <svg class="wave" viewBox="0 0 1440 320">
+        <path d="M0,160L48,160C96,160,192,160,288,176C384,192,480,224,576,240C672,256,768,256,864,250.7C960,245,1056,235,1152,224C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+      <svg class="wave" viewBox="0 0 1440 320">
+        <path d="M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,176C672,160,768,128,864,144C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+      <svg class="wave" viewBox="0 0 1440 320">
+        <path d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,213.3C672,203,768,213,864,224C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+      <div style="height: var(--waveBot); width: 100vw; bottom: 0; position: absolute; background: var(--accent); transition: height 1s;"></div>
+    </div>
   </div>
 
   <!-- HOME -->
@@ -1274,6 +1422,457 @@
 
 
 <script>
+   /*$        /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$$$$$$$
+  | $$       /$$__  $$| $$$ | $$ /$$__  $$| $$  | $$ /$$__  $$ /$$__  $$| $$_____/
+  | $$      | $$  \ $$| $$$$| $$| $$  \__/| $$  | $$| $$  \ $$| $$  \__/| $$      
+  | $$      | $$$$$$$$| $$ $$ $$| $$ /$$$$| $$  | $$| $$$$$$$$| $$ /$$$$| $$$$$   
+  | $$      | $$__  $$| $$  $$$$| $$|_  $$| $$  | $$| $$__  $$| $$|_  $$| $$__/   
+  | $$      | $$  | $$| $$\  $$$| $$  \ $$| $$  | $$| $$  | $$| $$  \ $$| $$      
+  | $$$$$$$$| $$  | $$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$/| $$$$$$$$
+  |________/|__/  |__/|__/  \__/ \______/  \______/ |__/  |__/ \______/ |_______*/
+  
+  const lans = {
+    en: {
+      tag: 'en', 
+      name: 'Pancoverse', 
+      ach: {
+        tit: 'ACHIEVEMENTS',
+        lock: 'LOCKED',
+        a1: {
+          tit: 'Interested Fellow',
+          con: 'Given after opening all my social links'
+        },
+        a2: {
+          tit: 'Best Friends',
+          con: 'Given after clicking 6 times on Artyom (my gecko)'
+        },
+        a3: {
+          tit: 'Go with the Flow',
+          con: 'Given after changing theme 6 times'
+        }
+      },
+      top: {
+        h: 'Home',
+        a: 'About',
+        s: 'Skills',
+        p: 'Projects',
+        t: 'Theme',
+        l: 'English',
+        ac: 'Achievements'
+      },
+      e: {
+        b1: 'DIVE INTO THE PANCOVERSE',
+        b2: 'DIVE PANCOVERSE INTO THE'
+      },
+      h: {
+        hi: "Howdy! I'm",
+        tit1: 'ALEJANDRO PANIAGUA',
+        tit2: 'And I love making things come to reality',
+        desc: "I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.",
+        type1: 'I consider myself',
+        type2: [
+          'a web developer',
+          'a UI/UX designer', 
+          'an android developer', 
+          'a videogame developer', 
+          'a 3D printing hobbyist'
+        ],
+        a: 'See more about me!'
+      },
+      a: {
+        tit: 'About Me',
+        desc1: "Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.",
+        desc2: "I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.",
+        s: 'Check out my skills!',
+        names: ['Artyom',
+               'Crystal Ball',
+               'Canary Islands',
+               'Sleeping Cat',
+               'finisterre',
+               'Mushrooms',
+               'Santiago',
+               'Fallout Figures',
+               'Whale Skeleton']
+      },
+      s: {
+        tit: 'My Skills',
+        desc: "I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:",
+        web: 'Web Development',
+        android: 'Android Development',
+        ui: 'UI/UX Design',
+        d3: 'CAD, 3D Modeling & Printing',
+        editing: 'Multimedia Editing',
+        videogames: 'Videogames Development',
+        basic: 'Basic',
+        medium: 'Medium',
+        high: 'High',
+        advanced: 'Advanced',
+        expert: 'Expert',
+        p: 'Check out my projects!'
+      },
+      p: {
+        tit: 'My Projects',
+        asisAn: {
+          inf: 'Java · Android Studio · UI/UX Design',
+          tit: 'Oriøn Assistant (Android)',
+          con: `The idea started after Google released their assistant as I wasn't able to use it. 
+                At first I made a web browser app that detected commands and then continued adding more utilities. 
+                <br><br> 
+                After leaving the app for some time I decided to rename it and give it a modern design in Android Studio. 
+                At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.`,
+          b1: 'Download v1.7.11'
+        },
+        asisPC: {
+          inf: 'Batch · HTML · CSS · JS · ElectronJS · UI/UX Design',
+          tit: 'Oriøn Assistant (Windows)',
+          con: `Some years ago I used to carry my apps and games on a USB to be able to use them everywhere.
+                Since plugging in a drive changes it's letter shortcuts break, so I had to come up with a solution which ended up being a batch launcher.
+                <br><br>
+                After that I wanted to go a bit further with a UI so I started the Oriøn Launcher project using Electron.js. 
+                After some updates I decided to rename it to Oriøn Assistant to match the mobile app and added compatibility between them.
+                Despite the apps that come installed like the games library, there is support for modules so everyone can make their own.`,
+          b1: 'Batch Launchers',
+          b2: 'Oriøn Launcher'
+        },
+        frame: {
+          inf: 'HTML · CSS · JS · UI/UX Design',
+          tit: 'Oriøn Framework',
+          con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
+                This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
+                <br><br>
+                Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
+          b1: 'See documentation'
+        },
+        hoodie: {
+          inf: 'Illustrator · Photoshop · Sketching',
+          tit: 'Futuristic Hoodie',
+          con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
+                It isn't exactly streetwear but it's indeed a futuristic hoodie design.
+                I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
+                Then I made a preview in Photoshop of how the hoodie would look like if it was real.
+                <br><br>
+                I am planning on printing it, but summer is starting at the time of writing this so I'll have to wait until it gets colder.`
+        },
+        mod:{
+          inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
+          tit: 'PC Modding',
+          con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
+                <br><br>
+                I began by extracting 3D models from some of my favorite games since I couldn't find them online.
+                I printed a deathclaw figure and made a large rock model to place inside the case.
+                Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
+                <br><br>
+                After I printing them, I painted and placed them on my PC.`
+        },
+        usb:{
+          inf: '3D Modeling · 3D Printing · Electronics · DIY',
+          tit: 'GTX USB',
+          con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
+                To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
+                <br><br>
+                After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
+                Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
+        },
+        dis:{
+          inf: 'JS · Audition · Discord API',
+          tit: 'Discord Bots',
+          con: `After checking out the cool things you can do with discord bots I got the idea of creating my own.
+                <br><br>
+                At first I created a simple bot called Syrup and, after becoming better at making them, I created a more advanced version called Coscu.
+                This new version could jump into a call with people and play sounds so I used Adobe Audition to make them sound better.`,
+          b1: 'Syrup Repository'
+        },
+        t45:{
+          inf: '3D Printing · DIY',
+          tit: 'T45 Helmet',
+          con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
+                <br><br>
+                As I found a helmet 3D model I decided to print it in small pieces to make my own. 
+                After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
+        }
+      },
+      bot: {
+        mail: 'Email Copied'
+      }
+    },
+    es:{
+      tag: 'es', 
+      name: 'Pancoverso', 
+      ach: {
+        tit: 'LOGROS',
+        lock: 'BLOQUEADO',
+        a1: {
+          tit: 'Chavalin Interesado',
+          con: 'Dado por abrir todos los links de mis redes'
+        },
+        a2: {
+          tit: 'Mejores Amigos',
+          con: 'Dado por clicar 6 veces en Artyom (mi gecko)'
+        },
+        a3: {
+          tit: 'Ves con el Flow',
+          con: 'Dado por cambiar el tema 6 veces'
+        }
+      },
+      top: {
+        h: 'Inicio',
+        a: 'Sobre Mi',
+        s: 'Capacidades',
+        p: 'Proyectos',
+        t: 'Tema',
+        l: 'Español',
+        ac: 'Logros'
+      },
+      e: {
+        b1: 'ADENTRARSE EN EL PANCOVERSO',
+        b2: 'ADENTRARSE PANCOVERSO EN EL'
+      },
+      h: {
+        hi: '¡Hola! Soy',
+        tit1: 'ALEJANDRO PANIAGUA',
+        tit2: 'Y me encanta hacer que las cosas se hagan realidad',
+        desc: 'Soy un estudiante español, actualmente estudiando un grado de desarrollo de videojuegos, que ha desarrollado todo tipo de capacidades desde pequeño.',
+        type1: 'Me considero',
+        type2: [
+          'un desarrollador web',
+          'un diseñador de UI/UX', 
+          'un desarrollador de android', 
+          'un desarrollador de videojuegos', 
+          'un fan de la impresión 3D'
+        ],
+        a: '¡Ver más sobre mi!'
+      },
+      a: {
+        tit: 'Sobre Mi',
+        desc1: "¡Hola! Mi nombre es Alejandro, pero me puedes llamar Panco o Alex. Soy un desarrollador web y de android español al que le encanta hacer interfaces fáciles de usar y responsivas junto a todo tipo de aplicaciones.",
+        desc2: "Soy una persona independiente y bien organizada que encuentra resolver problemas fácil y a quien le encanta dar su propio toque. Algunos de mis intereses son crear aplicaciones y juegos pero tambien me gusta la impresión 3D y los proyectos manuales.",
+        s: '¡Ver mis capacidades!',
+        names: ['Artyom',
+               'Bola de Cristal',
+               'Islas Canarias',
+               'Gato Durmiendo',
+               'finisterre',
+               'Setas',
+               'Santiago',
+               'Figuras de Fallout',
+               'Esqueleto de Ballena']
+      },
+      s: {
+        tit: 'Mis Capacidades',
+        desc: "He estado interesado en el mundo de los ordenadores desde pequeño y, gracias a eso, he expandido mis capacidades alrededor de una gran variedad de temas como:",
+        web: 'Desarrollo Web',
+        android: 'Desarrollo de Android',
+        ui: 'Diseño de UI/UX',
+        d3: 'CAD, Diseño e Impresión 3D',
+        editing: 'Edición Multimedia',
+        videogames: 'Desarrollo de Videojuegos',
+        basic: 'Basico',
+        medium: 'Medio',
+        high: 'Alto',
+        advanced: 'Advanzado',
+        expert: 'Experto',
+        p: '¡Ver mis proyectos!'
+      },
+      p: {
+        tit: 'Mis Proyectos',
+        asisAn: {
+          inf: 'Java · Android Studio · Diseño UI/UX',
+          tit: 'Assistente Oriøn (Android)',
+          con: `La idea comenzó después de que Google sacase su asistente ya que yo no lo podía usar. 
+                Primero creé un buscador web que detectaba comandos para posteriormente añadirle más utilidades. 
+                <br><br> 
+                Tras dejar la app durante un tiempo decidí renombrarla y darle un diseño moderno en Android Studio. 
+                Actualmente la app tiene reproductores de música y video, una caja fuerte de fotos, notas, un buscador, un lector de QR y una manera de pasar datos a la versión de PC de la app.`,
+          b1: 'Descargar v1.7.11'
+        },
+        asisPC: {
+          inf: 'Batch · HTML · CSS · JS · ElectronJS · Diseño UI/UX',
+          tit: 'Assistente Oriøn (Windows)',
+          con: `Hace unos años solía llevar mis apps y juegos en un USB para poder usarlos en cualquier lugar.
+                Cómo conectar un disco cambia su letra los accesos directos se rompen, por lo que tuve que pensar en una solución que acabó siendo un launcher batch.
+                <br><br>
+                Después de crearlo, quise ir un poco más allá con una UI, así que comencé el proyecto del Launcher Oriøn usando Electron.js.
+                Después de algunas actualizaciones, decidí cambiarle el nombre a Oriøn Assistant para que coincidiera con la app móvil y añadí compatibilidad entre ellas.
+                A pesar de las aplicaciones que vienen instaladas como la biblioteca de juegos, hay soporte para módulos para que todo el mundo pueda crear las suyas.`,
+          b1: 'Launchers Batch',
+          b2: 'Launcher Oriøn'
+        },
+        frame: {
+          inf: 'HTML · CSS · JS · Diseño UI/UX',
+          tit: 'Framework Oriøn',
+          con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
+                Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
+                <br><br>
+                Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
+          b1: 'Ver documentación'
+        },
+        hoodie: {
+          inf: 'Illustrator · Photoshop · Dibujo',
+          tit: 'Sudadera Futurística',
+          con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
+                No es exactamente streetwear, pero sí es una sudadera futuristica.
+                Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
+                Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.
+                <br><br>
+                Estoy planeando imprimirla pero el verano se acerca mientras escribo esto, por lo que tendré que esperar a que haga un poco de frío.`
+        },        
+        mod:{
+          inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
+          tit: 'PC Modding',
+          con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
+                <br><br>
+                Empecé extrayendo modelos 3D de algunos de mis juegos favoritos ya que no los podía encontrar online.
+                Imprimí una figura de deathclaw e hice un modelo de roca larga para colocar dentro del PC.
+                Después continúe diseñando las piezas exteriores, basadas en Cyberpunk 2077, para más tarde modelarlas e imprimirlas.
+                <br><br>
+                Tras imprimirlas las pinté y coloqué en el PC.`
+        },
+        usb:{
+          inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
+          tit: 'USB GTX ',
+          con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
+                Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
+                <br><br>
+                Después de hacer agujeros para la ventilación, imprimí la carcasa y coloqué un ventilador pequeño alimentado por un conector en el lado.
+                Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
+        },
+        dis:{
+          inf: 'JS · Audition · API de Discord',
+          tit: 'Bots de Discord',
+          con: `Tras ver las cosas que se pueden hacer con bots de discord tuve la idea de crear el mio.
+                <br><br>
+                Primero creé un bot simple llamado Syrup y, después de mejorar, creé una versión más avanzada llamada Coscu.
+                Esta nueva versión podía entrar en llamadas con gente y reproducir sonidos, por lo que usé Adobe Audition para hacerlos sonar mejor.`,
+          b1: 'Repositorio de Syrup'
+        },
+        t45:{
+          inf: 'Impresión 3D · Manualidades',
+          tit: 'Casco T45',
+          con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
+                <br><br>
+                Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
+                Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
+        }
+      },
+      bot: {
+        mail: 'Email Copiado'
+      }
+    }
+  }
+  
+  let lan = lans.en
+  if (localStorage.getItem('pancoLan') == 'es') lan = lans.es
+  let abIndex = Math.floor(Math.random() * lan.a.names.length)
+
+
+  //SET LANGUAGE
+  setLan()
+  function setLan() {
+    //ACHIEVEMENTS
+    document.getElementById('achTit').innerText = lan.ach.tit
+    document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
+    document.getElementById('achi1Con').innerText = lan.ach.a1.con
+    document.getElementById('achi1Lock').innerText = lan.ach.lock
+    document.getElementById('achi2Tit').innerText = lan.ach.a2.tit
+    document.getElementById('achi2Con').innerText = lan.ach.a2.con
+    document.getElementById('achi2Lock').innerText = lan.ach.lock
+    document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
+    document.getElementById('achi3Con').innerText = lan.ach.a3.con
+    document.getElementById('achi3Lock').innerText = lan.ach.lock
+    //ENTER
+    document.getElementById('enBtn1').innerText = lan.e.b1
+    document.getElementById('enBtn2').innerText = lan.e.b2
+    //TOP
+    document.getElementById('topH1T').innerText = lan.top.h
+    document.getElementById('topH2T').innerText = lan.top.h
+    document.getElementById('topA1T').innerText = lan.top.a
+    document.getElementById('topA2T').innerText = lan.top.a
+    document.getElementById('topS1T').innerText = lan.top.s
+    document.getElementById('topS2T').innerText = lan.top.s
+    document.getElementById('topP1T').innerText = lan.top.p
+    document.getElementById('topP2T').innerText = lan.top.p
+    document.getElementById('topThe').innerText = lan.top.t
+    document.getElementById('topLan').innerText = lan.top.l
+    document.getElementById('topAch').innerText = lan.top.ac
+    //HOME
+    document.getElementById('hoHi').innerText = lan.h.hi
+    document.getElementById('hoTit1').innerText = lan.h.tit1
+    document.getElementById('hoTit2').innerText = lan.h.tit2
+    document.getElementById('hoDesc').innerText = lan.h.desc
+    document.getElementById('hoType1').innerText = lan.h.type1
+    document.getElementById('hoAbout').innerText = lan.h.a
+    //ABOUT
+    document.getElementById('abTit').innerText = lan.a.tit
+    document.getElementById('abDesc1').innerText = lan.a.desc1
+    document.getElementById('abDesc2').innerText = lan.a.desc2
+    document.getElementById('abSkills').innerText = lan.a.s
+    document.getElementById('abName').innerText = lan.a.names[abIndex]
+    //SKILLS
+    document.getElementById('skTit').innerText = lan.s.tit
+    document.getElementById('skDesc').innerText = lan.s.desc
+    document.getElementById('skWebTit').innerText = lan.s.web
+    document.getElementById('skWebPro').innerText = lan.s.advanced
+    document.getElementById('skAndTit').innerText = lan.s.android
+    document.getElementById('skAndPro').innerText = lan.s.expert
+    document.getElementById('skUiTit').innerText = lan.s.ui
+    document.getElementById('skUiPro').innerText = lan.s.advanced
+    document.getElementById('sk3dTit').innerText = lan.s.d3
+    document.getElementById('sk3dPro').innerText = lan.s.high
+    document.getElementById('skEdTit').innerText = lan.s.editing
+    document.getElementById('skEdPro').innerText = lan.s.basic
+    document.getElementById('skVidTit').innerText = lan.s.videogames
+    document.getElementById('skVidPro').innerText = lan.s.basic
+    document.getElementById('skProj').innerText = lan.s.p
+    //PROJECTS
+    document.getElementById('prTit').innerText = lan.p.tit
+    document.getElementById('prAsisAnInf').innerText = lan.p.asisAn.inf
+    document.getElementById('prAsisAnTit').innerText = lan.p.asisAn.tit
+    document.getElementById('prAsisAnCon').innerHTML = lan.p.asisAn.con
+    document.getElementById('prAsisAnB1').innerText = lan.p.asisAn.b1
+    document.getElementById('prAsisPCInf').innerText = lan.p.asisPC.inf
+    document.getElementById('prAsisPCTit').innerText = lan.p.asisPC.tit
+    document.getElementById('prAsisPCCon').innerHTML = lan.p.asisPC.con
+    document.getElementById('prAsisPCB1').innerText = lan.p.asisPC.b1
+    document.getElementById('prAsisPCB2').innerText = lan.p.asisPC.b2
+    document.getElementById('prFrameInf').innerText = lan.p.frame.inf
+    document.getElementById('prFrameTit').innerText = lan.p.frame.tit
+    document.getElementById('prFrameCon').innerHTML = lan.p.frame.con
+    document.getElementById('prFrameB1').innerText = lan.p.frame.b1
+    document.getElementById('prHoodieInf').innerText = lan.p.hoodie.inf
+    document.getElementById('prHoodieTit').innerText = lan.p.hoodie.tit
+    document.getElementById('prHoodieCon').innerHTML = lan.p.hoodie.con
+    document.getElementById('prModInf').innerText = lan.p.mod.inf
+    document.getElementById('prModTit').innerText = lan.p.mod.tit
+    document.getElementById('prModCon').innerHTML = lan.p.mod.con
+    document.getElementById('prUsbInf').innerText = lan.p.usb.inf
+    document.getElementById('prUsbTit').innerText = lan.p.usb.tit
+    document.getElementById('prUsbCon').innerHTML = lan.p.usb.con
+    document.getElementById('prDisInf').innerText = lan.p.dis.inf
+    document.getElementById('prDisTit').innerText = lan.p.dis.tit
+    document.getElementById('prDisCon').innerHTML = lan.p.dis.con
+    document.getElementById('prDisB1').innerHTML = lan.p.dis.b1
+    document.getElementById('prT45Inf').innerText = lan.p.t45.inf
+    document.getElementById('prT45Tit').innerText = lan.p.t45.tit
+    document.getElementById('prT45Con').innerHTML = lan.p.t45.con
+  }
+
+
+  //SWITCH LANGUAGE
+  function switchLan() {
+    toggleMenu()
+    if (lan == lans.en) 
+      lan = lans.es
+    else
+      lan = lans.en
+    localStorage.setItem('pancoLan', lan.tag)
+    setLan()
+    changeTitle()
+  }
+
+
+
+
+
    /*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
   | $$$    /$$$ /$$__  $$|_  $$_/| $$$ | $$
   | $$$$  /$$$$| $$  \ $$  | $$  | $$$$| $$
@@ -1285,13 +1884,14 @@
   
   //ENTER
   function enterPancoverse() {
-    document.getElementById('enter').style.opacity = '0'
-    document.getElementById('enter').style.pointerEvents = 'none'
-    document.getElementById('enBtn').style.transition = 'transform 1s, opacity .5s'
-    document.getElementById('enBtn').style.transform = 'scale(5, 5)'
-    document.getElementById('enBtn').style.opacity = '0'
-    document.body.style.overflow = 'auto'
-    homeType()
+    html.style.setProperty('--waveBot', '100vh')
+    document.getElementById('enBox').style.pointerEvents = 'none'
+    setTimeout(function() {
+      document.getElementById('enter').style.opacity = '0'
+      document.getElementById('enter').style.pointerEvents = 'none'
+      homeType()
+      setTimeout(function() { document.body.style.overflow = 'auto' }, 500)
+    }, 500)
   }
 
 
@@ -1495,7 +2095,7 @@
                   '🦖',
                   '🦦',
                   '🍜']
-    document.title = 'Pancoverse '+emojis[Math.floor(Math.random() * emojis.length)]
+    document.title = lan.name+' '+emojis[Math.floor(Math.random() * emojis.length)]
   }
 
 
@@ -1619,443 +2219,6 @@
     if (themeI > 5) return
     themeI++
     if (themeI > 5) giveAchievement('drill')
-  }
-
-
-
-
-
-   /*$        /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$$$$$$$
-  | $$       /$$__  $$| $$$ | $$ /$$__  $$| $$  | $$ /$$__  $$ /$$__  $$| $$_____/
-  | $$      | $$  \ $$| $$$$| $$| $$  \__/| $$  | $$| $$  \ $$| $$  \__/| $$      
-  | $$      | $$$$$$$$| $$ $$ $$| $$ /$$$$| $$  | $$| $$$$$$$$| $$ /$$$$| $$$$$   
-  | $$      | $$__  $$| $$  $$$$| $$|_  $$| $$  | $$| $$__  $$| $$|_  $$| $$__/   
-  | $$      | $$  | $$| $$\  $$$| $$  \ $$| $$  | $$| $$  | $$| $$  \ $$| $$      
-  | $$$$$$$$| $$  | $$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$/| $$$$$$$$
-  |________/|__/  |__/|__/  \__/ \______/  \______/ |__/  |__/ \______/ |_______*/
-  
-  const lans = {
-    en: {
-      tag: 'en', 
-      ach: {
-        tit: 'ACHIEVEMENTS',
-        lock: 'LOCKED',
-        a1: {
-          tit: 'Interested Fellow',
-          con: 'Given after opening all my social links'
-        },
-        a2: {
-          tit: 'Best Friends',
-          con: 'Given after clicking 6 times on Artyom (my gecko)'
-        },
-        a3: {
-          tit: 'Go with the Flow',
-          con: 'Given after changing theme 6 times'
-        }
-      },
-      top: {
-        h: 'Home',
-        a: 'About',
-        s: 'Skills',
-        p: 'Projects',
-        t: 'Theme',
-        l: 'English',
-        ac: 'Achievements'
-      },
-      h: {
-        hi: "Howdy! I'm",
-        tit1: 'ALEJANDRO PANIAGUA',
-        tit2: 'And I love making things come to reality',
-        desc: "I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.",
-        type1: 'I consider myself',
-        type2: [
-          'a web developer',
-          'a UI/UX designer', 
-          'an android developer', 
-          'a videogame developer', 
-          'a 3D printing hobbyist'
-        ],
-        a: 'See more about me!'
-      },
-      a: {
-        tit: 'About Me',
-        desc1: "Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.",
-        desc2: "I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.",
-        s: 'Check out my skills!',
-        names: ['Artyom',
-               'Crystal Ball',
-               'Canary Islands',
-               'Sleeping Cat',
-               'finisterre',
-               'Mushrooms',
-               'Santiago',
-               'Fallout Figures',
-               'Whale Skeleton']
-      },
-      s: {
-        tit: 'My Skills',
-        desc: "I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:",
-        web: 'Web Development',
-        android: 'Android Development',
-        ui: 'UI/UX Design',
-        d3: 'CAD, 3D Modeling & Printing',
-        editing: 'Multimedia Editing',
-        videogames: 'Videogames Development',
-        basic: 'Basic',
-        medium: 'Medium',
-        high: 'High',
-        advanced: 'Advanced',
-        expert: 'Expert',
-        p: 'Check out my projects!'
-      },
-      p: {
-        tit: 'My Projects',
-        asisAn: {
-          inf: 'Java · Android Studio · UI/UX Design',
-          tit: 'Oriøn Assistant (Android)',
-          con: `The idea started after Google released their assistant as I wasn't able to use it. 
-                At first I made a web browser app that detected commands and then continued adding more utilities. 
-                <br><br> 
-                After leaving the app for some time I decided to rename it and give it a modern design in Android Studio. 
-                At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.`,
-          b1: 'Download v1.7.11'
-        },
-        asisPC: {
-          inf: 'Batch · HTML · CSS · JS · ElectronJS · UI/UX Design',
-          tit: 'Oriøn Assistant (Windows)',
-          con: `Some years ago I used to carry my apps and games on a USB to be able to use them everywhere.
-                Since plugging in a drive changes it's letter shortcuts break, so I had to come up with a solution which ended up being a batch launcher.
-                <br><br>
-                After that I wanted to go a bit further with a UI so I started the Oriøn Launcher project using Electron.js. 
-                After some updates I decided to rename it to Oriøn Assistant to match the mobile app and added compatibility between them.
-                Despite the apps that come installed like the games library, there is support for modules so everyone can make their own.`,
-          b1: 'Batch Launchers',
-          b2: 'Oriøn Launcher'
-        },
-        frame: {
-          inf: 'HTML · CSS · JS · UI/UX Design',
-          tit: 'Oriøn Framework',
-          con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
-                This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
-                <br><br>
-                Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
-          b1: 'See documentation'
-        },
-        hoodie: {
-          inf: 'Illustrator · Photoshop · Sketching',
-          tit: 'Futuristic Hoodie',
-          con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
-                It isn't exactly streetwear but it's indeed a futuristic hoodie design.
-                I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
-                Then I made a preview in Photoshop of how the hoodie would look like if it was real.
-                <br><br>
-                I am planning on printing it, but summer is starting at the time of writing this so I'll have to wait until it gets colder.`
-        },
-        mod:{
-          inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
-          tit: 'PC Modding',
-          con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
-                <br><br>
-                I began by extracting 3D models from some of my favorite games since I couldn't find them online.
-                I printed a deathclaw figure and made a large rock model to place inside the case.
-                Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
-                <br><br>
-                After I printing them, I painted and placed them on my PC.`
-        },
-        usb:{
-          inf: '3D Modeling · 3D Printing · Electronics · DIY',
-          tit: 'GTX USB',
-          con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
-                To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
-                <br><br>
-                After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
-                Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
-        },
-        dis:{
-          inf: 'JS · Audition · Discord API',
-          tit: 'Discord Bots',
-          con: `After checking out the cool things you can do with discord bots I got the idea of creating my own.
-                <br><br>
-                At first I created a simple bot called Syrup and, after becoming better at making them, I created a more advanced version called Coscu.
-                This new version could jump into a call with people and play sounds so I used Adobe Audition to make them sound better.`,
-          b1: 'Syrup Repository'
-        },
-        t45:{
-          inf: '3D Printing · DIY',
-          tit: 'T45 Helmet',
-          con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
-                <br><br>
-                As I found a helmet 3D model I decided to print it in small pieces to make my own. 
-                After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
-        }
-      },
-      bot: {
-        mail: 'Email Copied'
-      }
-    },
-    es:{
-      tag: 'es', 
-      ach: {
-        tit: 'LOGROS',
-        lock: 'BLOQUEADO',
-        a1: {
-          tit: 'Chavalin Interesado',
-          con: 'Dado por abrir todos los links de mis redes'
-        },
-        a2: {
-          tit: 'Mejores Amigos',
-          con: 'Dado por clicar 6 veces en Artyom (mi gecko)'
-        },
-        a3: {
-          tit: 'Ves con el Flow',
-          con: 'Dado por cambiar el tema 6 veces'
-        }
-      },
-      top: {
-        h: 'Inicio',
-        a: 'Sobre Mi',
-        s: 'Capacidades',
-        p: 'Proyectos',
-        t: 'Tema',
-        l: 'Español',
-        ac: 'Logros'
-      },
-      h: {
-        hi: '¡Hola! Soy',
-        tit1: 'ALEJANDRO PANIAGUA',
-        tit2: 'Y me encanta hacer que las cosas se hagan realidad',
-        desc: 'Soy un estudiante español, actualmente estudiando un grado de desarrollo de videojuegos, que ha desarrollado todo tipo de capacidades desde pequeño.',
-        type1: 'Me considero',
-        type2: [
-          'un desarrollador web',
-          'un diseñador de UI/UX', 
-          'un desarrollador de android', 
-          'un desarrollador de videojuegos', 
-          'un fan de la impresión 3D'
-        ],
-        a: '¡Ver más sobre mi!'
-      },
-      a: {
-        tit: 'Sobre Mi',
-        desc1: "¡Hola! Mi nombre es Alejandro, pero me puedes llamar Panco o Alex. Soy un desarrollador web y de android español al que le encanta hacer interfaces fáciles de usar y responsivas junto a todo tipo de aplicaciones.",
-        desc2: "Soy una persona independiente y bien organizada que encuentra resolver problemas fácil y a quien le encanta dar su propio toque. Algunos de mis intereses son crear aplicaciones y juegos pero tambien me gusta la impresión 3D y los proyectos manuales.",
-        s: '¡Ver mis capacidades!',
-        names: ['Artyom',
-               'Bola de Cristal',
-               'Islas Canarias',
-               'Gato Durmiendo',
-               'finisterre',
-               'Setas',
-               'Santiago',
-               'Figuras de Fallout',
-               'Esqueleto de Ballena']
-      },
-      s: {
-        tit: 'Mis Capacidades',
-        desc: "He estado interesado en el mundo de los ordenadores desde pequeño y, gracias a eso, he expandido mis capacidades alrededor de una gran variedad de temas como:",
-        web: 'Desarrollo Web',
-        android: 'Desarrollo de Android',
-        ui: 'Diseño de UI/UX',
-        d3: 'CAD, Diseño e Impresión 3D',
-        editing: 'Edición Multimedia',
-        videogames: 'Desarrollo de Videojuegos',
-        basic: 'Basico',
-        medium: 'Medio',
-        high: 'Alto',
-        advanced: 'Advanzado',
-        expert: 'Experto',
-        p: '¡Ver mis proyectos!'
-      },
-      p: {
-        tit: 'Mis Proyectos',
-        asisAn: {
-          inf: 'Java · Android Studio · Diseño UI/UX',
-          tit: 'Assistente Oriøn (Android)',
-          con: `La idea comenzó después de que Google sacase su asistente ya que yo no lo podía usar. 
-                Primero creé un buscador web que detectaba comandos para posteriormente añadirle más utilidades. 
-                <br><br> 
-                Tras dejar la app durante un tiempo decidí renombrarla y darle un diseño moderno en Android Studio. 
-                Actualmente la app tiene reproductores de música y video, una caja fuerte de fotos, notas, un buscador, un lector de QR y una manera de pasar datos a la versión de PC de la app.`,
-          b1: 'Descargar v1.7.11'
-        },
-        asisPC: {
-          inf: 'Batch · HTML · CSS · JS · ElectronJS · Diseño UI/UX',
-          tit: 'Assistente Oriøn (Windows)',
-          con: `Hace unos años solía llevar mis apps y juegos en un USB para poder usarlos en cualquier lugar.
-                Cómo conectar un disco cambia su letra los accesos directos se rompen, por lo que tuve que pensar en una solución que acabó siendo un launcher batch.
-                <br><br>
-                Después de crearlo, quise ir un poco más allá con una UI, así que comencé el proyecto del Launcher Oriøn usando Electron.js.
-                Después de algunas actualizaciones, decidí cambiarle el nombre a Oriøn Assistant para que coincidiera con la app móvil y añadí compatibilidad entre ellas.
-                A pesar de las aplicaciones que vienen instaladas como la biblioteca de juegos, hay soporte para módulos para que todo el mundo pueda crear las suyas.`,
-          b1: 'Launchers Batch',
-          b2: 'Launcher Oriøn'
-        },
-        frame: {
-          inf: 'HTML · CSS · JS · Diseño UI/UX',
-          tit: 'Framework Oriøn',
-          con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
-                Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
-                <br><br>
-                Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
-          b1: 'Ver documentación'
-        },
-        hoodie: {
-          inf: 'Illustrator · Photoshop · Dibujo',
-          tit: 'Sudadera Futurística',
-          con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
-                No es exactamente streetwear, pero sí es una sudadera futuristica.
-                Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
-                Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.
-                <br><br>
-                Estoy planeando imprimirla pero el verano se acerca mientras escribo esto, por lo que tendré que esperar a que haga un poco de frío.`
-        },        
-        mod:{
-          inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
-          tit: 'PC Modding',
-          con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
-                <br><br>
-                Empecé extrayendo modelos 3D de algunos de mis juegos favoritos ya que no los podía encontrar online.
-                Imprimí una figura de deathclaw e hice un modelo de roca larga para colocar dentro del PC.
-                Después continúe diseñando las piezas exteriores, basadas en Cyberpunk 2077, para más tarde modelarlas e imprimirlas.
-                <br><br>
-                Tras imprimirlas las pinté y coloqué en el PC.`
-        },
-        usb:{
-          inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
-          tit: 'USB GTX ',
-          con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
-                Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
-                <br><br>
-                Después de hacer agujeros para la ventilación, imprimí la carcasa y coloqué un ventilador pequeño alimentado por un conector en el lado.
-                Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
-        },
-        dis:{
-          inf: 'JS · Audition · API de Discord',
-          tit: 'Bots de Discord',
-          con: `Tras ver las cosas que se pueden hacer con bots de discord tuve la idea de crear el mio.
-                <br><br>
-                Primero creé un bot simple llamado Syrup y, después de mejorar, creé una versión más avanzada llamada Coscu.
-                Esta nueva versión podía entrar en llamadas con gente y reproducir sonidos, por lo que usé Adobe Audition para hacerlos sonar mejor.`,
-          b1: 'Repositorio de Syrup'
-        },
-        t45:{
-          inf: 'Impresión 3D · Manualidades',
-          tit: 'Casco T45',
-          con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
-                <br><br>
-                Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
-                Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
-        }
-      },
-      bot: {
-        mail: 'Email Copiado'
-      }
-    }
-  }
-  
-  let lan = lans.en
-  if (localStorage.getItem('pancoLan') == 'es') lan = lans.es
-  let abIndex = Math.floor(Math.random() * lan.a.names.length)
-
-
-  //SET LANGUAGE
-  setLan()
-  function setLan() {
-    //ACHIEVEMENTS
-    document.getElementById('achTit').innerText = lan.ach.tit
-    document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
-    document.getElementById('achi1Con').innerText = lan.ach.a1.con
-    document.getElementById('achi1Lock').innerText = lan.ach.lock
-    document.getElementById('achi2Tit').innerText = lan.ach.a2.tit
-    document.getElementById('achi2Con').innerText = lan.ach.a2.con
-    document.getElementById('achi2Lock').innerText = lan.ach.lock
-    document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
-    document.getElementById('achi3Con').innerText = lan.ach.a3.con
-    document.getElementById('achi3Lock').innerText = lan.ach.lock
-    //TOP
-    document.getElementById('topH1T').innerText = lan.top.h
-    document.getElementById('topH2T').innerText = lan.top.h
-    document.getElementById('topA1T').innerText = lan.top.a
-    document.getElementById('topA2T').innerText = lan.top.a
-    document.getElementById('topS1T').innerText = lan.top.s
-    document.getElementById('topS2T').innerText = lan.top.s
-    document.getElementById('topP1T').innerText = lan.top.p
-    document.getElementById('topP2T').innerText = lan.top.p
-    document.getElementById('topThe').innerText = lan.top.t
-    document.getElementById('topLan').innerText = lan.top.l
-    document.getElementById('topAch').innerText = lan.top.ac
-    //HOME
-    document.getElementById('hoHi').innerText = lan.h.hi
-    document.getElementById('hoTit1').innerText = lan.h.tit1
-    document.getElementById('hoTit2').innerText = lan.h.tit2
-    document.getElementById('hoDesc').innerText = lan.h.desc
-    document.getElementById('hoType1').innerText = lan.h.type1
-    document.getElementById('hoAbout').innerText = lan.h.a
-    //ABOUT
-    document.getElementById('abTit').innerText = lan.a.tit
-    document.getElementById('abDesc1').innerText = lan.a.desc1
-    document.getElementById('abDesc2').innerText = lan.a.desc2
-    document.getElementById('abSkills').innerText = lan.a.s
-    document.getElementById('abName').innerText = lan.a.names[abIndex]
-    //SKILLS
-    document.getElementById('skTit').innerText = lan.s.tit
-    document.getElementById('skDesc').innerText = lan.s.desc
-    document.getElementById('skWebTit').innerText = lan.s.web
-    document.getElementById('skWebPro').innerText = lan.s.advanced
-    document.getElementById('skAndTit').innerText = lan.s.android
-    document.getElementById('skAndPro').innerText = lan.s.expert
-    document.getElementById('skUiTit').innerText = lan.s.ui
-    document.getElementById('skUiPro').innerText = lan.s.advanced
-    document.getElementById('sk3dTit').innerText = lan.s.d3
-    document.getElementById('sk3dPro').innerText = lan.s.high
-    document.getElementById('skEdTit').innerText = lan.s.editing
-    document.getElementById('skEdPro').innerText = lan.s.basic
-    document.getElementById('skVidTit').innerText = lan.s.videogames
-    document.getElementById('skVidPro').innerText = lan.s.basic
-    document.getElementById('skProj').innerText = lan.s.p
-    //PROJECTS
-    document.getElementById('prTit').innerText = lan.p.tit
-    document.getElementById('prAsisAnInf').innerText = lan.p.asisAn.inf
-    document.getElementById('prAsisAnTit').innerText = lan.p.asisAn.tit
-    document.getElementById('prAsisAnCon').innerHTML = lan.p.asisAn.con
-    document.getElementById('prAsisAnB1').innerText = lan.p.asisAn.b1
-    document.getElementById('prAsisPCInf').innerText = lan.p.asisPC.inf
-    document.getElementById('prAsisPCTit').innerText = lan.p.asisPC.tit
-    document.getElementById('prAsisPCCon').innerHTML = lan.p.asisPC.con
-    document.getElementById('prAsisPCB1').innerText = lan.p.asisPC.b1
-    document.getElementById('prAsisPCB2').innerText = lan.p.asisPC.b2
-    document.getElementById('prFrameInf').innerText = lan.p.frame.inf
-    document.getElementById('prFrameTit').innerText = lan.p.frame.tit
-    document.getElementById('prFrameCon').innerHTML = lan.p.frame.con
-    document.getElementById('prFrameB1').innerText = lan.p.frame.b1
-    document.getElementById('prHoodieInf').innerText = lan.p.hoodie.inf
-    document.getElementById('prHoodieTit').innerText = lan.p.hoodie.tit
-    document.getElementById('prHoodieCon').innerHTML = lan.p.hoodie.con
-    document.getElementById('prModInf').innerText = lan.p.mod.inf
-    document.getElementById('prModTit').innerText = lan.p.mod.tit
-    document.getElementById('prModCon').innerHTML = lan.p.mod.con
-    document.getElementById('prUsbInf').innerText = lan.p.usb.inf
-    document.getElementById('prUsbTit').innerText = lan.p.usb.tit
-    document.getElementById('prUsbCon').innerHTML = lan.p.usb.con
-    document.getElementById('prDisInf').innerText = lan.p.dis.inf
-    document.getElementById('prDisTit').innerText = lan.p.dis.tit
-    document.getElementById('prDisCon').innerHTML = lan.p.dis.con
-    document.getElementById('prDisB1').innerHTML = lan.p.dis.b1
-    document.getElementById('prT45Inf').innerText = lan.p.t45.inf
-    document.getElementById('prT45Tit').innerText = lan.p.t45.tit
-    document.getElementById('prT45Con').innerHTML = lan.p.t45.con
-  }
-
-
-  //SWITCH LANGUAGE
-  function switchLan() {
-    toggleMenu()
-    if (lan == lans.en) 
-      lan = lans.es
-    else
-      lan = lans.en
-    localStorage.setItem('pancoLan', lan.tag)
-    setLan()
   }
 
 
