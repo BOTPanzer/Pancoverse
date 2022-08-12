@@ -1057,13 +1057,13 @@
       
       <div class="skBar">
         <div>
-          <span id="sk3dTit">3D Printing & Modeling</span>
-          <span id="sk3dPro">Medium</span>
+          <span id="sk3dTit">CAD, 3D Printing & Modeling</span>
+          <span id="sk3dPro">High</span>
         </div>
         <div>
           <div style="width: var(--sk4);"></div>
         </div>
-        <span>Cura · Tinkercad · 3DS MAX</span>
+        <span>Fusion 360 · Tinkercad · Cura · 3DS MAX</span>
       </div>
       
       <div class="skBar">
@@ -1337,7 +1337,7 @@
     if (checkVisible(document.getElementById('skUiTit')))
       document.body.style.setProperty('--sk3', '70%')
     if (checkVisible(document.getElementById('sk3dTit')))
-      document.body.style.setProperty('--sk4', '50%')
+      document.body.style.setProperty('--sk4', '65%')
     if (checkVisible(document.getElementById('skEdTit')))
       document.body.style.setProperty('--sk5', '35%')
     if (checkVisible(document.getElementById('skVidTit')))
@@ -1698,11 +1698,12 @@
         web: 'Web Development',
         android: 'Android Development',
         ui: 'UI/UX Design',
-        d3: '3D Printing & Modeling',
+        d3: 'CAD, 3D Modeling & Printing',
         editing: 'Multimedia Editing',
         videogames: 'Videogames Development',
         basic: 'Basic',
         medium: 'Medium',
+        high: 'High',
         advanced: 'Advanced',
         expert: 'Expert',
         p: 'Check out my projects!'
@@ -1855,11 +1856,12 @@
         web: 'Desarrollo Web',
         android: 'Desarrollo de Android',
         ui: 'Diseño de UI/UX',
-        d3: 'Impresión y Diseño 3D',
+        d3: 'CAD, Diseño e Impresión 3D',
         editing: 'Edición Multimedia',
         videogames: 'Desarrollo de Videojuegos',
         basic: 'Basico',
         medium: 'Medio',
+        high: 'Alto',
         advanced: 'Advanzado',
         expert: 'Experto',
         p: '¡Ver mis proyectos!'
@@ -2005,7 +2007,7 @@
     document.getElementById('skUiTit').innerText = lan.s.ui
     document.getElementById('skUiPro').innerText = lan.s.advanced
     document.getElementById('sk3dTit').innerText = lan.s.d3
-    document.getElementById('sk3dPro').innerText = lan.s.medium
+    document.getElementById('sk3dPro').innerText = lan.s.high
     document.getElementById('skEdTit').innerText = lan.s.editing
     document.getElementById('skEdPro').innerText = lan.s.basic
     document.getElementById('skVidTit').innerText = lan.s.videogames
