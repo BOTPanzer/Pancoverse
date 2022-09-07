@@ -17,11 +17,6 @@
 
 
 
-
-
-
-
-
 <style>
   @font-face { font-family: poppins; src: url('Data/Fonts/Poppins.ttf'); }
   @font-face { font-family: comfortaa; src: url('Data/Fonts/Comfortaa.ttf'); }
@@ -141,6 +136,25 @@
 
   .shadow {
     text-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
+  }
+
+  .appear {
+    opacity: 0;
+  }
+
+  .appeared {
+    animation: appear ease-out 1s;
+  }
+
+  @keyframes appear {
+    from {
+      transform: translateY(80px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
 
@@ -543,7 +557,7 @@
     width: 10px;
     background: var(--text2);
     border-radius: 10px;
-    transition: background .2s;
+    transition: background .3s;
   }
 
   .ball[checked] {
@@ -1134,7 +1148,7 @@
   
   <!-- ABOUT -->
   <div id="about" class="page" style="flex-direction: row; align-items: center; gap: calc(3 * var(--pageGap));">
-    <div id="abTextBox" class="abTextBox">
+    <div id="abTextBox" class="abTextBox appear">
       <div class="hc" style="align-items: center; gap: 20px;">
         <div class="paTit">
           <span>01.&nbsp;</span>
@@ -1150,7 +1164,7 @@
       <div id="abSkills" class="btn2" onclick="goto('skills')">Check out my skills!</div>
     </div>
 
-    <div id="abImgBox" class="abImgBox">
+    <div id="abImgBox" class="abImgBox appear">
       <div id="abName" class="abImgText"></div>
       <img id="abImg" class="abImg" onclick="abClick()">
     </div>
@@ -1252,7 +1266,7 @@
     </div>
 
     <div class="vc" style="margin-top: 60px; gap: calc(5 * var(--pageGap));">
-      <div id="androidAssistant" class="pr">
+      <div id="androidAssistant" class="pr appear">
         <div>
           <img src="Data/Images/Projects/assAndroid.jpg">
         </div>
@@ -1272,7 +1286,7 @@
         </div>
       </div>
   
-      <div id="pcAssistant" class="pr" reverse>
+      <div id="pcAssistant" class="pr appear" reverse>
         <div>
           <img src="Data/Images/Projects/assPC.jpg">
         </div>
@@ -1296,7 +1310,7 @@
         </div>
       </div>
 
-      <div id="framework" class="pr">
+      <div id="framework" class="pr appear">
         <div>
           <img id="prFrameImg" src="Data/Images/Projects/frame1.jpg">
           <div onclick="nextFramework()">
@@ -1318,7 +1332,7 @@
         </div>
       </div>
   
-      <div id="hoodie" class="pr" reverse>
+      <div id="hoodie" class="pr appear" reverse>
         <div>
           <img id="prHoodieImg" src="Data/Images/Projects/hoodie1.jpg">
           <div onclick="nextHoodie()">
@@ -1342,7 +1356,7 @@
       </div>
 
       <div id="prSmalls" class="hc" style="gap: calc(5 * var(--pageGap)); position: relative; flex-wrap: wrap;">
-        <div id="modding" class="pr2">
+        <div id="modding" class="pr2 appear">
           <img src="Data/Images/Projects/mod1.jpg"> 
           <span id="prModTit">PC Modding</span>
           <span id="prModCon">
@@ -1357,7 +1371,7 @@
           <span id="prModInf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
         </div>
 
-        <div id="usb" class="pr2">
+        <div id="usb" class="pr2 appear">
           <img src="Data/Images/Projects/usb.jpg"> 
           <span id="prUsbTit">GTX Usb</span>
           <span id="prUsbCon">
@@ -1370,7 +1384,7 @@
           <span id="prUsbInf">3D Modeling · 3D Printing · Electronics · DIY</span>
         </div>
 
-        <div id="bots" class="pr2">
+        <div id="bots" class="pr2 appear">
           <img src="Data/Images/Projects/disbots.jpg"> 
           <span id="prDisTit">Discord Bots</span>
           <span id="prDisCon">
@@ -1385,7 +1399,7 @@
           <span id="prDisInf">JS · Audition · Discord API</span>
         </div>
 
-        <div id="t45" class="pr2">
+        <div id="t45" class="pr2 appear">
           <img src="Data/Images/Projects/t45.jpg"> 
           <span id="prT45Tit">T45 Helmet</span>
           <span id="prT45Con">
@@ -1943,13 +1957,22 @@
       document.body.style.setProperty('--sk5', '35%')
     if (checkVisible(document.getElementById('skVidTit')))
       document.body.style.setProperty('--sk6', '30%')
+    //APPEAR ANIM
+    const elems = document.querySelectorAll('.appear')
+    for (let i = 0; i < elems.length; i++) {
+      const elem = elems[i]
+      if (checkVisible(elem)) {
+        elem.classList.add('appeared')
+        elem.classList.remove('appear')
+      }
+    }
   }
   window.onscroll = scrolled
   
   function checkVisible(elm) {
-    var rect = elm.getBoundingClientRect();
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-    return !(rect.bottom < 100 || rect.top - viewHeight >= 100);
+    var rect = elm.getBoundingClientRect()
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight)
+    return !(rect.bottom < 175 || rect.top - viewHeight >= 175)
   }
 
 
@@ -2499,7 +2522,7 @@
   //BOTTOM TEXT QUOTES
   (function() {  
     let quotes = ['War never changes', 
-                  'Truth Is, The Game Was Rigged From The Start', 
+                  'Truth is, the game was rigged grom the start', 
                   'OPA! Artyom!', 
                   "See you in the major leagues, Jack", 
                   'This is about to get messy', 
@@ -2510,7 +2533,8 @@
                   'Your brother needs you', 
                   "I can't believe we did that!",
                   "It's only been a week, but it feels like a year",
-                  "You were my friend, the very best I could have asked for"]
+                  "You were my friend, the very best I could have asked for",
+                  "Keep it cool, that's how you survive"]
     let authors = ['Fallout', 
                    'Fallout NV', 
                    'Metro Exodus', 
@@ -2523,7 +2547,8 @@
                    'Ruiner',
                    'Celeste',
                    'Katana Zero',
-                   'Stray']
+                   'Stray',
+                   'Valorant']
     let q = Math.floor(Math.random() * quotes.length)
     document.getElementById('botQuote').innerHTML = quotes[q]
     document.getElementById('botFrom').innerHTML = authors[q]
