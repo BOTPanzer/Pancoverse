@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h3 align="center">My Web Page</h3>
+<h3 align="center">My Portfolio</h3>
 
 <p align="center">
   Click the image to open it 😄
