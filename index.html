@@ -1357,7 +1357,7 @@
 
       <div id="prSmalls" class="hc" style="gap: calc(5 * var(--pageGap)); position: relative; flex-wrap: wrap;">
         <div id="modding" class="pr2 appear">
-          <img src="Data/Images/Projects/mod1.jpg"> 
+          <img src="Data/Images/Projects/mod.jpg"> 
           <span id="prModTit">PC Modding</span>
           <span id="prModCon">
             Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
@@ -1899,6 +1899,7 @@
   
   //ENTER
   function enterPancoverse() {
+    document.documentElement.scrollTop = 0
     html.style.setProperty('--waveBot', '100vh')
     document.getElementById('enBox').style.pointerEvents = 'none'
     setTimeout(function() {
