@@ -17,6 +17,7 @@
 
 
 
+<!-- MAIN, BUTTONS, MENU & SNACKBAR -->
 <style>
   @font-face { font-family: poppins; src: url('Data/Fonts/Poppins.ttf'); }
   @font-face { font-family: comfortaa; src: url('Data/Fonts/Comfortaa.ttf'); }
@@ -249,6 +250,7 @@
   }
 
   .tBtn2 {
+    min-width: 100%;
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -264,12 +266,89 @@
     margin: 10px 10px 10px 0;
     filter: var(--textFilter);
   }
-  
 
-  /*OVERLAY*/
-  .overlay {
-    height: 100%; 
+
+  /*MENU*/
+  .topMBG {
+    height: 100%;
     width: 100%; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex; 
+    flex-direction: row-reverse; 
+    pointer-events: none;
+    z-index: 51;
+  }
+
+  .mBtn {
+    height: fit-content;
+    max-height: 40px;
+    max-width: 40px;
+    margin-top: 15px;
+    margin-right: min(5vw, 45px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    box-sizing: border-box;
+    border: solid 2px var(--accent);
+    border-radius: 10px;
+
+    cursor: pointer;
+    overflow: hidden;
+    pointer-events: all;
+    transition: background .1s, max-width .3s, max-height .3s, padding .3s, margin-top .3s;
+  }
+
+  .mBtn[menu] {
+    max-height: var(--menuHeight);
+    max-width: 200px;
+    min-width: 180px;
+    backdrop-filter: blur(5px);
+    transition: background .1s, max-width .5s, max-height .5s, padding .5s, margin-top .5s;
+  }
+
+  .mBtn[menu]:not([mobile]) {
+    margin-top: 70px;
+  }
+
+  .mBtn:hover {
+    background: var(--accentT);
+  }
+
+  .mBtn[menu]:hover {
+    background: none;
+    cursor: auto;
+  }
+
+  .mBtn > img {
+    height: 20px;
+    width: 20px;
+    margin: 8px;
+    filter: var(--textFilter);
+    transition: height .3s, opacity .3s, margin .3s;
+  }
+
+  .mBtn[menu] > img {
+    height: 0;
+    opacity: 0;
+    margin: 0 8px;
+    transition: height .5s, opacity .5s, margin .5s;
+  }
+
+  .mBtn > div {
+    width: 100%;
+    padding: 10px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .1s;
+  }  
+  
+  .mBtn[menu] > div {
+    opacity: 1;
+    pointer-events: all;
   }
 
 
@@ -306,10 +385,19 @@
       opacity: 0;
     }
   }
+</style>
+
+<!-- OVERLAY, TOP, ACHIEVENTS, SOCIALS, BALLS & ENTER -->
+<style>
+  /*OVERLAY*/
+  .overlay {
+    height: 100%; 
+    width: 100%; 
+  }
 
 
   /*TOP*/
-  .top1 {
+  .top {
     width: 100%;
     height: 70px;
     padding: 0 min(5vw, 45px);
@@ -328,48 +416,6 @@
     box-shadow: 0 2px 15px var(--bg);
     
     z-index: 50;
-  }
-  
-  .topMBG {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: none;
-    flex-direction: row-reverse;
-    z-index: 50;
-  }
-
-  .topMenu {
-    height: fit-content;
-    min-width: 200px;
-    padding: 10px 0;
-
-    margin-top: 70px;
-    margin-right: min(5vw, 45px);
-    display: flex;
-    flex-direction: column;
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s;
-  }
-
-  .topLogo {
-    height: 50px;
-    width: 50px;
-    margin-right: auto;
-    opacity: 0;
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 30px;
-
-    cursor: pointer;
   }
 
 
@@ -709,8 +755,10 @@
     50% {transform: translateX(-50%);}
     100% {transform: translateX(0);}
   }
+</style>
 
-
+<!-- HOME, ABOUT, SKILLS & PROJECTS -->
+<style>
   /*HOME*/
   .hoLine {
     animation: line 1s infinite;
@@ -809,8 +857,8 @@
     border-radius: 5px;
     transition: width 1s;
   }
-  
-  
+
+
   /*PROJECTS*/
   .pr {
     height: min-content;
@@ -943,7 +991,6 @@
     opacity: .8;
   }
 
-  
   .pr2 {
     min-height: 100%; 
     width: var(--pr2W); 
@@ -993,7 +1040,7 @@
   <!-- OVERLAY -->
   <div class="overlay">  
     <!-- TOP BAR -->
-    <div id="topBar" class="top1">
+    <div id="topBar" class="top">
       <div id="topTint" style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; position: absolute; z-index: -1;"></div>
       <div id="topH1" class="tBtn" onclick="goto('home')">
         <span>00.&nbsp;</span>
@@ -1011,42 +1058,43 @@
         <span>03.&nbsp;</span>
         <span id="topP1T">Projects</span>
       </div>
-      <div class="iBtn" onclick="toggleMenu()">
-        <img src="Data/Images/Icons/more.png">
-      </div>
+      <div id="topSpace" style="width: 40px; transition: width .5s;"></div>
     </div>
 
     <!-- TOP MENU -->
-    <div id="topMBG" class="topMBG" onclick="toggleMenu()"> 
-      <div id="topMenu" class="topMenu" onclick="event.stopPropagation()">
-        <div style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; border-radius: 8px; position: absolute; z-index: -1;"></div>
-        <div id="topH2" class="tBtn2" onclick="goto('home')">
-          <img src="Data/Images/Icons/home.png">
-          <span id="topH2T">Home</span>
-        </div>
-        <div id="topA2" class="tBtn2" onclick="goto('about')">
-          <img src="Data/Images/Icons/about.png">
-          <span id="topA2T">About</span>
-        </div>
-        <div id="topS2" class="tBtn2" onclick="goto('skills')">
-          <img src="Data/Images/Icons/skills.png">
-          <span id="topS2T">Skills</span>
-        </div>
-        <div id="topP2" class="tBtn2" onclick="goto('projects')">
-          <img src="Data/Images/Icons/projects.png">
-          <span id="topP2T">Projects</span>
-        </div>
-        <div class="tBtn2" onclick="switchTheme()">
-          <img id="topTheImg" src="Data/Images/Icons/dark.png">
-          <span id="topThe">Theme</span>
-        </div>
-        <div class="tBtn2" onclick="switchLan()">
-          <img src="Data/Images/Icons/language.png">
-          <span id="topLan">English</span>
-        </div>
-        <div class="tBtn2" onclick="toggleAchi()">
-          <img src="Data/Images/Icons/cup.png">
-          <span id="topAch">Achievements</span>
+    <div id="topMBG" class="topMBG" onclick="toggleMenu(false)"> 
+      <div id="topMenu" class="mBtn" onclick="event.stopPropagation(); if (!menuOpen) toggleMenu(true)">
+        <img src="Data/Images/Icons/more.png">
+        <div style="position: relative;" onclick="event.stopPropagation()">
+          <div style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; border-radius: 8px; position: absolute; z-index: -1;"></div>
+          <div id="topH2" class="tBtn2" onclick="goto('home')">
+            <img src="Data/Images/Icons/home.png">
+            <span id="topH2T">Home</span>
+          </div>
+          <div id="topA2" class="tBtn2" onclick="goto('about')">
+            <img src="Data/Images/Icons/about.png">
+            <span id="topA2T">About</span>
+          </div>
+          <div id="topS2" class="tBtn2" onclick="goto('skills')">
+            <img src="Data/Images/Icons/skills.png">
+            <span id="topS2T">Skills</span>
+          </div>
+          <div id="topP2" class="tBtn2" onclick="goto('projects')">
+            <img src="Data/Images/Icons/projects.png">
+            <span id="topP2T">Projects</span>
+          </div>
+          <div class="tBtn2" onclick="switchTheme()">
+            <img id="topTheImg" src="Data/Images/Icons/dark.png">
+            <span id="topThe">Theme</span>
+          </div>
+          <div class="tBtn2" onclick="switchLan()">
+            <img src="Data/Images/Icons/language.png">
+            <span id="topLan">English</span>
+          </div>
+          <div class="tBtn2" onclick="toggleAchi()">
+            <img src="Data/Images/Icons/cup.png">
+            <span id="topAch">Achievements</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1915,9 +1963,7 @@
   function goto(id) {
     document.getElementById(id).scrollIntoView({behavior: "smooth"})
     //CLOSE MENU
-    const menu = document.getElementById('topMenu')
-    menu.style.opacity = '0'
-    menu.style.pointerEvents = 'none'
+    toggleMenu(false)
   }
 
 
@@ -1984,6 +2030,7 @@
     let html = document.getElementById("html")
     if (window.innerHeight < window.innerWidth) {
       html.style.fontSize = '15px'
+      html.style.setProperty('--menuHeight', '180px')
       html.style.setProperty('--pageW', '75vw')
       html.style.setProperty('--pageGap', '20px')
       //TOP
@@ -1998,6 +2045,7 @@
       document.getElementById('topA2').style.display = 'none'
       document.getElementById('topS2').style.display = 'none'
       document.getElementById('topP2').style.display = 'none'
+      document.getElementById('topMenu').removeAttribute('mobile')
       //HOME
       document.getElementById('hoMe').style.height = 'min(50vh, 60vw)'
       document.getElementById('hoMe').style.width = 'min(50vh, 60vw)'
@@ -2034,6 +2082,7 @@
       document.getElementById('botSocials').style.display = 'none'
     } else {
       html.style.fontSize = '13px'
+      html.style.setProperty('--menuHeight', '340px')
       html.style.setProperty('--pageW', '90vw')
       html.style.setProperty('--pageGap', '10px')
       //TOP
@@ -2048,6 +2097,7 @@
       document.getElementById('topA2').style.display = 'flex'
       document.getElementById('topS2').style.display = 'flex'
       document.getElementById('topP2').style.display = 'flex'
+      document.getElementById('topMenu').setAttribute('mobile', '')
       //HOME
       document.getElementById('hoMe').style.height = 'min(50vh, 70vw)'
       document.getElementById('hoMe').style.width = 'min(50vh, 70vw)'
@@ -2088,24 +2138,28 @@
 
   //MENU
   let menuOpen = false
-  function toggleMenu() {
+  function toggleMenu(open) {
+    //CHECK
+    if (typeof open != 'boolean') open = !menuOpen
+    if (open == menuOpen) return
+    //ELEMS
     const bg = document.getElementById('topMBG')
     const menu = document.getElementById('topMenu')
-    if (!menuOpen) {
-      bg.style.display = 'flex'
-      setTimeout(()=> { 
-        menu.style.opacity = '1'
-        menu.style.pointerEvents = 'all'
-        menuOpen = true     
-      }, 50)
+    //TOGGLE
+    if (open) {
+      //OPEN
+      bg.style.pointerEvents = 'all'
+      menu.setAttribute('menu', '')
+      document.getElementById('topSpace').style.width = '0px'
+      document.getElementById('topSpace').style.transition = 'width .5s'
     } else {
-      menu.style.opacity = '0'
-      menu.style.pointerEvents = 'none'
-      setTimeout(()=> { 
-        bg.style.display = 'none' 
-        menuOpen = false
-      }, 200)
+      //CLOSE
+      bg.style.pointerEvents = ''
+      menu.removeAttribute('menu')
+      document.getElementById('topSpace').style.width = '40px'
+      document.getElementById('topSpace').style.transition = 'width .3s'
     }
+    menuOpen = open
   }
 
 
