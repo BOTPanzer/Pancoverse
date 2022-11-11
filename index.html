@@ -1822,9 +1822,16 @@
     }
   }
   
-  let lan = lans.en
-  if (localStorage.getItem('pancoLan') == 'es') lan = lans.es
-  let abIndex = Math.floor(Math.random() * lan.a.names.length)
+  //DEFAULT LANGUAGE (SPANISH)
+  let lan = lans.es
+  //CHECK FOR SAVED LANGUAGE
+  let lanSaved = localStorage.getItem('pancoLan')
+  if (lanSaved == 'en') {
+    //SAVED LANGUAGE IS ENGLISH
+    lan = lans.en
+  } else if (lanSaved == null) {
+    //NO LANGUAGE -> CHECK COMPUTER LANGUAGE
+    let lang = navigator.language || navigator.userLanguage
     //COMPUTER LANGUAGE IS ENGLISH
     if (lang.startsWith('en')) lan = lans.en
     //SAVE LANGUAGE
