@@ -1582,7 +1582,7 @@
                 <br><br> 
                 After leaving the app for some time I decided to rename it and give it a modern design in Android Studio. 
                 At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.`,
-          b1: 'Download v1.7.16'
+          b1: 'Download v1.8.0'
         },
         asisPC: {
           inf: 'Batch · HTML · CSS · JS · NodeJS · ElectronJS · UI/UX Design',
@@ -1745,7 +1745,7 @@
                 <br><br> 
                 Tras dejar la app durante un tiempo decidí renombrarla y darle un diseño moderno en Android Studio. 
                 Actualmente la app tiene reproductores de música y video, una caja fuerte de fotos, notas, un buscador, un lector de QR y una manera de pasar datos a la versión de PC de la app.`,
-          b1: 'Descargar v1.7.16'
+          b1: 'Descargar v1.8.0'
         },
         asisPC: {
           inf: 'Batch · HTML · CSS · JS · NodeJS · ElectronJS · Diseño UI/UX',
@@ -1825,6 +1825,11 @@
   let lan = lans.en
   if (localStorage.getItem('pancoLan') == 'es') lan = lans.es
   let abIndex = Math.floor(Math.random() * lan.a.names.length)
+    //COMPUTER LANGUAGE IS ENGLISH
+    if (lang.startsWith('en')) lan = lans.en
+    //SAVE LANGUAGE
+    localStorage.setItem('pancoLan', lan.tag)
+  }
 
 
   //SET LANGUAGE
@@ -1930,6 +1935,10 @@
     setLan()
     changeTitle()
   }
+
+
+  //ABOUT IMAGE INDEX (NEEDS LAN TO WORK)
+  let abIndex = Math.floor(Math.random() * lan.a.names.length)
 
 
 
