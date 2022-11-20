@@ -859,6 +859,28 @@
 
 
   /*PROJECTS*/
+  .prSwitch {
+    width: fit-content; 
+    height: 40px; 
+    display: flex; 
+    background: var(--button); 
+    border-radius: 20px; 
+    line-height: 40px;
+    overflow: hidden;
+  }
+
+  .prSwitch > span {
+    width: fit-content; 
+    padding: 0 20px;
+    line-height: 40px; 
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  .prSwitch > span:hover, .prSwitch > span[active] {
+    background: var(--accentT);
+  }
+
   .pr {
     height: min-content;
     display: flex;
@@ -889,7 +911,7 @@
     margin: 20px; 
     aspect-ratio: 16/9;
     border-radius: 10px;
-    object-fit: contain;
+    object-fit: cover;
   }
   
   .pr > div:nth-of-type(1) > div {
@@ -1005,6 +1027,7 @@
   .pr2 > img {
     width: 100%; 
     border-radius: 10px;
+    object-fit: cover;
   }
 
   .pr2 > span:nth-of-type(1) {
@@ -1141,6 +1164,7 @@
       <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
       <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
       <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
+      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
       <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
     </div>
 
@@ -1278,6 +1302,17 @@
       
       <div class="skBar">
         <div>
+          <span id="skVidTit">Videogames Development</span>
+          <span id="skVidPro">Medium</span>
+        </div>
+        <div>
+          <div style="width: var(--sk6);"></div>
+        </div>
+        <span>Unity · Unreal Engine</span>
+      </div>
+      
+      <div class="skBar">
+        <div>
           <span id="skEdTit">Multimedia Editing</span>
           <span id="skEdPro">Basic</span>
         </div>
@@ -1285,17 +1320,6 @@
           <div style="width: var(--sk5);"></div>
         </div>
         <span>Photoshop · Illustrator · Premiere Pro · Audition</span>
-      </div>
-      
-      <div class="skBar">
-        <div>
-          <span id="skVidTit">Videogames Development</span>
-          <span id="skVidPro">Basic</span>
-        </div>
-        <div>
-          <div style="width: var(--sk6);"></div>
-        </div>
-        <span>Unity · Unreal Engine</span>
       </div>
     </div>
     
@@ -1312,16 +1336,25 @@
       <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
     </div>
 
-    <div class="vc" style="margin-top: 60px; gap: calc(5 * var(--pageGap));">
-      <div id="androidAssistant" class="pr appear">
+    <div class="hc" style="gap: 20px; align-items: center; margin: 40px auto 0 auto;">
+      <span id="prInterest">Interested in:</span>
+      <div class="prSwitch">
+        <span id="prGames" onclick="sortProjects('videogames')">Videogames</span>
+        <div style="width: 1px; height: 30px; margin: auto 0 auto -1px; background: var(--text2); pointer-events: none;"></div>
+        <span id="prApps" onclick="sortProjects('apps')">Apps</span>
+      </div>
+    </div>
+
+    <div class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));">
+      <div id="pr1" class="pr appear">
         <div>
-          <img src="Data/Images/Projects/assAndroid.jpg">
+          <img id="pr1Img" src="Data/Images/Projects/assAndroid.jpg">
         </div>
         <div>
-          <span id="prAsisAnInf">Java · Android Studio · UI/UX Design</span>
+          <span id="pr1Inf">Java · Android Studio · UI/UX Design</span>
           <div>
-            <span id="prAsisAnTit">Oriøn Assistant (Android)</span>
-            <span id="prAsisAnCon">
+            <span id="pr1Tit">Oriøn Assistant (Android)</span>
+            <span id="pr1Con">
               The idea started after Google released their assistant as I wasn't able to use it.
               At first I made a web browser app that detected commands and then continued adding more utilities.
               <br><br>
@@ -1329,19 +1362,21 @@
               At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.
             </span>
           </div>
-          <div id="prAsisAnB1" class="btn" onclick="window.open('Data/Orion Assistant.apk')">Download</div>
+          <div id="pr1But" class="hc" style="gap: 20px;">
+            <div id="pr1B1" class="btn" onclick="window.open('Data/Orion Assistant.apk')">Download</div>
+          </div>
         </div>
       </div>
   
-      <div id="pcAssistant" class="pr appear" reverse>
+      <div id="pr2" class="pr appear" reverse>
         <div>
-          <img src="Data/Images/Projects/assPC.jpg">
+          <img id="pr2Img" src="Data/Images/Projects/assPC.jpg">
         </div>
         <div>
-          <span id="prAsisPCInf">Batch · HTML · CSS · JS · ElectronJS · UI/UX Design</span>
+          <span id="pr2Inf">Batch · HTML · CSS · JS · ElectronJS · UI/UX Design</span>
           <div>
-            <span id="prAsisPCTit">Oriøn Assistant (Windows)</span>
-            <span id="prAsisPCCon">
+            <span id="pr2Tit">Oriøn Assistant (Windows)</span>
+            <span id="pr2Con">
               Some years ago I used to carry my apps and games on a USB to be able to use them everywhere.
               Since plugging in a drive changes it's letter shortcuts break, so I had to come up with a solution which ended up being a batch launcher.
               <br><br>
@@ -1350,47 +1385,43 @@
               Despite the apps that come installed like the games library, there is support for modules so everyone can make their own.
             </span>
           </div>
-          <div class="hc" style="gap: 20px;">
-            <div id="prAsisPCB1" class="btn" onclick="window.open('https://github.com/BOTPanzer/Orion-Assistant')">Oriøn Assistant</div>
-            <div id="prAsisPCB2" class="btn" onclick="window.open('https://github.com/BOTPanzer/USB-Launcher')">Batch Launchers</div>
+          <div id="pr2But" class="hc" style="gap: 20px;">
+            <div id="pr2B1" class="btn" onclick="window.open('https://github.com/BOTPanzer/Orion-Assistant')">Oriøn Assistant</div>
+            <div id="pr2B2" class="btn" onclick="window.open('https://github.com/BOTPanzer/USB-Launcher')">Batch Launchers</div>
           </div>
         </div>
       </div>
 
-      <div id="framework" class="pr appear">
+      <div id="pr3" class="pr appear">
         <div>
-          <img id="prFrameImg" src="Data/Images/Projects/frame1.jpg">
-          <div onclick="nextFramework()">
-            <img src="Data/Images/Icons/next.png">
-          </div>
+          <img id="pr3Img" src="Data/Images/Projects/frame.jpg">
         </div>
         <div>
-          <span id="prFrameInf">HTML · CSS · JS · UI/UX Design</span>
+          <span id="pr3Inf">HTML · CSS · JS · UI/UX Design</span>
           <div>
-            <span id="prFrameTit">Oriøn Framework</span>
-            <span id="prFrameCon">
+            <span id="pr3Tit">Oriøn Framework</span>
+            <span id="pr3Con">
               Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
               This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
               <br><br>
               Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.
             </span>
           </div>
-          <div id="prFrameB1" class="btn" onclick="window.open('https://botpanzer.github.io/Orion-Framework/')">See documentation</div>
+          <div id="pr3But" class="hc" style="gap: 20px;">
+            <div id="pr3B1" class="btn" onclick="window.open('https://botpanzer.github.io/Orion-Framework/')">See documentation</div>
+          </div>
         </div>
       </div>
   
-      <div id="hoodie" class="pr appear" reverse>
+      <div id="pr4" class="pr appear" reverse>
         <div>
-          <img id="prHoodieImg" src="Data/Images/Projects/hoodie1.jpg">
-          <div onclick="nextHoodie()">
-            <img src="Data/Images/Icons/next.png">
-          </div>
+          <img id="pr4Img" src="Data/Images/Projects/hoodie.jpg">
         </div>
         <div>
-          <span id="prHoodieInf">Illustrator · Photoshop · Sketching</span>
+          <span id="pr4Inf">Illustrator · Photoshop · Sketching</span>
           <div>
-            <span id="prHoodieTit">Futuristic Hoodie</span>
-            <span id="prHoodieCon">
+            <span id="pr4Tit">Futuristic Hoodie</span>
+            <span id="pr4Con">
               One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
               It isn't exactly streetwear but it's indeed a futuristic hoodie design.
               I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
@@ -1399,14 +1430,15 @@
               I am planning on printing it, but summer is starting at the time of writing this so I'll have to wait until it gets colder.
             </span>
           </div>
+          <div id="pr4But" class="hc" style="gap: 20px;"></div>
         </div>
       </div>
 
       <div id="prSmalls" class="hc" style="gap: calc(5 * var(--pageGap)); position: relative; flex-wrap: wrap;">
-        <div id="modding" class="pr2 appear">
-          <img src="Data/Images/Projects/mod.jpg"> 
-          <span id="prModTit">PC Modding</span>
-          <span id="prModCon">
+        <div id="pr5" class="pr2 appear">
+          <img id="pr5Img" src="Data/Images/Projects/mod.jpg"> 
+          <span id="pr5Tit">PC Modding</span>
+          <span id="pr5Con">
             Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
             <br><br>
             I began by extracting 3D models from some of my favorite games since I couldn't find them online.
@@ -1415,47 +1447,50 @@
             <br><br>
             After I printing them I painted and placed them in my PC.
           </span>
-          <span id="prModInf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
+          <div id="pr5But" class="hc" style="margin-top: -20px;"></div>
+          <span id="pr5Inf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
         </div>
 
-        <div id="usb" class="pr2 appear">
-          <img src="Data/Images/Projects/usb.jpg"> 
-          <span id="prUsbTit">GTX Usb</span>
-          <span id="prUsbCon">
+        <div id="pr6" class="pr2 appear">
+          <img id="pr6Img" src="Data/Images/Projects/usb.jpg"> 
+          <span id="pr6Tit">GTX Usb</span>
+          <span id="pr6Con">
             Carrying apps and games in a USB isn't a bad idea, but the memory's speed can cause problems.
             To fix this I had the idea of adding a cooler, so i started designing case which ended up having the shape of an Nvidia GTX graphics card.
             <br><br>
             After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
             Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.
           </span>
-          <span id="prUsbInf">3D Modeling · 3D Printing · Electronics · DIY</span>
+          <div id="pr6But" class="hc" style="margin-top: -20px;"></div>
+          <span id="pr6Inf">3D Modeling · 3D Printing · Electronics · DIY</span>
         </div>
 
-        <div id="bots" class="pr2 appear">
-          <img src="Data/Images/Projects/disbots.jpg"> 
-          <span id="prDisTit">Discord Bots</span>
-          <span id="prDisCon">
+        <div id="pr7" class="pr2 appear">
+          <img id="pr7Img" src="Data/Images/Projects/disbots.jpg"> 
+          <span id="pr7Tit">Discord Bots</span>
+          <span id="pr7Con">
             After checking out the cool things you can do with discord bots I got the idea of creating my own.
             <br><br>
             At first I created a simple bot called Syrup and, after becoming better at making them, I created a more advanced version called Coscu.
             This new version could jump into a call with people and play sounds so I used Adobe Audition to edit them and make them sound better.
           </span>
-          <div class="hc">
-            <div id="prDisB1" class="btn" onclick="window.open('https://github.com/BOTPanzer/Syrup')">Syrup Repository</div>
+          <div id="pr7But" class="hc">
+            <div id="pr7B1" class="btn" onclick="window.open('https://github.com/BOTPanzer/Syrup')">Syrup Repository</div>
           </div>
-          <span id="prDisInf">JS · Audition · Discord API</span>
+          <span id="pr7Inf">JS · Audition · Discord API</span>
         </div>
 
-        <div id="t45" class="pr2 appear">
-          <img src="Data/Images/Projects/t45.jpg"> 
-          <span id="prT45Tit">T45 Helmet</span>
-          <span id="prT45Con">
+        <div id="pr8" class="pr2 appear">
+          <img id="pr8Img" src="Data/Images/Projects/t45.jpg"> 
+          <span id="pr8Tit">T45 Helmet</span>
+          <span id="pr8Con">
             Fallout is one of my favorite videogame series and, in it's universe, people use technologically advanced full-body suits called power armors.
             <br><br>
             As I found a helmet 3D model I decided to print it in small pieces to make my own. 
             After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.
           </span>
-          <span id="prT45Inf">3D Printing · DIY</span>
+          <div id="pr8But" class="hc" style="margin-top: -20px;"></div>
+          <span id="pr8Inf">3D Printing · DIY</span>
         </div>
       </div>
     </div>
@@ -1469,6 +1504,7 @@
       <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
       <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
       <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
+      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
       <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
     </div>
   </div>
@@ -1574,6 +1610,11 @@
       },
       p: {
         tit: 'My Projects',
+        int: {
+          int: 'Interested in:',
+          v: 'Videogames',
+          a: 'Apps'
+        },
         asisAn: {
           inf: 'Java · Android Studio · UI/UX Design',
           tit: 'Oriøn Assistant (Android)',
@@ -1651,6 +1692,22 @@
                 <br><br>
                 As I found a helmet 3D model I decided to print it in small pieces to make my own. 
                 After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
+        },
+        otters:{
+          inf: 'Unity · 3ds Max · Substance Painter · Photoshop',
+          tit: "Otter's Odyssey",
+          con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
+                <br><br>
+                It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
+          b1:  "Download Otter's Odyssey"
+        },
+        vapor:{
+          inf: 'Unity · Illustrator · Photoshop',
+          tit: "Vaporcade",
+          con: `Vaporcade is a vaporwave themed arcade game in which you control a spaceship and score points by shooting. 
+                <br><br>
+                Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
+          b1:  "Download Vaporcade"
         }
       },
       bot: {
@@ -1737,6 +1794,11 @@
       },
       p: {
         tit: 'Mis Proyectos',
+        int: {
+          int: 'Intesado en:',
+          v: 'Videojuegos',
+          a: 'Apps'
+        },
         asisAn: {
           inf: 'Java · Android Studio · Diseño UI/UX',
           tit: 'Assistente Oriøn (Android)',
@@ -1814,6 +1876,22 @@
                 <br><br>
                 Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
                 Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
+        },
+        otters:{
+          inf: 'Unity · 3ds Max · Substance Painter · Photoshop',
+          tit: "Otter's Odyssey",
+          con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
+                <br><br>
+                Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
+          b1:  "Descargar Otter's Odyssey"
+        },
+        vapor:{
+          inf: 'Unity · Illustrator · Photoshop',
+          tit: "Vaporcade",
+          con: `Vaporcade es un juego de arcade con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
+                <br><br>
+                Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
+          b1:  "Descargar Vaporcade"
         }
       },
       bot: {
@@ -1896,42 +1974,16 @@
     document.getElementById('skUiPro').innerText = lan.s.advanced
     document.getElementById('sk3dTit').innerText = lan.s.d3
     document.getElementById('sk3dPro').innerText = lan.s.high
+    document.getElementById('skVidTit').innerText = lan.s.videogames
+    document.getElementById('skVidPro').innerText = lan.s.medium
     document.getElementById('skEdTit').innerText = lan.s.editing
     document.getElementById('skEdPro').innerText = lan.s.basic
-    document.getElementById('skVidTit').innerText = lan.s.videogames
-    document.getElementById('skVidPro').innerText = lan.s.basic
     document.getElementById('skProj').innerText = lan.s.p
     //PROJECTS
-    document.getElementById('prTit').innerText = lan.p.tit
-    document.getElementById('prAsisAnInf').innerText = lan.p.asisAn.inf
-    document.getElementById('prAsisAnTit').innerText = lan.p.asisAn.tit
-    document.getElementById('prAsisAnCon').innerHTML = lan.p.asisAn.con
-    document.getElementById('prAsisAnB1').innerText = lan.p.asisAn.b1
-    document.getElementById('prAsisPCInf').innerText = lan.p.asisPC.inf
-    document.getElementById('prAsisPCTit').innerText = lan.p.asisPC.tit
-    document.getElementById('prAsisPCCon').innerHTML = lan.p.asisPC.con
-    document.getElementById('prAsisPCB1').innerText = lan.p.asisPC.b1
-    document.getElementById('prAsisPCB2').innerText = lan.p.asisPC.b2
-    document.getElementById('prFrameInf').innerText = lan.p.frame.inf
-    document.getElementById('prFrameTit').innerText = lan.p.frame.tit
-    document.getElementById('prFrameCon').innerHTML = lan.p.frame.con
-    document.getElementById('prFrameB1').innerText = lan.p.frame.b1
-    document.getElementById('prHoodieInf').innerText = lan.p.hoodie.inf
-    document.getElementById('prHoodieTit').innerText = lan.p.hoodie.tit
-    document.getElementById('prHoodieCon').innerHTML = lan.p.hoodie.con
-    document.getElementById('prModInf').innerText = lan.p.mod.inf
-    document.getElementById('prModTit').innerText = lan.p.mod.tit
-    document.getElementById('prModCon').innerHTML = lan.p.mod.con
-    document.getElementById('prUsbInf').innerText = lan.p.usb.inf
-    document.getElementById('prUsbTit').innerText = lan.p.usb.tit
-    document.getElementById('prUsbCon').innerHTML = lan.p.usb.con
-    document.getElementById('prDisInf').innerText = lan.p.dis.inf
-    document.getElementById('prDisTit').innerText = lan.p.dis.tit
-    document.getElementById('prDisCon').innerHTML = lan.p.dis.con
-    document.getElementById('prDisB1').innerHTML = lan.p.dis.b1
-    document.getElementById('prT45Inf').innerText = lan.p.t45.inf
-    document.getElementById('prT45Tit').innerText = lan.p.t45.tit
-    document.getElementById('prT45Con').innerHTML = lan.p.t45.con
+    document.getElementById('prInterest').innerText = lan.p.int.int
+    document.getElementById('prGames').innerText = lan.p.int.v
+    document.getElementById('prApps').innerText = lan.p.int.a
+    sortProjects(localStorage.getItem('pancoPrSort'))
   }
 
 
@@ -1994,33 +2046,45 @@
   function scrolled() {
     scrollI--
     if (scrollI > 0) return
-    scrollI = 5
+    scrollI = 10
     //BALLS
-    ball1.removeAttribute('checked')
-    ball2.removeAttribute('checked')
-    ball3.removeAttribute('checked')
-    ball4.removeAttribute('checked')
-    if (checkVisible(document.getElementById('home')))
+    if (checkVisible(document.getElementById('home'))) {
       ball1.setAttribute('checked', '')
-    else if (checkVisible(document.getElementById('about')))
-      ball2.setAttribute('checked', '')
-    else if (checkVisible(document.getElementById('skills')))
-      ball3.setAttribute('checked', '')
-    else if (checkVisible(document.getElementById('projects'))) 
-      ball4.setAttribute('checked', '')
+      ball2.removeAttribute('checked')
+      ball3.removeAttribute('checked')
+      ball4.removeAttribute('checked')
+    } else {
+      ball1.removeAttribute('checked')
+      if (checkVisible(document.getElementById('about'))) {
+        ball2.setAttribute('checked', '')
+        ball3.removeAttribute('checked')
+        ball4.removeAttribute('checked')
+      } else {
+        ball2.removeAttribute('checked')
+        if (checkVisible(document.getElementById('skills'))) {
+          ball3.setAttribute('checked', '')
+          ball4.removeAttribute('checked')
+        } else {
+          ball3.removeAttribute('checked')
+          ball4.setAttribute('checked', '')
+        }
+      }
+    }
     //SKILLS
-    if (checkVisible(document.getElementById('skWebTit')))
-      document.body.style.setProperty('--sk1', '75%')
-    if (checkVisible(document.getElementById('skAndTit')))
-      document.body.style.setProperty('--sk2', '85%')
-    if (checkVisible(document.getElementById('skUiTit')))
-      document.body.style.setProperty('--sk3', '70%')
-    if (checkVisible(document.getElementById('sk3dTit')))
-      document.body.style.setProperty('--sk4', '65%')
-    if (checkVisible(document.getElementById('skEdTit')))
-      document.body.style.setProperty('--sk5', '35%')
-    if (checkVisible(document.getElementById('skVidTit')))
-      document.body.style.setProperty('--sk6', '30%')
+    if (checkVisible(document.getElementById('skills'))) {
+      if (checkVisible(document.getElementById('skWebTit')))
+        document.body.style.setProperty('--sk1', '75%')
+      if (checkVisible(document.getElementById('skAndTit')))
+        document.body.style.setProperty('--sk2', '85%')
+      if (checkVisible(document.getElementById('skUiTit')))
+        document.body.style.setProperty('--sk3', '70%')
+      if (checkVisible(document.getElementById('sk3dTit')))
+        document.body.style.setProperty('--sk4', '65%')
+      if (checkVisible(document.getElementById('skVidTit')))
+        document.body.style.setProperty('--sk6', '55%')
+      if (checkVisible(document.getElementById('skEdTit')))
+        document.body.style.setProperty('--sk5', '35%')
+    }
     //APPEAR ANIM
     const elems = document.querySelectorAll('.appear')
     for (let i = 0; i < elems.length; i++) {
@@ -2196,9 +2260,8 @@
 
 
   //SOCIALS
-  let sGit = false
-  let sIG = false
-  let sDrib = false
+  let sGit, sIG, sDrib, sItch
+  sGit = sIG = sDrib = sItch = false
   function social(social) {
     switch(social) {
       case 'git':
@@ -2212,6 +2275,10 @@
       case 'dribbble':
         sDrib = true
         window.open('https://dribbble.com/BOTPanzer', '_blank')
+        break
+      case 'itchio':
+        sItch = true
+        window.open('https://botpa.itch.io/', '_blank')
         break
       case 'email':
         createSnackbar(lan.bot.mail, false)
@@ -2295,8 +2362,8 @@
     } else {
       localStorage.setItem('pancoTheme', 'light')
       document.getElementById('topTheImg').src = 'Data/Images/Icons/light.png'
-      document.body.style.setProperty('--bg', '#e8eeff')
-      document.body.style.setProperty('--button', '#cad1e6')
+      document.body.style.setProperty('--bg', '#f6f9ff')
+      document.body.style.setProperty('--button', '#ffffff')
       document.body.style.setProperty('--text', '#000000')
       document.body.style.setProperty('--textFilter', 'brightness(0)')
       document.body.style.setProperty('--text2', '#6f7b96')
@@ -2349,7 +2416,7 @@
 
   //GIVE SOCIALS ACHIEVEMENT ON FOCUS
   window.onfocus = () => {
-    if (sGit && sIG && sDrib) giveAchievement('socials')
+    if (sGit && sIG && sDrib && sItch) giveAchievement('socials')
   }
 
 
@@ -2555,27 +2622,138 @@
   | $$      | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/   | $$  |  $$$$$$/
   |__/      |__/  |__/ \______/  \______/ |________/ \______/    |__/   \_____*/ 
 
-  //FRAMEWORK
-  let frame = 0
-  function nextFramework() {
-    let frames = ['frame1.jpg',
-                  'frame2.jpg']
-    frame++
-    if (frame > 1) frame = 0
-    document.getElementById('prFrameImg').src = ''
-    document.getElementById('prFrameImg').src = 'Data/Images/Projects/'+frames[frame]
-  }
-
-
-  //HOODIE
-  let hoodie = 0
-  function nextHoodie() {
-    let hoodies = ['hoodie1.jpg',
-                   'hoodie2.jpg']
-    hoodie++
-    if (hoodie > 1) hoodie = 0
-    document.getElementById('prHoodieImg').src = ''
-    document.getElementById('prHoodieImg').src = 'Data/Images/Projects/'+hoodies[hoodie]
+  //SORT PROJECTS
+  function sortProjects(sort) { 
+    //SORT BY
+    if (sort != 'videogames' && sort != 'apps') sort = 'videogames'
+    localStorage.setItem('pancoPrSort', sort)
+    //SORT
+    if (sort == 'videogames') {
+      //INTERESTED IN VIDEOGAMES
+      document.getElementById('prGames').setAttribute('active', '')
+      document.getElementById('prApps').removeAttribute('active', '')
+      document.getElementById('prTit').innerText = lan.p.tit
+      //OTTERS AS PROJECT 1
+      document.getElementById('pr1Img').src = 'Data/Images/Projects/otters.jpg'
+      document.getElementById('pr1Inf').innerText = lan.p.otters.inf
+      document.getElementById('pr1Tit').innerText = lan.p.otters.tit
+      document.getElementById('pr1Con').innerHTML = lan.p.otters.con
+      document.getElementById('pr1But').innerHTML = `<div id="pr1B1" class="btn" onclick="window.open('https://botpa.itch.io/otters-odyssey')">Download</div>`
+      document.getElementById('pr1B1').innerText = lan.p.otters.b1
+      //VAPORCADE AS PROJECT 2
+      document.getElementById('pr2Img').src = 'Data/Images/Projects/vaporcade.jpg'
+      document.getElementById('pr2Inf').innerText = lan.p.vapor.inf
+      document.getElementById('pr2Tit').innerText = lan.p.vapor.tit
+      document.getElementById('pr2Con').innerHTML = lan.p.vapor.con
+      document.getElementById('pr2But').innerHTML = `<div id="pr2B1" class="btn" onclick="window.open('https://botpa.itch.io/vaporcade')">Download</div>`
+      document.getElementById('pr2B1').innerText = lan.p.vapor.b1
+      //ASSISTANT ANDROID AS PROJECT 3
+      document.getElementById('pr3Img').src = 'Data/Images/Projects/assAndroid.jpg'
+      document.getElementById('pr3Inf').innerText = lan.p.asisAn.inf
+      document.getElementById('pr3Tit').innerText = lan.p.asisAn.tit
+      document.getElementById('pr3Con').innerHTML = lan.p.asisAn.con
+      document.getElementById('pr3But').innerHTML = `<div id="pr3B1" class="btn" onclick="window.open('Data/Orion Assistant.apk')">Download</div>`
+      document.getElementById('pr3B1').innerText = lan.p.asisAn.b1
+      //ASSISTANT PC AS PROJECT 4
+      document.getElementById('pr4Img').src = 'Data/Images/Projects/assPC.jpg'
+      document.getElementById('pr4Inf').innerText = lan.p.asisPC.inf
+      document.getElementById('pr4Tit').innerText = lan.p.asisPC.tit
+      document.getElementById('pr4Con').innerHTML = lan.p.asisPC.con
+      document.getElementById('pr4But').innerHTML = `<div id="pr4B1" class="btn" onclick="window.open('https://github.com/BOTPanzer/Orion-Assistant')">Oriøn Assistant</div><div id="pr4B2" class="btn" onclick="window.open('https://github.com/BOTPanzer/USB-Launcher')">Batch Launchers</div>`
+      document.getElementById('pr4B1').innerText = lan.p.asisPC.b1
+      document.getElementById('pr4B2').innerText = lan.p.asisPC.b2
+      //MODDING AS PROJECT 5
+      document.getElementById('pr5Img').src = 'Data/Images/Projects/mod.jpg'
+      document.getElementById('pr5Inf').innerText = lan.p.mod.inf
+      document.getElementById('pr5Tit').innerText = lan.p.mod.tit
+      document.getElementById('pr5Con').innerHTML = lan.p.mod.con
+      document.getElementById('pr5But').style.marginTop = '-20px'
+      document.getElementById('pr5But').innerHTML= ``
+      //USB AS PROJECT 6
+      document.getElementById('pr6Img').src = 'Data/Images/Projects/usb.jpg'
+      document.getElementById('pr6Inf').innerText = lan.p.usb.inf
+      document.getElementById('pr6Tit').innerText = lan.p.usb.tit
+      document.getElementById('pr6Con').innerHTML = lan.p.usb.con
+      document.getElementById('pr6But').style.marginTop = '-20px'
+      document.getElementById('pr6But').innerHTML= ``
+      //T45 AS PROJECT 7
+      document.getElementById('pr7Img').src = 'Data/Images/Projects/t45.jpg'
+      document.getElementById('pr7Inf').innerText = lan.p.t45.inf
+      document.getElementById('pr7Tit').innerText = lan.p.t45.tit
+      document.getElementById('pr7Con').innerHTML = lan.p.t45.con
+      document.getElementById('pr7But').style.marginTop = '-20px'
+      document.getElementById('pr7But').innerHTML= ``
+      //MODDING AS PROJECT 8
+      document.getElementById('pr8Img').src = 'Data/Images/Projects/hoodie.jpg'
+      document.getElementById('pr8Inf').innerText = lan.p.hoodie.inf
+      document.getElementById('pr8Tit').innerText = lan.p.hoodie.tit
+      document.getElementById('pr8Con').innerHTML = lan.p.hoodie.con
+      document.getElementById('pr8But').style.marginTop = '-20px'
+      document.getElementById('pr8But').innerHTML= ''
+    } else {
+      //INTERESTED IN APPS
+      document.getElementById('prGames').removeAttribute('active')
+      document.getElementById('prApps').setAttribute('active', '')
+      document.getElementById('prTit').innerText = lan.p.tit
+      //ASSISTANT ANDROID AS PROJECT 1
+      document.getElementById('pr1Img').src = 'Data/Images/Projects/assAndroid.jpg'
+      document.getElementById('pr1Inf').innerText = lan.p.asisAn.inf
+      document.getElementById('pr1Tit').innerText = lan.p.asisAn.tit
+      document.getElementById('pr1Con').innerHTML = lan.p.asisAn.con
+      document.getElementById('pr1But').innerHTML = `<div id="pr1B1" class="btn" onclick="window.open('Data/Orion Assistant.apk')">Download</div>`
+      document.getElementById('pr1B1').innerText = lan.p.asisAn.b1
+      //ASSISTANT PC AS PROJECT 2
+      document.getElementById('pr2Img').src = 'Data/Images/Projects/assPC.jpg'
+      document.getElementById('pr2Inf').innerText = lan.p.asisPC.inf
+      document.getElementById('pr2Tit').innerText = lan.p.asisPC.tit
+      document.getElementById('pr2Con').innerHTML = lan.p.asisPC.con
+      document.getElementById('pr2But').innerHTML = `<div id="pr2B1" class="btn" onclick="window.open('https://github.com/BOTPanzer/Orion-Assistant')">Oriøn Assistant</div><div id="pr2B2" class="btn" onclick="window.open('https://github.com/BOTPanzer/USB-Launcher')">Batch Launchers</div>`
+      document.getElementById('pr2B1').innerText = lan.p.asisPC.b1
+      document.getElementById('pr2B2').innerText = lan.p.asisPC.b2
+      //FRAMEWORK AS PROJECT 3
+      document.getElementById('pr3Img').src = 'Data/Images/Projects/frame.jpg'
+      document.getElementById('pr3Inf').innerText = lan.p.frame.inf
+      document.getElementById('pr3Tit').innerText = lan.p.frame.tit
+      document.getElementById('pr3Con').innerHTML = lan.p.frame.con
+      document.getElementById('pr3But').innerHTML = `<div id="pr3B1" class="btn" onclick="window.open('https://botpanzer.github.io/Orion-Framework/')">See documentation</div>`
+      document.getElementById('pr3B1').innerText = lan.p.frame.b1
+      //VAPORCADE AS PROJECT 4
+      document.getElementById('pr4Img').src = 'Data/Images/Projects/vaporcade.jpg'
+      document.getElementById('pr4Inf').innerText = lan.p.vapor.inf
+      document.getElementById('pr4Tit').innerText = lan.p.vapor.tit
+      document.getElementById('pr4Con').innerHTML = lan.p.vapor.con
+      document.getElementById('pr4But').innerHTML = `<div id="pr4B1" class="btn" onclick="window.open('https://botpa.itch.io/vaporcade')">Download</div>`
+      document.getElementById('pr4B1').innerText = lan.p.vapor.b1
+      //OTTERS AS PROJECT 5
+      document.getElementById('pr5Img').src = 'Data/Images/Projects/otters.jpg'
+      document.getElementById('pr5Inf').innerText = lan.p.otters.inf
+      document.getElementById('pr5Tit').innerText = lan.p.otters.tit
+      document.getElementById('pr5Con').innerHTML = lan.p.otters.con
+      document.getElementById('pr5But').style.marginTop = ''
+      document.getElementById('pr5But').innerHTML= `<div id="pr5B1" class="btn" onclick="window.open('https://botpa.itch.io/otters-odyssey')">Download</div>`
+      document.getElementById('pr5B1').innerText = lan.p.otters.b1
+      //HOODIE AS PROJECT 6
+      document.getElementById('pr6Img').src = 'Data/Images/Projects/hoodie.jpg'
+      document.getElementById('pr6Inf').innerText = lan.p.hoodie.inf
+      document.getElementById('pr6Tit').innerText = lan.p.hoodie.tit
+      document.getElementById('pr6Con').innerHTML = lan.p.hoodie.con
+      document.getElementById('pr6But').style.marginTop = '-20px'
+      document.getElementById('pr6But').innerHTML= ``
+      //MODDING AS PROJECT 7
+      document.getElementById('pr7Img').src = 'Data/Images/Projects/mod.jpg'
+      document.getElementById('pr7Inf').innerText = lan.p.mod.inf
+      document.getElementById('pr7Tit').innerText = lan.p.mod.tit
+      document.getElementById('pr7Con').innerHTML = lan.p.mod.con
+      document.getElementById('pr7But').style.marginTop = '-20px'
+      document.getElementById('pr7But').innerHTML= ``
+      //USB AS PROJECT 8
+      document.getElementById('pr8Img').src = 'Data/Images/Projects/usb.jpg'
+      document.getElementById('pr8Inf').innerText = lan.p.usb.inf
+      document.getElementById('pr8Tit').innerText = lan.p.usb.tit
+      document.getElementById('pr8Con').innerHTML = lan.p.usb.con
+      document.getElementById('pr8But').style.marginTop = '-20px'
+      document.getElementById('pr8But').innerHTML= ``
+    }
   }
 
 
