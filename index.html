@@ -300,6 +300,7 @@
     overflow: hidden;
     pointer-events: all;
     transition: background .1s, max-width .3s, max-height .3s, padding .3s, margin-top .15s;
+    transition-delay: margin-top 0;
   }
 
   .mBtn[menu] {
@@ -307,7 +308,8 @@
     max-width: 200px;
     min-width: 180px;
     backdrop-filter: blur(5px);
-    transition: background .1s, max-width .5s, max-height .5s, padding .5s, margin-top .3s;
+    transition: background .1s, max-width .5s, max-height .5s, padding .5s, margin-top .15s;
+    transition-delay: margin-top .5s;
   }
 
   .mBtn[menu]:not([mobile]) {
@@ -1080,7 +1082,7 @@
         <span>03.&nbsp;</span>
         <span id="topP1T">Projects</span>
       </div>
-      <div id="topSpace" style="width: 40px; transition: width .5s;"></div>
+      <div id="topSpace" style="width: 40px; transition: margin-left .3s;"></div>
     </div>
 
     <!-- TOP MENU -->
@@ -1259,7 +1261,7 @@
       <div class="skBar">
         <div>
           <span id="skVidTit">Videogames Development</span>
-          <span id="skVidPro">Medium</span>
+          <span id="skVidPro">High</span>
         </div>
         <div>
           <div style="width: var(--sk6);"></div>
@@ -1270,7 +1272,7 @@
       <div class="skBar">
         <div>
           <span id="skAndTit">Android Development</span>
-          <span id="skAndPro">Expert</span>
+          <span id="skAndPro">High</span>
         </div>
         <div>
           <div style="width: var(--sk2);"></div>
@@ -1281,7 +1283,7 @@
       <div class="skBar">
         <div>
           <span id="skWebTit">Web Development</span>
-          <span id="skWebPro">Advanced</span>
+          <span id="skWebPro">High</span>
         </div>
         <div>
           <div style="width: var(--sk1);"></div>
@@ -1292,7 +1294,7 @@
       <div class="skBar">
         <div>
           <span id="skUiTit">UI/UX Design</span>
-          <span id="skUiPro">Advanced</span>
+          <span id="skUiPro">Medium</span>
         </div>
         <div>
           <div style="width: var(--sk3);"></div>
@@ -1303,18 +1305,18 @@
       <div class="skBar">
         <div>
           <span id="sk3dTit">CAD, 3D Printing & Modeling</span>
-          <span id="sk3dPro">High</span>
+          <span id="sk3dPro">Medium</span>
         </div>
         <div>
           <div style="width: var(--sk4);"></div>
         </div>
-        <span>Fusion 360 · Tinkercad · Cura · 3DS MAX · Sketchup</span>
+        <span>Fusion 360 · 3DS MAX · Sketchup · Tinkercad · Cura</span>
       </div>
       
       <div class="skBar">
         <div>
-          <span id="skEdTit">Multimedia Editing</span>
-          <span id="skEdPro">Basic</span>
+          <span id="skMedTit">Multimedia</span>
+          <span id="skMedPro">Basic</span>
         </div>
         <div>
           <div style="width: var(--sk5);"></div>
@@ -1579,18 +1581,17 @@
       },
       a: {
         tit: 'About Me',
-        desc1: "Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.",
-        desc2: "I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.",
+        desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who loves making indie games along with multiplatform apps and designing responsive web pages and interfaces.",
+        desc2: "I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making games and apps, but I also enjoy 3D printing and DIY projects.",
         s: 'Check out my skills!',
         names: ['Artyom',
-               'Crystal Ball',
-               'Canary Islands',
-               'Sleeping Cat',
-               'finisterre',
-               'Mushrooms',
-               'Santiago',
-               'Fallout Figures',
-               'Whale Skeleton']
+                'Crystal Ball',
+                'Canary Islands',
+                'Sleeping Cat',
+                'Crab',
+                'Finisterre',
+                'Mallorca',
+                'Otivar']
       },
       s: {
         tit: 'My Skills',
@@ -1600,7 +1601,7 @@
         web: 'Web Development',
         ui: 'UI/UX Design',
         d3: 'CAD, 3D Modeling & Printing',
-        editing: 'Multimedia Editing',
+        media: 'Multimedia',
         basic: 'Basic',
         medium: 'Medium',
         high: 'High',
@@ -1719,7 +1720,7 @@
         }
       },
       bot: {
-        mail: 'Email Copied'
+        mail: 'Email copied to clipboard!'
       }
     },
     es:{
@@ -1744,7 +1745,7 @@
       top: {
         h: 'Inicio',
         a: 'Sobre Mi',
-        s: 'Capacidades',
+        s: 'Habilidades',
         p: 'Proyectos',
         t: 'Tema',
         l: 'Español',
@@ -1771,28 +1772,27 @@
       },
       a: {
         tit: 'Sobre Mi',
-        desc1: "¡Hola! Mi nombre es Alejandro, pero me puedes llamar Panco o Alex. Soy un desarrollador web y de android español al que le encanta hacer interfaces fáciles de usar y responsivas junto a todo tipo de aplicaciones.",
-        desc2: "Soy una persona independiente y bien organizada que encuentra resolver problemas fácil y a quien le encanta dar su propio toque. Algunos de mis intereses son crear aplicaciones y juegos pero tambien me gusta la impresión 3D y los proyectos manuales.",
-        s: '¡Ver mis capacidades!',
+        desc1: "¡Hola! Mi nombre es Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta hacer juegos indies al igual que aplicaciones multiplataforma y diseñar paginas web e interfaces responsivas.",
+        desc2: "Soy una persona independiente y bien organizada que encuentra resolver problemas fácil y a quien le encanta dar su propio toque. Algunos de mis intereses son crear juegos y aplicaciones pero tambien me gusta la impresión 3D y los proyectos manuales.",
+        s: '¡Ver mis habilidades!',
         names: ['Artyom',
-               'Bola de Cristal',
-               'Islas Canarias',
-               'Gato Durmiendo',
-               'finisterre',
-               'Setas',
-               'Santiago',
-               'Figuras de Fallout',
-               'Esqueleto de Ballena']
+                'Bola de Cristal',
+                'Islas Canarias',
+                'Gato Durmiendo',
+                'Cangrejo',
+                'Finisterre',
+                'Mallorca',
+                'Otivar']
       },
       s: {
-        tit: 'Mis Capacidades',
-        desc: "He estado interesado en el mundo de los ordenadores desde pequeño y, gracias a eso, he expandido mis capacidades alrededor de una gran variedad de temas como:",
+        tit: 'Mis Habilidades',
+        desc: "He estado interesado en el mundo de los ordenadores desde pequeño y, gracias a eso, he expandido mis habilidades alrededor de una gran variedad de temas como:",
         videogames: 'Desarrollo de Videojuegos',
         android: 'Desarrollo de Android',
         web: 'Desarrollo Web',
         ui: 'Diseño de UI/UX',
         d3: 'CAD, Diseño e Impresión 3D',
-        editing: 'Edición Multimedia',
+        media: 'Multimedia',
         basic: 'Basico',
         medium: 'Medio',
         high: 'Alto',
@@ -1911,7 +1911,7 @@
         }
       },
       bot: {
-        mail: 'Email Copiado'
+        mail: '¡Email copiado al portapapeles!'
       }
     }
   }
@@ -1985,15 +1985,15 @@
     document.getElementById('skVidTit').innerText = lan.s.videogames
     document.getElementById('skVidPro').innerText = lan.s.high
     document.getElementById('skAndTit').innerText = lan.s.android
-    document.getElementById('skAndPro').innerText = lan.s.expert
+    document.getElementById('skAndPro').innerText = lan.s.high
     document.getElementById('skWebTit').innerText = lan.s.web
     document.getElementById('skWebPro').innerText = lan.s.high
     document.getElementById('skUiTit').innerText = lan.s.ui
     document.getElementById('skUiPro').innerText = lan.s.medium
     document.getElementById('sk3dTit').innerText = lan.s.d3
     document.getElementById('sk3dPro').innerText = lan.s.medium
-    document.getElementById('skEdTit').innerText = lan.s.editing
-    document.getElementById('skEdPro').innerText = lan.s.basic
+    document.getElementById('skMedTit').innerText = lan.s.media
+    document.getElementById('skMedPro').innerText = lan.s.basic
     document.getElementById('skProj').innerText = lan.s.p
     //PROJECTS
     document.getElementById('prInterest').innerText = lan.p.int.int
@@ -2091,14 +2091,14 @@
       if (checkVisible(document.getElementById('skVidTit')))
         document.body.style.setProperty('--sk6', '75%')
       if (checkVisible(document.getElementById('skAndTit')))
-        document.body.style.setProperty('--sk2', '80%')
+        document.body.style.setProperty('--sk2', '75%')
       if (checkVisible(document.getElementById('skWebTit')))
-        document.body.style.setProperty('--sk1', '70%')
+        document.body.style.setProperty('--sk1', '65%')
       if (checkVisible(document.getElementById('skUiTit')))
-        document.body.style.setProperty('--sk3', '55%')
+        document.body.style.setProperty('--sk3', '50%')
       if (checkVisible(document.getElementById('sk3dTit')))
-        document.body.style.setProperty('--sk4', '60%')
-      if (checkVisible(document.getElementById('skEdTit')))
+        document.body.style.setProperty('--sk4', '55%')
+      if (checkVisible(document.getElementById('skMedTit')))
         document.body.style.setProperty('--sk5', '35%')
     }
     //APPEAR ANIM
@@ -2247,14 +2247,12 @@
       //OPEN
       bg.style.pointerEvents = 'all'
       menu.setAttribute('menu', '')
-      document.getElementById('topSpace').style.width = '0px'
-      document.getElementById('topSpace').style.transition = 'width .5s'
+      setTimeout(() => { if (menuOpen) document.getElementById('topSpace').style.marginLeft = '-60px' }, 150)
     } else {
       //CLOSE
-      bg.style.pointerEvents = ''
-      menu.removeAttribute('menu')
-      document.getElementById('topSpace').style.width = '40px'
-      document.getElementById('topSpace').style.transition = 'width .3s'
+      bg.style.pointerEvents = ''  
+      document.getElementById('topSpace').style.marginLeft = '0'
+      setTimeout(() => { if (!menuOpen) menu.removeAttribute('menu') }, 150)
     }
     menuOpen = open
   }
@@ -2604,14 +2602,13 @@
   //ABOUT IMAGE
   (function() {
     let imgs = ['Data/Images/About/artyom.jpg',
-                 'Data/Images/About/ball.jpg',
-                 'Data/Images/About/canary.jpg',
-                 'Data/Images/About/cat.jpg',
-                 'Data/Images/About/finisterre.jpg',
-                 'Data/Images/About/mushroom.jpg',
-                 'Data/Images/About/santiago.jpg',
-                 'Data/Images/About/fo.jpg',
-                 'Data/Images/About/whale.jpg']
+                'Data/Images/About/ball.jpg',
+                'Data/Images/About/canary.jpg',
+                'Data/Images/About/cat.jpg',
+                'Data/Images/About/crab.jpg',
+                'Data/Images/About/finisterre.jpg',
+                'Data/Images/About/mallorca.jpg',
+                'Data/Images/About/otivar.jpg']
     document.getElementById('abName').innerText = lan.a.names[abIndex]
     document.getElementById('abImg').src = imgs[abIndex]
   })();
@@ -2788,38 +2785,38 @@
   |_______/  \______/    |__/      |__/   \______/ |__/     |_*/
 
   //BOTTOM TEXT QUOTES
-  (function() {  
-    let quotes = ['War never changes', 
-                  'Truth is, the game was rigged grom the start', 
-                  'OPA! Artyom!', 
-                  "See you in the major leagues, Jack", 
-                  'This is about to get messy', 
-                  "There's a monster inside all of us", 
-                  'Oh my stars she is just so handsome', 
-                  'And we all have one man to thank for it', 
-                  "Oh, it's you. It's been a looong time", 
-                  'Your brother needs you', 
-                  "I can't believe we did that!",
-                  "It's only been a week, but it feels like a year",
-                  "You were my friend, the very best I could have asked for",
-                  "Keep it cool, that's how you survive"]
-    let authors = ['Fallout', 
-                   'Fallout NV', 
-                   'Metro Exodus', 
-                   'Cyberpunk 2077', 
-                   'League of Legends', 
-                   'Arcane',
-                   'The Outer Worlds',
-                   'Ghostrunner',
-                   'Portal 2',
-                   'Ruiner',
-                   'Celeste',
-                   'Katana Zero',
-                   'Stray',
-                   'Valorant']
-    let q = Math.floor(Math.random() * quotes.length)
-    document.getElementById('botQuote').innerHTML = quotes[q]
-    document.getElementById('botFrom').innerHTML = authors[q]
+  (function() {
+    const quote  = ['War never changes', 
+                    'Truth is, the game was rigged grom the start', 
+                    'OPA! Artyom!', 
+                    "See you in the major leagues, Jack", 
+                    "There's a monster inside all of us", 
+                    "Keep it cool, that's how you survive",
+                    'Oh my stars she is just so handsome', 
+                    "Oh, it's you. It's been a looong time", 
+                    'Your brother needs you', 
+                    "I can't believe we did that!",
+                    "It's only been a week, but it feels like a year",
+                    'No matter what, you keep finding something to fight for',
+                    'The body is naught but a vessel for the soul',
+                    "I'm always succeeding, even when I'm not"]
+    const game = ['Fallout', 
+                  'Fallout NV', 
+                  'Metro Exodus', 
+                  'Cyberpunk 2077', 
+                  'Arcane',
+                  'Valorant',
+                  'The Outer Worlds',
+                  'Portal 2',
+                  'Ruiner',
+                  'Celeste',
+                  'Katana Zero',
+                  'The Last of Us',
+                  'Ghostwire: Tokyo',
+                  'Deathloop']
+    let q = Math.floor(Math.random() * quote.length)
+    document.getElementById('botQuote').innerHTML = quote[q]
+    document.getElementById('botFrom').innerHTML = game[q]
   })();
 </script>
 </html>
