@@ -1727,6 +1727,16 @@
                 <br><br>
                 On the way you will find puzzles in which you will have to cooperate in order to continue.`,
           b1:  "Download Twin Spirits"
+        },
+        memory:{
+          inf: 'Unity · VS Code · Photoshop · Illustrator',
+          tit: "Memory Shift",
+          con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
+                <br><br>
+                Inspired by Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
+                <br><br>
+                Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
+          b1:  "Download Memory Shift"
         }
       },
       bot: {
@@ -1924,6 +1934,16 @@
                 <br><br>
                 Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
           b1:  "Descargar Twin Spirits"
+        },
+        memory:{
+          inf: 'Unity · VS Code · Photoshop · Illustrator',
+          tit: "Memory Shift",
+          con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
+                <br><br>
+                Inspirado por Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
+                <br><br>
+                Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
+          b1:  "Descargar Memory Shift"
         }
       },
       bot: {
@@ -2012,6 +2032,7 @@
     document.getElementById('skMedPro').innerText = lan.s.basic
     document.getElementById('skProj').innerText = lan.s.p
     //PROJECTS
+    document.getElementById('prTit').innerText = lan.p.tit
     document.getElementById('prInterest').innerText = lan.p.int.int
     document.getElementById('prGames').innerText = lan.p.int.v
     document.getElementById('prApps').innerText = lan.p.int.a
@@ -2542,7 +2563,7 @@
 
 
 
-  /*$   /$$  /$$$$$$  /$$      /$$ /$$$$$$$$
+   /*$   /$$  /$$$$$$  /$$      /$$ /$$$$$$$$
   | $$  | $$ /$$__  $$| $$$    /$$$| $$_____/
   | $$  | $$| $$  \ $$| $$$$  /$$$$| $$      
   | $$$$$$$$| $$  | $$| $$ $$/$$ $$| $$$$$   
@@ -2673,131 +2694,69 @@
       //INTERESTED IN VIDEOGAMES
       document.getElementById('prGames').setAttribute('active', '')
       document.getElementById('prApps').removeAttribute('active', '')
-      document.getElementById('prTit').innerText = lan.p.tit
-      //TWIN SPIRITS AS PROJECT 1
-      document.getElementById('pr1Img').src = 'Data/Images/Projects/spirits.jpg'
-      document.getElementById('pr1Inf').innerText = lan.p.spirits.inf
-      document.getElementById('pr1Tit').innerText = lan.p.spirits.tit
-      document.getElementById('pr1Con').innerHTML = lan.p.spirits.con
-      document.getElementById('pr1But').innerHTML = `<a id="pr1B1" class="btn" target="_blank" href="https://botpa.itch.io/twin-spirits">Download</a>`
-      document.getElementById('pr1B1').innerText = lan.p.spirits.b1
-      //VAPORCADE AS PROJECT 2
-      document.getElementById('pr2Img').src = 'Data/Images/Projects/vaporcade.jpg'
-      document.getElementById('pr2Inf').innerText = lan.p.vapor.inf
-      document.getElementById('pr2Tit').innerText = lan.p.vapor.tit
-      document.getElementById('pr2Con').innerHTML = lan.p.vapor.con
-      document.getElementById('pr2But').innerHTML = `<a id="pr2B1" class="btn" target="_blank" href="https://botpa.itch.io/vaporcade">Download</a>`
-      document.getElementById('pr2B1').innerText = lan.p.vapor.b1
-      //OTTERS AS PROJECT 3
-      document.getElementById('pr3Img').src = 'Data/Images/Projects/otters.jpg'
-      document.getElementById('pr3Inf').innerText = lan.p.otters.inf
-      document.getElementById('pr3Tit').innerText = lan.p.otters.tit
-      document.getElementById('pr3Con').innerHTML = lan.p.otters.con
-      document.getElementById('pr3But').innerHTML = `<a id="pr3B1" class="btn" target="_blank" href="https://botpa.itch.io/otters-odyssey">Download</a>`
-      document.getElementById('pr3B1').innerText = lan.p.otters.b1
-      //COOKING PAPA AS PROJECT 4
-      document.getElementById('pr4Img').src = 'Data/Images/Projects/papa.jpg'
-      document.getElementById('pr4Inf').innerText = lan.p.papa.inf
-      document.getElementById('pr4Tit').innerText = lan.p.papa.tit
-      document.getElementById('pr4Con').innerHTML = lan.p.papa.con
-      document.getElementById('pr4But').innerHTML = `<a id="pr4B1" class="btn" target="_blank" href="https://botpa.itch.io/cooking-papa">Download</a>`
-      document.getElementById('pr4B1').innerText = lan.p.papa.b1
-      //ASSISTANT ANDROID AS PROJECT 5
-      document.getElementById('pr5Img').src = 'Data/Images/Projects/assAndroid.jpg'
-      document.getElementById('pr5Inf').innerText = lan.p.asisAn.inf
-      document.getElementById('pr5Tit').innerText = lan.p.asisAn.tit
-      document.getElementById('pr5Con').innerHTML = lan.p.asisAn.con
-      document.getElementById('pr5But').style.marginTop = ''
-      document.getElementById('pr5But').innerHTML = `<a id="pr5B1" class="btn" target="_blank" href="Data/Orion Assistant.apk">Download</a>`
-      document.getElementById('pr5B1').innerText = lan.p.asisAn.b1
-      //ASSISTANT PC AS PROJECT 6
-      document.getElementById('pr6Img').src = 'Data/Images/Projects/assPC.jpg'
-      document.getElementById('pr6Inf').innerText = lan.p.asisPC.inf
-      document.getElementById('pr6Tit').innerText = lan.p.asisPC.tit
-      document.getElementById('pr6Con').innerHTML = lan.p.asisPC.con
-      document.getElementById('pr6But').style.marginTop = ''
-      document.getElementById('pr6But').innerHTML = `<a id="pr6B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Orion-Assistant">Oriøn Assistant</a><a id="pr6B2" class="btn" target="_blank" href="https://github.com/BOTPanzer/USB-Launcher">Batch Launchers</a>`
-      document.getElementById('pr6B1').innerText = lan.p.asisPC.b1
-      document.getElementById('pr6B2').innerText = lan.p.asisPC.b2
-      //MODDING AS PROJECT 7
-      document.getElementById('pr7Img').src = 'Data/Images/Projects/mod.jpg'
-      document.getElementById('pr7Inf').innerText = lan.p.mod.inf
-      document.getElementById('pr7Tit').innerText = lan.p.mod.tit
-      document.getElementById('pr7Con').innerHTML = lan.p.mod.con
-      document.getElementById('pr7But').style.marginTop = '-20px'
-      document.getElementById('pr7But').innerHTML= ''
-      //T45 AS PROJECT 8
-      document.getElementById('pr8Img').src = 'Data/Images/Projects/t45.jpg'
-      document.getElementById('pr8Inf').innerText = lan.p.t45.inf
-      document.getElementById('pr8Tit').innerText = lan.p.t45.tit
-      document.getElementById('pr8Con').innerHTML = lan.p.t45.con
-      document.getElementById('pr8But').style.marginTop = '-20px'
-      document.getElementById('pr8But').innerHTML= ''
+      //MEMORY SHIFT AS PROJECT 1
+      makeProject(1, lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
+      //TWIN SPIRITS AS PROJECT 2
+      makeProject(2, lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
+      //VAPORCADE AS PROJECT 3
+      makeProject(3, lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
+      //OTTERS AS PROJECT 4
+      makeProject(4, lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
+      //COOKING PAPA AS PROJECT 5
+      makeProject(5, lan.p.papa, 'Data/Images/Projects/papa.jpg', ["https://botpa.itch.io/cooking-papa"])
+      //ASSISTANT ANDROID AS PROJECT 6
+      makeProject(6, lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
+      //ASSISTANT PC AS PROJECT 7
+      makeProject(7, lan.p.asisPC, 'Data/Images/Projects/assPC.jpg', ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"])
+      //MODDING AS PROJECT 8
+      makeProject(8, lan.p.mod, 'Data/Images/Projects/mod.jpg')
     } else {
       //INTERESTED IN APPS
       document.getElementById('prGames').removeAttribute('active')
       document.getElementById('prApps').setAttribute('active', '')
-      document.getElementById('prTit').innerText = lan.p.tit
       //ASSISTANT ANDROID AS PROJECT 1
-      document.getElementById('pr1Img').src = 'Data/Images/Projects/assAndroid.jpg'
-      document.getElementById('pr1Inf').innerText = lan.p.asisAn.inf
-      document.getElementById('pr1Tit').innerText = lan.p.asisAn.tit
-      document.getElementById('pr1Con').innerHTML = lan.p.asisAn.con
-      document.getElementById('pr1But').innerHTML = `<a id="pr1B1" class="btn" target="_blank" href="Data/Orion Assistant.apk">Download</a>`
-      document.getElementById('pr1B1').innerText = lan.p.asisAn.b1
+      makeProject(1, lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
       //ASSISTANT PC AS PROJECT 2
-      document.getElementById('pr2Img').src = 'Data/Images/Projects/assPC.jpg'
-      document.getElementById('pr2Inf').innerText = lan.p.asisPC.inf
-      document.getElementById('pr2Tit').innerText = lan.p.asisPC.tit
-      document.getElementById('pr2Con').innerHTML = lan.p.asisPC.con
-      document.getElementById('pr2But').innerHTML = `<a id="pr2B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Orion-Assistant">Oriøn Assistant</a><a id="pr2B2" class="btn" target="_blank" href="https://github.com/BOTPanzer/USB-Launcher">Batch Launchers</a>`
-      document.getElementById('pr2B1').innerText = lan.p.asisPC.b1
-      document.getElementById('pr2B2').innerText = lan.p.asisPC.b2
+      makeProject(2, lan.p.asisPC, 'Data/Images/Projects/assPC.jpg', ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"])
       //FRAMEWORK AS PROJECT 3
-      document.getElementById('pr3Img').src = 'Data/Images/Projects/frame.jpg'
-      document.getElementById('pr3Inf').innerText = lan.p.frame.inf
-      document.getElementById('pr3Tit').innerText = lan.p.frame.tit
-      document.getElementById('pr3Con').innerHTML = lan.p.frame.con
-      document.getElementById('pr3But').innerHTML = `<a id="pr3B1" class="btn" target="_blank" href="https://botpanzer.github.io/Orion-Framework">See documentation</a>`
-      document.getElementById('pr3B1').innerText = lan.p.frame.b1
-      //TWIN SPIRITS AS PROJECT 4
-      document.getElementById('pr4Img').src = 'Data/Images/Projects/spirits.jpg'
-      document.getElementById('pr4Inf').innerText = lan.p.spirits.inf
-      document.getElementById('pr4Tit').innerText = lan.p.spirits.tit
-      document.getElementById('pr4Con').innerHTML = lan.p.spirits.con
-      document.getElementById('pr4But').innerHTML = `<a id="pr4B1" class="btn" target="_blank" href="https://botpa.itch.io/twin-spirits">Download</a>`
-      document.getElementById('pr4B1').innerText = lan.p.spirits.b1
-      //VAPORCADE AS PROJECT 5
-      document.getElementById('pr5Img').src = 'Data/Images/Projects/vaporcade.jpg'
-      document.getElementById('pr5Inf').innerText = lan.p.vapor.inf
-      document.getElementById('pr5Tit').innerText = lan.p.vapor.tit
-      document.getElementById('pr5Con').innerHTML = lan.p.vapor.con
-      document.getElementById('pr5But').innerHTML = `<a id="pr5B1" class="btn" target="_blank" href="https://botpa.itch.io/vaporcade">Download</a>`
-      document.getElementById('pr5B1').innerText = lan.p.vapor.b1
-      //OTTERS AS PROJECT 6
-      document.getElementById('pr6Img').src = 'Data/Images/Projects/otters.jpg'
-      document.getElementById('pr6Inf').innerText = lan.p.otters.inf
-      document.getElementById('pr6Tit').innerText = lan.p.otters.tit
-      document.getElementById('pr6Con').innerHTML = lan.p.otters.con
-      document.getElementById('pr6But').style.marginTop = ''
-      document.getElementById('pr6But').innerHTML = `<a id="pr6B1" class="btn" target="_blank" href="https://botpa.itch.io/otters-odyssey">Download</a>`
-      document.getElementById('pr6B1').innerText = lan.p.otters.b1
-      //COOKING PAPA AS PROJECT 7
-      document.getElementById('pr7Img').src = 'Data/Images/Projects/papa.jpg'
-      document.getElementById('pr7Inf').innerText = lan.p.papa.inf
-      document.getElementById('pr7Tit').innerText = lan.p.papa.tit
-      document.getElementById('pr7Con').innerHTML = lan.p.papa.con
-      document.getElementById('pr7But').style.marginTop = ''
-      document.getElementById('pr7But').innerHTML = `<a id="pr7B1" class="btn" target="_blank" href="https://botpa.itch.io/cooking-papa">Download</a>`
-      document.getElementById('pr7B1').innerText = lan.p.papa.b1
-      //MODDING AS PROJECT 8
-      document.getElementById('pr8Img').src = 'Data/Images/Projects/mod.jpg'
-      document.getElementById('pr8Inf').innerText = lan.p.mod.inf
-      document.getElementById('pr8Tit').innerText = lan.p.mod.tit
-      document.getElementById('pr8Con').innerHTML = lan.p.mod.con
-      document.getElementById('pr8But').style.marginTop = '-20px'
-      document.getElementById('pr8But').innerHTML= ''
+      makeProject(3, lan.p.frame, 'Data/Images/Projects/frame.jpg', ["https://botpanzer.github.io/Orion-Framework"])
+      //MEMORY SHIFT AS PROJECT 4
+      makeProject(4, lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
+      //TWIN SPIRITS AS PROJECT 5
+      makeProject(5, lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
+      //VAPORCADE AS PROJECT 6
+      makeProject(6, lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
+      //OTTERS AS PROJECT 7
+      makeProject(7, lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
+      //COOKING PAPA AS PROJECT 8
+      makeProject(8, lan.p.papa, 'Data/Images/Projects/papa.jpg', ["https://botpa.itch.io/cooking-papa"])
     }
+  }
+
+  function makeProject(number, key, image, buttons) {
+    //CHECK VARS
+    if (typeof number != 'number') return
+    if (typeof key != 'object') return
+    if (typeof image != 'string') return
+    //IMAGE
+    document.getElementById(`pr${number}Img`).src = image
+    //TEXT
+    document.getElementById(`pr${number}Inf`).innerText = key.inf
+    document.getElementById(`pr${number}Tit`).innerText = key.tit
+    document.getElementById(`pr${number}Con`).innerHTML = key.con
+    //BUTTONS
+    let buttonHTML = ''
+    if (Array.isArray(buttons) && buttons.length > 0) {
+      //HAS BUTTONS
+      for (let i = 0; i < buttons.length; i++) {
+        buttonHTML = buttonHTML + `<a id="pr${number}B${i}" class="btn" target="_blank" href="${buttons[i]}">${key['b'+(i+1)]}</a>`
+      }
+      if (number > 4) document.getElementById('pr'+number+'But').style.marginTop = '' 
+    } else {
+      //NO BUTTONS
+      if (number > 4) document.getElementById('pr'+number+'But').style.marginTop = '-20px'
+    }
+    document.getElementById(`pr${number}But`).innerHTML = buttonHTML
   }
 
 
@@ -2828,7 +2787,8 @@
                     "It's only been a week, but it feels like a year",
                     'No matter what, you keep finding something to fight for',
                     'The body is naught but a vessel for the soul',
-                    "I'm always succeeding, even when I'm not"]
+                    "I'm always succeeding, even when I'm not",
+                    "Link, this is a huge discovery!"]
     const game = ['Fallout', 
                   'Fallout NV', 
                   'Metro Exodus', 
@@ -2842,7 +2802,8 @@
                   'Katana Zero',
                   'The Last of Us',
                   'Ghostwire: Tokyo',
-                  'Deathloop']
+                  'Deathloop',
+                  'Zelda: Tears of the Kingdom']
     let q = Math.floor(Math.random() * quote.length)
     document.getElementById('botQuote').innerHTML = quote[q]
     document.getElementById('botFrom').innerHTML = game[q]
