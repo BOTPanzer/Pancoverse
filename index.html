@@ -1214,7 +1214,7 @@
     </div>
     <span id="hoHi" style="font-size: 22px; font-family: comfortaa; ">Howdy! I'm</span>
     <span id="hoTit1" style="font-size: 50px; font-family: phonk;">ALEJANDRO PANIAGUA</span>
-    <span id="hoTit2" class="shadow" style="font-size: 34px; font-weight: 900; z-index: 11;">And I love making things come to reality</span>
+    <span id="hoTit2" class="shadow" style="font-size: 34px; font-weight: 900; z-index: 11;">And I love programming and designing</span>
     <span id="hoDT" class="shadow" style="width: var(--homeW); font-size: 16px; z-index: 11;">
       <span id="hoDesc" style="text-align: justify; display: flex;">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
       <span id="hoType1">I consider myself</span>
@@ -1319,13 +1319,13 @@
       
       <div class="skBar">
         <div>
-          <span id="skMedTit">Multimedia</span>
-          <span id="skMedPro">Basic</span>
+          <span id="skArtTit">Art</span>
+          <span id="skArtPro">Basic</span>
         </div>
         <div>
           <div style="width: var(--sk5);"></div>
         </div>
-        <span>Photoshop · Illustrator · Premiere Pro · Audition</span>
+        <span>Photoshop · Illustrator · Aseprite</span>
       </div>
     </div>
     
@@ -1571,14 +1571,13 @@
       h: {
         hi: "Howdy! I'm",
         tit1: 'ALEJANDRO PANIAGUA',
-        tit2: 'And I love making things come to reality',
+        tit2: 'And I love programming and designing',
         desc: "I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.",
         type1: 'I consider myself',
         type2: [
-          'a web developer',
-          'a UI/UX designer', 
           'an android developer', 
-          'a videogame developer', 
+          'an indie game developer', 
+          'a web developer',
           'a 3D printing hobbyist'
         ],
         a: 'See more about me!'
@@ -1589,13 +1588,12 @@
         desc2: "I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making games and apps, but I also enjoy 3D printing and DIY projects.",
         s: 'Check out my skills!',
         names: ['Artyom',
-                'Crystal Ball',
                 'Canary Islands',
                 'Sleeping Cat',
-                'Crab',
                 'Finisterre',
                 'Mallorca',
-                'Otivar']
+                'Otivar',
+                'Lennon Wall']
       },
       s: {
         tit: 'My Skills',
@@ -1605,7 +1603,7 @@
         web: 'Web Development',
         ui: 'UI/UX Design',
         d3: 'CAD, 3D Modeling & Printing',
-        media: 'Multimedia',
+        art: 'Art',
         basic: 'Basic',
         medium: 'Medium',
         high: 'High',
@@ -1776,16 +1774,15 @@
         b2: 'ADENTRARSE PANCOVERSO EN EL'
       },
       h: {
-        hi: '¡Hola! Soy',
+        hi: 'Hey! Soy',
         tit1: 'ALEJANDRO PANIAGUA',
-        tit2: 'Y me encanta hacer que las cosas se hagan realidad',
+        tit2: 'Y me encanta programar y diseñar',
         desc: 'Soy un estudiante español, actualmente estudiando un grado de desarrollo de videojuegos, que ha desarrollado todo tipo de capacidades desde pequeño.',
         type1: 'Me considero',
         type2: [
-          'un desarrollador web',
-          'un diseñador de UI/UX', 
           'un desarrollador de android', 
-          'un desarrollador de videojuegos', 
+          'un desarrollador de juegos indie', 
+          'un desarrollador web',
           'un fan de la impresión 3D'
         ],
         a: '¡Ver más sobre mi!'
@@ -1795,14 +1792,13 @@
         desc1: "¡Hola! Mi nombre es Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta hacer juegos indies al igual que aplicaciones multiplataforma y diseñar paginas web e interfaces responsivas.",
         desc2: "Soy una persona independiente y bien organizada que encuentra resolver problemas fácil y a quien le encanta dar su propio toque. Algunos de mis intereses son crear juegos y aplicaciones pero tambien me gusta la impresión 3D y los proyectos manuales.",
         s: '¡Ver mis habilidades!',
-        names: ['Artyom',
-                'Bola de Cristal',
+        names: ['Artyom',,
                 'Islas Canarias',
                 'Gato Durmiendo',
-                'Cangrejo',
                 'Finisterre',
                 'Mallorca',
-                'Otivar']
+                'Otivar',
+                'Muro Lennon']
       },
       s: {
         tit: 'Mis Habilidades',
@@ -1812,7 +1808,7 @@
         web: 'Desarrollo Web',
         ui: 'Diseño de UI/UX',
         d3: 'CAD, Diseño e Impresión 3D',
-        media: 'Multimedia',
+        art: 'Arte',
         basic: 'Basico',
         medium: 'Medio',
         high: 'Alto',
@@ -2028,8 +2024,8 @@
     document.getElementById('skUiPro').innerText = lan.s.medium
     document.getElementById('sk3dTit').innerText = lan.s.d3
     document.getElementById('sk3dPro').innerText = lan.s.medium
-    document.getElementById('skMedTit').innerText = lan.s.media
-    document.getElementById('skMedPro').innerText = lan.s.basic
+    document.getElementById('skArtTit').innerText = lan.s.art
+    document.getElementById('skArtPro').innerText = lan.s.medium
     document.getElementById('skProj').innerText = lan.s.p
     //PROJECTS
     document.getElementById('prTit').innerText = lan.p.tit
@@ -2126,7 +2122,7 @@
     //SKILLS
     if (checkVisible(document.getElementById('skills'))) {
       if (checkVisible(document.getElementById('skVidTit')))
-        document.body.style.setProperty('--sk6', '75%')
+        document.body.style.setProperty('--sk6', '80%')
       if (checkVisible(document.getElementById('skAndTit')))
         document.body.style.setProperty('--sk2', '75%')
       if (checkVisible(document.getElementById('skWebTit')))
@@ -2134,9 +2130,9 @@
       if (checkVisible(document.getElementById('skUiTit')))
         document.body.style.setProperty('--sk3', '50%')
       if (checkVisible(document.getElementById('sk3dTit')))
-        document.body.style.setProperty('--sk4', '55%')
-      if (checkVisible(document.getElementById('skMedTit')))
-        document.body.style.setProperty('--sk5', '35%')
+        document.body.style.setProperty('--sk4', '50%')
+      if (checkVisible(document.getElementById('skArtTit')))
+        document.body.style.setProperty('--sk5', '60%')
     }
     //APPEAR ANIM
     const elems = document.querySelectorAll('.appear')
@@ -2639,13 +2635,12 @@
   //ABOUT IMAGE
   (function() {
     let imgs = ['Data/Images/About/artyom.jpg',
-                'Data/Images/About/ball.jpg',
                 'Data/Images/About/canary.jpg',
                 'Data/Images/About/cat.jpg',
-                'Data/Images/About/crab.jpg',
                 'Data/Images/About/finisterre.jpg',
                 'Data/Images/About/mallorca.jpg',
-                'Data/Images/About/otivar.jpg']
+                'Data/Images/About/otivar.jpg',
+                'Data/Images/About/lennon.jpg']
     document.getElementById('abName').innerText = lan.a.names[abIndex]
     document.getElementById('abImg').src = imgs[abIndex]
   })();
