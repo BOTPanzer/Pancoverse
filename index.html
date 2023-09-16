@@ -2648,19 +2648,21 @@
                 'Data/Images/About/mallorca.jpg',
                 'Data/Images/About/otivar.jpg',
                 'Data/Images/About/lennon.jpg']
-    abName.innerText = lan.a.names[abIndex]
     abImg.src = imgs[abIndex]
   }
 
   abImg.onload = function() { 
-    //NOT LOADING
-    if (!abLoading) return
-    //STOP ANIMATION
-    abImg.classList.remove("abLoading")
-    //ARTYOM
-    if (abIndex == 0) giveAchievement('artyom')
-    //FINISH
-    setTimeout(function() { abLoading = false }, 400)
+    //UPDATE TEXT
+    abName.innerText = lan.a.names[abIndex]
+    //LOADING
+    if (abLoading) {
+      //STOP ANIMATION
+      abImg.classList.remove("abLoading")
+      //ARTYOM
+      if (abIndex == 0) giveAchievement('artyom')
+      //FINISH
+      setTimeout(function() { abLoading = false }, 400)
+    }
   }
 
   let abLoading = false
