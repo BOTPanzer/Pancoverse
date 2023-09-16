@@ -807,6 +807,7 @@
     margin: 15px; 
     border-radius: 10px; 
     object-fit: cover;
+    cursor: pointer;
   }
 
   .abTextBox {
@@ -1167,11 +1168,10 @@
     <!-- SOCIALS -->
     <div id="soMenu" class="so">
       <div class="soLine"></div>
-      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
-      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
-      <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
-      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
       <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
+      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
+      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
+      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
     </div>
 
     <!-- BALLS -->
@@ -1265,7 +1265,7 @@
       <div class="skBar">
         <div>
           <span id="skVidTit">Videogames Development</span>
-          <span id="skVidPro">High</span>
+          <span id="skVidPro">Advanced</span>
         </div>
         <div>
           <div style="width: var(--sk6);"></div>
@@ -1281,7 +1281,18 @@
         <div>
           <div style="width: var(--sk2);"></div>
         </div>
-        <span>Android Studio · Java · XML · Gradle</span>
+        <span>Android Studio</span>
+      </div>
+      
+      <div class="skBar">
+        <div>
+          <span id="sk3dTit">3D Modeling/Printing & CAD</span>
+          <span id="sk3dPro">Medium</span>
+        </div>
+        <div>
+          <div style="width: var(--sk4);"></div>
+        </div>
+        <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
       </div>
 
       <div class="skBar">
@@ -1308,24 +1319,13 @@
       
       <div class="skBar">
         <div>
-          <span id="sk3dTit">CAD, 3D Printing & Modeling</span>
-          <span id="sk3dPro">Medium</span>
-        </div>
-        <div>
-          <div style="width: var(--sk4);"></div>
-        </div>
-        <span>Fusion 360 · 3DS MAX · Sketchup · Tinkercad · Cura</span>
-      </div>
-      
-      <div class="skBar">
-        <div>
-          <span id="skArtTit">Art</span>
-          <span id="skArtPro">Basic</span>
+          <span id="skArtTit">Art & Media</span>
+          <span id="skArtPro">Medium</span>
         </div>
         <div>
           <div style="width: var(--sk5);"></div>
         </div>
-        <span>Photoshop · Illustrator · Aseprite</span>
+        <span>Photoshop · Illustrator · Audition · Premiere</span>
       </div>
     </div>
     
@@ -1507,11 +1507,10 @@
     <div id="botFrom" style="font-size: 1em; font-family: lemon;">Arcane</div>
     <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
     <div id="botSocials" class="hc" style="margin-top: 10px; gap: 20px;">
-      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
-      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
-      <img class="soSocial" onclick="social('dribbble')" src="Data/Images/Icons/dribbble.png">
-      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
       <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
+      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
+      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
+      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
     </div>
   </div>
 </body>
@@ -1548,7 +1547,7 @@
         },
         a2: {
           tit: 'Best Friends',
-          con: 'Given after clicking 6 times on Artyom (my gecko)'
+          con: 'Given after finding Artyom (my first gecko)'
         },
         a3: {
           tit: 'Go with the Flow',
@@ -1584,8 +1583,8 @@
       },
       a: {
         tit: 'About Me',
-        desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who loves making indie games along with multiplatform apps and designing responsive web pages and interfaces.",
-        desc2: "I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making games and apps, but I also enjoy 3D printing and DIY projects.",
+        desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who loves designing and programming indie games and multiplatform apps.",
+        desc2: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
         s: 'Check out my skills!',
         names: ['Artyom',
                 'Canary Islands',
@@ -1597,13 +1596,13 @@
       },
       s: {
         tit: 'My Skills',
-        desc: "I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:",
+        desc: "I've been interested in the world of technology ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:",
         videogames: 'Videogames Development',
         android: 'Android Development',
         web: 'Web Development',
         ui: 'UI/UX Design',
-        d3: 'CAD, 3D Modeling & Printing',
-        art: 'Art',
+        d3: '3D Modeling/Printing &  CAD',
+        art: 'Art & Media',
         basic: 'Basic',
         medium: 'Medium',
         high: 'High',
@@ -1738,7 +1737,7 @@
         }
       },
       bot: {
-        mail: 'Email copied to clipboard!'
+        mail: 'Email copied to clipboard'
       }
     },
     es:{
@@ -1749,15 +1748,15 @@
         lock: 'BLOQUEADO',
         a1: {
           tit: 'Chavalin Interesado',
-          con: 'Dado por abrir todos los links de mis redes'
+          con: 'Otorgado por abrir todos los links de mis redes'
         },
         a2: {
           tit: 'Mejores Amigos',
-          con: 'Dado por clicar 6 veces en Artyom (mi gecko)'
+          con: 'Otorgado por encontrar a Artyom (mi primer gecko)'
         },
         a3: {
           tit: 'Ves con el Flow',
-          con: 'Dado por cambiar el tema 6 veces'
+          con: 'Otorgado por cambiar el tema 6 veces'
         }
       },
       top: {
@@ -1789,8 +1788,8 @@
       },
       a: {
         tit: 'Sobre Mi',
-        desc1: "¡Hola! Mi nombre es Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta hacer juegos indies al igual que aplicaciones multiplataforma y diseñar paginas web e interfaces responsivas.",
-        desc2: "Soy una persona independiente y bien organizada que encuentra resolver problemas fácil y a quien le encanta dar su propio toque. Algunos de mis intereses son crear juegos y aplicaciones pero tambien me gusta la impresión 3D y los proyectos manuales.",
+        desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta diseñar y programar juegos indie y aplicaciones multiplataforma.",
+        desc2: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
         s: '¡Ver mis habilidades!',
         names: ['Artyom',
                 'Islas Canarias',
@@ -1802,13 +1801,13 @@
       },
       s: {
         tit: 'Mis Habilidades',
-        desc: "He estado interesado en el mundo de los ordenadores desde pequeño y, gracias a eso, he expandido mis habilidades alrededor de una gran variedad de temas como:",
+        desc: "He estado interesado en el mundo de la tecnología desde pequeño y, gracias a eso, he expandido mis habilidades alrededor de una gran variedad de temas como:",
         videogames: 'Desarrollo de Videojuegos',
         android: 'Desarrollo de Android',
         web: 'Desarrollo Web',
         ui: 'Diseño de UI/UX',
-        d3: 'CAD, Diseño e Impresión 3D',
-        art: 'Arte',
+        d3: 'Modelado/Impresión 3D & CAD',
+        art: 'Arte & Media',
         basic: 'Basico',
         medium: 'Medio',
         high: 'Alto',
@@ -1943,7 +1942,7 @@
         }
       },
       bot: {
-        mail: '¡Email copiado al portapapeles!'
+        mail: 'Email copiado al portapapeles'
       }
     }
   }
@@ -1965,8 +1964,8 @@
   }
 
 
-  //ABOUT IMAGE INDEX (NEEDED FOR SETLAN TO WORK)
-  let abIndex = Math.floor(Math.random() * lan.a.names.length)
+  //ABOUT IMAGE INDEX (EXCLUDES FIRST FOR EASTEREGG, NEEDED HERE FOR SETLAN TO WORK)
+  let abIndex = Math.floor(Math.random() * (lan.a.names.length - 1) + 1)
 
 
   //SET LANGUAGE
@@ -2015,15 +2014,15 @@
     document.getElementById('skTit').innerText = lan.s.tit
     document.getElementById('skDesc').innerText = lan.s.desc
     document.getElementById('skVidTit').innerText = lan.s.videogames
-    document.getElementById('skVidPro').innerText = lan.s.high
+    document.getElementById('skVidPro').innerText = lan.s.advanced
     document.getElementById('skAndTit').innerText = lan.s.android
     document.getElementById('skAndPro').innerText = lan.s.high
+    document.getElementById('sk3dTit').innerText = lan.s.d3
+    document.getElementById('sk3dPro').innerText = lan.s.medium
     document.getElementById('skWebTit').innerText = lan.s.web
     document.getElementById('skWebPro').innerText = lan.s.high
     document.getElementById('skUiTit').innerText = lan.s.ui
     document.getElementById('skUiPro').innerText = lan.s.medium
-    document.getElementById('sk3dTit').innerText = lan.s.d3
-    document.getElementById('sk3dPro').innerText = lan.s.medium
     document.getElementById('skArtTit').innerText = lan.s.art
     document.getElementById('skArtPro').innerText = lan.s.medium
     document.getElementById('skProj').innerText = lan.s.p
@@ -2124,15 +2123,15 @@
       if (checkVisible(document.getElementById('skVidTit')))
         document.body.style.setProperty('--sk6', '80%')
       if (checkVisible(document.getElementById('skAndTit')))
-        document.body.style.setProperty('--sk2', '75%')
-      if (checkVisible(document.getElementById('skWebTit')))
-        document.body.style.setProperty('--sk1', '65%')
-      if (checkVisible(document.getElementById('skUiTit')))
-        document.body.style.setProperty('--sk3', '50%')
+        document.body.style.setProperty('--sk2', '70%')
       if (checkVisible(document.getElementById('sk3dTit')))
         document.body.style.setProperty('--sk4', '50%')
+      if (checkVisible(document.getElementById('skWebTit')))
+        document.body.style.setProperty('--sk1', '60%')
+      if (checkVisible(document.getElementById('skUiTit')))
+        document.body.style.setProperty('--sk3', '40%')
       if (checkVisible(document.getElementById('skArtTit')))
-        document.body.style.setProperty('--sk5', '60%')
+        document.body.style.setProperty('--sk5', '45%')
     }
     //APPEAR ANIM
     const elems = document.querySelectorAll('.appear')
@@ -2308,7 +2307,7 @@
 
   //SOCIALS
   let sGit, sIG, sDrib, sItch
-  sGit = sIG = sDrib = sItch = false
+  sGit = sIG = sItch = false
   function social(social) {
     switch(social) {
       case 'git':
@@ -2318,10 +2317,6 @@
       case 'ig':
         sIG = true
         window.open('https://www.instagram.com/bot_panzer/', '_blank')
-        break
-      case 'dribbble':
-        sDrib = true
-        window.open('https://dribbble.com/BOTPanzer', '_blank')
         break
       case 'itchio':
         sItch = true
@@ -2463,7 +2458,7 @@
 
   //GIVE SOCIALS ACHIEVEMENT ON FOCUS
   window.onfocus = () => {
-    if (sGit && sIG && sDrib && sItch) giveAchievement('socials')
+    if (sGit && sIG && sItch) giveAchievement('socials')
   }
 
 
@@ -2633,7 +2628,8 @@
   |__/  |__/|_______/  \______/  \______/    |_*/
 
   //ABOUT IMAGE
-  (function() {
+  abUpdate()
+  function abUpdate() {
     let imgs = ['Data/Images/About/artyom.jpg',
                 'Data/Images/About/canary.jpg',
                 'Data/Images/About/cat.jpg',
@@ -2643,15 +2639,15 @@
                 'Data/Images/About/lennon.jpg']
     document.getElementById('abName').innerText = lan.a.names[abIndex]
     document.getElementById('abImg').src = imgs[abIndex]
-  })();
+  }
 
-
-  //ARTYOM CLICK
   function abClick() {
-    if (abIndex != 0) return
-    if (artyomI > 5) return
-    artyomI++
-    if (artyomI > 5) giveAchievement('artyom')
+    //NEXT IMAGE
+    abIndex++
+    if (abIndex >= lan.a.names.length) abIndex = 0
+    abUpdate()
+    //ARTYOM
+    if (abIndex == 0) giveAchievement('artyom')
   }
 
 
@@ -2783,7 +2779,8 @@
                     'No matter what, you keep finding something to fight for',
                     'The body is naught but a vessel for the soul',
                     "I'm always succeeding, even when I'm not",
-                    "Link, this is a huge discovery!"]
+                    "Link, this is a huge discovery!",
+                    "Any adventure you can fly away from"]
     const game = ['Fallout', 
                   'Fallout NV', 
                   'Metro Exodus', 
@@ -2798,7 +2795,8 @@
                   'The Last of Us',
                   'Ghostwire: Tokyo',
                   'Deathloop',
-                  'Zelda: Tears of the Kingdom']
+                  'Zelda: Tears of the Kingdom',
+                  'Starfield']
     let q = Math.floor(Math.random() * quote.length)
     document.getElementById('botQuote').innerHTML = quote[q]
     document.getElementById('botFrom').innerHTML = game[q]
