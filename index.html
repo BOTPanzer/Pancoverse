@@ -799,6 +799,7 @@
     position: absolute; 
     right: -1px; 
     bottom: -1px;
+    z-index: 2;
   }
 
   .abImg {
@@ -808,6 +809,14 @@
     border-radius: 10px; 
     object-fit: cover;
     cursor: pointer;
+    filter: blur(0px);
+    opacity: 1;
+    transition: filter .4s, opacity .4s;
+  }  
+  
+  .abLoading {
+    filter: blur(12px);
+    opacity: 0;
   }
 
   .abTextBox {
@@ -2628,6 +2637,8 @@
   |__/  |__/|_______/  \______/  \______/    |_*/
 
   //ABOUT IMAGE
+  const abName = document.getElementById('abName')
+  const abImg = document.getElementById('abImg')
   abUpdate()
   function abUpdate() {
     let imgs = ['Data/Images/About/artyom.jpg',
@@ -2637,17 +2648,36 @@
                 'Data/Images/About/mallorca.jpg',
                 'Data/Images/About/otivar.jpg',
                 'Data/Images/About/lennon.jpg']
-    document.getElementById('abName').innerText = lan.a.names[abIndex]
-    document.getElementById('abImg').src = imgs[abIndex]
+    abName.innerText = lan.a.names[abIndex]
+    abImg.src = imgs[abIndex]
   }
 
-  function abClick() {
-    //NEXT IMAGE
-    abIndex++
-    if (abIndex >= lan.a.names.length) abIndex = 0
-    abUpdate()
+  abImg.onload = function() { 
+    //NOT LOADING
+    if (!abLoading) return
+    //STOP ANIMATION
+    abImg.classList.remove("abLoading")
     //ARTYOM
     if (abIndex == 0) giveAchievement('artyom')
+    //FINISH
+    setTimeout(function() { abLoading = false }, 400)
+  }
+
+  let abLoading = false
+  function abClick() {
+    //IS LOADING
+    if (abLoading) return
+    abLoading = true
+    //GET IMAGE
+    let nextIndex = abIndex + 1
+    if (nextIndex >= lan.a.names.length) nextIndex = 0
+    //LOAD ANIM
+    abImg.classList.add("abLoading")
+    setTimeout(function() {
+      //UPDATE
+      abIndex = nextIndex
+      abUpdate()
+    }, 400)
   }
 
 
