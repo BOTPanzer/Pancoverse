@@ -1975,8 +1975,15 @@
   }
 
 
-  //ABOUT IMAGE INDEX (EXCLUDES FIRST FOR EASTEREGG, NEEDED HERE FOR SETLAN TO WORK)
-  let abIndex = Math.floor(Math.random() * (lan.a.names.length - 1) + 1)
+  //ABOUT IMAGE INDEX & ORDER (SHUFFLE ALL & ADD ARTYOM LAST, NEEDED HERE FOR SETLAN TO WORK)
+  let abIndex = 0
+  let abOrder = []
+  for (let i = 1; i < lan.a.names.length; i++) { abOrder.push(i) }
+  for (let i = abOrder.length - 1; i > 0; i--) {
+    let randomIndex = Math.floor(Math.random() * i);
+    [abOrder[i], abOrder[randomIndex]] = [abOrder[randomIndex], abOrder[i]];
+  }
+  abOrder.push(0)
 
 
   //SET LANGUAGE
@@ -2020,7 +2027,7 @@
     document.getElementById('abDesc1').innerText = lan.a.desc1
     document.getElementById('abDesc2').innerText = lan.a.desc2
     document.getElementById('abSkills').innerText = lan.a.s
-    document.getElementById('abName').innerText = lan.a.names[abIndex]
+    document.getElementById('abName').innerText = lan.a.names[abOrder[abIndex]]
     //SKILLS
     document.getElementById('skTit').innerText = lan.s.tit
     document.getElementById('skDesc').innerText = lan.s.desc
@@ -2651,18 +2658,18 @@
                 'Data/Images/About/otivar.jpg',
                 'Data/Images/About/flower.jpg',
                 'Data/Images/About/lennon.jpg']
-    abImg.src = imgs[abIndex]
+    abImg.src = imgs[abOrder[abIndex]]
   }
 
   abImg.onload = function() { 
     //UPDATE TEXT
-    abName.innerText = lan.a.names[abIndex]
+    abName.innerText = lan.a.names[abOrder[abIndex]]
     //LOADING
     if (abLoading) {
       //STOP ANIMATION
       abImg.classList.remove("abLoading")
       //ARTYOM
-      if (abIndex == 0) giveAchievement('artyom')
+      if (abIndex == lan.a.names.length - 1) giveAchievement('artyom')
       //FINISH
       setTimeout(function() { abLoading = false }, 400)
     }
