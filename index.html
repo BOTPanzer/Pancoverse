@@ -45,6 +45,7 @@
     --textFilter: brightness(0) invert(1);
     --text2: #495670;
     --text2Filter: brightness(0) invert(30%) sepia(20%) saturate(656%) hue-rotate(182deg) brightness(100%) contrast(91%);
+    --link: #f32853;
     --accent: #DC2249;
     --accentT: #dc224a31;
     --accentFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
@@ -81,6 +82,11 @@
 
   a {
     text-decoration: none;
+  }
+
+  a:not([class]) {
+    color: var(--link);
+    font-weight: bold;
   }
 
   ::-webkit-scrollbar {
@@ -1043,6 +1049,7 @@
   .pr2 > img {
     width: 100%; 
     border-radius: 10px;
+    aspect-ratio: 16/9;
     object-fit: cover;
   }
 
@@ -1748,7 +1755,9 @@
         lmdshow:{
           inf: 'Unity · Blender · VS Code · Photoshop',
           tit: "Escape From LMDShow",
-          con: `Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
+          con: `Thank you IlloJuan for <a href="https://www.twitch.tv/illojuan/v/1969627398?sr=a&t=4566s" target="_blank">playing</a>!
+                <br><br>
+                Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
                 <br><br>
                 To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
           b1:  "Download Escape From LMDShow"
@@ -1756,7 +1765,9 @@
         nogame:{
           inf: 'Unity · Blender · VS Code · Photoshop',
           tit: "Esto AÚN no es un Juego",
-          con: `In "Esto AÚN no es un juego" you will help a programer raccoon finish his game before his gamejam ends.
+          con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
+                <br><br>
+                In Esto AÚN no es un juego you will help a programer raccoon finish his game before his gamejam ends.
                 <br><br>
                 Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
                 <br><br>
@@ -1797,8 +1808,8 @@
         ac: 'Logros'
       },
       e: {
-        b1: 'ADENTRARSE EN EL PANCOVERSO',
-        b2: 'ADENTRARSE PANCOVERSO EN EL'
+        b1: 'ENTRAR EN EL PANCOVERSO',
+        b2: 'ENTRAR PANCOVERSO EN EL'
       },
       h: {
         hi: 'Hey! Soy',
@@ -1972,7 +1983,9 @@
         lmdshow:{
           inf: 'Unity · Blender · VS Code · Photoshop',
           tit: "Escape From LMDShow",
-          con: `Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
+          con: `¡Gracias por <a href="https://www.twitch.tv/illojuan/v/1969627398?sr=a&t=4566s" target="_blank">jugar</a> IlloJuan!
+                <br><br>
+                Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
                 <br><br>
                 Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
           b1:  "Descargar Escape From LMDShow"
@@ -1980,7 +1993,9 @@
         nogame:{
           inf: 'Unity · Blender · VS Code · Photoshop',
           tit: "Esto AÚN no es un Juego",
-          con: `En "Esto AÚN no es un juego" ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
+          con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
+                <br><br>
+                En Esto AÚN no es un juego ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
                 <br><br>
                 Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
                 <br><br>
@@ -2020,6 +2035,10 @@
     [abOrder[i], abOrder[randomIndex]] = [abOrder[randomIndex], abOrder[i]];
   }
   abOrder.push(0)
+  
+
+  //CREATED PROJECTS (NEEDED HERE FOR SETLAN TO WORK)
+  let projects = 0
 
 
   //SET LANGUAGE
@@ -2758,55 +2777,70 @@
       scrollI = 0
       scrolled()
     }
+    //CLEAR
+    clearProjects()
     //SORT
     if (sort == 'videogames') {
       //INTERESTED IN VIDEOGAMES
       document.getElementById('prGames').setAttribute('active', '')
       document.getElementById('prApps').removeAttribute('active', '')
-      //ESCAPE FROM LMDSHOW AS PROJECT 1
-      makeProject(1, lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
-      //MEMORY SHIFT AS PROJECT 2
-      makeProject(2, lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
-      //ESTO AUN NO ES UN JUEGO AS PROJECT 3
-      makeProject(3, lan.p.nogame, 'Data/Images/Projects/nogame.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
-      //TWIN SPIRITS AS PROJECT 4
-      makeProject(4, lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
-      //VAPORCADE AS PROJECT 5
-      makeProject(5, lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
-      //OTTERS AS PROJECT 6
-      makeProject(6, lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
-      //COOKING PAPA AS PROJECT 7
-      makeProject(7, lan.p.papa, 'Data/Images/Projects/papa.jpg', ["https://botpa.itch.io/cooking-papa"])
-      //ASSISTANT ANDROID AS PROJECT 8
-      makeProject(8, lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
+      //1) ESCAPE FROM LMDSHOW AS PROJECT
+      addProject(lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
+      //2) ESTO AUN NO ES UN JUEGO AS PROJECT
+      addProject(lan.p.nogame, 'Data/Images/Projects/nogame.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
+      //3) MEMORY SHIFT AS PROJECT
+      addProject(lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
+      //4) TWIN SPIRITS AS PROJECT
+      addProject(lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
+      //5) VAPORCADE AS PROJECT
+      addProject(lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
+      //6) OTTERS AS PROJECT
+      addProject(lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
+      //7) COOKING PAPA AS PROJECT
+      addProject(lan.p.papa, 'Data/Images/Projects/papa.jpg', ["https://botpa.itch.io/cooking-papa"])
+      //8) ASSISTANT ANDROID AS PROJECT
+      addProject(lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
     } else {
       //INTERESTED IN APPS
       document.getElementById('prGames').removeAttribute('active')
       document.getElementById('prApps').setAttribute('active', '')
-      //ASSISTANT ANDROID AS PROJECT 1
-      makeProject(1, lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
-      //ASSISTANT PC AS PROJECT 2
-      makeProject(2, lan.p.asisPC, 'Data/Images/Projects/assPC.jpg', ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"])
-      //FRAMEWORK AS PROJECT 3
-      makeProject(3, lan.p.frame, 'Data/Images/Projects/frame.jpg', ["https://botpanzer.github.io/Orion-Framework"])
-      //ESCAPE FROM LMDSHOW AS PROJECT 4
-      makeProject(4, lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
-      //MEMORY SHIFT AS PROJECT 5
-      makeProject(5, lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
-      //ESTO AUN NO ES UN JUEGO AS PROJECT 6
-      makeProject(6, lan.p.nogame, 'Data/Images/Projects/nogame.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
-      //TWIN SPIRITS AS PROJECT 7
-      makeProject(7, lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
-      //VAPORCADE AS PROJECT 8
-      makeProject(8, lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
+      //1) ASSISTANT ANDROID AS PROJECT
+      addProject(lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
+      //2) ASSISTANT PC AS PROJECT
+      addProject(lan.p.asisPC, 'Data/Images/Projects/assPC.jpg', ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"])
+      //3) FRAMEWORK AS PROJECT
+      addProject(lan.p.frame, 'Data/Images/Projects/frame.jpg', ["https://botpanzer.github.io/Orion-Framework"])
+      //4) ESCAPE FROM LMDSHOW AS PROJECT
+      addProject(lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
+      //5) ESTO AUN NO ES UN JUEGO AS PROJECT
+      addProject(lan.p.nogame, 'Data/Images/Projects/nogame.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
+      //6) MEMORY SHIFT AS PROJECT
+      addProject(lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
+      //7) TWIN SPIRITS AS PROJECT
+      addProject(lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
+      //8) VAPORCADE AS PROJECT
+      addProject(lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
     }
+  }
+
+  //CLEAR & ADD PROJECTS
+  function clearProjects() {
+    //CLEAR PROJECTS
+    projects = 0
+  }
+
+  function addProject(key, image, buttons) {
+    //NO MORE SPACE
+    if (projects > 7) return
+    //MAKE PROJECT & UPDATE COUNT
+    if (makeProject(projects + 1, key, image, buttons)) projects++
   }
 
   function makeProject(number, key, image, buttons) {
     //CHECK VARS
-    if (typeof number != 'number') return
-    if (typeof key != 'object') return
-    if (typeof image != 'string') return
+    if (typeof number != 'number') return false
+    if (typeof key != 'object') return false
+    if (typeof image != 'string') return false
     //IMAGE
     document.getElementById(`pr${number}Img`).src = image
     //TEXT
@@ -2826,6 +2860,8 @@
       if (number > 4) document.getElementById('pr'+number+'But').style.marginTop = '-20px'
     }
     document.getElementById(`pr${number}But`).innerHTML = buttonHTML
+    //DONE
+    return true
   }
 
 
