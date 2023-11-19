@@ -1,2919 +1,487 @@
 <!doctype html>
 <html id="html" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pancoverse</title>
-  <link rel="icon" href="Data/Images/artyom.png">
-  <script src="Data/Scripts/confetti.browser.min.js"></script>
-</head>
-
-
-
-
-
-
-
-
-
-
-<!-- MAIN, BUTTONS, MENU & SNACKBAR -->
-<style>
-  @font-face { font-family: poppins; src: url('Data/Fonts/Poppins.ttf'); }
-  @font-face { font-family: comfortaa; src: url('Data/Fonts/Comfortaa.ttf'); }
-  @font-face { font-family: phonk; src: url('Data/Fonts/Phonk.ttf'); }
-  @font-face { font-family: lemon; src: url('Data/Fonts/LemonMilk.ttf'); }
-  @font-face { font-family: orbitron; src: url('Data/Fonts/Orbitron.ttf'); }
-  @font-face { font-family: roboto; src: url('Data/Fonts/RobotoMono.ttf'); }
-  @font-face { font-family: blender; src: url('Data/Fonts/BlenderPro.ttf'); }
-
-  html {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: poppins;
-    font-size: 15px;
-    user-select: none;
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
-
-    /*COLORS*/
-    --bg: #0A192F;
-    --button: #0c203d;
-    --text: #f5f5f5;
-    --textFilter: brightness(0) invert(1);
-    --text2: #495670;
-    --text2Filter: brightness(0) invert(30%) sepia(20%) saturate(656%) hue-rotate(182deg) brightness(100%) contrast(91%);
-    --link: #f32853;
-    --accent: #DC2249;
-    --accentT: #dc224a31;
-    --accentFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
-    --shadowBig: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
-
-    /*WAVES*/
-    --waveBot: 0;
-
-    /*SKILLS*/
-    --sk1: 0;
-    --sk2: 0;
-    --sk3: 0;
-    --sk4: 0;
-    --sk5: 0;
-    --sk6: 0;
-  }
-
-  body {
-    min-height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: var(--bg);
-    color: var(--text);
-    fill: var(--text);
-  }
-
-  img {
-    -webkit-user-drag: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  a:not([class]) {
-    color: var(--link);
-    font-weight: bold;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--text2);
-    border-radius: 7px;
-    border: solid 2px transparent;
-    background-clip: content-box;
-  }
-
-  ::selection {
-    background: var(--accent);
-  }
-
-  .hc {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .vc {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cc {
-    align-items: center;
-    justify-content: center;
-  }
-
-  .page {
-    height: fit-content;
-    min-height: 100vh; 
-    width: var(--pageW); 
-    margin: 0 auto; 
-    padding: 70px 0;
-    box-sizing: border-box;
-    position: relative;
-    display: flex; 
-    flex-direction: column; 
-  }
-
-  .paTit {
-    display: flex;
-    align-items: flex-end; 
-    font-size: 30px; 
-    font-family: phonk;
-  }
-
-  .paTit span:first-of-type {
-    font-size: 25px; 
-    font-family: roboto; 
-    color: var(--accent);
-  }
-
-  .shadow {
-    text-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
-  }
-
-  .appear {
-    opacity: 0;
-  }
-
-  .appeared {
-    animation: appear ease-out .6s;
-  }
-
-  @keyframes appear {
-    from {
-      transform: translateY(80px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-
-  /*BUTTONS*/
-  .btn {
-    min-height: 40px;
-    width: fit-content;
-    padding: 0 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family: roboto;
-    font-size: .93rem;
-    white-space: nowrap;
-    color: var(--text);
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 10px;
-
-    cursor: pointer;
-    transition: background .1s;
-  }
-
-  .btn2 {
-    min-height: 50px;
-    width: fit-content;
-    padding: 0 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family: roboto;
-    font-size: .93rem;
-    white-space: nowrap;
-    color: var(--text);
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 10px;
-
-    cursor: pointer;
-    transition: background .1s;
-  }
-
-  .iBtn {
-    height: 40px;
-    width: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 10px;
-
-    cursor: pointer;
-    transition: background .1s;
-  }
-
-  .iBtn img {
-    height: 20px;
-    width: 20px;
-    filter: var(--textFilter);
-  }
-
-  .btn:hover, .btn2:hover, .iBtn:hover, .tBtn2:hover {
-    background: var(--accentT);
-  }
-
-  .tBtn {
-    display: flex;
-    font-family: roboto;
-    font-size: .93rem;
-    cursor: pointer;
-  }
-
-  .tBtn span:nth-of-type(1) {
-    color: var(--accent);
-  }
-
-  .tBtn span:nth-of-type(2) {
-    transition: color .2s;
-  }
-
-  .tBtn:hover span:nth-of-type(2) {
-    color: var(--accent);
-  }
-
-  .tBtn2 {
-    min-width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    font-family: roboto;
-    font-size: .93rem;
-    cursor: pointer;
-    transition: background .1s;
-  }
-
-  .tBtn2 img {
-    height: 20px; 
-    width: 20px;
-    margin: 10px 10px 10px 0;
-    filter: var(--textFilter);
-  }
-
-
-  /*MENU*/
-  .topMBG {
-    height: 100%;
-    width: 100%; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    display: flex; 
-    flex-direction: row-reverse; 
-    pointer-events: none;
-    z-index: 51;
-  }
-
-  .mBtn {
-    height: fit-content;
-    max-height: 40px;
-    max-width: 40px;
-    margin-top: 15px;
-    margin-right: min(5vw, 45px);
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 10px;
-
-    cursor: pointer;
-    overflow: hidden;
-    pointer-events: all;
-    transition: background .1s, max-width .3s, max-height .3s, padding .3s, margin-top .15s;
-    transition-delay: margin-top 0;
-  }
-
-  .mBtn[menu] {
-    max-height: var(--menuHeight);
-    max-width: 200px;
-    min-width: 180px;
-    backdrop-filter: blur(5px);
-    transition: background .1s, max-width .5s, max-height .5s, padding .5s, margin-top .15s;
-    transition-delay: margin-top .5s;
-  }
-
-  .mBtn[menu]:not([mobile]) {
-    margin-top: 70px;
-  }
-
-  .mBtn:hover {
-    background: var(--accentT);
-  }
-
-  .mBtn[menu]:hover {
-    background: none;
-    cursor: auto;
-  }
-
-  .mBtn > img {
-    height: 20px;
-    width: 20px;
-    margin: 8px;
-    filter: var(--textFilter);
-    transition: height .3s, opacity .3s, margin .3s;
-  }
-
-  .mBtn[menu] > img {
-    height: 0;
-    opacity: 0;
-    margin: 0 8px;
-  }
-
-  .mBtn > div {
-    width: 100%;
-    padding: 10px 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .1s;
-  }  
+  <head>
+    <!-- MAIN -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pancoverse</title>
+    <link rel="icon" href="Data/Images/artyom.png">
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="Data/CSS/main.css"></link>
+    <script src="Data/JS/confetti.browser.min.js"></script>
+  </head>
   
-  .mBtn[menu] > div {
-    opacity: 1;
-    pointer-events: all;
-  }
 
 
-  /*SNACKBAR*/
-  .snackbar {
-    padding: 15px; 
-    position: fixed; 
-    bottom: 0;
-    left: 50%;
-    border-radius: 15px; 
-    background: var(--button); 
-    box-shadow: var(--shadowBig);
-    pointer-events: none; 
-    opacity: 0;
-    z-index: 200;
-    animation: snackbar 3s forwards;
-  }
 
-  @keyframes snackbar {
-    0% { 
-      transform: translateY(0) translateX(-50%); 
-      opacity: 0;
-    }
-    25% { 
-      transform: translateY(-20px) translateX(-50%);
-      opacity: 1; 
-    }
-    75% { 
-      transform: translateY(-20px) translateX(-50%);
-      opacity: 1; 
-    }
-    100% { 
-      transform: translateY(0) translateX(-50%); 
-      opacity: 0;
-    }
-  }
-</style>
 
-<!-- OVERLAY, TOP, ACHIEVENTS, SOCIALS, BALLS & ENTER -->
-<style>
-  /*OVERLAY*/
-  .overlay {
-    height: 100%; 
-    width: 100%; 
-  }
-
-
-  /*TOP*/
-  .top {
-    width: 100%;
-    height: 70px;
-    padding: 0 min(5vw, 45px);
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 25px;
-
-    box-sizing: border-box;
-    backdrop-filter: blur(5px);
-
-    box-shadow: 0 2px 15px var(--bg);
-    
-    z-index: 50;
-  }
-
-
-  /*ACHIEVENTS*/
-  .achBG {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 60;
-  }
-
-  .ach {
-    width: 400px; 
-    max-width: calc(100% - 20px);
-    max-height: calc(100% - 20px);
-    position: relative;
-
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-
-    box-sizing: border-box; 
-    border: solid 2px var(--accent); 
-    border-radius: 25px; 
-    backdrop-filter: blur(5px);
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s;
-  }
-
-  .ach > div:nth-child(1) {
-    height: 100%; 
-    width: 100%; 
-    top: 0; 
-    left: 0; 
-    background: var(--bg); 
-    opacity: .5; 
-    position: absolute; 
-    border-radius: 25px; 
-    z-index: -1;
-  }
-
-  .ach > span:nth-child(2) {
-    line-height: 80px; 
-    font-size: 22px; 
-    font-family: phonk;
-  }
-
-  .ach > div:nth-child(4) {
-    width: 100%; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  .achi {
-    height: 120px; 
-    width: calc(100% - 40px); 
-    padding: 13px;
-    margin: 0 20px; 
-
-    position: relative;
-    display: flex;
-    gap: 15px;
-
-    box-sizing: border-box; 
-    border: solid 2px var(--accent); 
-    border-radius: 15px;
-    background: var(--button);
-    transition: transform .2s;
-  }
-
-  .achi:hover {
-    transform: rotate(-.5deg) scale(1.01);
-  }
-
-  .achi > img {
-    height: 90px; 
-    border-radius: 10px;
-  }
-
-  .achi > div {
-    height: 90px; 
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .achi > div > div:nth-child(1) {
-    font-family: phonk;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .achi > div > div:nth-child(2) {
-    text-align: center;
-  }
-
-  .achi > span {
-    line-height: 120px;
-    width: 100%; 
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-family: phonk;
-    font-size: 26px;
-    text-align: center;
-    opacity: 0;
-  }
-  
-  .achi[locked] {
-    background: var(--accent);
-  }
-
-  .achi[locked] > img {
-    opacity: 0;
-  }
-
-  .achi[locked] > div {
-    opacity: 0;
-  }
-
-  .achi[locked] > span {
-    opacity: 1;
-  }
-
-
-  /*SOCIALS*/
-  .so {
-    position: fixed; 
-    left: 40px;
-    bottom: 0;
-    color: var(--text2); 
-    display: flex; 
-    gap: 30px; 
-    flex-direction: column-reverse; 
-    align-items: center;
-  }
-
-  .soLine {
-    height: 10vh; 
-    width: 1px; 
-    background: var(--text2);
-  }
-
-  .soSocial {
-    height: 20px; 
-    width: 20px; 
-    cursor: pointer;
-    -webkit-filter: var(--text2Filter);
-    filter: var(--text2Filter);
-    transition: filter .4s, -webkit-filter .4s, transform .2s;
-  }
-
-  .soSocial:hover {
-    -webkit-filter: var(--accentFilter);
-    filter: var(--accentFilter);
-    transform: translateY(-3px);
-    transition: filter .2s, -webkit-filter .2s, transform .2s;
-  }
-
-
-  /*BALLS*/
-  .balls {
-    height: 100vh; 
-    position: fixed; 
-    right: 45px;
-    display: flex;
-    gap: 20px; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-  }
-
-  .ball {
-    height: 10px;
-    width: 10px;
-    background: var(--text2);
-    border-radius: 10px;
-    transition: background .3s;
-  }
-
-  .ball[checked] {
-    background: var(--accent);
-  }
-
-
-  /*ENTER*/
-  .enter {
-    height: 100%; 
-    width: 100%; 
-    position: fixed; 
-    z-index: 100; 
-    background: var(--bg); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: opacity 1s;
-  }
-
-  .enBox {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: transform .1s;
-    --glitchOp: 0;
-  }
-
-  .enBox:hover {
-    transform: scale(1.025, 1.025);
-    --glitchOp: 1;
-  }
-
-  .enBtn {
-    --slice-0: inset(50% 50% 50% 50%);
-    --slice-1: inset(80% -6px 0 0);
-    --slice-2: inset(50% -6px 30% 0);
-    --slice-3: inset(10% -6px 85% 0);
-    --slice-4: inset(40% -6px 43% 0);
-    --slice-5: inset(80% -6px 5% 0);
-    --a1: rgb(243, 14, 64);
-    --a2: #00d6f4;
-    color: #f5f5f5;
-    padding: 16px 20px;
-    font-family: blender;
-    font-size: 18px;
-    background: linear-gradient(45deg, transparent 5%, var(--a1) 5%);
-    border: 0;
-    letter-spacing: 2px;
-    line-height: 1;
-    box-shadow: 2px 0px 0px var(--a2);
-    cursor: pointer;
-  }
-
-  .enBtn[glitch] {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(45deg, transparent 3%, var(--a2) 3%, var(--a2) 5%, var(--a1) 5%);
-    text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
-    animation: .5s glitch infinite;
-    opacity: var(--glitchOp);
-    pointer-events: none;
-  }
-
-  @keyframes glitch {
-    0% {
-      clip-path: var(--slice-1);
-      transform: translate(-20px, -10px);
-    }
-
-    10% {
-      clip-path: var(--slice-3);
-      transform: translate(10px, 10px);
-    }
-
-    20% {
-      clip-path: var(--slice-1);
-      transform: translate(-10px, 10px);
-    }
-
-    30% {
-      clip-path: var(--slice-3);
-      transform: translate(0px, 5px);
-    }
-
-    40% {
-      clip-path: var(--slice-2);
-      transform: translate(-5px, 0px);
-    }
-
-    50% {
-      clip-path: var(--slice-3);
-      transform: translate(5px, 0px);
-    }
-
-    60% {
-      clip-path: var(--slice-4);
-      transform: translate(5px, 10px);
-    }
-
-    70% {
-      clip-path: var(--slice-2);
-      transform: translate(-10px, 10px);
-    }
-
-    80% {
-      clip-path: var(--slice-5);
-      transform: translate(20px, -10px);
-    }
-
-    90% {
-      clip-path: var(--slice-1);
-      transform: translate(-10px, 0px);
-    }
-
-    100% {
-      clip-path: var(--slice-1);
-      transform: translate(0);
-    }
-  }
-
-  .wave {
-    position: absolute;
-    bottom: var(--waveBot);
-    pointer-events: none;
-    fill: var(--accent);
-    width: 200vw;
-    animation: wave 10s ease infinite;
-    opacity: 0.8;
-    transition: bottom 1s;
-  }
-
-  .wave:nth-of-type(2) {
-    animation: wave 18s ease reverse infinite;
-    opacity: 0.5;
-  }
-
-  .wave:nth-of-type(3) {
-    animation: wave 20s -6s ease infinite;
-    opacity: 0.5;
-  }
-
-  @keyframes wave {
-    0% {transform: translateX(0);}
-    50% {transform: translateX(-50%);}
-    100% {transform: translateX(0);}
-  }
-</style>
-
-<!-- HOME, ABOUT, SKILLS & PROJECTS -->
-<style>
-  /*HOME*/
-  .hoLine {
-    animation: line 1s infinite;
-  }
-
-  @keyframes line {
-    0% { opacity: 0; }
-    49% { opacity: 0; }
-    50% { opacity: 1; }
-    99% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-
-
-  /*ABOUT*/
-  .abImgBox {
-    height: 55vh; 
-    width: 42vh; 
-    position: relative; 
-    border: 1px solid var(--text); 
-    border-radius: 20px;
-  }
-
-  .abImgText {
-    padding: 0 20px; 
-    background: var(--text); 
-    color: var(--bg); 
-    border-radius: 20px 0; 
-    line-height: 35px; 
-    font-size: 13px; 
-    font-family: orbitron; 
-    text-transform: uppercase; 
-    position: absolute; 
-    right: -1px; 
-    bottom: -1px;
-    z-index: 2;
-  }
-
-  .abImg {
-    height: calc(100% - 30px); 
-    width: calc(100% - 30px); 
-    margin: 15px; 
-    border-radius: 10px; 
-    object-fit: cover;
-    cursor: pointer;
-    filter: blur(0px);
-    opacity: 1;
-    transition: filter .4s, opacity .4s;
-  }  
-  
-  .abLoading {
-    filter: blur(12px);
-    opacity: 0;
-  }
-
-  .abTextBox {
-    width: 0; 
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
-    gap: calc(2 * var(--pageGap));
-  }
-
-
-  /*SKILLS*/
-  .skBar {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-family: roboto; 
-    font-size: 12px; 
-    font-weight: 600; 
-    color: var(--text2);
-  }
-
-  .skBar div:nth-of-type(1) {
-    display: flex;
-    align-items: center;
-  }
-
-  .skBar div:nth-of-type(1) span:nth-of-type(1) {
-    font-family: phonk;
-    font-size: 16px; 
-    font-weight: 500; 
-    color: var(--text);
-  }
-
-  .skBar div:nth-of-type(1) span:nth-of-type(2) {
-    margin-left: auto;
-    font-size: 14px;
-  }
-
-  .skBar div:nth-of-type(2) {
-    height: 5px; 
-    width: 100%; 
-    margin-top: 4px;
-    background-color: var(--text2); 
-    border-radius: 5px;
-  }
-
-  .skBar div:nth-of-type(2) div {
-    height: 5px; 
-    width: 0; 
-    margin: 0;
-    background-color: var(--accent); 
-    border-radius: 5px;
-    transition: width 1s;
-  }
-
-
-  /*PROJECTS*/
-  .prSwitch {
-    width: fit-content; 
-    height: 40px; 
-    display: flex; 
-    background: var(--button); 
-    border-radius: 20px; 
-    line-height: 40px;
-    overflow: hidden;
-  }
-
-  .prSwitch > span {
-    width: fit-content; 
-    padding: 0 20px;
-    line-height: 40px; 
-    cursor: pointer;
-    transition: background .2s;
-  }
-
-  .prSwitch > span:hover, .prSwitch > span[active] {
-    background: var(--accentT);
-  }
-
-  .pr {
-    height: min-content;
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .pr[reverse] {
-    flex-direction: row-reverse;
-  }
-
-  .pr > div:nth-of-type(1) {
-    height: 100%;
-    width: 65%; 
-    display: flex;
-    position: relative; 
-    box-sizing: border-box;
-    border: 1px solid var(--text); 
-    border-radius: 20px;
-  }
-  
-  .pr[mobile] > div:nth-of-type(1) {
-    width: 100%; 
-  }
-
-  .pr > div:nth-of-type(1) > img {
-    width: calc(100% - 40px); 
-    margin: 20px; 
-    aspect-ratio: 16/9;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  
-  .pr > div:nth-of-type(1) > div {
-    height: 40px;
-    width: 40px;
-
-    position: absolute;
-    bottom: 30px; 
-    left: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-    border: solid 2px var(--accent);
-    border-radius: 50px;
-
-    cursor: pointer;
-    transition: background .1s;
-  }
-
-  .pr[reverse] > div:nth-of-type(1) > div {
-    left: auto;
-    right: 30px;
-  } 
-
-  .pr > div:nth-of-type(1) > div:hover {
-    background: var(--accentT);
-  }
-  
-  .pr > div:nth-of-type(1) > div img {
-    height: 20px;
-    width: 20px;
-    filter: var(--accentFilter);
-  }
-
-  .pr:not([mobile]) > div:nth-of-type(1):hover + div:nth-of-type(2) {
-    transition-delay: 1s;
-    z-index: -1;
-    opacity: .6;
-  }
-
-  .pr > div:nth-of-type(2) {
-    width: 50%; 
-    --prMar: -10%;
-    margin-left: var(--prMar); 
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-    align-items: flex-end;
-    text-align: end; 
-    z-index: 2;
-    transition: opacity .5s, z-index 0s;
-  }
-
-  .pr[reverse] > div:nth-of-type(2) {
-    margin-left: 0; 
-    margin-right: var(--prMar); 
-    align-items: flex-start;
-    text-align: start; 
-  }
-
-  .pr[mobile] > div:nth-of-type(2) {
-    width: 100%; 
-    --prMar: 0;
-    margin-top: 20px; 
-  }
-
-  .pr > div:nth-of-type(2) > span:nth-child(1) {
-    margin-left: 20px; 
-    margin-right: 20px; 
-    font-family: roboto; 
-    font-size: .86rem; 
-    font-weight: 700; 
-    color: var(--text2);
-  }
-
-  .pr > div:nth-of-type(2) > div:nth-child(2) {
-    width: 100%; 
-    padding: 20px; 
-    box-sizing: border-box; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-    background: var(--button); 
-    border-radius: 20px;
-  }
-
-  .pr > div:nth-of-type(2) > div:nth-child(2) span:nth-child(1) {
-    width: 100%; 
-    font-family: phonk; 
-    font-size: 1.46rem; 
-  }
-
-  .pr > div:nth-of-type(2) > div:nth-child(2) span:nth-child(2) {
-    width: 100%; 
-    text-align: justify; 
-    opacity: .8;
-  }
-
-  .pr2 {
-    min-height: 100%; 
-    width: var(--pr2W); 
-    padding: 20px; 
-    position: relative; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-    background: var(--button); 
-    border-radius: 20px;
-  }
-
-  .pr2 > img {
-    width: 100%; 
-    border-radius: 10px;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-
-  .pr2 > span:nth-of-type(1) {
-    font-size: 1.46rem; 
-    font-family: phonk;
-  }
-
-  .pr2 > span:nth-of-type(2) {
-    opacity: .8; 
-    text-align: justify;
-  }
-
-  .pr2 > span:nth-of-type(3) {
-    font-size: .86rem; 
-    font-family: roboto; 
-    font-weight: 700; 
-    color: var(--text2); 
-    margin-top: auto;
-  }
-</style>
-
-
-
-
-
-
-
-
-
-
-<body>
-  <!-- OVERLAY -->
-  <div class="overlay">  
-    <!-- TOP BAR -->
-    <div id="topBar" class="top">
-      <div id="topTint" style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; position: absolute; z-index: -1;"></div>
-      <div id="topH1" class="tBtn" onclick="goto('home')">
-        <span>00.&nbsp;</span>
-        <span id="topH1T">Home</span>
-      </div>
-      <div id="topA1" class="tBtn" onclick="goto('about')">
-        <span>01.&nbsp;</span>
-        <span id="topA1T">About</span>
-      </div>
-      <div id="topS1" class="tBtn" onclick="goto('skills')">
-        <span>02.&nbsp;</span>
-        <span id="topS1T">Skills</span>
-      </div>
-      <div id="topP1" class="tBtn" onclick="goto('projects')">
-        <span>03.&nbsp;</span>
-        <span id="topP1T">Projects</span>
-      </div>
-      <div id="topSpace" style="width: 40px; transition: margin-left .3s;"></div>
-    </div>
-
-    <!-- TOP MENU -->
-    <div id="topMBG" class="topMBG" onclick="toggleMenu(false)"> 
-      <div id="topMenu" class="mBtn" onclick="event.stopPropagation(); if (!menuOpen) toggleMenu(true)">
-        <img src="Data/Images/Icons/more.png">
-        <div style="position: relative;" onclick="event.stopPropagation()">
-          <div style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; border-radius: 8px; position: absolute; z-index: -1;"></div>
-          <div id="topH2" class="tBtn2" onclick="goto('home')">
-            <img src="Data/Images/Icons/home.png">
-            <span id="topH2T">Home</span>
-          </div>
-          <div id="topA2" class="tBtn2" onclick="goto('about')">
-            <img src="Data/Images/Icons/about.png">
-            <span id="topA2T">About</span>
-          </div>
-          <div id="topS2" class="tBtn2" onclick="goto('skills')">
-            <img src="Data/Images/Icons/skills.png">
-            <span id="topS2T">Skills</span>
-          </div>
-          <div id="topP2" class="tBtn2" onclick="goto('projects')">
-            <img src="Data/Images/Icons/projects.png">
-            <span id="topP2T">Projects</span>
-          </div>
-          <div class="tBtn2" onclick="switchTheme()">
-            <img id="topTheImg" src="Data/Images/Icons/dark.png">
-            <span id="topThe">Theme</span>
-          </div>
-          <div class="tBtn2" onclick="switchLan()">
-            <img src="Data/Images/Icons/language.png">
-            <span id="topLan">English</span>
-          </div>
-          <div class="tBtn2" onclick="toggleAchi()">
-            <img src="Data/Images/Icons/cup.png">
-            <span id="topAch">Achievements</span>
-          </div>
+  <body>
+    <!-- OVERLAY -->
+    <div class="overlay">  
+      <!-- TOP BAR -->
+      <div id="topBar" class="top">
+        <div id="topTint" class="topTint"></div>
+        <div id="topH1" class="tBtn" onclick="goto('home')">
+          <span>00.&nbsp;</span>
+          <span id="topH1T">Home</span>
         </div>
-      </div>
-    </div>
-
-    <!-- ACHIEVENTS -->
-    <div id="ach" class="achBG" onclick="toggleAchi()">
-      <div id="achMenu" class="ach" onclick="event.stopPropagation()">
-        <div></div>
-        <span id="achTit">ACHIEVEMENTS</span>
-        <div class="iBtn" style="position: absolute; top: 20px; right: 20px; border-radius: 40px;" onclick="toggleAchi()">
-          <img style="height: 15px; width: 15px;" src="Data/Images/Icons/close.png">
-        </div>
-        <div>
-          <div id="achi1" class="achi" locked>
-            <img src="Data/Images/Achievements/socials.jpg">
-            <div>
-              <div id="achi1Tit">Interested fellow</div>
-              <div id="achi1Con">Given after opening all my social links</div>
-            </div>
-            <span id="achi1Lock">LOCKED</span>
-          </div>
-          <div id="achi2" class="achi" locked>
-            <img src="Data/Images/Achievements/artyom.jpg">
-            <div>
-              <div id="achi2Tit">Best friends</div>
-              <div id="achi2Con">Given after clicking 7 times on Artyom (my gecko)</div>
-            </div>
-            <span id="achi2Lock">LOCKED</span>
-          </div>
-          <div id="achi3" class="achi" locked>
-            <img src="Data/Images/Achievements/drill.jpg">
-            <div>
-              <div id="achi3Tit">Go with the flow</div>
-              <div id="achi3Con">Given after finding the secret Drill glasses</div>
-            </div>
-            <span id="achi3Lock">LOCKED</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SOCIALS -->
-    <div id="soMenu" class="so">
-      <div class="soLine"></div>
-      <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
-      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
-      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
-      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
-    </div>
-
-    <!-- BALLS -->
-    <div id="balls" class="balls">
-      <div id="ball1" class="ball" checked></div>
-      <div id="ball2" class="ball"></div>
-      <div id="ball3" class="ball"></div>
-      <div id="ball4" class="ball"></div>
-    </div>
-
-    <!-- SNACKBAR -->
-    <div id="snackbar"></div>
-  </div>
-
-  <!-- ENTER -->
-  <div id="enter" class="enter">
-    <div id="enBox" class="enBox">
-      <div id="enBtn1" class="enBtn" onclick="enterPancoverse()">DIVE INTO THE PANCOVERSE</div>
-      <div id="enBtn2" class="enBtn" glitch >DIVE PANCOVERSE INTO THE</div>
-    </div>
-    <div style="position: absolute; bottom: 0; width: 100vw;">
-      <svg class="wave" viewBox="0 0 1440 320">
-        <path d="M0,160L48,160C96,160,192,160,288,176C384,192,480,224,576,240C672,256,768,256,864,250.7C960,245,1056,235,1152,224C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-      <svg class="wave" viewBox="0 0 1440 320">
-        <path d="M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,176C672,160,768,128,864,144C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-      <svg class="wave" viewBox="0 0 1440 320">
-        <path d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,213.3C672,203,768,213,864,224C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-      <div style="height: var(--waveBot); width: 100vw; bottom: 0; position: absolute; background: var(--accent); transition: height 1s;"></div>
-    </div>
-  </div>
-
-  <!-- HOME -->
-  <div id="home" class="page" style="justify-content: center; gap: var(--pageGap);">
-    <div id="hoMe" class="vc" style="height: min(50vh, 60vw); width: min(50vh, 60vw); margin: 0 auto; position: absolute; right: 15%;">
-      <img id="hoMe1" style="height: 100%; width: 100%; z-index: 10; border-radius: 50vh; margin: 2px;" src="Data/Images/me.png">
-      <div id="hoMe2" style="height: 100%; width: 100%; z-index: -1; border-radius: 50vh; border: solid var(--accent) 2px; position: absolute;"></div>
-    </div>
-    <span id="hoHi" style="font-size: 22px; font-family: comfortaa; ">Howdy! I'm</span>
-    <span id="hoTit1" style="font-size: 50px; font-family: phonk;">ALEJANDRO PANIAGUA</span>
-    <span id="hoTit2" class="shadow" style="font-size: 34px; font-weight: 900; z-index: 11;">And I love programming and designing</span>
-    <span id="hoDT" class="shadow" style="width: var(--homeW); font-size: 16px; z-index: 11;">
-      <span id="hoDesc" style="text-align: justify; display: flex;">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
-      <span id="hoType1">I consider myself</span>
-      <span id="hoType2">a 3D printing hobbyist</span><span class="hoLine">|</span>
-    </span>
-    <div id="hoAbout" class="btn2" style="margin-top: 10px;" onclick="goto('about')">See more about me!</div>
-  </div>
-  
-  <!-- ABOUT -->
-  <div id="about" class="page" style="flex-direction: row; align-items: center; gap: calc(3 * var(--pageGap));">
-    <div id="abTextBox" class="abTextBox appear">
-      <div class="hc" style="align-items: center; gap: 20px;">
-        <div class="paTit">
+        <div id="topA1" class="tBtn" onclick="goto('about')">
           <span>01.&nbsp;</span>
-          <span id="abTit">About Me</span>
+          <span id="topA1T">About</span>
         </div>
-        <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
-      </div>
-      <span style="text-align: justify;">
-        <span id="abDesc1">Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.</span>
-        <br><br>
-        <span id="abDesc2">I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.</span>
-      </span>
-      <div id="abSkills" class="btn2" onclick="goto('skills')">Check out my skills!</div>
-    </div>
-
-    <div id="abImgBox" class="abImgBox appear">
-      <div id="abName" class="abImgText"></div>
-      <img id="abImg" class="abImg" onclick="abClick()">
-    </div>
-  </div>
-
-  <!-- SKILLS -->
-  <div id="skills" class="page" style="justify-content: center; gap: calc(2 * var(--pageGap));">
-    <div id="skTop" class="vc" style="margin-right: calc(42vh + 60px);">
-      <div class="hc" style="align-items: center; gap: 20px;">
-        <div class="paTit">
+        <div id="topS1" class="tBtn" onclick="goto('skills')">
           <span>02.&nbsp;</span>
-          <span id="skTit">My Skills</span>
+          <span id="topS1T">Skills</span>
         </div>
-        <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
+        <div id="topP1" class="tBtn" onclick="goto('projects')">
+          <span>03.&nbsp;</span>
+          <span id="topP1T">Projects</span>
+        </div>
+        <div id="topSpace" class="topSpace"></div>
       </div>
 
-      <span id="skDesc" style="margin-top: 40px; text-align: justify;">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
+      <!-- TOP MENU -->
+      <div id="topMBG" class="topMBG" onclick="toggleMenu(false)"> 
+        <div id="topMenu" class="mBtn" onclick="event.stopPropagation(); if (!menuOpen) toggleMenu(true)">
+          <img src="Data/Images/Icons/more.png">
+          <dot id="topDot1" class="btnDot" style="position: absolute; top: 5px; right: 5px;"></dot>
+          <div style="position: relative;" onclick="event.stopPropagation()">
+            <div style="height: 100%; width: 100%; top: 0; left: 0; background: var(--bg); opacity: .5; border-radius: 8px; position: absolute; z-index: -1;"></div>
+            <div id="topH2" class="tBtn2" onclick="goto('home')">
+              <img src="Data/Images/Icons/home.png">
+              <span id="topH2T">Home</span>
+            </div>
+            <div id="topA2" class="tBtn2" onclick="goto('about')">
+              <img src="Data/Images/Icons/about.png">
+              <span id="topA2T">About</span>
+            </div>
+            <div id="topS2" class="tBtn2" onclick="goto('skills')">
+              <img src="Data/Images/Icons/skills.png">
+              <span id="topS2T">Skills</span>
+            </div>
+            <div id="topP2" class="tBtn2" onclick="goto('projects')">
+              <img src="Data/Images/Icons/projects.png">
+              <span id="topP2T">Projects</span>
+            </div>
+            <div class="tBtn2" onclick="switchTheme()">
+              <img id="topTheImg" src="Data/Images/Icons/dark.png">
+              <span id="topThe">Theme</span>
+            </div>
+            <div class="tBtn2" onclick="switchLan()">
+              <img src="Data/Images/Icons/language.png">
+              <span id="topLan">English</span>
+            </div>
+            <div class="tBtn2" onclick="toggleAchi()">
+              <img src="Data/Images/Icons/cup.png">
+              <span id="topAch">Achievements</span>
+              <dot id="topDot2" class="btnDot" style="position: absolute; top: 5px; left: 35px;"></dot>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACHIEVENTS -->
+      <div id="ach" class="achBG" onclick="toggleAchi()">
+        <div id="achMenu" class="ach" onclick="event.stopPropagation()">
+          <div></div>
+          <span id="achTit">ACHIEVEMENTS</span>
+          <div class="iBtn" style="position: absolute; top: 20px; right: 20px; border-radius: 40px;" onclick="toggleAchi()">
+            <img style="height: 15px; width: 15px;" src="Data/Images/Icons/close.png">
+          </div>
+          <div>
+            <div id="achi1" class="achi" locked>
+              <img src="Data/Images/Achievements/socials.jpg">
+              <div>
+                <div id="achi1Tit">Interested fellow</div>
+                <div id="achi1Con">Given after opening all my social links</div>
+              </div>
+              <span id="achi1Lock">LOCKED</span>
+            </div>
+            <div id="achi2" class="achi" locked>
+              <img src="Data/Images/Achievements/artyom.jpg">
+              <div>
+                <div id="achi2Tit">Best friends</div>
+                <div id="achi2Con">Given after clicking 7 times on Artyom (my gecko)</div>
+              </div>
+              <span id="achi2Lock">LOCKED</span>
+            </div>
+            <div id="achi3" class="achi" locked>
+              <img src="Data/Images/Achievements/drill.jpg">
+              <div>
+                <div id="achi3Tit">Go with the flow</div>
+                <div id="achi3Con">Given after finding the secret Drill glasses</div>
+              </div>
+              <span id="achi3Lock">LOCKED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIALS -->
+      <div id="socialsMenu" class="socials">
+        <div class="socialsLine"></div>
+        <img class="socialsButton" onclick="social('email')" src="Data/Images/Icons/email.png">
+        <img class="socialsButton" onclick="social('tiktok')" src="Data/Images/Icons/tiktok.png">
+        <img class="socialsButton" onclick="social('yt')" src="Data/Images/Icons/yt.png">
+        <img class="socialsButton" onclick="social('ig')" src="Data/Images/Icons/ig.png">
+        <img class="socialsButton" onclick="social('git')" src="Data/Images/Icons/git.png">
+        <img class="socialsButton" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
+      </div>
+
+      <!-- BALLS -->
+      <div id="balls" class="balls">
+        <div id="ball1" class="ball" checked></div>
+        <div id="ball2" class="ball"></div>
+        <div id="ball3" class="ball"></div>
+        <div id="ball4" class="ball"></div>
+      </div>
+
+      <!-- SNACKBAR -->
+      <div id="snackbar"></div>
     </div>
 
-    <div class="vc" style="gap: calc(1.5 * var(--pageGap));">
-      <div class="skBar">
-        <div>
-          <span id="skVidTit">Videogames Development</span>
-          <span id="skVidPro">Advanced</span>
-        </div>
-        <div>
-          <div style="width: var(--sk6);"></div>
-        </div>
-        <span>Unity · Unreal Engine</span>
+    <!-- ENTER -->
+    <!--div id="enter" class="enter">
+      <div id="enBox" class="enBox">
+        <div id="enBtn1" class="enBtn" onclick="enterPancoverse()">DIVE INTO THE PANCOVERSE</div>
+        <div id="enBtn2" class="enBtn" glitch >DIVE PANCOVERSE INTO THE</div>
       </div>
-      
-      <div class="skBar">
-        <div>
-          <span id="skAndTit">Android Development</span>
-          <span id="skAndPro">High</span>
-        </div>
-        <div>
-          <div style="width: var(--sk2);"></div>
-        </div>
-        <span>Android Studio</span>
+      <div style="position: absolute; bottom: 0; width: 100vw;">
+        <svg class="wave" viewBox="0 0 1440 320">
+          <path d="M0,160L48,160C96,160,192,160,288,176C384,192,480,224,576,240C672,256,768,256,864,250.7C960,245,1056,235,1152,224C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <svg class="wave" viewBox="0 0 1440 320">
+          <path d="M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,176C672,160,768,128,864,144C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <svg class="wave" viewBox="0 0 1440 320">
+          <path d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,213.3C672,203,768,213,864,224C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <div style="height: var(--waveBot); width: 100vw; bottom: 0; position: absolute; background: var(--accent); transition: height 1s;"></div>
       </div>
-      
-      <div class="skBar">
-        <div>
-          <span id="sk3dTit">3D Modeling/Printing & CAD</span>
-          <span id="sk3dPro">Medium</span>
-        </div>
-        <div>
-          <div style="width: var(--sk4);"></div>
-        </div>
-        <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
-      </div>
+    </div-->
 
-      <div class="skBar">
-        <div>
-          <span id="skWebTit">Web Development</span>
-          <span id="skWebPro">High</span>
-        </div>
-        <div>
-          <div style="width: var(--sk1);"></div>
-        </div>
-        <span>HTML · CSS · JS · ElectronJS</span>
+    <!-- HOME -->
+    <div id="home" class="page home">
+      <div id="homeMe" class="homeMe">
+        <img src="Data/Images/me.png">
+        <div></div>
       </div>
-      
-      <div class="skBar">
-        <div>
-          <span id="skUiTit">UI/UX Design</span>
-          <span id="skUiPro">Medium</span>
-        </div>
-        <div>
-          <div style="width: var(--sk3);"></div>
-        </div>
-        <span>Figma · Illustrator</span>
-      </div>
-      
-      <div class="skBar">
-        <div>
-          <span id="skArtTit">Art & Media</span>
-          <span id="skArtPro">Medium</span>
-        </div>
-        <div>
-          <div style="width: var(--sk5);"></div>
-        </div>
-        <span>Photoshop · Illustrator · Audition · Premiere</span>
-      </div>
+      <span id="homeHi" class="homeHi">Howdy! I'm</span>
+      <span id="homeTit1" class="homeTit1">ALEJANDRO PANIAGUA</span>
+      <span id="homeTit2" class="homeTit2 shadow">And I love programming and designing</span>
+      <span id="homeD&T" class="homeDT shadow">
+        <span id="homeDesc" class="homeDesc">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
+        <span id="homeType1">I consider myself</span>
+        <span id="homeType2">a 3D printing hobbyist</span><span class="homeLine">|</span>
+      </span>
+      <div id="homeAbout" class="btn2" onclick="goto('about')">See more about me!</div>
     </div>
     
-    <div id="skProj" class="btn2" onclick="goto('projects')">Check out my projects!</div>
-  </div>
-
-  <!-- PROJECTS -->
-  <div id="projects" class="page" style="justify-content: center;">
-    <div id="prTop"  class="hc" style="align-items: center; gap: 20px; margin-right: calc(42vh + 60px);">
-      <div class="paTit">
-        <span>03.&nbsp;</span>
-        <span id="prTit">My Projects</span>
-      </div>
-      <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
-    </div>
-
-    <div class="hc" style="gap: 20px; align-items: center; margin: 40px auto 0 auto;">
-      <span id="prInterest">Interested in:</span>
-      <div class="prSwitch">
-        <span id="prGames" onclick="sortProjects('videogames')">Videogames</span>
-        <div style="width: 1px; height: 30px; margin: auto 0 auto -1px; background: var(--text2); pointer-events: none;"></div>
-        <span id="prApps" onclick="sortProjects('apps')">Apps</span>
-      </div>
-    </div>
-
-    <div class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));">
-      <div id="pr1" class="pr appear">
-        <div>
-          <img id="pr1Img" src="Data/Images/Projects/assAndroid.jpg">
-        </div>
-        <div>
-          <span id="pr1Inf">Java · Android Studio · UI/UX Design</span>
-          <div>
-            <span id="pr1Tit">Oriøn Assistant (Android)</span>
-            <span id="pr1Con">
-              The idea started after Google released their assistant as I wasn't able to use it.
-              At first I made a web browser app that detected commands and then continued adding more utilities.
-              <br><br>
-              After leaving the app for some time I decided to rename it and give it a modern design in Android Studio.
-              At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.
-            </span>
+    <!-- ABOUT -->
+    <div id="about" class="page about">
+      <div id="aboutTextBox" class="aboutTextBox appear">
+        <div class="hc" style="align-items: center; gap: 20px;">
+          <div class="paTit">
+            <span>01.&nbsp;</span>
+            <span id="aboutTit">About Me</span>
           </div>
-          <div id="pr1But" class="hc" style="gap: 20px;">
-            <a id="pr1B1" class="btn" target="_blank" href="Data/Orion Assistant.apk">Download</a>
-          </div>
+          <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
         </div>
-      </div>
-  
-      <div id="pr2" class="pr appear" reverse>
-        <div>
-          <img id="pr2Img" src="Data/Images/Projects/assPC.jpg">
-        </div>
-        <div>
-          <span id="pr2Inf">Batch · HTML · CSS · JS · ElectronJS · UI/UX Design</span>
-          <div>
-            <span id="pr2Tit">Oriøn Assistant (Windows)</span>
-            <span id="pr2Con">
-              Some years ago I used to carry my apps and games on a USB to be able to use them everywhere.
-              Since plugging in a drive changes it's letter shortcuts break, so I had to come up with a solution which ended up being a batch launcher.
-              <br><br>
-              After that I wanted to go a bit further with a UI so I started the Oriøn Launcher project using Electron.js. 
-              After some updates I decided to rename it to Oriøn Assistant to match the mobile app and add compatibility between them.
-              Despite the apps that come installed like the games library, there is support for modules so everyone can make their own.
-            </span>
-          </div>
-          <div id="pr2But" class="hc" style="gap: 20px;">
-            <a id="pr2B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Orion-Assistant">Oriøn Assistant</a>
-            <a id="pr2B2" class="btn" target="_blank" href="https://github.com/BOTPanzer/USB-Launcher">Batch Launchers</a>
-          </div>
-        </div>
+        <span style="text-align: justify;">
+          <span id="aboutDesc1">Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.</span>
+          <br><br>
+          <span id="aboutDesc2">I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.</span>
+        </span>
+        <div id="aboutSkills" class="btn2" onclick="goto('skills')">Check out my skills!</div>
       </div>
 
-      <div id="pr3" class="pr appear">
-        <div>
-          <img id="pr3Img" src="Data/Images/Projects/frame.jpg">
-        </div>
-        <div>
-          <span id="pr3Inf">HTML · CSS · JS · UI/UX Design</span>
-          <div>
-            <span id="pr3Tit">Oriøn Framework</span>
-            <span id="pr3Con">
-              Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
-              This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
-              <br><br>
-              Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.
-            </span>
-          </div>
-          <div id="pr3But" class="hc" style="gap: 20px;">
-            <a id="pr3B1" class="btn" target="_blank" href="https://botpanzer.github.io/Orion-Framework">See documentation</a>
-          </div>
-        </div>
-      </div>
-  
-      <div id="pr4" class="pr appear" reverse>
-        <div>
-          <img id="pr4Img" src="Data/Images/Projects/hoodie.jpg">
-        </div>
-        <div>
-          <span id="pr4Inf">Illustrator · Photoshop · Sketching</span>
-          <div>
-            <span id="pr4Tit">Futuristic Hoodie</span>
-            <span id="pr4Con">
-              One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
-              It isn't exactly streetwear but it's indeed a futuristic hoodie design.
-              I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
-              Then I made a preview in Photoshop of how the hoodie would look like if it was real.
-              <br><br>
-              I am planning on printing it, but summer is starting at the time of writing this so I'll have to wait until it gets colder.
-            </span>
-          </div>
-          <div id="pr4But" class="hc" style="gap: 20px;"></div>
-        </div>
-      </div>
-
-      <div id="prSmalls" class="hc" style="gap: calc(5 * var(--pageGap)); position: relative; flex-wrap: wrap;">
-        <div id="pr5" class="pr2 appear">
-          <img id="pr5Img" src="Data/Images/Projects/mod.jpg"> 
-          <span id="pr5Tit">PC Modding</span>
-          <span id="pr5Con">
-            Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
-            <br><br>
-            I began by extracting 3D models from some of my favorite games since I couldn't find them online.
-            I printed a deathclaw figure and made a large rock model to place inside the case.
-            Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
-            <br><br>
-            After I printing them I painted and placed them in my PC.
-          </span>
-          <div id="pr5But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
-          <span id="pr5Inf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
-        </div>
-
-        <div id="pr6" class="pr2 appear">
-          <img id="pr6Img" src="Data/Images/Projects/usb.jpg"> 
-          <span id="pr6Tit">GTX Usb</span>
-          <span id="pr6Con">
-            Carrying apps and games in a USB isn't a bad idea, but the memory's speed can cause problems.
-            To fix this I had the idea of adding a cooler, so i started designing case which ended up having the shape of an Nvidia GTX graphics card.
-            <br><br>
-            After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
-            Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.
-          </span>
-          <div id="pr6But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
-          <span id="pr6Inf">3D Modeling · 3D Printing · Electronics · DIY</span>
-        </div>
-
-        <div id="pr7" class="pr2 appear">
-          <img id="pr7Img" src="Data/Images/Projects/disbots.jpg"> 
-          <span id="pr7Tit">Discord Bots</span>
-          <span id="pr7Con">
-            After checking out the cool things you can do with discord bots I got the idea of creating my own.
-            <br><br>
-            At first I created a simple bot called Syrup and, after becoming better at making them, I created a more advanced version called Coscu.
-            This new version could jump into a call with people and play sounds so I used Adobe Audition to edit them and make them sound better.
-          </span>
-          <div id="pr7But" class="hc" style="margin-top: -20px; gap: 20px;">
-            <div id="pr7B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Syrup">Syrup Repository</div>
-          </div>
-          <span id="pr7Inf">JS · Audition · Discord API</span>
-        </div>
-
-        <div id="pr8" class="pr2 appear">
-          <img id="pr8Img" src="Data/Images/Projects/t45.jpg"> 
-          <span id="pr8Tit">T45 Helmet</span>
-          <span id="pr8Con">
-            Fallout is one of my favorite videogame series and, in it's universe, people use technologically advanced full-body suits called power armors.
-            <br><br>
-            As I found a helmet 3D model I decided to print it in small pieces to make my own. 
-            After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.
-          </span>
-          <div id="pr8But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
-          <span id="pr8Inf">3D Printing · DIY</span>
-        </div>
+      <div id="aboutImgBox" class="aboutImgBox appear">
+        <div id="aboutImgName" class="aboutImgName"></div>
+        <img id="aboutImg" class="aboutImg" onclick="abClick()">
       </div>
     </div>
-  </div>
 
-  <!-- BOTTOM -->
-  <div id="bot" class="vc cc" style="width: calc(100% - 40px); margin-top: 5vh; padding: 20px; gap: 10px; font-size: 1vw;">
-    <div id="botFrom" style="font-size: 1em; font-family: lemon;">Arcane</div>
-    <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
-    <div id="botSocials" class="hc" style="margin-top: 10px; gap: 20px;">
-      <img class="soSocial" onclick="social('email')" src="Data/Images/Icons/email.png">
-      <img class="soSocial" onclick="social('ig')" src="Data/Images/Icons/ig.png">
-      <img class="soSocial" onclick="social('git')" src="Data/Images/Icons/git.png">
-      <img class="soSocial" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
+    <!-- SKILLS -->
+    <div id="skills" class="page" style="justify-content: center; gap: calc(2 * var(--pageGap));">
+      <div id="skTop" class="vc" style="margin-right: calc(42vh + 60px);">
+        <div class="hc" style="align-items: center; gap: 20px;">
+          <div class="paTit">
+            <span>02.&nbsp;</span>
+            <span id="skTit">My Skills</span>
+          </div>
+          <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
+        </div>
+
+        <span id="skDesc" style="margin-top: 40px; text-align: justify;">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
+      </div>
+
+      <div class="vc" style="gap: calc(1.5 * var(--pageGap));">
+        <div class="skBar">
+          <div>
+            <span id="skVidTit">Videogames Development</span>
+            <span id="skVidPro">Advanced</span>
+          </div>
+          <div>
+            <div style="width: var(--sk6);"></div>
+          </div>
+          <span>Unity · C# · C++</span>
+        </div>
+        
+        <div class="skBar">
+          <div>
+            <span id="skAndTit">Android Development</span>
+            <span id="skAndPro">High</span>
+          </div>
+          <div>
+            <div style="width: var(--sk2);"></div>
+          </div>
+          <span>Android Studio · Java</span>
+        </div>
+        
+        <div class="skBar">
+          <div>
+            <span id="sk3dTit">3D Modeling/Printing & CAD</span>
+            <span id="sk3dPro">Medium</span>
+          </div>
+          <div>
+            <div style="width: var(--sk4);"></div>
+          </div>
+          <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
+        </div>
+
+        <div class="skBar">
+          <div>
+            <span id="skWebTit">Web Development</span>
+            <span id="skWebPro">High</span>
+          </div>
+          <div>
+            <div style="width: var(--sk1);"></div>
+          </div>
+          <span>HTML · CSS · JS · ElectronJS</span>
+        </div>
+        
+        <div class="skBar">
+          <div>
+            <span id="skUiTit">UI/UX Design</span>
+            <span id="skUiPro">Medium</span>
+          </div>
+          <div>
+            <div style="width: var(--sk3);"></div>
+          </div>
+          <span>Figma · Illustrator</span>
+        </div>
+        
+        <div class="skBar">
+          <div>
+            <span id="skArtTit">Art & Media</span>
+            <span id="skArtPro">Medium</span>
+          </div>
+          <div>
+            <div style="width: var(--sk5);"></div>
+          </div>
+          <span>Photoshop · Illustrator · Audition · Premiere</span>
+        </div>
+      </div>
+      
+      <div id="skProj" class="btn2" onclick="goto('projects')">Check out my projects!</div>
     </div>
-  </div>
-</body>
 
+    <!-- PROJECTS -->
+    <div id="projects" class="page" style="justify-content: center;">
+      <div id="prTop"  class="hc" style="align-items: center; gap: 20px; margin-right: calc(42vh + 60px);">
+        <div class="paTit">
+          <span>03.&nbsp;</span>
+          <span id="prTit">My Projects</span>
+        </div>
+        <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
+      </div>
 
+      <div class="hc" style="gap: 20px; align-items: center; margin: 40px auto 0 auto;">
+        <span id="prInterest">Interested in:</span>
+        <div class="prSwitch">
+          <span id="prGames" onclick="sortProjects('videogames')">Videogames</span>
+          <div style="width: 1px; height: 30px; margin: auto 0 auto -1px; background: var(--text2); pointer-events: none;"></div>
+          <span id="prApps" onclick="sortProjects('apps')">Apps</span>
+        </div>
+      </div>
 
-
-
-
-
-
-
-
-<script>
-   /*$        /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$$$$$$$
-  | $$       /$$__  $$| $$$ | $$ /$$__  $$| $$  | $$ /$$__  $$ /$$__  $$| $$_____/
-  | $$      | $$  \ $$| $$$$| $$| $$  \__/| $$  | $$| $$  \ $$| $$  \__/| $$      
-  | $$      | $$$$$$$$| $$ $$ $$| $$ /$$$$| $$  | $$| $$$$$$$$| $$ /$$$$| $$$$$   
-  | $$      | $$__  $$| $$  $$$$| $$|_  $$| $$  | $$| $$__  $$| $$|_  $$| $$__/   
-  | $$      | $$  | $$| $$\  $$$| $$  \ $$| $$  | $$| $$  | $$| $$  \ $$| $$      
-  | $$$$$$$$| $$  | $$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$/| $$$$$$$$
-  |________/|__/  |__/|__/  \__/ \______/  \______/ |__/  |__/ \______/ |_______*/
-  
-  const lans = {
-    en: {
-      tag: 'en', 
-      name: 'Pancoverse', 
-      ach: {
-        tit: 'ACHIEVEMENTS',
-        lock: 'LOCKED',
-        a1: {
-          tit: 'Interested Fellow',
-          con: 'Given after opening all my social links'
-        },
-        a2: {
-          tit: 'Best Friends',
-          con: 'Given after finding Artyom (my first gecko)'
-        },
-        a3: {
-          tit: 'Go with the Flow',
-          con: 'Given after changing theme 6 times'
-        }
-      },
-      top: {
-        h: 'Home',
-        a: 'About',
-        s: 'Skills',
-        p: 'Projects',
-        t: 'Theme',
-        l: 'English',
-        ac: 'Achievements'
-      },
-      e: {
-        b1: 'DIVE INTO THE PANCOVERSE',
-        b2: 'DIVE PANCOVERSE INTO THE'
-      },
-      h: {
-        hi: "Howdy! I'm",
-        tit1: 'ALEJANDRO PANIAGUA',
-        tit2: 'And I love programming and designing',
-        desc: "I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.",
-        type1: 'I consider myself',
-        type2: [
-          'an android developer', 
-          'an indie game developer', 
-          'a web developer',
-          'a 3D printing hobbyist'
-        ],
-        a: 'See more about me!'
-      },
-      a: {
-        tit: 'About Me',
-        desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who loves designing and programming indie games and multiplatform apps.",
-        desc2: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
-        s: 'Check out my skills!',
-        names: ['Artyom',
-                'Canary Islands',
-                'Sleeping Cat',
-                'Finisterre',
-                'Mallorca',
-                'Otivar',
-                'River Flower',
-                'Lennon Wall']
-      },
-      s: {
-        tit: 'My Skills',
-        desc: "I've been interested in the world of technology ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:",
-        videogames: 'Videogames Development',
-        android: 'Android Development',
-        web: 'Web Development',
-        ui: 'UI/UX Design',
-        d3: '3D Modeling/Printing &  CAD',
-        art: 'Art & Media',
-        basic: 'Basic',
-        medium: 'Medium',
-        high: 'High',
-        advanced: 'Advanced',
-        expert: 'Expert',
-        p: 'Check out my projects!'
-      },
-      p: {
-        tit: 'My Projects',
-        int: {
-          int: 'Interested in:',
-          v: 'Videogames',
-          a: 'Apps'
-        },
-        asisAn: {
-          inf: 'Java · Android Studio · UI/UX Design',
-          tit: 'Oriøn Assistant (Android)',
-          con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
+      <div class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));">
+        <div id="pr1" class="pr appear">
+          <div>
+            <span id="pr1Tag">Personal Project</span>
+            <img id="pr1Img" src="Data/Images/Projects/assAndroid.jpg">
+          </div>
+          <div>
+            <span id="pr1Inf">Java · Android Studio · UI/UX Design</span>
+            <div>
+              <span id="pr1Tit">Oriøn Assistant (Android)</span>
+              <span id="pr1Con">
+                The idea started after Google released their assistant as I wasn't able to use it.
+                At first I made a web browser app that detected commands and then continued adding more utilities.
                 <br><br>
-                At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
-                After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
-                At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and an app to send data to the Windows version of the app.`,
-          b1: 'Download v1.9.0'
-        },
-        asisPC: {
-          inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · UI/UX Design',
-          tit: 'Oriøn Assistant (Windows)',
-          con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML apps called modules.
+                After leaving the app for some time I decided to rename it and give it a modern design in Android Studio.
+                At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.
+              </span>
+            </div>
+            <div id="pr1But" class="hc" style="gap: 20px;">
+              <a id="pr1B1" class="btn" target="_blank" href="Data/Orion Assistant.apk">Download</a>
+            </div>
+          </div>
+        </div>
+    
+        <div id="pr2" class="pr appear" reverse>
+          <div>
+            <span id="pr2Tag">Personal Project</span>
+            <img id="pr2Img" src="Data/Images/Projects/assPC.jpg">
+          </div>
+          <div>
+            <span id="pr2Inf">Batch · HTML · CSS · JS · ElectronJS · UI/UX Design</span>
+            <div>
+              <span id="pr2Tit">Oriøn Assistant (Windows)</span>
+              <span id="pr2Con">
+                Some years ago I used to carry my apps and games on a USB to be able to use them everywhere.
+                Since plugging in a drive changes it's letter shortcuts break, so I had to come up with a solution which ended up being a batch launcher.
                 <br><br>
-                I like to carry my apps on a USB but plugging drives in different computers changes their letter and shortcuts break, so I had to come up with a solution.
-                The first iteration of the assistant was a command line app that replaced path letters with "?:\\", which would use the drive it was installed on.
-                <br><br>
-                After that I wanted to go further with a UI, so I started a new version called Oriøn Launcher using Electron.js. 
-                Some updates later I renamed it to Oriøn Assistant to match the Android app and added compatibility between them.`,
-          b1: 'Oriøn Assistant',
-          b2: 'Batch Launcher'
-        },
-        frame: {
-          inf: 'HTML · CSS · JS · VS Code · UI/UX Design',
-          tit: 'Oriøn Framework',
-          con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
+                After that I wanted to go a bit further with a UI so I started the Oriøn Launcher project using Electron.js. 
+                After some updates I decided to rename it to Oriøn Assistant to match the mobile app and add compatibility between them.
+                Despite the apps that come installed like the games library, there is support for modules so everyone can make their own.
+              </span>
+            </div>
+            <div id="pr2But" class="hc" style="gap: 20px;">
+              <a id="pr2B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Orion-Assistant">Oriøn Assistant</a>
+              <a id="pr2B2" class="btn" target="_blank" href="https://github.com/BOTPanzer/USB-Launcher">Batch Launchers</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="pr3" class="pr appear">
+          <div>
+            <span id="pr3Tag">Personal Project</span>
+            <img id="pr3Img" src="Data/Images/Projects/frame.jpg">
+          </div>
+          <div>
+            <span id="pr3Inf">HTML · CSS · JS · UI/UX Design</span>
+            <div>
+              <span id="pr3Tit">Oriøn Framework</span>
+              <span id="pr3Con">
+                Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
                 This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
                 <br><br>
-                Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
-          b1: 'See documentation'
-        },
-        hoodie: {
-          inf: 'Illustrator · Photoshop · Sketching',
-          tit: 'Futuristic Hoodie',
-          con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
+                Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.
+              </span>
+            </div>
+            <div id="pr3But" class="hc" style="gap: 20px;">
+              <a id="pr3B1" class="btn" target="_blank" href="https://botpanzer.github.io/Orion-Framework">See documentation</a>
+            </div>
+          </div>
+        </div>
+    
+        <div id="pr4" class="pr appear" reverse>
+          <div>
+            <span id="pr4Tag">Personal Project</span>
+            <img id="pr4Img" src="Data/Images/Projects/hoodie.jpg">
+          </div>
+          <div>
+            <span id="pr4Inf">Illustrator · Photoshop · Sketching</span>
+            <div>
+              <span id="pr4Tit">Futuristic Hoodie</span>
+              <span id="pr4Con">
+                One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
                 It isn't exactly streetwear but it's indeed a futuristic hoodie design.
                 I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
-                Then I made a preview in Photoshop of how the hoodie would look like if it was real.`
-        },
-        mod:{
-          inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
-          tit: 'PC Modding',
-          con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
+                Then I made a preview in Photoshop of how the hoodie would look like if it was real.
                 <br><br>
-                I began by extracting 3D models from some of my favorite games since I couldn't find them online.
-                I printed a deathclaw figure and made a large rock model to place inside the case.
-                Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
-                <br><br>
-                After printing them, I painted and placed them on my PC.`
-        },
-        usb:{
-          inf: '3D Modeling · 3D Printing · Electronics · DIY',
-          tit: 'GTX USB',
-          con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
-                To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
-                <br><br>
-                After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
-                Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
-        },
-        dis:{
-          inf: 'JS · VS Code · Discord API',
-          tit: 'Discord Bots',
-          con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
-                <br><br>
-                After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.`,
-          b1: 'Syrup Repository'
-        },
-        t45:{
-          inf: '3D Printing · DIY',
-          tit: 'T45 Helmet',
-          con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
-                <br><br>
-                As I found a helmet 3D model I decided to print it in small pieces to make my own. 
-                After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
-        },
-        otters:{
-          inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
-          tit: "Otter's Odyssey",
-          con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
-                <br><br>
-                It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
-          b1:  "Download Otter's Odyssey"
-        },
-        vapor:{
-          inf: 'Unity · VS Code · Illustrator · Photoshop',
-          tit: "Vaporcade",
-          con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
-                <br><br>
-                Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
-          b1:  "Download Vaporcade"
-        },
-        papa:{
-          inf: 'Unity · VS Code · Illustrator · Photoshop',
-          tit: "Cooking Papa",
-          con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
-                <br><br>
-                The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.`,
-          b1:  "Download Cooking Papa"
-        },
-        spirits:{
-          inf: 'Unity · VS Code · Illustrator · Photoshop',
-          tit: "Twin Spirits",
-          con: `Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
-                <br><br>
-                On the way you will find puzzles in which you will have to cooperate in order to continue.`,
-          b1:  "Download Twin Spirits"
-        },
-        memory:{
-          inf: 'Unity · VS Code · Photoshop · Illustrator',
-          tit: "Memory Shift",
-          con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
-                <br><br>
-                Inspired by Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
-                <br><br>
-                Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
-          b1:  "Download Memory Shift"
-        },
-        lmdshow:{
-          inf: 'Unity · Blender · VS Code · Photoshop',
-          tit: "Escape From LMDShow",
-          con: `Thank you IlloJuan for <a href="https://www.twitch.tv/illojuan/v/1969627398?sr=a&t=4566s" target="_blank">playing</a>!
-                <br><br>
-                Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
-                <br><br>
-                To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
-          b1:  "Download Escape From LMDShow"
-        },
-        nogame:{
-          inf: 'Unity · Blender · VS Code · Photoshop',
-          tit: "Esto AÚN no es un Juego",
-          con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
-                <br><br>
-                In Esto AÚN no es un juego you will help a programer raccoon finish his game before his gamejam ends.
-                <br><br>
-                Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
-                <br><br>
-                Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
-          b1:  "Download Esto AÚN no es un Juego"
-        }
-      },
-      bot: {
-        mail: 'Email copied to clipboard'
-      }
-    },
-    es:{
-      tag: 'es', 
-      name: 'Pancoverso', 
-      ach: {
-        tit: 'LOGROS',
-        lock: 'BLOQUEADO',
-        a1: {
-          tit: 'Chavalin Interesado',
-          con: 'Otorgado por abrir todos los links de mis redes'
-        },
-        a2: {
-          tit: 'Mejores Amigos',
-          con: 'Otorgado por encontrar a Artyom (mi primer gecko)'
-        },
-        a3: {
-          tit: 'Ves con el Flow',
-          con: 'Otorgado por cambiar el tema 6 veces'
-        }
-      },
-      top: {
-        h: 'Inicio',
-        a: 'Sobre Mi',
-        s: 'Habilidades',
-        p: 'Proyectos',
-        t: 'Tema',
-        l: 'Español',
-        ac: 'Logros'
-      },
-      e: {
-        b1: 'ENTRAR EN EL PANCOVERSO',
-        b2: 'ENTRAR PANCOVERSO EN EL'
-      },
-      h: {
-        hi: 'Hey! Soy',
-        tit1: 'ALEJANDRO PANIAGUA',
-        tit2: 'Y me encanta programar y diseñar',
-        desc: 'Soy un estudiante español, actualmente estudiando un grado de desarrollo de videojuegos, que ha desarrollado todo tipo de capacidades desde pequeño.',
-        type1: 'Me considero',
-        type2: [
-          'un desarrollador de android', 
-          'un desarrollador de juegos indie', 
-          'un desarrollador web',
-          'un fan de la impresión 3D'
-        ],
-        a: '¡Ver más sobre mi!'
-      },
-      a: {
-        tit: 'Sobre Mi',
-        desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta diseñar y programar juegos indie y aplicaciones multiplataforma.",
-        desc2: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
-        s: '¡Ver mis habilidades!',
-        names: ['Artyom',
-                'Islas Canarias',
-                'Gato Durmiendo',
-                'Finisterre',
-                'Mallorca',
-                'Otivar',
-                'Flor de Rio',
-                'Muro Lennon']
-      },
-      s: {
-        tit: 'Mis Habilidades',
-        desc: "He estado interesado en el mundo de la tecnología desde pequeño y, gracias a eso, he expandido mis habilidades alrededor de una gran variedad de temas como:",
-        videogames: 'Desarrollo de Videojuegos',
-        android: 'Desarrollo de Android',
-        web: 'Desarrollo Web',
-        ui: 'Diseño de UI/UX',
-        d3: 'Modelado/Impresión 3D & CAD',
-        art: 'Arte & Media',
-        basic: 'Basico',
-        medium: 'Medio',
-        high: 'Alto',
-        advanced: 'Advanzado',
-        expert: 'Experto',
-        p: '¡Ver mis proyectos!'
-      },
-      p: {
-        tit: 'Mis Proyectos',
-        int: {
-          int: 'Intesado en:',
-          v: 'Videojuegos',
-          a: 'Apps'
-        },
-        asisAn: {
-          inf: 'Java · Android Studio · Diseño UI/UX',
-          tit: 'Oriøn Assistant (Android)',
-          con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
-                <br><br>
-                Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
-                Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
-                Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un buscador, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
-          b1: 'Descargar v1.9.0'
-        },
-        asisPC: {
-          inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · Diseño UI/UX',
-          tit: 'Oriøn Assistant (Windows)',
-          con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML custom llamadas módulos.
-                <br><br>
-                Suelo llevar mis apps en un USB pero al conectarlo a diferentes ordenadores la letra cambia y los accesos directos se rompen, por lo que tuve que llegar a una solución.
-                La primera iteración del asistente era una app de comandos que reemplaza la letra de las rutas con "?:\\", lo que usaría el disco donde estaba instalado.
-                <br><br>
-                Tras esto quise ir más allá con una UI, por lo que comencé una nueva versión llamada Oriøn Launcher con Electron.js.
-                Algunas actualizaciones después lo renombré a Oriøn Assistant para que coincidiera con la app de Android y añadí compatibilidad entre ellas.`,
-          b1: 'Asistente Oriøn',
-          b2: 'Launcher Batch'
-        },
-        frame: {
-          inf: 'HTML · CSS · JS · VS Code · Diseño UI/UX',
-          tit: 'Framework Oriøn',
-          con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
-                Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
-                <br><br>
-                Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
-          b1: 'Ver documentación'
-        },
-        hoodie: {
-          inf: 'Illustrator · Photoshop · Dibujo',
-          tit: 'Sudadera Futurística',
-          con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
-                No es exactamente streetwear, pero sí es una sudadera futuristica.
-                Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
-                Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.`
-        },        
-        mod:{
-          inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
-          tit: 'PC Modding',
-          con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
-                <br><br>
-                Empecé extrayendo modelos 3D de algunos de mis juegos favoritos ya que no los podía encontrar online.
-                Imprimí una figura de deathclaw e hice un modelo de roca larga para colocar dentro del PC.
-                Después continúe diseñando las piezas exteriores, basadas en Cyberpunk 2077, para más tarde modelarlas e imprimirlas.
-                <br><br>
-                Tras imprimirlas las pinté y coloqué en el PC.`
-        },
-        usb:{
-          inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
-          tit: 'USB GTX ',
-          con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
-                Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
-                <br><br>
-                Después de hacer agujeros para la ventilación, imprimí la carcasa y coloqué un ventilador pequeño alimentado por un conector en el lado.
-                Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
-        },
-        dis:{
-          inf: 'JS · VS Code · API de Discord',
-          tit: 'Bots de Discord',
-          con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
-                <br><br>
-                Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.`,
-          b1: 'Repositorio de Syrup'
-        },
-        t45:{
-          inf: 'Impresión 3D · Manualidades',
-          tit: 'Casco T45',
-          con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
-                <br><br>
-                Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
-                Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
-        },
-        otters:{
-          inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
-          tit: "Otter's Odyssey",
-          con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
-                <br><br>
-                Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
-          b1:  "Descargar Otter's Odyssey"
-        },
-        vapor:{
-          inf: 'Unity · VS Code · Illustrator · Photoshop',
-          tit: "Vaporcade",
-          con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
-                <br><br>
-                Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
-          b1:  "Descargar Vaporcade"
-        },
-        papa:{
-          inf: 'Unity · VS Code · Illustrator · Photoshop',
-          tit: "Cooking Papa",
-          con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
-                <br><br>
-                Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.`,
-          b1:  "Descargar Cooking Papa"
-        },
-        spirits:{
-          inf: 'Unity · VS Code · Illustrator · Photoshop',
-          tit: "Twin Spirits",
-          con: `Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
-                <br><br>
-                Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
-          b1:  "Descargar Twin Spirits"
-        },
-        memory:{
-          inf: 'Unity · VS Code · Photoshop · Illustrator',
-          tit: "Memory Shift",
-          con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
-                <br><br>
-                Inspirado por Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
-                <br><br>
-                Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
-          b1:  "Descargar Memory Shift"
-        },
-        lmdshow:{
-          inf: 'Unity · Blender · VS Code · Photoshop',
-          tit: "Escape From LMDShow",
-          con: `¡Gracias por <a href="https://www.twitch.tv/illojuan/v/1969627398?sr=a&t=4566s" target="_blank">jugar</a> IlloJuan!
-                <br><br>
-                Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
-                <br><br>
-                Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
-          b1:  "Descargar Escape From LMDShow"
-        },
-        nogame:{
-          inf: 'Unity · Blender · VS Code · Photoshop',
-          tit: "Esto AÚN no es un Juego",
-          con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
-                <br><br>
-                En Esto AÚN no es un juego ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
-                <br><br>
-                Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
-                <br><br>
-                Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
-          b1:  "Descargar Esto AÚN no es un Juego"
-        }
-      },
-      bot: {
-        mail: 'Email copiado al portapapeles'
-      }
-    }
-  }
-  
-  //DEFAULT LANGUAGE (SPANISH)
-  let lan = lans.es
-  //CHECK FOR SAVED LANGUAGE
-  let lanSaved = localStorage.getItem('pancoLan')
-  if (lanSaved == 'en') {
-    //SAVED LANGUAGE IS ENGLISH
-    lan = lans.en
-  } else if (lanSaved == null) {
-    //NO LANGUAGE -> CHECK COMPUTER LANGUAGE
-    let lang = navigator.language || navigator.userLanguage
-    //COMPUTER LANGUAGE IS ENGLISH
-    if (lang.startsWith('en')) lan = lans.en
-    //SAVE LANGUAGE
-    localStorage.setItem('pancoLan', lan.tag)
-  }
+                I am planning on printing it, but summer is starting at the time of writing this so I'll have to wait until it gets colder.
+              </span>
+            </div>
+            <div id="pr4But" class="hc" style="gap: 20px;"></div>
+          </div>
+        </div>
 
+        <div id="prSmalls" class="hc" style="gap: calc(5 * var(--pageGap)); position: relative; flex-wrap: wrap;">
+          <div id="pr5" class="pr2 appear">
+            <span id="pr5Tag">Personal Project</span>
+            <img id="pr5Img" src="Data/Images/Projects/mod.jpg"> 
+            <span id="pr5Tit">PC Modding</span>
+            <span id="pr5Con">
+              Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
+              <br><br>
+              I began by extracting 3D models from some of my favorite games since I couldn't find them online.
+              I printed a deathclaw figure and made a large rock model to place inside the case.
+              Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
+              <br><br>
+              After I printing them I painted and placed them in my PC.
+            </span>
+            <div id="pr5But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
+            <span id="pr5Inf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
+          </div>
 
-  //ABOUT IMAGE INDEX & ORDER (SHUFFLE ALL & ADD ARTYOM LAST, NEEDED HERE FOR SETLAN TO WORK)
-  let abIndex = 0
-  let abOrder = []
-  for (let i = 1; i < lan.a.names.length; i++) { abOrder.push(i) }
-  for (let i = abOrder.length - 1; i > 0; i--) {
-    let randomIndex = Math.floor(Math.random() * i);
-    [abOrder[i], abOrder[randomIndex]] = [abOrder[randomIndex], abOrder[i]];
-  }
-  abOrder.push(0)
+          <div id="pr6" class="pr2 appear">
+            <span id="pr6Tag">Personal Project</span>
+            <img id="pr6Img" src="Data/Images/Projects/usb.jpg"> 
+            <span id="pr6Tit">GTX Usb</span>
+            <span id="pr6Con">
+              Carrying apps and games in a USB isn't a bad idea, but the memory's speed can cause problems.
+              To fix this I had the idea of adding a cooler, so i started designing case which ended up having the shape of an Nvidia GTX graphics card.
+              <br><br>
+              After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
+              Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.
+            </span>
+            <div id="pr6But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
+            <span id="pr6Inf">3D Modeling · 3D Printing · Electronics · DIY</span>
+          </div>
+
+          <div id="pr7" class="pr2 appear">
+            <span id="pr7Tag">Personal Project</span>
+            <img id="pr7Img" src="Data/Images/Projects/disbots.jpg"> 
+            <span id="pr7Tit">Discord Bots</span>
+            <span id="pr7Con">
+              After checking out the cool things you can do with discord bots I got the idea of creating my own.
+              <br><br>
+              At first I created a simple bot called Syrup and, after becoming better at making them, I created a more advanced version called Coscu.
+              This new version could jump into a call with people and play sounds so I used Adobe Audition to edit them and make them sound better.
+            </span>
+            <div id="pr7But" class="hc" style="margin-top: -20px; gap: 20px;">
+              <div id="pr7B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Syrup">Syrup Repository</div>
+            </div>
+            <span id="pr7Inf">JS · Audition · Discord API</span>
+          </div>
+
+          <div id="pr8" class="pr2 appear">
+            <span id="pr8Tag">Personal Project</span>
+            <img id="pr8Img" src="Data/Images/Projects/t45.jpg"> 
+            <span id="pr8Tit">T45 Helmet</span>
+            <span id="pr8Con">
+              Fallout is one of my favorite videogame series and, in it's universe, people use technologically advanced full-body suits called power armors.
+              <br><br>
+              As I found a helmet 3D model I decided to print it in small pieces to make my own. 
+              After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.
+            </span>
+            <div id="pr8But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
+            <span id="pr8Inf">3D Printing · DIY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div id="bot" class="vc cc" style="width: calc(100% - 40px); margin-top: 5vh; padding: 20px; gap: 10px; font-size: 1vw;">
+      <div id="botFrom" style="font-size: 1em; font-family: lemon;">Arcane</div>
+      <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
+      <div id="botSocials" class="botSocials">
+        <img class="socialsButton" onclick="social('email')" src="Data/Images/Icons/email.png">
+        <img class="socialsButton" onclick="social('tiktok')" src="Data/Images/Icons/tiktok.png">
+        <img class="socialsButton" onclick="social('yt')" src="Data/Images/Icons/yt.png">
+        <img class="socialsButton" onclick="social('ig')" src="Data/Images/Icons/ig.png">
+        <img class="socialsButton" onclick="social('git')" src="Data/Images/Icons/git.png">
+        <img class="socialsButton" onclick="social('itchio')" src="Data/Images/Icons/itchio.png">
+      </div>
+    </div>
+  </body>
+
   
 
-  //CREATED PROJECTS (NEEDED HERE FOR SETLAN TO WORK)
-  let projects = 0
 
 
-  //SET LANGUAGE
-  setLan()
-  function setLan() {
-    //ACHIEVEMENTS
-    document.getElementById('achTit').innerText = lan.ach.tit
-    document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
-    document.getElementById('achi1Con').innerText = lan.ach.a1.con
-    document.getElementById('achi1Lock').innerText = lan.ach.lock
-    document.getElementById('achi2Tit').innerText = lan.ach.a2.tit
-    document.getElementById('achi2Con').innerText = lan.ach.a2.con
-    document.getElementById('achi2Lock').innerText = lan.ach.lock
-    document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
-    document.getElementById('achi3Con').innerText = lan.ach.a3.con
-    document.getElementById('achi3Lock').innerText = lan.ach.lock
-    //ENTER
-    document.getElementById('enBtn1').innerText = lan.e.b1
-    document.getElementById('enBtn2').innerText = lan.e.b2
-    //TOP
-    document.getElementById('topH1T').innerText = lan.top.h
-    document.getElementById('topH2T').innerText = lan.top.h
-    document.getElementById('topA1T').innerText = lan.top.a
-    document.getElementById('topA2T').innerText = lan.top.a
-    document.getElementById('topS1T').innerText = lan.top.s
-    document.getElementById('topS2T').innerText = lan.top.s
-    document.getElementById('topP1T').innerText = lan.top.p
-    document.getElementById('topP2T').innerText = lan.top.p
-    document.getElementById('topThe').innerText = lan.top.t
-    document.getElementById('topLan').innerText = lan.top.l
-    document.getElementById('topAch').innerText = lan.top.ac
-    //HOME
-    document.getElementById('hoHi').innerText = lan.h.hi
-    document.getElementById('hoTit1').innerText = lan.h.tit1
-    document.getElementById('hoTit2').innerText = lan.h.tit2
-    document.getElementById('hoDesc').innerText = lan.h.desc
-    document.getElementById('hoType1').innerText = lan.h.type1
-    document.getElementById('hoAbout').innerText = lan.h.a
-    //ABOUT
-    document.getElementById('abTit').innerText = lan.a.tit
-    document.getElementById('abDesc1').innerText = lan.a.desc1
-    document.getElementById('abDesc2').innerText = lan.a.desc2
-    document.getElementById('abSkills').innerText = lan.a.s
-    document.getElementById('abName').innerText = lan.a.names[abOrder[abIndex]]
-    //SKILLS
-    document.getElementById('skTit').innerText = lan.s.tit
-    document.getElementById('skDesc').innerText = lan.s.desc
-    document.getElementById('skVidTit').innerText = lan.s.videogames
-    document.getElementById('skVidPro').innerText = lan.s.advanced
-    document.getElementById('skAndTit').innerText = lan.s.android
-    document.getElementById('skAndPro').innerText = lan.s.high
-    document.getElementById('sk3dTit').innerText = lan.s.d3
-    document.getElementById('sk3dPro').innerText = lan.s.medium
-    document.getElementById('skWebTit').innerText = lan.s.web
-    document.getElementById('skWebPro').innerText = lan.s.high
-    document.getElementById('skUiTit').innerText = lan.s.ui
-    document.getElementById('skUiPro').innerText = lan.s.medium
-    document.getElementById('skArtTit').innerText = lan.s.art
-    document.getElementById('skArtPro').innerText = lan.s.medium
-    document.getElementById('skProj').innerText = lan.s.p
-    //PROJECTS
-    document.getElementById('prTit').innerText = lan.p.tit
-    document.getElementById('prInterest').innerText = lan.p.int.int
-    document.getElementById('prGames').innerText = lan.p.int.v
-    document.getElementById('prApps').innerText = lan.p.int.a
-    sortProjects(localStorage.getItem('pancoPrSort'), false)
-  }
-
-
-  //SWITCH LANGUAGE
-  function switchLan() {
-    toggleMenu()
-    if (lan == lans.en) 
-      lan = lans.es
-    else
-      lan = lans.en
-    localStorage.setItem('pancoLan', lan.tag)
-    setLan()
-    changeTitle()
-  }
-
-
-
-
-
-
-
-   /*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
-  | $$$    /$$$ /$$__  $$|_  $$_/| $$$ | $$
-  | $$$$  /$$$$| $$  \ $$  | $$  | $$$$| $$
-  | $$ $$/$$ $$| $$$$$$$$  | $$  | $$ $$ $$
-  | $$  $$$| $$| $$__  $$  | $$  | $$  $$$$
-  | $$\  $ | $$| $$  | $$  | $$  | $$\  $$$
-  | $$ \/  | $$| $$  | $$ /$$$$$$| $$ \  $$
-  |__/     |__/|__/  |__/|______/|__/  \_*/
-  
-  //ENTER
-  function enterPancoverse() {
-    document.documentElement.scrollTop = 0
-    html.style.setProperty('--waveBot', '100vh')
-    document.getElementById('enBox').style.pointerEvents = 'none'
-    setTimeout(function() {
-      document.getElementById('enter').style.opacity = '0'
-      document.getElementById('enter').style.pointerEvents = 'none'
-      homeType()
-      setTimeout(function() { document.body.style.overflow = 'auto' }, 500)
-    }, 500)
-  }
-
-
-  //GOTO
-  function goto(id) {
-    document.getElementById(id).scrollIntoView({behavior: "smooth"})
-    //CLOSE MENU
-    toggleMenu(false)
-  }
-
-
-  //SCROLL
-  let scrollI = 0
-  const ball1 = document.getElementById('ball1')
-  const ball2 = document.getElementById('ball2')
-  const ball3 = document.getElementById('ball3')
-  const ball4 = document.getElementById('ball4')
-  setTimeout(scrolled, 100)
-  function scrolled() {
-    scrollI--
-    if (scrollI > 0) return
-    scrollI = 10
-    //BALLS
-    if (checkVisible(document.getElementById('home'))) {
-      ball1.setAttribute('checked', '')
-      ball2.removeAttribute('checked')
-      ball3.removeAttribute('checked')
-      ball4.removeAttribute('checked')
-    } else {
-      ball1.removeAttribute('checked')
-      if (checkVisible(document.getElementById('about'))) {
-        ball2.setAttribute('checked', '')
-        ball3.removeAttribute('checked')
-        ball4.removeAttribute('checked')
-      } else {
-        ball2.removeAttribute('checked')
-        if (checkVisible(document.getElementById('skills'))) {
-          ball3.setAttribute('checked', '')
-          ball4.removeAttribute('checked')
-        } else {
-          ball3.removeAttribute('checked')
-          ball4.setAttribute('checked', '')
-        }
-      }
-    }
-    //SKILLS
-    if (checkVisible(document.getElementById('skills'))) {
-      if (checkVisible(document.getElementById('skVidTit')))
-        document.body.style.setProperty('--sk6', '80%')
-      if (checkVisible(document.getElementById('skAndTit')))
-        document.body.style.setProperty('--sk2', '70%')
-      if (checkVisible(document.getElementById('sk3dTit')))
-        document.body.style.setProperty('--sk4', '50%')
-      if (checkVisible(document.getElementById('skWebTit')))
-        document.body.style.setProperty('--sk1', '60%')
-      if (checkVisible(document.getElementById('skUiTit')))
-        document.body.style.setProperty('--sk3', '40%')
-      if (checkVisible(document.getElementById('skArtTit')))
-        document.body.style.setProperty('--sk5', '45%')
-    }
-    //APPEAR ANIM
-    const elems = document.querySelectorAll('.appear')
-    for (let i = 0; i < elems.length; i++) {
-      const elem = elems[i]
-      if (checkVisible(elem)) {
-        elem.classList.add('appeared')
-        elem.classList.remove('appear')
-      }
-    }
-  }
-  window.onscroll = scrolled
-  
-  function checkVisible(elm) {
-    var rect = elm.getBoundingClientRect()
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight)
-    return !(rect.bottom < 175 || rect.top - viewHeight >= 175)
-  }
-
-
-  //RESIZE
-  resized()
-  window.onresize = resized
-  function resized() {
-    let html = document.getElementById("html")
-    if (window.innerHeight < window.innerWidth) {
-      html.style.fontSize = '15px'
-      html.style.setProperty('--menuHeight', '180px')
-      html.style.setProperty('--pageW', '75vw')
-      html.style.setProperty('--pageGap', '20px')
-      //TOP
-      document.getElementById('topBar').style.backdropFilter = ''
-      document.getElementById('topBar').style.boxShadow = ''
-      document.getElementById('topTint').style.display = ''
-      document.getElementById('topH1').style.display = 'flex'
-      document.getElementById('topA1').style.display = 'flex'
-      document.getElementById('topS1').style.display = 'flex'
-      document.getElementById('topP1').style.display = 'flex'
-      document.getElementById('topH2').style.display = 'none'
-      document.getElementById('topA2').style.display = 'none'
-      document.getElementById('topS2').style.display = 'none'
-      document.getElementById('topP2').style.display = 'none'
-      document.getElementById('topMenu').removeAttribute('mobile')
-      //HOME
-      document.getElementById('hoMe').style.height = 'min(50vh, 60vw)'
-      document.getElementById('hoMe').style.width = 'min(50vh, 60vw)'
-      document.getElementById('hoMe').style.position = 'absolute'
-      document.getElementById('hoMe').style.right = '0'
-      document.getElementById('hoHi').style.fontSize = '20px'
-      document.getElementById('hoTit1').style.fontSize = '45px'
-      document.getElementById('hoTit2').style.fontSize = '30px'
-      html.style.setProperty('--homeW', '60%')
-      document.getElementById('hoDT').style.fontSize = '16px'
-      //ABOUT
-      document.getElementById('about').style.flexDirection = 'row'
-      document.getElementById('abTextBox').style.width = '0'
-      document.getElementById('abImgBox').style.height = ''
-      document.getElementById('abImgBox').style.width = ''
-      //SKILLS
-      document.getElementById('skTop').style.marginRight = 'calc(42vh + 60px)'
-      //PROJECTS
-      document.getElementById('prTop').style.marginRight = 'calc(42vh + 60px)'
-      for (elem of document.getElementsByClassName('pr')) { 
-        elem.style.flexDirection = '' 
-        elem.removeAttribute('mobile') 
-      }
-      html.style.setProperty('--pr2W', 'calc(50% - 90px)')
-      //ACHIEVEMENTS
-      document.getElementById('achTit').style.fontSize = '22px'
-      //SOCIALS
-      document.getElementById('soMenu').style.display = 'flex'
-      //BALLS
-      document.getElementById('balls').style.display = 'flex'
-      //BOTTOM
-      document.getElementById('bot').style.marginTop = '30px'
-      document.getElementById('bot').style.fontSize = '1vw'
-      document.getElementById('botSocials').style.display = 'none'
-    } else {
-      html.style.fontSize = '13px'
-      html.style.setProperty('--menuHeight', '340px')
-      html.style.setProperty('--pageW', '90vw')
-      html.style.setProperty('--pageGap', '10px')
-      //TOP
-      document.getElementById('topBar').style.backdropFilter = 'none'
-      document.getElementById('topBar').style.boxShadow = 'none'
-      document.getElementById('topTint').style.display = 'none'
-      document.getElementById('topH1').style.display = 'none'
-      document.getElementById('topA1').style.display = 'none'
-      document.getElementById('topS1').style.display = 'none'
-      document.getElementById('topP1').style.display = 'none'
-      document.getElementById('topH2').style.display = 'flex'
-      document.getElementById('topA2').style.display = 'flex'
-      document.getElementById('topS2').style.display = 'flex'
-      document.getElementById('topP2').style.display = 'flex'
-      document.getElementById('topMenu').setAttribute('mobile', '')
-      //HOME
-      document.getElementById('hoMe').style.height = 'min(50vh, 70vw)'
-      document.getElementById('hoMe').style.width = 'min(50vh, 70vw)'
-      document.getElementById('hoMe').style.position = 'relative'
-      document.getElementById('hoMe').style.right = ''
-      document.getElementById('hoHi').style.fontSize = '1.5rem'
-      document.getElementById('hoTit1').style.fontSize = '2rem'
-      document.getElementById('hoTit2').style.fontSize = '1.5rem'
-      html.style.setProperty('--homeW', '100%')
-      document.getElementById('hoDT').style.fontSize = '1em'
-      //ABOUT
-      document.getElementById('about').style.flexDirection = 'column-reverse'
-      document.getElementById('abTextBox').style.width = '100%'
-      document.getElementById('abImgBox').style.height = 'min(50vh, 80vw)'
-      document.getElementById('abImgBox').style.width = 'min(50vh, 80vw)'
-      //SKILLS
-      document.getElementById('skTop').style.marginRight = ''
-      //PROJECTS
-      document.getElementById('prTop').style.marginRight = ''
-      for (elem of document.getElementsByClassName('pr')) { 
-        elem.style.flexDirection = 'column'
-        elem.setAttribute('mobile', '')
-      }
-      html.style.setProperty('--pr2W', '100%')
-      //ACHIEVEMENTS
-      document.getElementById('achTit').style.fontSize = '20px'
-      //SOCIALS
-      document.getElementById('soMenu').style.display = 'none'
-      //BALLS
-      document.getElementById('balls').style.display = 'none'
-      //BOTTOM
-      document.getElementById('bot').style.marginTop = ''
-      document.getElementById('bot').style.fontSize = '3vw'
-      document.getElementById('botSocials').style.display = 'flex'
-    }
-  }
-
-
-  //MENU
-  let menuOpen = false
-  function toggleMenu(open) {
-    //CHECK
-    if (typeof open != 'boolean') open = !menuOpen
-    if (open == menuOpen) return
-    //ELEMS
-    const bg = document.getElementById('topMBG')
-    const menu = document.getElementById('topMenu')
-    //TOGGLE
-    if (open) {
-      //OPEN
-      bg.style.pointerEvents = 'all'
-      menu.setAttribute('menu', '')
-      setTimeout(() => { if (menuOpen) document.getElementById('topSpace').style.marginLeft = '-60px' }, 150)
-    } else {
-      //CLOSE
-      bg.style.pointerEvents = ''  
-      document.getElementById('topSpace').style.marginLeft = '0'
-      setTimeout(() => { if (!menuOpen) menu.removeAttribute('menu') }, 150)
-    }
-    menuOpen = open
-  }
-
-
-  //CHANGE TITLE
-  changeTitle()
-  window.onblur = changeTitle
-  function changeTitle() {
-    let emojis = ['😎',
-                  '😄',
-                  '🦝',
-                  '🦎',
-                  '🦖',
-                  '🦦',
-                  '🍜']
-    document.title = lan.name+' '+emojis[Math.floor(Math.random() * emojis.length)]
-  }
-
-
-  //SOCIALS
-  let sGit, sIG, sDrib, sItch
-  sGit = sIG = sItch = false
-  function social(social) {
-    switch(social) {
-      case 'git':
-        sGit = true
-        window.open('https://github.com/BOTPanzer/', '_blank')
-        break
-      case 'ig':
-        sIG = true
-        window.open('https://www.instagram.com/bot_panzer/', '_blank')
-        break
-      case 'itchio':
-        sItch = true
-        window.open('https://botpa.itch.io/', '_blank')
-        break
-      case 'email':
-        createSnackbar(lan.bot.mail, false)
-        navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
-        break
-    }
-  }
-  
-
-  //SNACKBAR & CONFETTI 🎊
-  let snacks = []
-
-  function createSnackbar(text, confetti) {
-    if (typeof text !== 'string') return
-    if (confetti == undefined) confetti = false
-    snacks.push({
-      text: text,
-      confetti: confetti
-    })
-    snackbarController()
-  }
-
-  function snackbarController() {
-    const snack = document.getElementById('snackbar')
-    if (!snack.classList.contains('snackbar') && snacks.length > 0) {
-      //DATA
-      snack.innerHTML = snacks[0].text
-      snack.classList.add('snackbar')
-      if (snacks[0].confetti) createConfetti()
-      snacks.shift()
-      //WAIT TO DISAPPEAR
-      setTimeout(() => {
-        snack.innerHTML = ''
-        snack.classList.remove('snackbar')
-        //WAIT TO SHOW NEXT
-        setTimeout(() => { snackbarController() }, 50)
-      }, 3000)
-    }
-  }
-
-  function createConfetti() {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 1 }
-    })
-  }
-
-
-
-
-
-   /*$$$$$$$ /$$   /$$ /$$$$$$$$ /$$      /$$ /$$$$$$$$
-  |__  $$__/| $$  | $$| $$_____/| $$$    /$$$| $$_____/
-     | $$   | $$  | $$| $$      | $$$$  /$$$$| $$      
-     | $$   | $$$$$$$$| $$$$$   | $$ $$/$$ $$| $$$$$   
-     | $$   | $$__  $$| $$__/   | $$  $$$| $$| $$__/   
-     | $$   | $$  | $$| $$      | $$\  $ | $$| $$      
-     | $$   | $$  | $$| $$$$$$$$| $$ \/  | $$| $$$$$$$$
-     |__/   |__/  |__/|________/|__/     |__/|_______*/
-
-  let themeI = 0
-  let themeDark = true
-  if (localStorage.getItem('pancoTheme') == 'light') themeDark = false
-
-  setTheme()
-  function setTheme() {
-    if (themeDark) {
-      localStorage.setItem('pancoTheme', 'dark')
-      document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.png'
-      document.body.style.setProperty('--bg', '#0A192F')
-      document.body.style.setProperty('--button', '#0c203d')
-      document.body.style.setProperty('--text', '#f5f5f5')
-      document.body.style.setProperty('--textFilter', 'brightness(0) invert(1)')
-      document.body.style.setProperty('--text2', '#495670')
-      document.body.style.setProperty('--text2Filter', 'brightness(0) invert(30%) sepia(20%) saturate(656%) hue-rotate(182deg) brightness(100%) contrast(91%)')
-      document.body.style.setProperty('--accent', '#DC2249')
-      document.body.style.setProperty('--accentT', '#dc224a31')
-      document.body.style.setProperty('--accentFilter', 'brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%)')
-      document.body.style.setProperty('--shadowBig', 'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px')
-    } else {
-      localStorage.setItem('pancoTheme', 'light')
-      document.getElementById('topTheImg').src = 'Data/Images/Icons/light.png'
-      document.body.style.setProperty('--bg', '#f6f9ff')
-      document.body.style.setProperty('--button', '#ffffff')
-      document.body.style.setProperty('--text', '#000000')
-      document.body.style.setProperty('--textFilter', 'brightness(0)')
-      document.body.style.setProperty('--text2', '#6f7b96')
-      document.body.style.setProperty('--text2Filter', 'brightness(0) invert(53%) sepia(14%) saturate(689%) hue-rotate(183deg) brightness(88%) contrast(86%)')
-      document.body.style.setProperty('--accent', '#DC2249')
-      document.body.style.setProperty('--accentT', '#dc224a31')
-      document.body.style.setProperty('--accentFilter', 'brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%)')
-      document.body.style.setProperty('--shadowBig', 'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px')
-    }
-  }
-
-  function switchTheme() {
-    toggleMenu()
-    themeDark = !themeDark
-    setTheme()
-    if (themeI > 5) return
-    themeI++
-    if (themeI > 5) giveAchievement('drill')
-  }
-
-
-
-
-
-    /*$$$$$   /$$$$$$  /$$   /$$ /$$$$$$ /$$$$$$$$ /$$    /$$ /$$$$$$$$ /$$      /$$ /$$$$$$$$ /$$   /$$ /$$$$$$$$
-   /$$__  $$ /$$__  $$| $$  | $$|_  $$_/| $$_____/| $$   | $$| $$_____/| $$$    /$$$| $$_____/| $$$ | $$|__  $$__/
-  | $$  \ $$| $$  \__/| $$  | $$  | $$  | $$      | $$   | $$| $$      | $$$$  /$$$$| $$      | $$$$| $$   | $$   
-  | $$$$$$$$| $$      | $$$$$$$$  | $$  | $$$$$   |  $$ / $$/| $$$$$   | $$ $$/$$ $$| $$$$$   | $$ $$ $$   | $$   
-  | $$__  $$| $$      | $$__  $$  | $$  | $$__/    \  $$ $$/ | $$__/   | $$  $$$| $$| $$__/   | $$  $$$$   | $$   
-  | $$  | $$| $$    $$| $$  | $$  | $$  | $$        \  $$$/  | $$      | $$\  $ | $$| $$      | $$\  $$$   | $$   
-  | $$  | $$|  $$$$$$/| $$  | $$ /$$$$$$| $$$$$$$$   \  $/   | $$$$$$$$| $$ \/  | $$| $$$$$$$$| $$ \  $$   | $$   
-  |__/  |__/ \______/ |__/  |__/|______/|________/    \_/    |________/|__/     |__/|________/|__/  \__/   |_*/   
-  
-  let ach = {
-    socials: false,
-    artyom: false,
-    drill: false
-  }
-
-  //LOAD ACHIEVEMENTS
-  if (localStorage.getItem('pancoAchSocials') == 'true') 
-    addAchievement('socials')
-  if (localStorage.getItem('pancoAchArtyom') == 'true') 
-    addAchievement('artyom')
-  if (localStorage.getItem('pancoAchDrill') == 'true') 
-    addAchievement('drill')
-
-  //TEMP VARIABLES
-  let artyomI = 0
-
-  //GIVE SOCIALS ACHIEVEMENT ON FOCUS
-  window.onfocus = () => {
-    if (sGit && sIG && sItch) giveAchievement('socials')
-  }
-
-
-  //GIVE & RESET & SHOW ACHIEVEMENTS
-  function giveAchievement(name) {
-    let added = false
-    switch(name) {
-      case 'socials':
-        if (ach.socials == true) return
-        createSnackbar(`🏆 ${lan.ach.a1.tit}`, true)
-        added = true
-        break
-      case 'artyom':
-        if (ach.artyom == true) return
-        createSnackbar(`🏆 ${lan.ach.a2.tit}`, true)
-        added = true
-        break
-      case 'drill':
-        if (ach.drill == true) return
-        createSnackbar(`🏆 ${lan.ach.a3.tit}`, true)
-        added = true
-        break
-    }
-    if (added) {
-      addAchievement(name)
-      /*if (!menuOpen)
-        document.getElementById('topBall').style.opacity = '1'
-      document.getElementById('topBall2').style.opacity = '1'*/
-    }
-  }
-
-  function addAchievement(name) {
-    switch(name) {
-      case 'socials':
-        ach.socials = true
-        localStorage.setItem('pancoAchSocials', 'true')
-        document.getElementById('achi1').removeAttribute('locked')
-        break
-      case 'artyom':
-        ach.artyom = true
-        localStorage.setItem('pancoAchArtyom', 'true')
-        document.getElementById('achi2').removeAttribute('locked')
-        break
-      case 'drill':
-        ach.drill = true
-        localStorage.setItem('pancoAchDrill', 'true')
-        document.getElementById('achi3').removeAttribute('locked')
-        break
-    }
-  }
-
-  function resetAchievements() {
-    ach = {
-      socials: false,
-      artyom: false,
-      drill: false,
-    }
-    localStorage.setItem('pancoAchSocials', '')
-    localStorage.setItem('pancoAchArtyom', '')
-    localStorage.setItem('pancoAchDrill', '')
-    document.getElementById('achi1').setAttribute('locked', '')
-    document.getElementById('achi2').setAttribute('locked', '')
-    document.getElementById('achi3').setAttribute('locked', '')
-  }
-  
-
-  //ACHI MENU
-  let achiOpen = false
-  function toggleAchi() {
-    const bg = document.getElementById('ach')
-    const menu = document.getElementById('achMenu')
-    if (!achiOpen) {
-      bg.style.display = 'flex'
-      setTimeout(()=> { 
-        menu.style.opacity = '1'
-        menu.style.pointerEvents = 'all'
-        document.body.style.overflow = 'hidden'
-        achiOpen = true
-      }, 50)
-    } else {
-      menu.style.opacity = '0'
-      menu.style.pointerEvents = 'none'
-      document.body.style.overflow = 'auto'
-      setTimeout(()=> { 
-        bg.style.display = 'none' 
-        achiOpen = false
-      }, 200)
-    }
-    if (menuOpen) toggleMenu()
-  }
-
-
-
-
-
-   /*$   /$$  /$$$$$$  /$$      /$$ /$$$$$$$$
-  | $$  | $$ /$$__  $$| $$$    /$$$| $$_____/
-  | $$  | $$| $$  \ $$| $$$$  /$$$$| $$      
-  | $$$$$$$$| $$  | $$| $$ $$/$$ $$| $$$$$   
-  | $$__  $$| $$  | $$| $$  $$$| $$| $$__/   
-  | $$  | $$| $$  | $$| $$\  $ | $$| $$      
-  | $$  | $$|  $$$$$$/| $$ \/  | $$| $$$$$$$$
-  |__/  |__/ \______/ |__/     |__/|_______*/
-
-  //TYPE ANIMATION
-  function homeType() {
-    const elem = document.getElementById('hoType2')
-    let jobs = lan.h.type2
-    let i = 0
-    let length
-    let letters
-    let time
-    let time2
-    elem.innerText = ''
-    setTimeout(prepare, 1000)
-
-    function prepare() {
-      length = jobs[i].length
-      letters = length
-      time = 1100/length
-      time2 = 600/length
-      writeLetter()
-    }
-
-    function writeLetter() {      
-      elem.innerText = jobs[i].substring(0, length - letters)
-      letters--
-      if (letters >= 0)
-        tim(writeLetter, time)
-      else
-        tim(removeLetter, 1500)
-    }
-
-    function removeLetter() {
-      elem.innerText = jobs[i].substring(0, length - letters)
-      letters++ 
-      if (letters > length) {
-        tim(function() {
-          i++
-          if (jobs[i] == undefined) i = 0
-          prepare()
-        }, 800)
-      } else
-        tim(removeLetter, time2)
-    }
-
-    function tim(lol, time) {
-      if (jobs != lan.h.type2) {
-        jobs = lan.h.type2
-        prepare()
-      } else
-        setTimeout(lol, time)
-    }
-  }
-
-
-
-
-
-    /*$$$$$  /$$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$$
-   /$$__  $$| $$__  $$ /$$__  $$| $$  | $$|__  $$__/
-  | $$  \ $$| $$  \ $$| $$  \ $$| $$  | $$   | $$   
-  | $$$$$$$$| $$$$$$$ | $$  | $$| $$  | $$   | $$   
-  | $$__  $$| $$__  $$| $$  | $$| $$  | $$   | $$   
-  | $$  | $$| $$  \ $$| $$  | $$| $$  | $$   | $$   
-  | $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
-  |__/  |__/|_______/  \______/  \______/    |_*/
-
-  //ABOUT IMAGE
-  const abName = document.getElementById('abName')
-  const abImg = document.getElementById('abImg')
-  abUpdate()
-  function abUpdate() {
-    let imgs = ['Data/Images/About/artyom.jpg',
-                'Data/Images/About/canary.jpg',
-                'Data/Images/About/cat.jpg',
-                'Data/Images/About/finisterre.jpg',
-                'Data/Images/About/mallorca.jpg',
-                'Data/Images/About/otivar.jpg',
-                'Data/Images/About/flower.jpg',
-                'Data/Images/About/lennon.jpg']
-    abImg.src = imgs[abOrder[abIndex]]
-  }
-
-  abImg.onload = function() { 
-    //UPDATE TEXT
-    abName.innerText = lan.a.names[abOrder[abIndex]]
-    //LOADING
-    if (abLoading) {
-      //STOP ANIMATION
-      abImg.classList.remove("abLoading")
-      //ARTYOM
-      if (abIndex == lan.a.names.length - 1) giveAchievement('artyom')
-      //FINISH
-      setTimeout(function() { abLoading = false }, 400)
-    }
-  }
-
-  let abLoading = false
-  function abClick() {
-    //IS LOADING
-    if (abLoading) return
-    abLoading = true
-    //GET IMAGE
-    let nextIndex = abIndex + 1
-    if (nextIndex >= lan.a.names.length) nextIndex = 0
-    //LOAD ANIM
-    abImg.classList.add("abLoading")
-    setTimeout(function() {
-      //UPDATE
-      abIndex = nextIndex
-      abUpdate()
-    }, 400)
-  }
-
-
-
-
-
-   /*$$$$$$  /$$$$$$$   /$$$$$$     /$$$$$ /$$$$$$$$  /$$$$$$  /$$$$$$$$ /$$$$$$ 
-  | $$__  $$| $$__  $$ /$$__  $$   |__  $$| $$_____/ /$$__  $$|__  $$__//$$__  $$
-  | $$  \ $$| $$  \ $$| $$  \ $$      | $$| $$      | $$  \__/   | $$  | $$  \__/
-  | $$$$$$$/| $$$$$$$/| $$  | $$      | $$| $$$$$   | $$         | $$  |  $$$$$$ 
-  | $$____/ | $$__  $$| $$  | $$ /$$  | $$| $$__/   | $$         | $$   \____  $$
-  | $$      | $$  \ $$| $$  | $$| $$  | $$| $$      | $$    $$   | $$   /$$  \ $$
-  | $$      | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/   | $$  |  $$$$$$/
-  |__/      |__/  |__/ \______/  \______/ |________/ \______/    |__/   \_____*/ 
-
-  //SORT PROJECTS
-  function sortProjects(sort, animate) { 
-    //ANIMATE BOOL
-    if (typeof animate != 'boolean') animate = true
-    //SORT BY
-    if (sort != 'videogames' && sort != 'apps') sort = 'videogames'
-    localStorage.setItem('pancoPrSort', sort)
-    //APPEAR ANIMATION
-    if (animate) {
-      for (let i = 1; i <= 8; i++) {
-        const elem = document.getElementById('pr'+i)
-        elem.classList.add('appear')
-        elem.classList.remove('appeared')
-      }
-      scrollI = 0
-      scrolled()
-    }
-    //CLEAR
-    clearProjects()
-    //SORT
-    if (sort == 'videogames') {
-      //INTERESTED IN VIDEOGAMES
-      document.getElementById('prGames').setAttribute('active', '')
-      document.getElementById('prApps').removeAttribute('active', '')
-      //1) ESCAPE FROM LMDSHOW AS PROJECT
-      addProject(lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
-      //2) ESTO AUN NO ES UN JUEGO AS PROJECT
-      addProject(lan.p.nogame, 'Data/Images/Projects/nogame.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
-      //3) MEMORY SHIFT AS PROJECT
-      addProject(lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
-      //4) TWIN SPIRITS AS PROJECT
-      addProject(lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
-      //5) VAPORCADE AS PROJECT
-      addProject(lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
-      //6) OTTERS AS PROJECT
-      addProject(lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
-      //7) COOKING PAPA AS PROJECT
-      addProject(lan.p.papa, 'Data/Images/Projects/papa.jpg', ["https://botpa.itch.io/cooking-papa"])
-      //8) ASSISTANT ANDROID AS PROJECT
-      addProject(lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
-    } else {
-      //INTERESTED IN APPS
-      document.getElementById('prGames').removeAttribute('active')
-      document.getElementById('prApps').setAttribute('active', '')
-      //1) ASSISTANT ANDROID AS PROJECT
-      addProject(lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
-      //2) ASSISTANT PC AS PROJECT
-      addProject(lan.p.asisPC, 'Data/Images/Projects/assPC.jpg', ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"])
-      //3) FRAMEWORK AS PROJECT
-      addProject(lan.p.frame, 'Data/Images/Projects/frame.jpg', ["https://botpanzer.github.io/Orion-Framework"])
-      //4) ESCAPE FROM LMDSHOW AS PROJECT
-      addProject(lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
-      //5) ESTO AUN NO ES UN JUEGO AS PROJECT
-      addProject(lan.p.nogame, 'Data/Images/Projects/nogame.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
-      //6) MEMORY SHIFT AS PROJECT
-      addProject(lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
-      //7) TWIN SPIRITS AS PROJECT
-      addProject(lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
-      //8) VAPORCADE AS PROJECT
-      addProject(lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
-    }
-  }
-
-  //CLEAR & ADD PROJECTS
-  function clearProjects() {
-    //CLEAR PROJECTS
-    projects = 0
-  }
-
-  function addProject(key, image, buttons) {
-    //NO MORE SPACE
-    if (projects > 7) return
-    //MAKE PROJECT & UPDATE COUNT
-    if (makeProject(projects + 1, key, image, buttons)) projects++
-  }
-
-  function makeProject(number, key, image, buttons) {
-    //CHECK VARS
-    if (typeof number != 'number') return false
-    if (typeof key != 'object') return false
-    if (typeof image != 'string') return false
-    //IMAGE
-    document.getElementById(`pr${number}Img`).src = image
-    //TEXT
-    document.getElementById(`pr${number}Inf`).innerText = key.inf
-    document.getElementById(`pr${number}Tit`).innerText = key.tit
-    document.getElementById(`pr${number}Con`).innerHTML = key.con
-    //BUTTONS
-    let buttonHTML = ''
-    if (Array.isArray(buttons) && buttons.length > 0) {
-      //HAS BUTTONS
-      for (let i = 0; i < buttons.length; i++) {
-        buttonHTML = buttonHTML + `<a id="pr${number}B${i}" class="btn" target="_blank" href="${buttons[i]}">${key['b'+(i+1)]}</a>`
-      }
-      if (number > 4) document.getElementById('pr'+number+'But').style.marginTop = '' 
-    } else {
-      //NO BUTTONS
-      if (number > 4) document.getElementById('pr'+number+'But').style.marginTop = '-20px'
-    }
-    document.getElementById(`pr${number}But`).innerHTML = buttonHTML
-    //DONE
-    return true
-  }
-
-
-
-
-
-   /*$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$  /$$      /$$
-  | $$__  $$ /$$__  $$|__  $$__/|__  $$__//$$__  $$| $$$    /$$$
-  | $$  \ $$| $$  \ $$   | $$      | $$  | $$  \ $$| $$$$  /$$$$
-  | $$$$$$$ | $$  | $$   | $$      | $$  | $$  | $$| $$ $$/$$ $$
-  | $$__  $$| $$  | $$   | $$      | $$  | $$  | $$| $$  $$$| $$
-  | $$  \ $$| $$  | $$   | $$      | $$  | $$  | $$| $$\  $ | $$
-  | $$$$$$$/|  $$$$$$/   | $$      | $$  |  $$$$$$/| $$ \/  | $$
-  |_______/  \______/    |__/      |__/   \______/ |__/     |_*/
-
-  //BOTTOM TEXT QUOTES
-  (function() {
-    const quote  = ['War never changes', 
-                    'Truth is, the game was rigged grom the start', 
-                    'OPA! Artyom!', 
-                    "See you in the major leagues, Jack", 
-                    "There's a monster inside all of us", 
-                    "Keep it cool, that's how you survive",
-                    'Oh my stars she is just so handsome', 
-                    "Oh, it's you. It's been a looong time", 
-                    'Your brother needs you', 
-                    "I can't believe we did that!",
-                    "It's only been a week, but it feels like a year",
-                    'No matter what, you keep finding something to fight for',
-                    'The body is naught but a vessel for the soul',
-                    "I'm always succeeding, even when I'm not",
-                    "Link, this is a huge discovery!",
-                    "Any adventure you can fly away from"]
-    const game = ['Fallout', 
-                  'Fallout NV', 
-                  'Metro Exodus', 
-                  'Cyberpunk 2077', 
-                  'Arcane',
-                  'Valorant',
-                  'The Outer Worlds',
-                  'Portal 2',
-                  'Ruiner',
-                  'Celeste',
-                  'Katana Zero',
-                  'The Last of Us',
-                  'Ghostwire: Tokyo',
-                  'Deathloop',
-                  'Zelda: Tears of the Kingdom',
-                  'Starfield']
-    let q = Math.floor(Math.random() * quote.length)
-    document.getElementById('botQuote').innerHTML = quote[q]
-    document.getElementById('botFrom').innerHTML = game[q]
-  })();
-</script>
+  <script src="Data/JS/main.js"></script>
 </html>
