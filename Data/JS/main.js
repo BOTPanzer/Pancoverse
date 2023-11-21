@@ -972,8 +972,8 @@ function setTheme() {
   } else {
     localStorage.setItem('pancoTheme', 'light')
     document.getElementById('topTheImg').src = 'Data/Images/Icons/light.png'
-    document.body.style.setProperty('--bg', '#f6f9ff')
-    document.body.style.setProperty('--button', '#ffffff')
+    document.body.style.setProperty('--bg', '#ffffff')
+    document.body.style.setProperty('--button', '#e4e9f2')
     document.body.style.setProperty('--text', '#000000')
     document.body.style.setProperty('--textFilter', 'brightness(0)')
     document.body.style.setProperty('--text2', '#6f7b96')

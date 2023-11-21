@@ -28,7 +28,6 @@ html {
   --accent: #DC2249;
   --accentT: #dc224a31;
   --accentFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
-  --shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
   --shadowBig: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
 
   /*WAVES*/
@@ -125,7 +124,7 @@ a:not([class]) {
 }
 
 .shadow {
-  text-shadow: var(--shadow);
+  text-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
 }
 
 .appear {
@@ -1176,7 +1175,7 @@ a:not([class]) {
   
   background-color: var(--button); 
   border-radius: 10px; 
-  box-shadow: var(--shadow);
+  box-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
   
   transform: rotate(-10deg);
 }
@@ -1309,7 +1308,7 @@ a:not([class]) {
   
   background-color: var(--button); 
   border-radius: 10px; 
-  box-shadow: var(--shadow);
+  box-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
   
   transform: rotate(-10deg);
 }
