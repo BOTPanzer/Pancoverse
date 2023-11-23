@@ -4,7 +4,6 @@
 @font-face { font-family: lemon; src: url('../Fonts/LemonMilk.ttf'); }
 @font-face { font-family: orbitron; src: url('../Fonts/Orbitron.ttf'); }
 @font-face { font-family: roboto; src: url('../Fonts/RobotoMono.ttf'); }
-/*@font-face { font-family: blender; src: url('../Fonts/BlenderPro.ttf'); }*/
 
 html {
   height: 100%;
@@ -664,16 +663,19 @@ a:not([class]) {
 }
 
 .socialsButton {
-  height: 20px; 
   width: 20px; 
+  height: 20px; 
   cursor: pointer;
-  -webkit-filter: var(--text2Filter);
-  filter: var(--text2Filter);
-  transition: filter .4s, -webkit-filter .4s, transform .2s;
 }
 
-.socialsButton:hover {
-  -webkit-filter: var(--accentFilter);
+.socialsButton > img{
+  width: 20px; 
+  height: 20px; 
+  filter: var(--text2Filter);
+  transition: filter .4s, filter .4s, transform .2s;
+}
+
+.socialsButton:hover > img {
   filter: var(--accentFilter);
   transform: translateY(-3px);
   transition: filter .2s, -webkit-filter .2s, transform .2s;

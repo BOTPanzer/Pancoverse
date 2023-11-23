@@ -621,18 +621,18 @@ function switchLan() {
 |__/     |__/|__/  |__/|______/|__/  \_*/
 
 //ENTER
-/*function enterPancoverse() {
-  document.documentElement.scrollTop = 0
-  html.style.setProperty('--waveBot', '100vh')
-  document.getElementById('enBox').style.pointerEvents = 'none'
+loadPortfolio()
+function loadPortfolio() {
   setTimeout(function() {
-    document.getElementById('enter').style.opacity = '0'
-    document.getElementById('enter').style.pointerEvents = 'none'
-    homeType()
-    setTimeout(function() { document.body.style.overflow = 'auto' }, 500)
-  }, 500)
-}*/
-
+    html.style.setProperty('--waveBot', '100vh')
+    setTimeout(function() {
+      document.getElementById('enter').style.opacity = '0'
+      document.getElementById('enter').style.pointerEvents = 'none'
+      homeType()
+      setTimeout(function() { document.body.style.overflow = 'auto' }, 500)
+    }, 500)
+  }, 200)
+}
 
 //GOTO
 function goto(id) {
@@ -648,6 +648,7 @@ const ball1 = document.getElementById('ball1')
 const ball2 = document.getElementById('ball2')
 const ball3 = document.getElementById('ball3')
 const ball4 = document.getElementById('ball4')
+window.onscroll = scrolled
 setTimeout(scrolled, 100)
 function scrolled() {
   scrollI--
@@ -701,7 +702,6 @@ function scrolled() {
     }
   }
 }
-window.onscroll = scrolled
 
 function checkVisible(elm) {
   var rect = elm.getBoundingClientRect()
@@ -866,35 +866,12 @@ function changeTitle() {
 
 
 //SOCIALS
-let sGit, sIG, sDrib, sItch, sYT, sTikTok
-sGit = sIG = sItch = sYT = sTikTok = false
-function social(social) {
-  switch(social) {
-    case 'itchio':
-      sItch = true
-      window.open('https://botpa.itch.io/', '_blank')
-      break
-    case 'git':
-      sGit = true
-      window.open('https://github.com/BOTPanzer/', '_blank')
-      break
-    case 'ig':
-      sIG = true
-      window.open('https://www.instagram.com/bot_panzer/', '_blank')
-      break
-    case 'yt':
-      sYT = true
-      window.open('https://www.youtube.com/@botpa', '_blank')
-      break
-    case 'tiktok':
-      sTikTok = true
-      window.open('https://www.tiktok.com/@botpanzer', '_blank')
-      break
-    case 'email':
-      createSnackbar(lan.bot.mail, false)
-      navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
-      break
-  }
+let sItch, sGit, sIG, sYT, sTikTok
+sItch = sGit = sIG = sYT = sTikTok = false
+
+function CopyMail() {
+  createSnackbar(lan.bot.mail, false)
+  navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
 }
 
 
@@ -1133,7 +1110,6 @@ function toggleAchi() {
 |__/  |__/ \______/ |__/     |__/|_______*/
 
 //TYPE ANIMATION
-homeType()
 function homeType() {
   const elem = document.getElementById('homeType2')
   let jobs = lan.h.type2
