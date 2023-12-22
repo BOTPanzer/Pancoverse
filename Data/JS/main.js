@@ -71,7 +71,7 @@ const lans = {
     s: {
       tit: 'My Skills',
       desc: "I've been interested in the world of technology ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics.",
-      videogames: 'Videogames Development',
+      videogames: 'Videogame Development',
       android: 'Android Development',
       web: 'Web Development',
       ui: 'UI/UX Design',
@@ -680,17 +680,17 @@ function scrolled() {
   //SKILLS
   if (checkVisible(document.getElementById('skills'))) {
     if (checkVisible(document.getElementById('skVidTit')))
-      document.body.style.setProperty('--sk6', '80%')
+      document.body.style.setProperty('--sk6', '85%')
     if (checkVisible(document.getElementById('skAndTit')))
-      document.body.style.setProperty('--sk2', '70%')
+      document.body.style.setProperty('--sk2', '60%')
     if (checkVisible(document.getElementById('sk3dTit')))
-      document.body.style.setProperty('--sk4', '50%')
+      document.body.style.setProperty('--sk4', '40%')
     if (checkVisible(document.getElementById('skWebTit')))
       document.body.style.setProperty('--sk1', '60%')
     if (checkVisible(document.getElementById('skUiTit')))
       document.body.style.setProperty('--sk3', '40%')
     if (checkVisible(document.getElementById('skArtTit')))
-      document.body.style.setProperty('--sk5', '45%')
+      document.body.style.setProperty('--sk5', '40%')
   }
   //APPEAR ANIM
   const elems = document.querySelectorAll('.appear')
