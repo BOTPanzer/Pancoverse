@@ -226,7 +226,7 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "Escape From LMDShow",
-        con: `Thanks IlloJuan for <a href="https://www.twitch.tv/illojuan/v/1969627398?sr=a&t=4566s" target="_blank">playing</a>!
+        con: `Thanks IlloJuan for playing!
               <br><br>
               Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
               <br><br>
@@ -469,7 +469,7 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto Personal',
         tit: "Escape From LMDShow",
-        con: `¡Gracias por <a href="https://www.twitch.tv/illojuan/v/1969627398?sr=a&t=4566s" target="_blank">jugar</a> IlloJuan!
+        con: `¡Gracias por jugar IlloJuan!
               <br><br>
               Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
               <br><br>
