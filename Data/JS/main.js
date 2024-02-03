@@ -226,7 +226,7 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "Escape From LMDShow",
-        con: `Thanks IlloJuan for playing!
+        con: `Thanks <a href="https://youtu.be/ovRwxIZeklo" target="_blank">IlloJuan</a> for playing!
               <br><br>
               Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
               <br><br>
@@ -308,7 +308,7 @@ const lans = {
               'Finisterre',
               'Mallorca',
               'Otivar',
-              'Flor de Rio',
+              'Flor en Rio',
               'Muro Lennon']
     },
     s: {
@@ -469,7 +469,7 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto Personal',
         tit: "Escape From LMDShow",
-        con: `¡Gracias por jugar IlloJuan!
+        con: `¡Gracias por jugar <a href="https://youtu.be/ovRwxIZeklo" target="_blank">IlloJuan</a>!
               <br><br>
               Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
               <br><br>
@@ -866,8 +866,8 @@ function changeTitle() {
 
 
 //SOCIALS
-let sItch, sGit, sIG, sYT, sTikTok
-sItch = sGit = sIG = sYT = sTikTok = false
+let sItch, sGit, sReddit, sYT, sTikTok
+sItch = sGit = sReddit = sYT = sTikTok = false
 
 function CopyMail() {
   createSnackbar(lan.bot.mail, false)
@@ -1257,41 +1257,41 @@ function sortProjects(sort, animate) {
     //INTERESTED IN VIDEOGAMES
     document.getElementById('prGames').setAttribute('active', '')
     document.getElementById('prApps').removeAttribute('active', '')
-    //1) ESCAPE FROM LMDSHOW AS PROJECT
+    //1) ESCAPE FROM LMDSHOW
     addProject(lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
-    //2) ESTO AUN NO ES UN JUEGO AS PROJECT
+    //2) ESTO AUN NO ES UN JUEGO
     addProject(lan.p.raccoon, 'Data/Images/Projects/raccoon.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
-    //3) MEMORY SHIFT AS PROJECT
+    //3) MEMORY SHIFT
     addProject(lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
-    //4) TWIN SPIRITS AS PROJECT
+    //4) TWIN SPIRITS
     addProject(lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
-    //5) VAPORCADE AS PROJECT
+    //5) VAPORCADE
     addProject(lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
-    //6) OTTERS AS PROJECT
-    addProject(lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
-    //7) COOKING PAPA AS PROJECT
+    //6) COOKING PAPA
     addProject(lan.p.papa, 'Data/Images/Projects/papa.jpg', ["https://botpa.itch.io/cooking-papa"])
-    //8) ASSISTANT ANDROID AS PROJECT
+    //7) OTTERS
+    addProject(lan.p.otters, 'Data/Images/Projects/otters.jpg', ["https://botpa.itch.io/otters-odyssey"])
+    //8) ASSISTANT ANDROID
     addProject(lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
   } else {
     //INTERESTED IN APPS
     document.getElementById('prGames').removeAttribute('active')
     document.getElementById('prApps').setAttribute('active', '')
-    //1) ASSISTANT ANDROID AS PROJECT
+    //1) ASSISTANT ANDROID
     addProject(lan.p.asisAn, 'Data/Images/Projects/assAndroid.jpg', ["Data/Orion Assistant.apk"])
-    //2) ASSISTANT PC AS PROJECT
+    //2) ASSISTANT PC
     addProject(lan.p.asisPC, 'Data/Images/Projects/assPC.jpg', ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"])
-    //3) FRAMEWORK AS PROJECT
+    //3) FRAMEWORK
     addProject(lan.p.frame, 'Data/Images/Projects/frame.jpg', ["https://botpanzer.github.io/Orion-Framework"])
-    //4) ESCAPE FROM LMDSHOW AS PROJECT
+    //4) ESCAPE FROM LMDSHOW
     addProject(lan.p.lmdshow, 'Data/Images/Projects/lmdshow.jpg', ["https://botpa.itch.io/escape-from-lmdshow"])
-    //5) ESTO AUN NO ES UN JUEGO AS PROJECT
+    //5) ESTO AUN NO ES UN JUEGO
     addProject(lan.p.raccoon, 'Data/Images/Projects/raccoon.jpg', ["https://botpa.itch.io/esto-aun-no-es-un-juego"])
-    //6) MEMORY SHIFT AS PROJECT
+    //6) MEMORY SHIFT
     addProject(lan.p.memory, 'Data/Images/Projects/memory.jpg', ["https://botpa.itch.io/memory-shift"])
-    //7) TWIN SPIRITS AS PROJECT
+    //7) TWIN SPIRITS
     addProject(lan.p.spirits, 'Data/Images/Projects/spirits.jpg', ["https://botpa.itch.io/twin-spirits"])
-    //8) VAPORCADE AS PROJECT
+    //8) VAPORCADE
     addProject(lan.p.vapor, 'Data/Images/Projects/vaporcade.jpg', ["https://botpa.itch.io/vaporcade"])
   }
 }
