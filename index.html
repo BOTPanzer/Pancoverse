@@ -230,7 +230,7 @@
             <span id="skVidPro">Advanced</span>
           </div>
           <div>
-            <div style="width: var(--sk6);"></div>
+            <div style="width: var(--sk1);"></div>
           </div>
           <span>Unity · C# · C++</span>
         </div>
@@ -245,6 +245,17 @@
           </div>
           <span>Android Studio · Java</span>
         </div>
+
+        <div class="skBar">
+          <div>
+            <span id="skWebTit">Web Development</span>
+            <span id="skWebPro">High</span>
+          </div>
+          <div>
+            <div style="width: var(--sk3);"></div>
+          </div>
+          <span>HTML · CSS · JS · ElectronJS</span>
+        </div>
         
         <div class="skBar">
           <div>
@@ -256,17 +267,6 @@
           </div>
           <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
         </div>
-
-        <div class="skBar">
-          <div>
-            <span id="skWebTit">Web Development</span>
-            <span id="skWebPro">High</span>
-          </div>
-          <div>
-            <div style="width: var(--sk1);"></div>
-          </div>
-          <span>HTML · CSS · JS · ElectronJS</span>
-        </div>
         
         <div class="skBar">
           <div>
@@ -274,7 +274,7 @@
             <span id="skUiPro">Medium</span>
           </div>
           <div>
-            <div style="width: var(--sk3);"></div>
+            <div style="width: var(--sk5);"></div>
           </div>
           <span>Figma · Illustrator</span>
         </div>
@@ -285,7 +285,7 @@
             <span id="skArtPro">Medium</span>
           </div>
           <div>
-            <div style="width: var(--sk5);"></div>
+            <div style="width: var(--sk6);"></div>
           </div>
           <span>Photoshop · Illustrator · Audition · Premiere</span>
         </div>
@@ -304,171 +304,10 @@
         <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
       </div>
 
-      <div class="hc" style="gap: 20px; align-items: center; margin: 40px auto 0 auto;">
-        <span id="prInterest">Interested in:</span>
-        <div class="prSwitch">
-          <span id="prGames" onclick="sortProjects('videogames')">Videogames</span>
-          <div style="width: 1px; height: 30px; margin: auto 0 auto -1px; background: var(--text2); pointer-events: none;"></div>
-          <span id="prApps" onclick="sortProjects('apps')">Apps</span>
-        </div>
-      </div>
+      <div id="prProjects"  class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));"></div>
 
-      <div class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));">
-        <div id="pr1" class="pr appear">
-          <div>
-            <span id="pr1Tag">Personal Project</span>
-            <img id="pr1Img">
-          </div>
-          <div>
-            <span id="pr1Inf">Java · Android Studio · UI/UX Design</span>
-            <div>
-              <span id="pr1Tit">Oriøn Assistant (Android)</span>
-              <span id="pr1Con">
-                The idea started after Google released their assistant as I wasn't able to use it.
-                At first I made a web browser app that detected commands and then continued adding more utilities.
-                <br><br>
-                After leaving the app for some time I decided to rename it and give it a modern design in Android Studio.
-                At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and a utility to send data to the PC version of the app.
-              </span>
-            </div>
-            <div id="pr1But" class="hc" style="gap: 20px;">
-              <a id="pr1B1" class="btn" target="_blank" href="Data/Orion Assistant.apk">Download</a>
-            </div>
-          </div>
-        </div>
-    
-        <div id="pr2" class="pr appear" reverse>
-          <div>
-            <span id="pr2Tag">Personal Project</span>
-            <img id="pr2Img">
-          </div>
-          <div>
-            <span id="pr2Inf">Batch · HTML · CSS · JS · ElectronJS · UI/UX Design</span>
-            <div>
-              <span id="pr2Tit">Oriøn Assistant (Windows)</span>
-              <span id="pr2Con">
-                Some years ago I used to carry my apps and games on a USB to be able to use them everywhere.
-                Since plugging in a drive changes it's letter shortcuts break, so I had to come up with a solution which ended up being a batch launcher.
-                <br><br>
-                After that I wanted to go a bit further with a UI so I started the Oriøn Launcher project using Electron.js. 
-                After some updates I decided to rename it to Oriøn Assistant to match the mobile app and add compatibility between them.
-                Despite the apps that come installed like the games library, there is support for modules so everyone can make their own.
-              </span>
-            </div>
-            <div id="pr2But" class="hc" style="gap: 20px;">
-              <a id="pr2B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Orion-Assistant">Oriøn Assistant</a>
-              <a id="pr2B2" class="btn" target="_blank" href="https://github.com/BOTPanzer/USB-Launcher">Batch Launchers</a>
-            </div>
-          </div>
-        </div>
-
-        <div id="pr3" class="pr appear">
-          <div>
-            <span id="pr3Tag">Personal Project</span>
-            <img id="pr3Img">
-          </div>
-          <div>
-            <span id="pr3Inf">HTML · CSS · JS · UI/UX Design</span>
-            <div>
-              <span id="pr3Tit">Oriøn Framework</span>
-              <span id="pr3Con">
-                Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
-                This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
-                <br><br>
-                Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.
-              </span>
-            </div>
-            <div id="pr3But" class="hc" style="gap: 20px;">
-              <a id="pr3B1" class="btn" target="_blank" href="https://botpanzer.github.io/Orion-Framework">See documentation</a>
-            </div>
-          </div>
-        </div>
-    
-        <div id="pr4" class="pr appear" reverse>
-          <div>
-            <span id="pr4Tag">Personal Project</span>
-            <img id="pr4Img">
-          </div>
-          <div>
-            <span id="pr4Inf">Illustrator · Photoshop · Sketching</span>
-            <div>
-              <span id="pr4Tit">Futuristic Hoodie</span>
-              <span id="pr4Con">
-                One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
-                It isn't exactly streetwear but it's indeed a futuristic hoodie design.
-                I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
-                Then I made a preview in Photoshop of how the hoodie would look like if it was real.
-                <br><br>
-                I am planning on printing it, but summer is starting at the time of writing this so I'll have to wait until it gets colder.
-              </span>
-            </div>
-            <div id="pr4But" class="hc" style="gap: 20px;"></div>
-          </div>
-        </div>
-
-        <div id="prSmalls" class="hc" style="gap: calc(5 * var(--pageGap)); position: relative; flex-wrap: wrap;">
-          <div id="pr5" class="pr2 appear">
-            <span id="pr5Tag">Personal Project</span>
-            <img id="pr5Img"> 
-            <span id="pr5Tit">PC Modding</span>
-            <span id="pr5Con">
-              Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
-              <br><br>
-              I began by extracting 3D models from some of my favorite games since I couldn't find them online.
-              I printed a deathclaw figure and made a large rock model to place inside the case.
-              Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
-              <br><br>
-              After I printing them I painted and placed them in my PC.
-            </span>
-            <div id="pr5But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
-            <span id="pr5Inf">3D Modeling · 3D Printing · Illustrator · Sketching · DIY</span>
-          </div>
-
-          <div id="pr6" class="pr2 appear">
-            <span id="pr6Tag">Personal Project</span>
-            <img id="pr6Img"> 
-            <span id="pr6Tit">GTX Usb</span>
-            <span id="pr6Con">
-              Carrying apps and games in a USB isn't a bad idea, but the memory's speed can cause problems.
-              To fix this I had the idea of adding a cooler, so i started designing case which ended up having the shape of an Nvidia GTX graphics card.
-              <br><br>
-              After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
-              Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.
-            </span>
-            <div id="pr6But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
-            <span id="pr6Inf">3D Modeling · 3D Printing · Electronics · DIY</span>
-          </div>
-
-          <div id="pr7" class="pr2 appear">
-            <span id="pr7Tag">Personal Project</span>
-            <img id="pr7Img"> 
-            <span id="pr7Tit">Discord Bots</span>
-            <span id="pr7Con">
-              After checking out the cool things you can do with discord bots I got the idea of creating my own.
-              <br><br>
-              At first I created a simple bot called Syrup and, after becoming better at making them, I created a more advanced version called Coscu.
-              This new version could jump into a call with people and play sounds so I used Adobe Audition to edit them and make them sound better.
-            </span>
-            <div id="pr7But" class="hc" style="margin-top: -20px; gap: 20px;">
-              <div id="pr7B1" class="btn" target="_blank" href="https://github.com/BOTPanzer/Syrup">Syrup Repository</div>
-            </div>
-            <span id="pr7Inf">JS · Audition · Discord API</span>
-          </div>
-
-          <div id="pr8" class="pr2 appear">
-            <span id="pr8Tag">Personal Project</span>
-            <img id="pr8Img"> 
-            <span id="pr8Tit">T45 Helmet</span>
-            <span id="pr8Con">
-              Fallout is one of my favorite videogame series and, in it's universe, people use technologically advanced full-body suits called power armors.
-              <br><br>
-              As I found a helmet 3D model I decided to print it in small pieces to make my own. 
-              After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.
-            </span>
-            <div id="pr8But" class="hc" style="margin-top: -20px; gap: 20px;"></div>
-            <span id="pr8Inf">3D Printing · DIY</span>
-          </div>
-        </div>
+      <div id="prMoreBox" class="vc cc" style="margin-top: 50px;">
+        <div id="prMore" class="btn2" onclick="addProject()">Load More</div>
       </div>
     </div>
 
