@@ -16,7 +16,7 @@ html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 
-  /*COLORS*/
+  /*Colors*/
   --bg: #0A192F;
   --button: #0c203d;
   --text: #f5f5f5;
@@ -29,16 +29,39 @@ html {
   --accentFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
   --shadowBig: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
 
-  /*WAVES*/
+  /*Waves*/
   --waveBot: 0;
 
-  /*SKILLS*/
+  /*Skills*/
   --sk1: 0;
   --sk2: 0;
   --sk3: 0;
   --sk4: 0;
   --sk5: 0;
   --sk6: 0;
+
+  /*Other*/
+  --menuHeight: 180px;
+  --pageW: 75vw;
+  --pageGap: 20px;
+  --homeW: 60%;
+}
+
+html[light] {
+  --bg: #ffffff;
+  --button: #e4e9f2;
+  --text: #000000;
+  --textFilter: brightness(0);
+  --text2: #6f7b96;
+  --text2Filter: brightness(0) invert(53%) sepia(14%) saturate(689%) hue-rotate(183deg) brightness(88%) contrast(86%);
+}
+
+html[mobile] {
+  font-size: 13px;
+  --menuHeight: 340px;
+  --pageW: 90vw;
+  --pageGap: 10px;
+  --homeW: 100%;
 }
 
 body {
@@ -437,6 +460,46 @@ a:not([class]) {
   width: 100%; 
 }
 
+.socials {
+  position: fixed; 
+  left: 40px;
+  bottom: 0;
+  color: var(--text2); 
+  display: flex; 
+  gap: 30px; 
+  flex-direction: column-reverse; 
+  align-items: center;
+}
+
+html[mobile] .socials {
+  display: none;
+}
+
+.socialsLine {
+  height: 10vh; 
+  width: 1px; 
+  background: var(--text2);
+}
+
+.socialsButton {
+  width: 20px; 
+  height: 20px; 
+  cursor: pointer;
+}
+
+.socialsButton > img{
+  width: 20px; 
+  height: 20px; 
+  filter: var(--text2Filter);
+  transition: filter .4s, filter .4s, transform .2s;
+}
+
+.socialsButton:hover > img {
+  filter: var(--accentFilter);
+  transform: translateY(-3px);
+  transition: filter .2s, -webkit-filter .2s, transform .2s;
+}
+
 
 
 
@@ -559,6 +622,14 @@ a:not([class]) {
   margin-bottom: 20px;
 }
 
+.achTit {
+  font-size: 22px;
+}
+
+html[mobile] .achTit {
+  font-size: 20px;
+}
+
 .achi {
   height: 120px; 
   width: calc(100% - 40px); 
@@ -636,63 +707,6 @@ a:not([class]) {
 
 
 
-  /*$$$$$   /$$$$$$   /$$$$$$  /$$$$$$  /$$$$$$  /$$        /$$$$$$ 
- /$$__  $$ /$$__  $$ /$$__  $$|_  $$_/ /$$__  $$| $$       /$$__  $$
-| $$  \__/| $$  \ $$| $$  \__/  | $$  | $$  \ $$| $$      | $$  \__/
-|  $$$$$$ | $$  | $$| $$        | $$  | $$$$$$$$| $$      |  $$$$$$ 
- \____  $$| $$  | $$| $$        | $$  | $$__  $$| $$       \____  $$
- /$$  \ $$| $$  | $$| $$    $$  | $$  | $$  | $$| $$       /$$  \ $$
-|  $$$$$$/|  $$$$$$/|  $$$$$$/ /$$$$$$| $$  | $$| $$$$$$$$|  $$$$$$/
- \______/  \______/  \______/ |______/|__/  |__/|________/ \_____*/ 
-
-.socials {
-  position: fixed; 
-  left: 40px;
-  bottom: 0;
-  color: var(--text2); 
-  display: flex; 
-  gap: 30px; 
-  flex-direction: column-reverse; 
-  align-items: center;
-}
-
-.socialsLine {
-  height: 10vh; 
-  width: 1px; 
-  background: var(--text2);
-}
-
-.socialsButton {
-  width: 20px; 
-  height: 20px; 
-  cursor: pointer;
-}
-
-.socialsButton > img{
-  width: 20px; 
-  height: 20px; 
-  filter: var(--text2Filter);
-  transition: filter .4s, filter .4s, transform .2s;
-}
-
-.socialsButton:hover > img {
-  filter: var(--accentFilter);
-  transform: translateY(-3px);
-  transition: filter .2s, -webkit-filter .2s, transform .2s;
-}
-
-.botSocials {
-  margin-top: 10px; 
-  
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 20px;
-}
-
-
-
-
-
  /*$$$$$$   /$$$$$$  /$$       /$$        /$$$$$$ 
 | $$__  $$ /$$__  $$| $$      | $$       /$$__  $$
 | $$  \ $$| $$  \ $$| $$      | $$      | $$  \__/
@@ -712,6 +726,10 @@ a:not([class]) {
   justify-content: center;
   align-items: center;
   pointer-events: none;
+}
+
+html[mobile] .balls {
+  display: none;
 }
 
 .ball {
@@ -1138,8 +1156,13 @@ a:not([class]) {
 .pr {
   height: min-content;
   display: flex;
+  flex-direction: row;
   align-items: center;
   position: relative;
+}
+
+html[mobile] .pr {
+  flex-direction: column;
 }
 
 .pr[reverse] {
@@ -1156,7 +1179,7 @@ a:not([class]) {
   border-radius: 20px;
 }
 
-.pr[mobile] > div:nth-of-type(1) {
+html[mobile] .pr > div:nth-of-type(1) {
   width: 100%; 
 }
 
@@ -1224,7 +1247,7 @@ a:not([class]) {
   filter: var(--accentFilter);
 }
 
-.pr:not([mobile]) > div:nth-of-type(1):hover + div:nth-of-type(2) {
+html:not([mobile]) .pr > div:nth-of-type(1):hover + div:nth-of-type(2) {
   transition-delay: 1s;
   z-index: -1;
   opacity: .6;
@@ -1250,7 +1273,7 @@ a:not([class]) {
   text-align: start; 
 }
 
-.pr[mobile] > div:nth-of-type(2) {
+html[mobile] .pr > div:nth-of-type(2) {
   width: 100%; 
   --prMar: 0;
   margin-top: 20px; 
@@ -1288,62 +1311,48 @@ a:not([class]) {
   opacity: .8;
 }
 
-/*SMALL PROJECTS*/
-.pr2 {
-  min-height: 100%; 
-  width: var(--pr2W); 
+
+
+
+
+ /*$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$  /$$      /$$
+| $$__  $$ /$$__  $$|__  $$__/|__  $$__//$$__  $$| $$$    /$$$
+| $$  \ $$| $$  \ $$   | $$      | $$  | $$  \ $$| $$$$  /$$$$
+| $$$$$$$ | $$  | $$   | $$      | $$  | $$  | $$| $$ $$/$$ $$
+| $$__  $$| $$  | $$   | $$      | $$  | $$  | $$| $$  $$$| $$
+| $$  \ $$| $$  | $$   | $$      | $$  | $$  | $$| $$\  $ | $$
+| $$$$$$$/|  $$$$$$/   | $$      | $$  |  $$$$$$/| $$ \/  | $$
+|_______/  \______/    |__/      |__/   \______/ |__/     |_*/
+
+.bot {
+  width: calc(100% - 40px); 
+  margin-top: 5vh; 
   padding: 20px; 
-  position: relative; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 20px; 
-  background: var(--button); 
-  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+
+  font-size: 1vw;
 }
 
-.pr2 > span:nth-of-type(1) {
-  padding: 8px 14px;
+html[mobile] .bot {
+  margin-top: unset; 
+  font-size: 3vw; 
+}
 
-  position: absolute; 
-  top: -3px; 
-  left: -12px;  
+.botSocials {
+  margin-top: 10px; 
   
-  background-color: var(--button); 
-  border-radius: 10px; 
-  box-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
-  
-  transform: rotate(-10deg);
-}
+  display: none;
+  flex-direction: row-reverse;
+  gap: 20px;
+}  
 
-.pr2:nth-of-type(even) > span:nth-of-type(1) {
-  left: auto;  
-  right: -12px;  
-  transform: rotate(10deg);
+html[mobile] .botSocials {
+  display: flex;
 }
-
-.pr2 > img {
-  width: 100%; 
-  border-radius: 10px;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-}
-
-.pr2 > span:nth-of-type(2) {
-  font-size: 1.46rem; 
-  font-family: phonk;
-}
-
-.pr2 > span:nth-of-type(3) {
-  opacity: .8; 
-  text-align: justify;
-}
-
-.pr2 > span:nth-of-type(4) {
-  font-size: .86rem; 
-  font-family: roboto; 
-  font-weight: 700; 
-  color: var(--text2); 
-  margin-top: auto;
-}
-
+                                                              
 /* ASCII FONT: Big Money-ne - https://manytools.org/hacker-tools/ascii-banner */

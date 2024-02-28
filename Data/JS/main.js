@@ -659,6 +659,8 @@ function switchLan() {
 | $$ \/  | $$| $$  | $$ /$$$$$$| $$ \  $$
 |__/     |__/|__/  |__/|______/|__/  \_*/
 
+const html = document.getElementById("html")
+
 //Enter
 loadPortfolio()
 function loadPortfolio() {
@@ -750,15 +752,11 @@ function checkVisible(elm) {
 
 
 //Resize
-resized()
+window.onload = resized
 window.onresize = resized
 function resized() {
-  let html = document.getElementById("html")
   if (window.innerHeight < window.innerWidth) {
-    html.style.fontSize = '15px'
-    html.style.setProperty('--menuHeight', '180px')
-    html.style.setProperty('--pageW', '75vw')
-    html.style.setProperty('--pageGap', '20px')
+    html.removeAttribute('mobile')
     //Top
     document.getElementById('topBar').style.backdropFilter = ''
     document.getElementById('topBar').style.boxShadow = ''
@@ -780,7 +778,6 @@ function resized() {
     document.getElementById('homeHi').style.fontSize = '20px'
     document.getElementById('homeTit1').style.fontSize = '45px'
     document.getElementById('homeTit2').style.fontSize = '30px'
-    html.style.setProperty('--homeW', '60%')
     document.getElementById('homeD&T').style.fontSize = '16px'
     //About
     document.getElementById('about').style.flexDirection = 'row'
@@ -791,26 +788,8 @@ function resized() {
     document.getElementById('skTop').style.marginRight = 'calc(42vh + 60px)'
     //Projects
     document.getElementById('prTop').style.marginRight = 'calc(42vh + 60px)'
-    for (elem of document.getElementsByClassName('pr')) { 
-      elem.style.flexDirection = '' 
-      elem.removeAttribute('mobile') 
-    }
-    html.style.setProperty('--pr2W', 'calc(50% - 90px)')
-    //Achievements
-    document.getElementById('achTit').style.fontSize = '22px'
-    //Socials
-    document.getElementById('socialsMenu').style.display = 'flex'
-    //Balls
-    document.getElementById('balls').style.display = 'flex'
-    //Bottom
-    document.getElementById('bot').style.marginTop = '30px'
-    document.getElementById('bot').style.fontSize = '1vw'
-    document.getElementById('botSocials').style.display = 'none'
   } else {
-    html.style.fontSize = '13px'
-    html.style.setProperty('--menuHeight', '340px')
-    html.style.setProperty('--pageW', '90vw')
-    html.style.setProperty('--pageGap', '10px')
+    html.setAttribute('mobile', '')
     //Top
     document.getElementById('topBar').style.backdropFilter = 'none'
     document.getElementById('topBar').style.boxShadow = 'none'
@@ -832,7 +811,6 @@ function resized() {
     document.getElementById('homeHi').style.fontSize = '1.5rem'
     document.getElementById('homeTit1').style.fontSize = '2rem'
     document.getElementById('homeTit2').style.fontSize = '1.5rem'
-    html.style.setProperty('--homeW', '100%')
     document.getElementById('homeD&T').style.fontSize = '1em'
     //About
     document.getElementById('about').style.flexDirection = 'column-reverse'
@@ -843,21 +821,6 @@ function resized() {
     document.getElementById('skTop').style.marginRight = ''
     //Projects
     document.getElementById('prTop').style.marginRight = ''
-    for (elem of document.getElementsByClassName('pr')) { 
-      elem.style.flexDirection = 'column'
-      elem.setAttribute('mobile', '')
-    }
-    html.style.setProperty('--pr2W', '100%')
-    //Achievements
-    document.getElementById('achTit').style.fontSize = '20px'
-    //Socials
-    document.getElementById('socialsMenu').style.display = 'none'
-    //Balls
-    document.getElementById('balls').style.display = 'none'
-    //Bottom
-    document.getElementById('bot').style.marginTop = ''
-    document.getElementById('bot').style.fontSize = '3vw'
-    document.getElementById('botSocials').style.display = 'flex'
   }
 }
 
@@ -969,29 +932,11 @@ function setTheme() {
   if (themeDark) {
     localStorage.setItem('pancoTheme', 'dark')
     document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.png'
-    document.body.style.setProperty('--bg', '#0A192F')
-    document.body.style.setProperty('--button', '#0c203d')
-    document.body.style.setProperty('--text', '#f5f5f5')
-    document.body.style.setProperty('--textFilter', 'brightness(0) invert(1)')
-    document.body.style.setProperty('--text2', '#495670')
-    document.body.style.setProperty('--text2Filter', 'brightness(0) invert(30%) sepia(20%) saturate(656%) hue-rotate(182deg) brightness(100%) contrast(91%)')
-    document.body.style.setProperty('--accent', '#DC2249')
-    document.body.style.setProperty('--accentT', '#dc224a31')
-    document.body.style.setProperty('--accentFilter', 'brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%)')
-    document.body.style.setProperty('--shadowBig', 'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px')
+    html.removeAttribute('light')
   } else {
     localStorage.setItem('pancoTheme', 'light')
     document.getElementById('topTheImg').src = 'Data/Images/Icons/light.png'
-    document.body.style.setProperty('--bg', '#ffffff')
-    document.body.style.setProperty('--button', '#e4e9f2')
-    document.body.style.setProperty('--text', '#000000')
-    document.body.style.setProperty('--textFilter', 'brightness(0)')
-    document.body.style.setProperty('--text2', '#6f7b96')
-    document.body.style.setProperty('--text2Filter', 'brightness(0) invert(53%) sepia(14%) saturate(689%) hue-rotate(183deg) brightness(88%) contrast(86%)')
-    document.body.style.setProperty('--accent', '#DC2249')
-    document.body.style.setProperty('--accentT', '#dc224a31')
-    document.body.style.setProperty('--accentFilter', 'brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%)')
-    document.body.style.setProperty('--shadowBig', 'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px')
+    html.setAttribute('light', '')
   }
 }
 
