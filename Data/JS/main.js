@@ -770,7 +770,7 @@ function resized() {
     document.getElementById('topA2').style.display = 'none'
     document.getElementById('topS2').style.display = 'none'
     document.getElementById('topP2').style.display = 'none'
-    document.getElementById('topMenu').removeAttribute('mobile')
+    //document.getElementById('topMenu').removeAttribute('mobile')
     //Home
     document.getElementById('homeMe').style.height = 'min(50vh, 60vw)'
     document.getElementById('homeMe').style.width = 'min(50vh, 60vw)'
@@ -803,7 +803,7 @@ function resized() {
     document.getElementById('topA2').style.display = 'flex'
     document.getElementById('topS2').style.display = 'flex'
     document.getElementById('topP2').style.display = 'flex'
-    document.getElementById('topMenu').setAttribute('mobile', '')
+    //document.getElementById('topMenu').setAttribute('mobile', '')
     //Home
     document.getElementById('homeMe').style.height = 'min(50vh, 70vw)'
     document.getElementById('homeMe').style.width = 'min(50vh, 70vw)'
