@@ -752,6 +752,7 @@ function checkVisible(elm) {
 
 
 //Resize
+resized()
 window.onload = resized
 window.onresize = resized
 function resized() {
