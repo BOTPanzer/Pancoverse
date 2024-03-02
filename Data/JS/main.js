@@ -1,12 +1,45 @@
- /*$        /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$$$$$$$
-| $$       /$$__  $$| $$$ | $$ /$$__  $$| $$  | $$ /$$__  $$ /$$__  $$| $$_____/
-| $$      | $$  \ $$| $$$$| $$| $$  \__/| $$  | $$| $$  \ $$| $$  \__/| $$      
-| $$      | $$$$$$$$| $$ $$ $$| $$ /$$$$| $$  | $$| $$$$$$$$| $$ /$$$$| $$$$$   
-| $$      | $$__  $$| $$  $$$$| $$|_  $$| $$  | $$| $$__  $$| $$|_  $$| $$__/   
-| $$      | $$  | $$| $$\  $$$| $$  \ $$| $$  | $$| $$  | $$| $$  \ $$| $$      
-| $$$$$$$$| $$  | $$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$/| $$$$$$$$
-|________/|__/  |__/|__/  \__/ \______/  \______/ |__/  |__/ \______/ |_______*/
 
+/*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
+| $$$    /$$$ /$$__  $$|_  $$_/| $$$ | $$
+| $$$$  /$$$$| $$  \ $$  | $$  | $$$$| $$
+| $$ $$/$$ $$| $$$$$$$$  | $$  | $$ $$ $$
+| $$  $$$| $$| $$__  $$  | $$  | $$  $$$$
+| $$\  $ | $$| $$  | $$  | $$  | $$\  $$$
+| $$ \/  | $$| $$  | $$ /$$$$$$| $$ \  $$
+|__/     |__/|__/  |__/|______/|__/  \_*/
+
+//Load portfolio
+window.onload = () => {
+  setLan()
+  resized()
+  scrolled()
+  html.style.setProperty('--waveBot', '100vh')
+  setTimeout(() => {
+    homeType()
+    document.getElementById('waves').style.opacity = '0'
+    document.getElementById('waves').style.pointerEvents = 'none'
+    setTimeout(() => { 
+      document.body.style.overflow = 'auto' 
+    }, 500)
+  }, 500)
+}
+
+
+
+//Socials achievement & title change
+window.onfocus = () => {
+  if (socialsOpen) giveAchievement('socials')
+  changeTitle()
+}
+
+
+
+//Get html element
+const html = document.getElementById("html")
+
+
+
+//Language (spanish as default)
 const lans = {
   en: {
     tag: 'en', 
@@ -35,10 +68,6 @@ const lans = {
       t: 'Theme',
       l: 'English',
       ac: 'Achievements'
-    },
-    e: {
-      b1: 'DIVE INTO THE PANCOVERSE',
-      b2: 'DIVE PANCOVERSE INTO THE'
     },
     h: {
       hi: "Howdy! I'm",
@@ -178,7 +207,7 @@ const lans = {
         con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
               <br><br>
               It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
-        b1:  "Download Otter's Odyssey"
+        b1:  "Download&nbsp<i>Otter's Odyssey</i>"
       },
       vapor:{
         inf: 'Unity · VS Code · Illustrator · Photoshop',
@@ -187,7 +216,7 @@ const lans = {
         con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
               <br><br>
               Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
-        b1:  "Download Vaporcade"
+        b1:  "Download&nbsp<i>Vaporcade</i>"
       },
       papa:{
         inf: 'Unity · VS Code · Illustrator · Photoshop',
@@ -196,7 +225,7 @@ const lans = {
         con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
               <br><br>
               The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.`,
-        b1:  "Download Cooking Papa"
+        b1:  "Download&nbsp<i>Cooking Papa</i>"
       },
       spirits:{
         inf: 'Unity · VS Code · Illustrator · Photoshop',
@@ -205,7 +234,7 @@ const lans = {
         con: `Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
               <br><br>
               On the way you will find puzzles in which you will have to cooperate in order to continue.`,
-        b1:  "Download Twin Spirits"
+        b1:  "Download&nbsp<i>Twin Spirits</i>"
       },
       memory:{
         inf: 'Unity · VS Code · Photoshop · Illustrator',
@@ -216,18 +245,18 @@ const lans = {
               Inspired by Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
               <br><br>
               Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
-        b1:  "Download Memory Shift"
+        b1:  "Download&nbsp<i>Memory Shift</i>"
       },
       lmdshow:{
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "Escape From LMDShow",
-        con: `Thanks <a href="https://youtu.be/z0Qv5HZyZgU" target="_blank">IlloJuan</a> for playing!
+        con: `Thanks <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
               <br><br>
               Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
               <br><br>
               To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
-        b1:  "Download Escape From LMDShow"
+        b1:  "Download&nbsp<i>Escape From LMDShow</i>"
       },
       raccoon:{
         inf: 'Unity · Blender · VS Code · Photoshop',
@@ -240,7 +269,7 @@ const lans = {
               Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
               <br><br>
               Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
-        b1:  "Download Esto AÚN no es un Juego"
+        b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>"
       }
     },
     bot: {
@@ -274,10 +303,6 @@ const lans = {
       t: 'Tema',
       l: 'Español',
       ac: 'Logros'
-    },
-    e: {
-      b1: 'ENTRAR EN EL PANCOVERSO',
-      b2: 'ENTRAR PANCOVERSO EN EL'
     },
     h: {
       hi: 'Hey! Soy',
@@ -417,7 +442,7 @@ const lans = {
         con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
               <br><br>
               Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
-        b1:  "Descargar Otter's Odyssey"
+        b1:  "Descargar&nbsp<i>Otter's Odyssey</i>"
       },
       vapor:{
         inf: 'Unity · VS Code · Illustrator · Photoshop',
@@ -426,7 +451,7 @@ const lans = {
         con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
               <br><br>
               Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
-        b1:  "Descargar Vaporcade"
+        b1:  "Descargar&nbsp<i>Vaporcade</i>"
       },
       papa:{
         inf: 'Unity · VS Code · Illustrator · Photoshop',
@@ -435,7 +460,7 @@ const lans = {
         con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
               <br><br>
               Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.`,
-        b1:  "Descargar Cooking Papa"
+        b1:  "Descargar&nbsp<i>Cooking Papa</i>"
       },
       spirits:{
         inf: 'Unity · VS Code · Illustrator · Photoshop',
@@ -444,7 +469,7 @@ const lans = {
         con: `Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
               <br><br>
               Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
-        b1:  "Descargar Twin Spirits"
+        b1:  "Descargar&nbsp<i>Twin Spirits</i>"
       },
       memory:{
         inf: 'Unity · VS Code · Photoshop · Illustrator',
@@ -455,18 +480,18 @@ const lans = {
               Inspirado por Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
               <br><br>
               Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
-        b1:  "Descargar Memory Shift"
+        b1:  "Descargar&nbsp<i>Memory Shift</i>"
       },
       lmdshow:{
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto Personal',
         tit: "Escape From LMDShow",
-        con: `¡Gracias por jugar <a href="https://youtu.be/z0Qv5HZyZgU" target="_blank">IlloJuan</a>!
+        con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
               <br><br>
               Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
               <br><br>
               Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
-        b1:  "Descargar Escape From LMDShow"
+        b1:  "Descargar&nbsp<i>Escape From LMDShow</i>"
       },
       raccoon:{
         inf: 'Unity · Blender · VS Code · Photoshop',
@@ -479,7 +504,7 @@ const lans = {
               Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
               <br><br>
               Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
-        b1:  "Descargar Esto AÚN no es un Juego"
+        b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>"
       }
     },
     bot: {
@@ -488,41 +513,17 @@ const lans = {
   }
 }
 
-//Default language (spanish)
 let lan = lans.es
-//Check for saved language
-let lanSaved = localStorage.getItem('pancoLan')
-if (lanSaved == 'en') {
-  //Saved language is english
-  lan = lans.en
-} else if (lanSaved == null) {
-  //No language -> Check computer language
-  let lang = navigator.language || navigator.userLanguage
-  //Computer language is english
-  if (lang.startsWith('en')) lan = lans.en
-  //Save language
-  localStorage.setItem('pancoLan', lan.tag)
-}
 
 
-//About image index & order (needed here for setLan to work, shuffle all & add artyom last)
-let abIndex = 0
-let abOrder = []
-for (let i = 1; i < lan.a.names.length; i++) { abOrder.push(i) }
-for (let i = abOrder.length - 1; i > 0; i--) {
-  let randomIndex = Math.floor(Math.random() * i);
-  [abOrder[i], abOrder[randomIndex]] = [abOrder[randomIndex], abOrder[i]];
-}
-abOrder.push(0)
 
-
-//Created projects (needed here for setLan to work)
-let projectsLength = 0
-let projects = [
+//Created projects
+const projs = [
   {
     key: 'lmdshow',
     img: 'Data/Images/Projects/lmdshow.jpg',
-    btn: ["https://botpa.itch.io/escape-from-lmdshow"]
+    btn: ["https://botpa.itch.io/escape-from-lmdshow"],
+    vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'raccoon',
@@ -571,145 +572,68 @@ let projects = [
   }*/
 ]
 
+let projsLength = 0
 
-//Set language
-setLan()
-function setLan() {
-  //Achievement
-  document.getElementById('achTit').innerText = lan.ach.tit
-  document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
-  document.getElementById('achi1Con').innerText = lan.ach.a1.con
-  document.getElementById('achi1Lock').innerText = lan.ach.lock
-  document.getElementById('achi2Tit').innerText = lan.ach.a2.tit
-  document.getElementById('achi2Con').innerText = lan.ach.a2.con
-  document.getElementById('achi2Lock').innerText = lan.ach.lock
-  document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
-  document.getElementById('achi3Con').innerText = lan.ach.a3.con
-  document.getElementById('achi3Lock').innerText = lan.ach.lock
-  //Top
-  document.getElementById('topH1T').innerText = lan.top.h
-  document.getElementById('topH2T').innerText = lan.top.h
-  document.getElementById('topA1T').innerText = lan.top.a
-  document.getElementById('topA2T').innerText = lan.top.a
-  document.getElementById('topS1T').innerText = lan.top.s
-  document.getElementById('topS2T').innerText = lan.top.s
-  document.getElementById('topP1T').innerText = lan.top.p
-  document.getElementById('topP2T').innerText = lan.top.p
-  document.getElementById('topThe').innerText = lan.top.t
-  document.getElementById('topLan').innerText = lan.top.l
-  document.getElementById('topAch').innerText = lan.top.ac
-  //Home
-  document.getElementById('homeHi').innerText = lan.h.hi
-  document.getElementById('homeTit1').innerText = lan.h.tit1
-  document.getElementById('homeTit2').innerText = lan.h.tit2
-  document.getElementById('homeDesc').innerText = lan.h.desc
-  document.getElementById('homeType1').innerText = lan.h.type1
-  document.getElementById('homeAbout').innerText = lan.h.a
-  //About
-  document.getElementById('aboutTit').innerText = lan.a.tit
-  document.getElementById('aboutDesc1').innerText = lan.a.desc1
-  document.getElementById('aboutDesc2').innerText = lan.a.desc2
-  document.getElementById('aboutSkills').innerText = lan.a.s
-  document.getElementById('aboutImgName').innerText = lan.a.names[abOrder[abIndex]]
-  //Skills
-  document.getElementById('skTit').innerText = lan.s.tit
-  document.getElementById('skDesc').innerText = lan.s.desc
-  document.getElementById('skVidTit').innerText = lan.s.videogames
-  document.getElementById('skVidPro').innerText = lan.s.advanced
-  document.getElementById('skAndTit').innerText = lan.s.android
-  document.getElementById('skAndPro').innerText = lan.s.high
-  document.getElementById('skWebTit').innerText = lan.s.web
-  document.getElementById('skWebPro').innerText = lan.s.high
-  document.getElementById('sk3dTit').innerText = lan.s.d3
-  document.getElementById('sk3dPro').innerText = lan.s.medium
-  document.getElementById('skUiTit').innerText = lan.s.ui
-  document.getElementById('skUiPro').innerText = lan.s.medium
-  document.getElementById('skArtTit').innerText = lan.s.art
-  document.getElementById('skArtPro').innerText = lan.s.medium
-  document.getElementById('skProj').innerText = lan.s.p
-  //Projects
-  document.getElementById('prTit').innerText = lan.p.tit
-  document.getElementById('prMore').innerText = lan.p.more
-  addProjects()
+
+
+//About image index & order (shuffle all & add artyom last)
+let abIndex = 0
+let abOrder = []
+for (let i = 1; i < lan.a.names.length; i++) { abOrder.push(i) }
+for (let i = abOrder.length - 1; i > 0; i--) {
+  let randomIndex = Math.floor(Math.random() * i);
+  [abOrder[i], abOrder[randomIndex]] = [abOrder[randomIndex], abOrder[i]];
 }
-
-
-//Switch language
-function switchLan() {
-  toggleMenu()
-  if (lan == lans.en) 
-    lan = lans.es
-  else
-    lan = lans.en
-  localStorage.setItem('pancoLan', lan.tag)
-  setLan()
-  changeTitle()
-}
+abOrder.push(0)
 
 
 
-
-
- /*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
-| $$$    /$$$ /$$__  $$|_  $$_/| $$$ | $$
-| $$$$  /$$$$| $$  \ $$  | $$  | $$$$| $$
-| $$ $$/$$ $$| $$$$$$$$  | $$  | $$ $$ $$
-| $$  $$$| $$| $$__  $$  | $$  | $$  $$$$
-| $$\  $ | $$| $$  | $$  | $$  | $$\  $$$
-| $$ \/  | $$| $$  | $$ /$$$$$$| $$ \  $$
-|__/     |__/|__/  |__/|______/|__/  \_*/
-
-const html = document.getElementById("html")
-
-//Enter
-loadPortfolio()
-function loadPortfolio() {
-  setTimeout(function() {
-    html.style.setProperty('--waveBot', '100vh')
-    setTimeout(function() {
-      document.getElementById('enter').style.opacity = '0'
-      document.getElementById('enter').style.pointerEvents = 'none'
-      homeType()
-      setTimeout(function() { document.body.style.overflow = 'auto' }, 500)
-    }, 500)
-  }, 200)
-}
-
-//Goto
+//Goto & Visibility
 function goto(id) {
+  //Scroll to element
   document.getElementById(id).scrollIntoView({behavior: "smooth"})
   //Close menu
   toggleMenu(false)
 }
 
+function isVisible(elm) {
+  var rect = elm.getBoundingClientRect()
+  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight)
+  return !(rect.bottom < 175 || rect.top - viewHeight >= 175)
+}
 
-//Scroll
-let scrollI = 0
+
+
+//Scrolling
 const ball1 = document.getElementById('ball1')
 const ball2 = document.getElementById('ball2')
 const ball3 = document.getElementById('ball3')
 const ball4 = document.getElementById('ball4')
+
+let scrollCount = 0
+
 window.onscroll = scrolled
-setTimeout(scrolled, 100)
+
 function scrolled() {
-  scrollI--
-  if (scrollI > 0) return
-  scrollI = 10
+  scrollCount--
+  if (scrollCount > 0) return
+  scrollCount = 5
+
   //Balls
-  if (checkVisible(document.getElementById('home'))) {
+  if (isVisible(document.getElementById('home'))) {
     ball1.setAttribute('checked', '')
     ball2.removeAttribute('checked')
     ball3.removeAttribute('checked')
     ball4.removeAttribute('checked')
   } else {
     ball1.removeAttribute('checked')
-    if (checkVisible(document.getElementById('about'))) {
+    if (isVisible(document.getElementById('about'))) {
       ball2.setAttribute('checked', '')
       ball3.removeAttribute('checked')
       ball4.removeAttribute('checked')
     } else {
       ball2.removeAttribute('checked')
-      if (checkVisible(document.getElementById('skills'))) {
+      if (isVisible(document.getElementById('skills'))) {
         ball3.setAttribute('checked', '')
         ball4.removeAttribute('checked')
       } else {
@@ -718,43 +642,41 @@ function scrolled() {
       }
     }
   }
+
   //Skills
-  if (checkVisible(document.getElementById('skills'))) {
-    if (checkVisible(document.getElementById('skVidTit')))
+  if (isVisible(document.getElementById('skills'))) {
+    if (isVisible(document.getElementById('skVidTit')))
       document.body.style.setProperty('--sk1', '90%')
-    if (checkVisible(document.getElementById('skAndTit')))
+    if (isVisible(document.getElementById('skAndTit')))
       document.body.style.setProperty('--sk2', '55%')
-    if (checkVisible(document.getElementById('skWebTit')))
+    if (isVisible(document.getElementById('skWebTit')))
       document.body.style.setProperty('--sk3', '55%')
-    if (checkVisible(document.getElementById('sk3dTit')))
+    if (isVisible(document.getElementById('sk3dTit')))
       document.body.style.setProperty('--sk4', '35%')
-    if (checkVisible(document.getElementById('skUiTit')))
+    if (isVisible(document.getElementById('skUiTit')))
       document.body.style.setProperty('--sk5', '35%')
-    if (checkVisible(document.getElementById('skArtTit')))
+    if (isVisible(document.getElementById('skArtTit')))
       document.body.style.setProperty('--sk6', '35%')
   }
+
   //Appear anim
   const elems = document.querySelectorAll('.appear')
   for (let i = 0; i < elems.length; i++) {
     const elem = elems[i]
-    if (checkVisible(elem)) {
+    if (isVisible(elem)) {
       elem.classList.add('appeared')
       elem.classList.remove('appear')
     }
   }
 }
 
-function checkVisible(elm) {
-  var rect = elm.getBoundingClientRect()
-  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight)
-  return !(rect.bottom < 175 || rect.top - viewHeight >= 175)
-}
 
 
 //Resize
 resized()
-window.onload = resized
+
 window.onresize = resized
+
 function resized() {
   if (window.innerHeight < window.innerWidth) {
     html.removeAttribute('mobile')
@@ -826,17 +748,22 @@ function resized() {
 }
 
 
+
 //Menu
 let menuOpen = false
+
 function toggleMenu(open) {
   //Check
   if (typeof open != 'boolean') open = !menuOpen
   if (open == menuOpen) return
+
   //Hide ball
   document.getElementById('topDot1').style.opacity = '0'
+
   //Elems
   const bg = document.getElementById('topMBG')
   const menu = document.getElementById('topMenu')
+
   //Toggle
   if (open) {
     //Open
@@ -853,23 +780,25 @@ function toggleMenu(open) {
 }
 
 
+
 //Change title
 changeTitle()
-window.onblur = changeTitle
+
 function changeTitle() {
   let emojis = ['😎', '😄', '🦝', '🦎', '🦖', '🦦', '🍜']
   document.title = lan.name+' '+emojis[Math.floor(Math.random() * emojis.length)]
 }
 
 
-//Socials
-let sItch, sGit, sReddit, sYT, sTikTok
-sItch = sGit = sReddit = sYT = sTikTok = false
 
-function CopyMail() {
+//Socials
+let socialsOpen = false
+
+function copyMail() {
   createSnackbar(lan.bot.mail, false)
   navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
 }
+
 
 
 //Snackbar & Confetti 🎊
@@ -915,6 +844,118 @@ function createConfetti() {
 
 
 
+ /*$        /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$$$$$$$
+| $$       /$$__  $$| $$$ | $$ /$$__  $$| $$  | $$ /$$__  $$ /$$__  $$| $$_____/
+| $$      | $$  \ $$| $$$$| $$| $$  \__/| $$  | $$| $$  \ $$| $$  \__/| $$      
+| $$      | $$$$$$$$| $$ $$ $$| $$ /$$$$| $$  | $$| $$$$$$$$| $$ /$$$$| $$$$$   
+| $$      | $$__  $$| $$  $$$$| $$|_  $$| $$  | $$| $$__  $$| $$|_  $$| $$__/   
+| $$      | $$  | $$| $$\  $$$| $$  \ $$| $$  | $$| $$  | $$| $$  \ $$| $$      
+| $$$$$$$$| $$  | $$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$/| $$$$$$$$
+|________/|__/  |__/|__/  \__/ \______/  \______/ |__/  |__/ \______/ |_______*/
+
+//Recover saved language
+switch (localStorage.getItem('language')) {
+  //Nothing saved
+  case null:
+    //Check device
+    let lang = navigator.language || navigator.userLanguage
+    //Device is in english
+    if (lang.startsWith('en')) lan = lans.en
+    //Save language
+    localStorage.setItem('language', lan.tag)
+    break;
+
+  //English saved
+  case 'en':
+    lan = lans.en
+    break;
+}
+
+
+
+//Set language
+function setLan() {
+  //Achievement
+  document.getElementById('achTit').innerText = lan.ach.tit
+  document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
+  document.getElementById('achi1Con').innerText = lan.ach.a1.con
+  document.getElementById('achi1Lock').innerText = lan.ach.lock
+  document.getElementById('achi2Tit').innerText = lan.ach.a2.tit
+  document.getElementById('achi2Con').innerText = lan.ach.a2.con
+  document.getElementById('achi2Lock').innerText = lan.ach.lock
+  document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
+  document.getElementById('achi3Con').innerText = lan.ach.a3.con
+  document.getElementById('achi3Lock').innerText = lan.ach.lock
+
+  //Top
+  document.getElementById('topH1T').innerText = lan.top.h
+  document.getElementById('topH2T').innerText = lan.top.h
+  document.getElementById('topA1T').innerText = lan.top.a
+  document.getElementById('topA2T').innerText = lan.top.a
+  document.getElementById('topS1T').innerText = lan.top.s
+  document.getElementById('topS2T').innerText = lan.top.s
+  document.getElementById('topP1T').innerText = lan.top.p
+  document.getElementById('topP2T').innerText = lan.top.p
+  document.getElementById('topThe').innerText = lan.top.t
+  document.getElementById('topLan').innerText = lan.top.l
+  document.getElementById('topAch').innerText = lan.top.ac
+
+  //Home
+  document.getElementById('homeHi').innerText = lan.h.hi
+  document.getElementById('homeTit1').innerText = lan.h.tit1
+  document.getElementById('homeTit2').innerText = lan.h.tit2
+  document.getElementById('homeDesc').innerText = lan.h.desc
+  document.getElementById('homeType1').innerText = lan.h.type1
+  document.getElementById('homeAbout').innerText = lan.h.a
+
+  //About
+  document.getElementById('aboutTit').innerText = lan.a.tit
+  document.getElementById('aboutDesc1').innerText = lan.a.desc1
+  document.getElementById('aboutDesc2').innerText = lan.a.desc2
+  document.getElementById('aboutSkills').innerText = lan.a.s
+  document.getElementById('aboutImgName').innerText = lan.a.names[abOrder[abIndex]]
+
+  //Skills
+  document.getElementById('skTit').innerText = lan.s.tit
+  document.getElementById('skDesc').innerText = lan.s.desc
+  document.getElementById('skVidTit').innerText = lan.s.videogames
+  document.getElementById('skVidPro').innerText = lan.s.advanced
+  document.getElementById('skAndTit').innerText = lan.s.android
+  document.getElementById('skAndPro').innerText = lan.s.high
+  document.getElementById('skWebTit').innerText = lan.s.web
+  document.getElementById('skWebPro').innerText = lan.s.high
+  document.getElementById('sk3dTit').innerText = lan.s.d3
+  document.getElementById('sk3dPro').innerText = lan.s.medium
+  document.getElementById('skUiTit').innerText = lan.s.ui
+  document.getElementById('skUiPro').innerText = lan.s.medium
+  document.getElementById('skArtTit').innerText = lan.s.art
+  document.getElementById('skArtPro').innerText = lan.s.medium
+  document.getElementById('skProj').innerText = lan.s.p
+
+  //Projects
+  document.getElementById('prTit').innerText = lan.p.tit
+  document.getElementById('prMore').innerText = lan.p.more
+  addProjects()
+}
+
+
+
+//Switch language
+function switchLan() {
+  toggleMenu()
+  if (lan == lans.en) 
+    lan = lans.es
+  else
+    lan = lans.en
+  localStorage.setItem('language', lan.tag)
+  changeTitle()
+  setLan()
+}
+
+
+
+
+
  /*$$$$$$$ /$$   /$$ /$$$$$$$$ /$$      /$$ /$$$$$$$$
 |__  $$__/| $$  | $$| $$_____/| $$$    /$$$| $$_____/
    | $$   | $$  | $$| $$      | $$$$  /$$$$| $$      
@@ -924,30 +965,32 @@ function createConfetti() {
    | $$   | $$  | $$| $$$$$$$$| $$ \/  | $$| $$$$$$$$
    |__/   |__/  |__/|________/|__/     |__/|_______*/
 
-let themeI = 0
-let themeDark = true
-if (localStorage.getItem('pancoTheme') == 'light') themeDark = false
+let themeChanged = false
+let themeDark = !(localStorage.getItem('theme') == 'light')
 
 setTheme()
+
 function setTheme() {
   if (themeDark) {
-    localStorage.setItem('pancoTheme', 'dark')
+    localStorage.setItem('theme', 'dark')
     document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.png'
     html.removeAttribute('light')
   } else {
-    localStorage.setItem('pancoTheme', 'light')
+    localStorage.setItem('theme', 'light')
     document.getElementById('topTheImg').src = 'Data/Images/Icons/light.png'
     html.setAttribute('light', '')
   }
 }
 
 function switchTheme() {
+  //Switch theme
   toggleMenu()
   themeDark = !themeDark
   setTheme()
-  if (themeI > 1) return
-  themeI++
-  if (themeI > 1) giveAchievement('drill')
+
+  //Achievement
+  if (themeChanged) giveAchievement('drill')
+  themeChanged = true
 }
 
 
@@ -963,50 +1006,49 @@ function switchTheme() {
 | $$  | $$|  $$$$$$/| $$  | $$ /$$$$$$| $$$$$$$$   \  $/   | $$$$$$$$| $$ \/  | $$| $$$$$$$$| $$ \  $$   | $$   
 |__/  |__/ \______/ |__/  |__/|______/|________/    \_/    |________/|__/     |__/|________/|__/  \__/   |_*/   
 
+//Given achievements
 let ach = {
   socials: false,
   artyom: false,
   drill: false
 }
 
+
+
 //Load achievements
-if (localStorage.getItem('pancoAchSocials') == 'true') 
+if (localStorage.getItem('achSocials') == 'true') 
   addAchievement('socials')
-if (localStorage.getItem('pancoAchArtyom') == 'true') 
+if (localStorage.getItem('achArtyom') == 'true') 
   addAchievement('artyom')
-if (localStorage.getItem('pancoAchDrill') == 'true') 
+if (localStorage.getItem('achDrill') == 'true') 
   addAchievement('drill')
 
-//Temp variables
-let artyomI = 0
-
-//Give socials achievement on focus
-window.onfocus = () => {
-  if (sItch || sGit || sReddit || sYT || sTikTok) giveAchievement('socials')
-}
 
 
 //Give, reset & show achievements
 function giveAchievement(name) {
-  let added = false
+  //Try to give achievement
+  let given = false
   switch(name) {
     case 'socials':
       if (ach.socials == true) return
       createSnackbar(`🏆 ${lan.ach.a1.tit}`, true)
-      added = true
+      given = true
       break
     case 'artyom':
       if (ach.artyom == true) return
       createSnackbar(`🏆 ${lan.ach.a2.tit}`, true)
-      added = true
+      given = true
       break
     case 'drill':
       if (ach.drill == true) return
       createSnackbar(`🏆 ${lan.ach.a3.tit}`, true)
-      added = true
+      given = true
       break
   }
-  if (added) {
+
+  //Succesfully given
+  if (given) {
     addAchievement(name)
     if (!menuOpen)
       document.getElementById('topDot1').style.opacity = '1'
@@ -1018,39 +1060,46 @@ function addAchievement(name) {
   switch(name) {
     case 'socials':
       ach.socials = true
-      localStorage.setItem('pancoAchSocials', 'true')
+      localStorage.setItem('achSocials', 'true')
       document.getElementById('achi1').removeAttribute('locked')
       break
     case 'artyom':
       ach.artyom = true
-      localStorage.setItem('pancoAchArtyom', 'true')
+      localStorage.setItem('achArtyom', 'true')
       document.getElementById('achi2').removeAttribute('locked')
       break
     case 'drill':
       ach.drill = true
-      localStorage.setItem('pancoAchDrill', 'true')
+      localStorage.setItem('achDrill', 'true')
       document.getElementById('achi3').removeAttribute('locked')
       break
   }
 }
 
 function resetAchievements() {
+  //Reset added
   ach = {
     socials: false,
     artyom: false,
     drill: false,
   }
-  localStorage.setItem('pancoAchSocials', '')
-  localStorage.setItem('pancoAchArtyom', '')
-  localStorage.setItem('pancoAchDrill', '')
+
+  //Reset stored vlues
+  localStorage.setItem('achSocials', '')
+  localStorage.setItem('achArtyom', '')
+  localStorage.setItem('achDrill', '')
+
+  //Reset UI
   document.getElementById('achi1').setAttribute('locked', '')
   document.getElementById('achi2').setAttribute('locked', '')
   document.getElementById('achi3').setAttribute('locked', '')
 }
 
 
+
 //Achievements menu
 let achiOpen = false
+
 function toggleAchi() {
   document.getElementById('topDot2').style.opacity = '0'
   const bg = document.getElementById('ach')
@@ -1152,10 +1201,13 @@ function homeType() {
 | $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
 |__/  |__/|_______/  \______/  \______/    |_*/
 
-//About image
+//About elements
 const aboutImg = document.getElementById('aboutImg')
 const aboutImgName = document.getElementById('aboutImgName')
+
+//Update about image
 abUpdate()
+
 function abUpdate() {
   let imgs = ['Data/Images/About/artyom.jpg',
               'Data/Images/About/canary.jpg',
@@ -1168,7 +1220,10 @@ function abUpdate() {
   aboutImg.src = imgs[abOrder[abIndex]]
 }
 
-aboutImg.onload = function() { 
+//About image loading
+let abLoading = false
+
+aboutImg.onload = () => { 
   //Update text
   aboutImgName.innerText = lan.a.names[abOrder[abIndex]]
   //Loading
@@ -1182,7 +1237,6 @@ aboutImg.onload = function() {
   }
 }
 
-let abLoading = false
 function abClick() {
   //Is loading
   if (abLoading) return
@@ -1214,8 +1268,8 @@ function abClick() {
 
 function addProjects() {
   //Get animate & projects length (minimum of 4)
-  let animate = projectsLength == 0
-  let pLength = Math.max(projectsLength, 4)
+  let animate = projsLength == 0
+  let pLength = Math.max(projsLength, 4)
 
   //Clear
   clearProjects()
@@ -1226,7 +1280,7 @@ function addProjects() {
 
 function clearProjects() {
   //Clear projects
-  projectsLength = 0
+  projsLength = 0
   document.getElementById('prProjects').innerHTML = ''
 }
 
@@ -1235,49 +1289,70 @@ function addProject(animate) {
   if (typeof animate != 'boolean') animate = true
 
   //No more space
-  if (projectsLength >= projects.length) return
+  if (projsLength >= projs.length) return
 
   //Get info
-  let p = projects[projectsLength]
+  let p = projs[projsLength]
   let key = lan.p[p.key]
   let img = p.img
   let btn = p.btn
+  let vid = p.vid
 
   //Buttons
   let buttonHTML = ''
   if (Array.isArray(btn) && btn.length > 0) {
     //Has buttons -> Add them
     for (let i = 0; i < btn.length; i++) {
-      buttonHTML += `<a id="pr${projectsLength}B${i}" class="btn" target="_blank" href="${btn[i]}">${key['b'+(i+1)]}</a>`
+      buttonHTML += `<a id="pr${projsLength}B${i}" class="btn" target="_blank" href="${btn[i]}">${key['b'+(i+1)]}</a>`
     }
   }
 
   //Add HTML
   const element = document.createElement('div')
-  element.id = `pr${projectsLength}`
+  element.id = `pr${projsLength}`
   element.classList.add('pr')
-  if (animate) element.classList.add('pr', projectsLength < 4 ? 'appear' : 'appeared')
-  if (projectsLength % 2 != 0) element.setAttribute('reverse', '')
+  if (animate) element.classList.add('pr', projsLength < 4 ? 'appear' : 'appeared')
+  if (projsLength % 2 != 0) element.setAttribute('reverse', '')
   element.innerHTML = `
-    <div>
-      <span id="pr${projectsLength}Tag">${key.tag}</span>
-      <img id="pr${projectsLength}Img" src="${img}">
+    <div id="pr${projsLength}Media">
+      <span id="pr${projsLength}Tag">${key.tag}</span>
+      <div>
+        ${vid == undefined ? `` : `<span onclick="toggleVideo(${projsLength}, 'https://www.youtube.com/embed/${vid}')">► Video</span>`}
+      </div>
+      <div>
+        <img id="pr${projsLength}Img" src="${img}">
+        <iframe id="pr${projsLength}Vid"></iframe>
+      </div>
     </div>
     <div>
-      <span id="pr${projectsLength}Inf">${key.inf}</span>
+      <span id="pr${projsLength}Inf">${key.inf}</span>
       <div>
-        <span id="pr${projectsLength}Tit">${key.tit}</span>
-        <span id="pr${projectsLength}Con">${key.con}</span>
+        <span id="pr${projsLength}Tit">${key.tit}</span>
+        <span id="pr${projsLength}Con">${key.con}</span>
       </div>
-      <div id="pr${projectsLength}Btn" class="hc" style="gap: 20px;">${buttonHTML}</div>
+      <div id="pr${projsLength}Btn" class="hc" style="gap: 20px;">${buttonHTML}</div>
     </div>`
   document.getElementById('prProjects').appendChild(element)
 
   //Done
-  projectsLength++
+  projsLength++
 
   //Hide load more button
-  if (projectsLength == projects.length) document.getElementById('prMoreBox').style.display = 'none'
+  if (projsLength == projs.length) document.getElementById('prMoreBox').style.display = 'none'
+}
+
+function toggleVideo(number, url) {
+  const media = document.getElementById(`pr${number}Media`)
+  const video = document.getElementById(`pr${number}Vid`)
+  if (media.getAttribute('video') != null) {
+    media.removeAttribute('video')
+    //video.style.display = 'none'
+    video.src = ''
+  } else {
+    media.setAttribute('video', '')
+    //video.style.display = 'flex'
+    video.src = url
+  }
 }
 
 
