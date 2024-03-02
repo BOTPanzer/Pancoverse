@@ -538,7 +538,8 @@ const projs = [
   {
     key: 'spirits',
     img: 'Data/Images/Projects/spirits.jpg',
-    btn: ["https://botpa.itch.io/twin-spirits"]
+    btn: ["https://botpa.itch.io/twin-spirits"],
+    vid: 'SdIGAw2ABeU',
   },
   {
     key: 'vapor',
