@@ -1323,7 +1323,7 @@ function addProject(animate) {
       </div>
       <div>
         <img id="pr${projsLength}Img" src="${img}">
-        <iframe id="pr${projsLength}Vid"></iframe>
+        <iframe id="pr${projsLength}Vid" allow="fullscreen;"></iframe>
       </div>
     </div>
     <div>
