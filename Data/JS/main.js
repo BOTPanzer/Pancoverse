@@ -35,7 +35,7 @@ window.onfocus = () => {
 
 
 //Get html element
-const html = document.getElementById("html")
+const html = document.querySelector('html')
 
 
 
@@ -305,7 +305,7 @@ const lans = {
       ac: 'Logros'
     },
     h: {
-      hi: 'Hey! Soy',
+      hi: '¡Hey! Soy',
       tit1: 'ALEJANDRO PANIAGUA',
       tit2: 'Y me encanta programar y diseñar',
       desc: 'Soy un estudiante español, actualmente estudiando un grado de desarrollo de videojuegos, el cual ha desarrollado todo tipo de habilidades desde pequeño.',
@@ -648,17 +648,17 @@ function scrolled() {
   //Skills
   if (isVisible(document.getElementById('skills'))) {
     if (isVisible(document.getElementById('skVidTit')))
-      document.body.style.setProperty('--sk1', '90%')
+      html.style.setProperty('--sk1', '90%')
     if (isVisible(document.getElementById('skAndTit')))
-      document.body.style.setProperty('--sk2', '55%')
+      html.style.setProperty('--sk2', '55%')
     if (isVisible(document.getElementById('skWebTit')))
-      document.body.style.setProperty('--sk3', '55%')
+      html.style.setProperty('--sk3', '55%')
     if (isVisible(document.getElementById('sk3dTit')))
-      document.body.style.setProperty('--sk4', '35%')
+      html.style.setProperty('--sk4', '35%')
     if (isVisible(document.getElementById('skUiTit')))
-      document.body.style.setProperty('--sk5', '35%')
+      html.style.setProperty('--sk5', '35%')
     if (isVisible(document.getElementById('skArtTit')))
-      document.body.style.setProperty('--sk6', '35%')
+      html.style.setProperty('--sk6', '35%')
   }
 
   //Appear anim
@@ -680,73 +680,10 @@ resized()
 window.onresize = resized
 
 function resized() {
-  if (window.innerHeight < window.innerWidth) {
+  if (window.innerHeight < window.innerWidth)
     html.removeAttribute('mobile')
-    //Top
-    document.getElementById('topBar').style.backdropFilter = ''
-    document.getElementById('topBar').style.boxShadow = ''
-    document.getElementById('topTint').style.display = ''
-    document.getElementById('topH1').style.display = 'flex'
-    document.getElementById('topA1').style.display = 'flex'
-    document.getElementById('topS1').style.display = 'flex'
-    document.getElementById('topP1').style.display = 'flex'
-    document.getElementById('topH2').style.display = 'none'
-    document.getElementById('topA2').style.display = 'none'
-    document.getElementById('topS2').style.display = 'none'
-    document.getElementById('topP2').style.display = 'none'
-    //document.getElementById('topMenu').removeAttribute('mobile')
-    //Home
-    document.getElementById('homeMe').style.height = 'min(50vh, 60vw)'
-    document.getElementById('homeMe').style.width = 'min(50vh, 60vw)'
-    document.getElementById('homeMe').style.position = 'absolute'
-    document.getElementById('homeMe').style.right = '0'
-    document.getElementById('homeHi').style.fontSize = '20px'
-    document.getElementById('homeTit1').style.fontSize = '45px'
-    document.getElementById('homeTit2').style.fontSize = '30px'
-    document.getElementById('homeD&T').style.fontSize = '16px'
-    //About
-    document.getElementById('about').style.flexDirection = 'row'
-    document.getElementById('aboutTextBox').style.width = '0'
-    document.getElementById('aboutImgBox').style.height = ''
-    document.getElementById('aboutImgBox').style.width = ''
-    //Skills
-    document.getElementById('skTop').style.marginRight = 'calc(42vh + 60px)'
-    //Projects
-    document.getElementById('prTop').style.marginRight = 'calc(42vh + 60px)'
-  } else {
+  else
     html.setAttribute('mobile', '')
-    //Top
-    document.getElementById('topBar').style.backdropFilter = 'none'
-    document.getElementById('topBar').style.boxShadow = 'none'
-    document.getElementById('topTint').style.display = 'none'
-    document.getElementById('topH1').style.display = 'none'
-    document.getElementById('topA1').style.display = 'none'
-    document.getElementById('topS1').style.display = 'none'
-    document.getElementById('topP1').style.display = 'none'
-    document.getElementById('topH2').style.display = 'flex'
-    document.getElementById('topA2').style.display = 'flex'
-    document.getElementById('topS2').style.display = 'flex'
-    document.getElementById('topP2').style.display = 'flex'
-    //document.getElementById('topMenu').setAttribute('mobile', '')
-    //Home
-    document.getElementById('homeMe').style.height = 'min(50vh, 70vw)'
-    document.getElementById('homeMe').style.width = 'min(50vh, 70vw)'
-    document.getElementById('homeMe').style.position = 'relative'
-    document.getElementById('homeMe').style.right = 'auto'
-    document.getElementById('homeHi').style.fontSize = '1.5rem'
-    document.getElementById('homeTit1').style.fontSize = '2rem'
-    document.getElementById('homeTit2').style.fontSize = '1.5rem'
-    document.getElementById('homeD&T').style.fontSize = '1em'
-    //About
-    document.getElementById('about').style.flexDirection = 'column-reverse'
-    document.getElementById('aboutTextBox').style.width = '100%'
-    document.getElementById('aboutImgBox').style.height = 'min(50vh, 80vw)'
-    document.getElementById('aboutImgBox').style.width = 'min(50vh, 80vw)'
-    //Skills
-    document.getElementById('skTop').style.marginRight = ''
-    //Projects
-    document.getElementById('prTop').style.marginRight = ''
-  }
 }
 
 
@@ -760,22 +697,22 @@ function toggleMenu(open) {
   if (open == menuOpen) return
 
   //Hide ball
-  document.getElementById('topDot1').style.opacity = '0'
+  document.getElementById('navMenuDot1').style.opacity = '0'
 
   //Elems
-  const bg = document.getElementById('topMBG')
-  const menu = document.getElementById('topMenu')
+  const exit = document.getElementById('navMenuExit')
+  const menu = document.getElementById('navMenu')
 
   //Toggle
   if (open) {
     //Open
-    bg.style.pointerEvents = 'all'
+    exit.style.pointerEvents = 'all'
     menu.setAttribute('menu', '')
-    setTimeout(() => { if (menuOpen) document.getElementById('topSpace').style.marginLeft = '-60px' }, 150)
+    setTimeout(() => { if (menuOpen) document.getElementById('navSpace').style.marginLeft = '-60px' }, 150)
   } else {
     //Close
-    bg.style.pointerEvents = ''  
-    document.getElementById('topSpace').style.marginLeft = '0'
+    exit.style.pointerEvents = ''  
+    document.getElementById('navSpace').style.marginLeft = '0'
     setTimeout(() => { if (!menuOpen) menu.removeAttribute('menu') }, 150)
   }
   menuOpen = open
@@ -877,8 +814,23 @@ switch (localStorage.getItem('language')) {
 
 //Set language
 function setLan() {
-  //Achievement
-  document.getElementById('achTit').innerText = lan.ach.tit
+  //Navbar
+  document.getElementById('navH').innerText = lan.top.h
+  document.getElementById('navA').innerText = lan.top.a
+  document.getElementById('navS').innerText = lan.top.s
+  document.getElementById('navP').innerText = lan.top.p
+
+  //Navbar menu
+  document.getElementById('navMenuH').innerText = lan.top.h
+  document.getElementById('navMenuA').innerText = lan.top.a
+  document.getElementById('navMenuS').innerText = lan.top.s
+  document.getElementById('navMenuP').innerText = lan.top.p
+  document.getElementById('navMenuThe').innerText = lan.top.t
+  document.getElementById('navMenuLan').innerText = lan.top.l
+  document.getElementById('navMenuAch').innerText = lan.top.ac
+
+  //Achievements
+  document.getElementById('achMenuTit').innerText = lan.ach.tit
   document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
   document.getElementById('achi1Con').innerText = lan.ach.a1.con
   document.getElementById('achi1Lock').innerText = lan.ach.lock
@@ -888,19 +840,6 @@ function setLan() {
   document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
   document.getElementById('achi3Con').innerText = lan.ach.a3.con
   document.getElementById('achi3Lock').innerText = lan.ach.lock
-
-  //Top
-  document.getElementById('topH1T').innerText = lan.top.h
-  document.getElementById('topH2T').innerText = lan.top.h
-  document.getElementById('topA1T').innerText = lan.top.a
-  document.getElementById('topA2T').innerText = lan.top.a
-  document.getElementById('topS1T').innerText = lan.top.s
-  document.getElementById('topS2T').innerText = lan.top.s
-  document.getElementById('topP1T').innerText = lan.top.p
-  document.getElementById('topP2T').innerText = lan.top.p
-  document.getElementById('topThe').innerText = lan.top.t
-  document.getElementById('topLan').innerText = lan.top.l
-  document.getElementById('topAch').innerText = lan.top.ac
 
   //Home
   document.getElementById('homeHi').innerText = lan.h.hi
@@ -1053,8 +992,8 @@ function giveAchievement(name) {
   if (given) {
     addAchievement(name)
     if (!menuOpen)
-      document.getElementById('topDot1').style.opacity = '1'
-    document.getElementById('topDot2').style.opacity = '1'
+      document.getElementById('navMenuDot1').style.opacity = '1'
+    document.getElementById('navMenuDot2').style.opacity = '1'
   }
 }
 
@@ -1103,11 +1042,16 @@ function resetAchievements() {
 let achiOpen = false
 
 function toggleAchi() {
-  document.getElementById('topDot2').style.opacity = '0'
-  const bg = document.getElementById('ach')
+  //Hide menu dot
+  document.getElementById('navMenuDot2').style.opacity = '0'
+
+  //Get elements
+  const exit = document.getElementById('achMenuExit')
   const menu = document.getElementById('achMenu')
+
+  //Toggle achievement menu
   if (!achiOpen) {
-    bg.style.display = 'flex'
+    exit.style.display = 'flex'
     setTimeout(()=> { 
       menu.style.opacity = '1'
       menu.style.pointerEvents = 'all'
@@ -1119,10 +1063,12 @@ function toggleAchi() {
     menu.style.pointerEvents = 'none'
     document.body.style.overflow = 'auto'
     setTimeout(()=> { 
-      bg.style.display = 'none' 
+      exit.style.display = 'none' 
       achiOpen = false
     }, 200)
   }
+
+  //Close navbar menu
   if (menuOpen) toggleMenu()
 }
 
@@ -1305,7 +1251,7 @@ function addProject(animate) {
   if (Array.isArray(btn) && btn.length > 0) {
     //Has buttons -> Add them
     for (let i = 0; i < btn.length; i++) {
-      buttonHTML += `<a id="pr${projsLength}B${i}" class="btn" target="_blank" href="${btn[i]}">${key['b'+(i+1)]}</a>`
+      buttonHTML += `<a id="pr${projsLength}B${i}" class="prBtn" target="_blank" href="${btn[i]}">${key['b'+(i+1)]}</a>`
     }
   }
 

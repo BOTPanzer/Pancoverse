@@ -69,17 +69,23 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
+
   background: var(--bg);
   color: var(--text);
   fill: var(--text);
 }
 
+/* Block image grab */
 img {
   -webkit-user-drag: none;
 }
 
+/* Links */
 a {
   text-decoration: none;
 }
@@ -89,6 +95,7 @@ a:not([class]) {
   font-weight: bold;
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -101,10 +108,7 @@ a:not([class]) {
   background-clip: content-box;
 }
 
-::selection {
-  background: var(--accent);
-}
-
+/* Containers */
 .hc {
   display: flex;
   flex-direction: row;
@@ -120,6 +124,7 @@ a:not([class]) {
   justify-content: center;
 }
 
+/* Pages */
 .page {
   height: fit-content;
   min-height: 100vh; 
@@ -132,23 +137,46 @@ a:not([class]) {
   flex-direction: column; 
 }
 
-.paTit {
+.pageTit {
   display: flex;
   align-items: flex-end; 
   font-size: 30px; 
   font-family: phonk;
 }
 
-.paTit span:first-of-type {
+.pageTit span:first-of-type {
   font-size: 25px; 
   font-family: roboto; 
   color: var(--accent);
 }
 
-.shadow {
-  text-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
+.pageBtn {
+  min-height: 50px;
+  width: fit-content;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: roboto;
+  font-size: .93rem;
+  white-space: nowrap;
+  color: var(--text);
+
+  box-sizing: border-box;
+  border: solid 2px var(--accent);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: background .2s;
 }
 
+.pageBtn:hover {
+  background: var(--accentT);
+}
+
+/* Appear animation */
 .appear {
   opacity: 0;
 }
@@ -168,278 +196,13 @@ a:not([class]) {
   }
 }
 
-
-
-
-
- /*$$$$$$  /$$   /$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$  /$$   /$$  /$$$$$$ 
-| $$__  $$| $$  | $$|__  $$__/|__  $$__//$$__  $$| $$$ | $$ /$$__  $$
-| $$  \ $$| $$  | $$   | $$      | $$  | $$  \ $$| $$$$| $$| $$  \__/
-| $$$$$$$ | $$  | $$   | $$      | $$  | $$  | $$| $$ $$ $$|  $$$$$$ 
-| $$__  $$| $$  | $$   | $$      | $$  | $$  | $$| $$  $$$$ \____  $$
-| $$  \ $$| $$  | $$   | $$      | $$  | $$  | $$| $$\  $$$ /$$  \ $$
-| $$$$$$$/|  $$$$$$/   | $$      | $$  |  $$$$$$/| $$ \  $$|  $$$$$$/
-|_______/  \______/    |__/      |__/   \______/ |__/  \__/ \_____*/ 
-
-.btn {
-  min-height: 40px;
-  width: fit-content;
-  padding: 0 12px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: roboto;
-  font-size: .93rem;
-  white-space: nowrap;
-  color: var(--text);
-
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
-  border-radius: 10px;
-
-  cursor: pointer;
-  transition: background .1s;
+/* Other */
+::selection {
+  background: var(--accent);
 }
 
-.btn2 {
-  min-height: 50px;
-  width: fit-content;
-  padding: 0 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: roboto;
-  font-size: .93rem;
-  white-space: nowrap;
-  color: var(--text);
-
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
-  border-radius: 10px;
-
-  cursor: pointer;
-  transition: background .1s;
-}
-
-.iBtn {
-  height: 40px;
-  width: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
-  border-radius: 10px;
-
-  cursor: pointer;
-  transition: background .1s;
-}
-
-.iBtn img {
-  height: 20px;
-  width: 20px;
-  filter: var(--textFilter);
-}
-
-.btn:hover, .btn2:hover, .iBtn:hover, .tBtn2:hover {
-  background: var(--accentT);
-}
-
-.tBtn {
-  display: flex;
-  font-family: roboto;
-  font-size: .93rem;
-  cursor: pointer;
-}
-
-.tBtn span:nth-of-type(1) {
-  color: var(--accent);
-}
-
-.tBtn span:nth-of-type(2) {
-  transition: color .2s;
-}
-
-.tBtn:hover span:nth-of-type(2) {
-  color: var(--accent);
-}
-
-.tBtn2 {
-  min-width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  font-family: roboto;
-  font-size: .93rem;
-  cursor: pointer;
-  transition: background .1s;
-  position: relative;
-}
-
-.tBtn2 img {
-  height: 20px; 
-  width: 20px;
-  margin: 10px 10px 10px 0;
-  filter: var(--textFilter);
-}
-
-.btnDot {
-  height: 10px; 
-  width: 10px; 
-
-  opacity: 0;
-
-  border-radius: 5px; 
-  background-color: var(--accent); 
-}
-
-
-
-
-
- /*$      /$$ /$$$$$$$$ /$$   /$$ /$$   /$$
-| $$$    /$$$| $$_____/| $$$ | $$| $$  | $$
-| $$$$  /$$$$| $$      | $$$$| $$| $$  | $$
-| $$ $$/$$ $$| $$$$$   | $$ $$ $$| $$  | $$
-| $$  $$$| $$| $$__/   | $$  $$$$| $$  | $$
-| $$\  $ | $$| $$      | $$\  $$$| $$  | $$
-| $$ \/  | $$| $$$$$$$$| $$ \  $$|  $$$$$$/
-|__/     |__/|________/|__/  \__/ \_____*/ 
-
-.topMBG {
-  height: 100%;
-  width: 100%; 
-  position: fixed; 
-  top: 0;
-  left: 0;
-  display: flex; 
-  flex-direction: row-reverse; 
-  pointer-events: none;
-  z-index: 51;
-}
-
-.mBtn {
-  height: fit-content;
-  max-height: 40px;
-  max-width: 40px;
-  margin-top: 15px;
-  margin-right: min(5vw, 45px);
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
-
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
-  border-radius: 10px;
-
-  cursor: pointer;
-  overflow: hidden;
-  pointer-events: all;
-  transition: background .1s, max-width .3s, max-height .3s, padding .3s, margin-top .15s;
-  transition-delay: margin-top 0;
-}
-
-.mBtn[menu] {
-  max-height: var(--menuHeight);
-  max-width: 200px;
-  min-width: 180px;
-  backdrop-filter: blur(5px);
-  transition: background .1s, max-width .5s, max-height .5s, padding .5s, margin-top .15s;
-  transition-delay: margin-top .5s;
-}
-
-html:not([mobile]) .mBtn[menu] {
-  margin-top: 70px;
-}
-
-.mBtn:hover {
-  background: var(--accentT);
-}
-
-.mBtn[menu]:hover {
-  background: none;
-  cursor: auto;
-}
-
-.mBtn > img {
-  height: 20px;
-  width: 20px;
-  margin: 8px;
-  filter: var(--textFilter);
-  transition: height .3s, opacity .3s, margin .3s;
-}
-
-.mBtn[menu] > img {
-  height: 0;
-  opacity: 0;
-  margin: 0 8px;
-}
-
-.mBtn > div {
-  width: 100%;
-  padding: 10px 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .1s;
-}  
-
-.mBtn[menu] > div {
-  opacity: 1;
-  pointer-events: all;
-}
-
-
-
-
-
-  /*$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$   /$$$$$$  /$$$$$$$ 
- /$$__  $$| $$$ | $$ /$$__  $$ /$$__  $$| $$  /$$/| $$__  $$ /$$__  $$| $$__  $$
-| $$  \__/| $$$$| $$| $$  \ $$| $$  \__/| $$ /$$/ | $$  \ $$| $$  \ $$| $$  \ $$
-|  $$$$$$ | $$ $$ $$| $$$$$$$$| $$      | $$$$$/  | $$$$$$$ | $$$$$$$$| $$$$$$$/
- \____  $$| $$  $$$$| $$__  $$| $$      | $$  $$  | $$__  $$| $$__  $$| $$__  $$
- /$$  \ $$| $$\  $$$| $$  | $$| $$    $$| $$\  $$ | $$  \ $$| $$  | $$| $$  \ $$
-|  $$$$$$/| $$ \  $$| $$  | $$|  $$$$$$/| $$ \  $$| $$$$$$$/| $$  | $$| $$  | $$
- \______/ |__/  \__/|__/  |__/ \______/ |__/  \__/|_______/ |__/  |__/|__/  |_*/
-                                                                               
-.snackbar {
-  padding: 15px; 
-  position: fixed; 
-  bottom: 0;
-  left: 50%;
-  border-radius: 15px; 
-  background: var(--button); 
-  box-shadow: var(--shadowBig);
-  pointer-events: none; 
-  opacity: 0;
-  z-index: 200;
-  animation: snackbar 3s forwards;
-}
-
-@keyframes snackbar {
-  0% { 
-    transform: translateY(0) translateX(-50%); 
-    opacity: 0;
-  }
-  25% { 
-    transform: translateY(-20px) translateX(-50%);
-    opacity: 1; 
-  }
-  75% { 
-    transform: translateY(-20px) translateX(-50%);
-    opacity: 1; 
-  }
-  100% { 
-    transform: translateY(0) translateX(-50%); 
-    opacity: 0;
-  }
+.shadow {
+  text-shadow: 1px 1px 5px var(--bg), 1px -1px 5px var(--bg), -1px -1px 5px var(--bg), -1px 1px 5px var(--bg);
 }
 
 
@@ -457,7 +220,7 @@ html:not([mobile]) .mBtn[menu] {
 
 .overlay {
   height: 100%; 
-  width: 100%; 
+  width: 100%;
 }
 
 .socials {
@@ -504,16 +267,17 @@ html[mobile] .socials {
 
 
 
- /*$$$$$$$ /$$$$$$  /$$$$$$$ 
-|__  $$__//$$__  $$| $$__  $$
-   | $$  | $$  \ $$| $$  \ $$
-   | $$  | $$  | $$| $$$$$$$/
-   | $$  | $$  | $$| $$____/ 
-   | $$  | $$  | $$| $$      
-   | $$  |  $$$$$$/| $$      
-   |__/   \______/ |_*/      
+ /*$   /$$  /$$$$$$  /$$    /$$ /$$$$$$$   /$$$$$$  /$$$$$$$ 
+| $$$ | $$ /$$__  $$| $$   | $$| $$__  $$ /$$__  $$| $$__  $$
+| $$$$| $$| $$  \ $$| $$   | $$| $$  \ $$| $$  \ $$| $$  \ $$
+| $$ $$ $$| $$$$$$$$|  $$ / $$/| $$$$$$$ | $$$$$$$$| $$$$$$$/
+| $$  $$$$| $$__  $$ \  $$ $$/ | $$__  $$| $$__  $$| $$__  $$
+| $$\  $$$| $$  | $$  \  $$$/  | $$  \ $$| $$  | $$| $$  \ $$
+| $$ \  $$| $$  | $$   \  $/   | $$$$$$$/| $$  | $$| $$  | $$
+|__/  \__/|__/  |__/    \_/    |_______/ |__/  |__/|__/  |_*/
 
-.top {
+/* Navbar container */
+.nav {
   width: 100%;
   height: 70px;
   padding: 0 min(5vw, 45px);
@@ -534,7 +298,13 @@ html[mobile] .socials {
   z-index: 50;
 }
 
-.topTint {
+html[mobile] .nav {
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+/* Navbar blur tint */
+.navTint {
   height: 100%; 
   width: 100%; 
 
@@ -548,9 +318,196 @@ html[mobile] .socials {
   z-index: -1;
 }
 
-.topSpace {
+html[mobile] .navTint {
+  display: none;
+}
+
+/* Navbar buttons */
+.navBtn {
+  display: flex;
+  font-family: roboto;
+  font-size: .93rem;
+  cursor: pointer;
+}
+
+html[mobile] .navBtn {
+  display: none;
+}
+
+.navBtn span:nth-of-type(1) {
+  color: var(--accent);
+}
+
+.navBtn span:nth-of-type(2) {
+  transition: color .2s;
+}
+
+.navBtn:hover span:nth-of-type(2) {
+  color: var(--accent);
+}
+
+/* Navbar space (to fit the menu button) */
+#navSpace {
   width: 40px; 
   transition: margin-left .3s;
+}
+
+
+
+
+
+ /*$      /$$ /$$$$$$$$ /$$   /$$ /$$   /$$
+| $$$    /$$$| $$_____/| $$$ | $$| $$  | $$
+| $$$$  /$$$$| $$      | $$$$| $$| $$  | $$
+| $$ $$/$$ $$| $$$$$   | $$ $$ $$| $$  | $$
+| $$  $$$| $$| $$__/   | $$  $$$$| $$  | $$
+| $$\  $ | $$| $$      | $$\  $$$| $$  | $$
+| $$ \/  | $$| $$$$$$$$| $$ \  $$|  $$$$$$/
+|__/     |__/|________/|__/  \__/ \_____*/ 
+
+/* Menu background (click to close) */
+#navMenuExit {
+  height: 100%;
+  width: 100%; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  display: flex; 
+  flex-direction: row-reverse; 
+  pointer-events: none;
+  z-index: 51;
+}
+
+/* Menu */
+#navMenu {
+  height: fit-content;
+  max-height: 40px;
+  max-width: 40px;
+  margin-top: 15px;
+  margin-right: min(5vw, 45px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+
+  box-sizing: border-box;
+  border: solid 2px var(--accent);
+  border-radius: 10px;
+
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: all;
+  transition: background .1s, max-width .3s, max-height .3s, padding .3s, margin-top .15s;
+  transition-delay: margin-top 0;
+}
+
+#navMenu[menu] {
+  max-height: var(--menuHeight);
+  max-width: 200px;
+  min-width: 180px;
+  backdrop-filter: blur(5px);
+  transition: background .1s, max-width .5s, max-height .5s, padding .5s, margin-top .15s;
+  transition-delay: margin-top .5s;
+}
+
+html:not([mobile]) #navMenu[menu] {
+  margin-top: 70px;
+}
+
+#navMenu:hover {
+  background: var(--accentT);
+}
+
+#navMenu[menu]:hover {
+  background: none;
+  cursor: auto;
+}
+
+#navMenu > img {
+  height: 20px;
+  width: 20px;
+  margin: 8px;
+  filter: var(--textFilter);
+  transition: height .3s, opacity .3s, margin .3s;
+}
+
+#navMenu[menu] > img {
+  height: 0;
+  opacity: 0;
+  margin: 0 8px;
+}
+
+#navMenu > div {
+  width: 100%;
+  padding: 10px 0;
+  position: relative;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .1s;
+}  
+
+#navMenu[menu] > div {
+  pointer-events: all;
+  opacity: 1;
+}
+
+/* Menu background */
+.navMenuBG {
+  height: 100%; 
+  width: 100%; 
+
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+
+  background: var(--bg); 
+  opacity: .5; 
+  border-radius: 8px; 
+  z-index: -1;
+}
+
+/* Menu buttons */
+.navMenuBtn {
+  display: none;
+}
+ 
+.navMenuBtn:nth-of-type(n + 5), html[mobile] .navMenuBtn {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-family: roboto;
+  font-size: .93rem;
+  cursor: pointer;
+  transition: background .1s;
+  position: relative;
+}
+
+.navMenuBtn:hover, .navMenuBtn:hover {
+  background: var(--accentT);
+}
+
+.navMenuBtn img {
+  height: 20px; 
+  width: 20px;
+  margin: 10px 10px 10px 0;
+  filter: var(--textFilter);
+}
+
+/* Menu action dot*/
+.navMenuDot {
+  height: 10px; 
+  width: 10px; 
+
+  position: absolute; 
+  top: 5px;
+  right: 5px;
+
+  opacity: 0;
+
+  border-radius: 5px; 
+  background-color: var(--accent); 
 }
 
 
@@ -566,7 +523,8 @@ html[mobile] .socials {
 | $$  | $$|  $$$$$$/| $$  | $$ /$$$$$$| $$$$$$$$   \  $/   | $$$$$$$$| $$ \/  | $$| $$$$$$$$| $$ \  $$   | $$   
 |__/  |__/ \______/ |__/  |__/|______/|________/    \_/    |________/|__/     |__/|________/|__/  \__/   |_*/ 
 
-.achBG {
+/* Menu background (click to close) */
+#achMenuExit {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -576,7 +534,8 @@ html[mobile] .socials {
   z-index: 60;
 }
 
-.ach {
+/* Menu */
+#achMenu {
   width: 400px; 
   max-width: calc(100% - 20px);
   max-height: calc(100% - 20px);
@@ -596,7 +555,7 @@ html[mobile] .socials {
   transition: opacity .2s;
 }
 
-.ach > div:nth-child(1) {
+#achMenu > div:nth-child(1) {
   height: 100%; 
   width: 100%; 
   top: 0; 
@@ -608,13 +567,13 @@ html[mobile] .socials {
   z-index: -1;
 }
 
-.ach > span:nth-child(2) {
+#achMenu > span:nth-child(2) {
   line-height: 80px; 
   font-size: 22px; 
   font-family: phonk;
 }
 
-.ach > div:nth-child(4) {
+#achMenu > div:nth-child(4) {
   width: 100%; 
   display: flex; 
   flex-direction: column; 
@@ -622,15 +581,48 @@ html[mobile] .socials {
   margin-bottom: 20px;
 }
 
-.achTit {
+/* Menu title */
+#achMenuTit {
   font-size: 22px;
 }
 
-html[mobile] .achTit {
+html[mobile] #achMenuTit {
   font-size: 20px;
 }
 
-.achi {
+/* Menu close button */
+.achMenuClose {
+  height: 40px;
+  width: 40px;
+
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  border: solid 2px var(--accent);
+  border-radius: 40px;
+
+  cursor: pointer;
+  transition: background .1s;
+}
+
+.achMenuClose img {
+  height: 20px;
+  width: 20px;
+  filter: var(--textFilter);
+}
+
+.achMenuClose:hover {
+  background: var(--accentT);
+}
+
+/* Achievements */
+.achievement {
   height: 120px; 
   width: calc(100% - 40px); 
   padding: 13px;
@@ -647,16 +639,17 @@ html[mobile] .achTit {
   transition: transform .2s;
 }
 
-.achi:hover {
+.achievement:hover {
   transform: rotate(-.5deg) scale(1.01);
 }
 
-.achi > img {
-  height: 90px; 
+.achievement > img {
+  width: 15px;
+  height: 15px; 
   border-radius: 10px;
 }
 
-.achi > div {
+.achievement > div {
   height: 90px; 
   flex-grow: 1;
   display: flex;
@@ -665,17 +658,17 @@ html[mobile] .achTit {
   justify-content: space-evenly;
 }
 
-.achi > div > div:nth-child(1) {
+.achievement > div > div:nth-child(1) {
   font-family: phonk;
   font-size: 16px;
   text-align: center;
 }
 
-.achi > div > div:nth-child(2) {
+.achievement > div > div:nth-child(2) {
   text-align: center;
 }
 
-.achi > span {
+.achievement > span {
   line-height: 120px;
   width: 100%; 
   position: absolute;
@@ -687,19 +680,19 @@ html[mobile] .achTit {
   opacity: 0;
 }
 
-.achi[locked] {
+.achievement[locked] {
   background: var(--accent);
 }
 
-.achi[locked] > img {
+.achievement[locked] > img {
   opacity: 0;
 }
 
-.achi[locked] > div {
+.achievement[locked] > div {
   opacity: 0;
 }
 
-.achi[locked] > span {
+.achievement[locked] > span {
   opacity: 1;
 }
 
@@ -748,6 +741,52 @@ html[mobile] .balls {
 
 
 
+  /*$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$   /$$$$$$  /$$$$$$$ 
+ /$$__  $$| $$$ | $$ /$$__  $$ /$$__  $$| $$  /$$/| $$__  $$ /$$__  $$| $$__  $$
+| $$  \__/| $$$$| $$| $$  \ $$| $$  \__/| $$ /$$/ | $$  \ $$| $$  \ $$| $$  \ $$
+|  $$$$$$ | $$ $$ $$| $$$$$$$$| $$      | $$$$$/  | $$$$$$$ | $$$$$$$$| $$$$$$$/
+ \____  $$| $$  $$$$| $$__  $$| $$      | $$  $$  | $$__  $$| $$__  $$| $$__  $$
+ /$$  \ $$| $$\  $$$| $$  | $$| $$    $$| $$\  $$ | $$  \ $$| $$  | $$| $$  \ $$
+|  $$$$$$/| $$ \  $$| $$  | $$|  $$$$$$/| $$ \  $$| $$$$$$$/| $$  | $$| $$  | $$
+ \______/ |__/  \__/|__/  |__/ \______/ |__/  \__/|_______/ |__/  |__/|__/  |_*/
+
+.snackbar {
+  padding: 15px; 
+  position: fixed; 
+  bottom: 0;
+  left: 50%;
+  border-radius: 15px; 
+  background: var(--button); 
+  box-shadow: var(--shadowBig);
+  pointer-events: none; 
+  opacity: 0;
+  z-index: 200;
+  animation: snackbar 3s forwards;
+}
+
+@keyframes snackbar {
+  0% { 
+    transform: translateY(0) translateX(-50%); 
+    opacity: 0;
+  }
+  25% { 
+    transform: translateY(-20px) translateX(-50%);
+    opacity: 1; 
+  }
+  75% { 
+    transform: translateY(-20px) translateX(-50%);
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(0) translateX(-50%); 
+    opacity: 0;
+  }
+}
+
+
+
+
+
  /*$      /$$  /$$$$$$  /$$    /$$ /$$$$$$$$  /$$$$$$ 
 | $$  /$ | $$ /$$__  $$| $$   | $$| $$_____/ /$$__  $$
 | $$ /$$$| $$| $$  \ $$| $$   | $$| $$      | $$  \__/
@@ -757,26 +796,50 @@ html[mobile] .balls {
 | $$/   \  $$| $$  | $$   \  $/   | $$$$$$$$|  $$$$$$/
 |__/     \__/|__/  |__/    \_/    |________/ \_____*/ 
 
-.waves {
+#waves {
   height: 100%; 
   width: 100%; 
+
   position: fixed; 
-  z-index: 100; 
-  background: var(--bg); 
+
   display: flex; 
   align-items: center; 
   justify-content: center; 
+
+  background: var(--bg); 
+  z-index: 100; 
   transition: opacity 1s;
 }
 
+#waves > div {
+  width: 100vw;
+
+  position: absolute; 
+  bottom: 0; 
+}
+
+#waves > div > div {
+  width: 100vw; 
+  height: var(--waveBot); 
+
+  position: absolute; 
+  bottom: 0; 
+
+  background: var(--accent); 
+  transition: height 1s;
+}
+
 .wave {
+  width: 200vw;
+  margin-bottom: -2px; /* Move down to fix weird line bug */
+
   position: absolute;
   bottom: var(--waveBot);
-  pointer-events: none;
+
   fill: var(--accent);
-  width: 200vw;
+  pointer-events: none;
+
   animation: wave 10s ease infinite;
-  opacity: 0.8;
   transition: bottom 1s;
 }
 
@@ -809,7 +872,7 @@ html[mobile] .balls {
 | $$  | $$|  $$$$$$/| $$ \/  | $$| $$$$$$$$
 |__/  |__/ \______/ |__/     |__/|_______*/
 
-.home {
+#home {
   justify-content: center; 
   gap: var(--pageGap);
 }
@@ -820,10 +883,18 @@ html[mobile] .balls {
   margin: 0 auto;
 
   position: absolute; 
-  right: 15%;
+  right: 0;
 
   display: flex;
   flex-direction: column;
+}
+
+html[mobile] .homeMe {
+  height: min(50vh, 70vw); 
+  width: min(50vh, 70vw); 
+
+  position: relative; 
+  right: auto;
 }
 
 .homeMe > img {
@@ -847,20 +918,32 @@ html[mobile] .balls {
   z-index: -1; 
 }
 
-.homeHi {
-  font-size: 22px; 
+#homeHi {
+  font-size: 20px; 
   font-family: comfortaa;
 }
 
-.homeTit1 {
-  font-size: 50px; 
+html[mobile] #homeHi {
+  font-size: 1.5rem; 
+}
+
+#homeTit1 {
+  font-size: 45px; 
   font-family: phonk;
 }
 
-.homeTit2 {
-  font-size: 34px; 
+html[mobile] #homeTit1 {
+  font-size: 2rem; 
+}
+
+#homeTit2 {
+  font-size: 30px; 
   font-weight: 900; 
   z-index: 11;
+}
+
+html[mobile] #homeTit2 {
+  font-size: 1.5rem; 
 }
 
 .homeDT {
@@ -871,7 +954,11 @@ html[mobile] .balls {
   z-index: 11;
 }
 
-.homeDesc {
+html[mobile] .homeDT {
+  font-size: 1rem; 
+}
+
+#homeDesc {
   text-align: justify; 
   display: flex;
 }
@@ -901,10 +988,14 @@ html[mobile] .balls {
 | $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
 |__/  |__/|_______/  \______/  \______/    |_*/
 
-.about {
+#about {
   flex-direction: row; 
   align-items: center; 
   gap: calc(3 * var(--pageGap));
+}
+
+html[mobile] .about {
+  flex-direction: column-reverse; 
 }
 
 .aboutTextBox {
@@ -915,12 +1006,21 @@ html[mobile] .balls {
   gap: calc(2 * var(--pageGap));
 }
 
+html[mobile] .aboutTextBox {
+  width: 100%;
+}
+
 .aboutImgBox {
   height: 55vh; 
   width: 42vh; 
   position: relative; 
   border: 1px solid var(--text); 
   border-radius: 20px;
+}
+
+html[mobile] .aboutImgBox {
+  height: min(50vh, 80vw); 
+  width: min(50vh, 80vw); 
 }
 
 .aboutImg {
@@ -967,7 +1067,24 @@ html[mobile] .balls {
  /$$  \ $$| $$\  $$   | $$  | $$      | $$       /$$  \ $$
 |  $$$$$$/| $$ \  $$ /$$$$$$| $$$$$$$$| $$$$$$$$|  $$$$$$/
  \______/ |__/  \__/|______/|________/|________/ \_____*/ 
+ 
+#skills {
+  justify-content: center; 
+  gap: calc(2 * var(--pageGap));
+}
 
+/* Title */
+.skTop {
+  margin-right: calc(42vh + 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+html[mobile] .skTop {
+  margin-right: unset;
+}
+
+/* Skill bars */
 .skBar {
   display: flex;
   flex-direction: column;
@@ -1025,29 +1142,23 @@ html[mobile] .balls {
 | $$      | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/   | $$  |  $$$$$$/
 |__/      |__/  |__/ \______/  \______/ |________/ \______/    |__/   \_____*/ 
 
-.prSwitch {
-  width: fit-content; 
-  height: 40px; 
-  display: flex; 
-  background: var(--button); 
-  border-radius: 20px; 
-  line-height: 40px;
-  overflow: hidden;
+#projects {
+  justify-content: center;
 }
 
-.prSwitch > span {
-  width: fit-content; 
-  padding: 0 20px;
-  line-height: 40px; 
-  cursor: pointer;
-  transition: background .2s;
+/* Title */
+.prTop {
+  margin-right: calc(42vh + 60px);
+  display: flex;
+  align-items: center; 
+  gap: 20px; 
 }
 
-.prSwitch > span:hover, .prSwitch > span[active] {
-  background: var(--accentT);
+html[mobile] .prTop {
+  margin-right: unset;
 }
 
-/*PROJECTS*/
+/* Projects */
 .pr {
   height: min-content;
   display: flex;
@@ -1247,6 +1358,33 @@ html[mobile] .pr > div:nth-of-type(2) {
   opacity: .8;
 }
 
+/* Project buttons */
+.prBtn {
+  min-height: 40px;
+  width: fit-content;
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: roboto;
+  font-size: .93rem;
+  white-space: nowrap;
+  color: var(--text);
+
+  box-sizing: border-box;
+  border: solid 2px var(--accent);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: background .1s;
+}
+
+.prBtn:hover {
+  background: var(--accentT);
+}
+
 
 
 
@@ -1260,6 +1398,7 @@ html[mobile] .pr > div:nth-of-type(2) {
 | $$$$$$$/|  $$$$$$/   | $$      | $$  |  $$$$$$/| $$ \/  | $$
 |_______/  \______/    |__/      |__/   \______/ |__/     |_*/
 
+/* Bottom container */
 .bot {
   width: calc(100% - 40px); 
   margin-top: 5vh; 
@@ -1279,6 +1418,7 @@ html[mobile] .bot {
   font-size: 3vw; 
 }
 
+/* Bottom social media */
 .botSocials {
   margin-top: 10px; 
   
@@ -1290,5 +1430,9 @@ html[mobile] .bot {
 html[mobile] .botSocials {
   display: flex;
 }
-                                                              
+
+
+
+
+
 /* ASCII FONT: Big Money-ne - https://manytools.org/hacker-tools/ascii-banner */
