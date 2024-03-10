@@ -632,9 +632,9 @@ html[mobile] #achMenuTit {
   transform: rotate(-.5deg) scale(1.01);
 }
 
-.achievement > img {
-  width: 15px;
-  height: 15px; 
+.achievement > img {  
+  height: 100%; 
+  aspect-ratio: 1;
   border-radius: 10px;
 }
 
