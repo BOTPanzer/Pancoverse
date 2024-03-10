@@ -866,6 +866,10 @@ html[mobile] .balls {
   gap: var(--pageGap);
 }
 
+html[mobile] #home {
+  margin-top: -15px;
+}
+
 .homeMe {
   height: min(50vh, 60vw); 
   width: min(50vh, 60vw); 
