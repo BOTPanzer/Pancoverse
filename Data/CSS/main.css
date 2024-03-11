@@ -1003,6 +1003,17 @@ html[mobile] .aboutTextBox {
   width: 100%;
 }
 
+.aboutTextBox > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  gap: 20px;
+}
+
+.aboutTextBox > div:nth-child(2) {
+  text-align: justify;
+}
+
 .aboutImgBox {
   height: 55vh; 
   width: 42vh; 
@@ -1016,7 +1027,7 @@ html[mobile] .aboutImgBox {
   width: min(50vh, 80vw); 
 }
 
-.aboutImg {
+#aboutImg {
   height: calc(100% - 30px); 
   width: calc(100% - 30px); 
   margin: 15px; 
@@ -1028,25 +1039,41 @@ html[mobile] .aboutImgBox {
   transition: filter .4s, opacity .4s;
 } 
 
-.aboutImgName {
+#aboutImg[loading] {
+  filter: blur(12px);
+  opacity: 0;
+} 
+
+#aboutImg[clicked] ~ #aboutImgNext {
+  opacity: 0;
+} 
+
+#aboutImgName, #aboutImgNext {
   padding: 0 20px; 
+
+  border-radius: 20px 0; 
   background: var(--text); 
   color: var(--bg); 
-  border-radius: 20px 0; 
+  
   line-height: 35px; 
   font-size: 13px; 
   font-family: orbitron; 
   text-transform: uppercase; 
+  pointer-events: none;
+
   position: absolute; 
   right: -1px; 
   bottom: -1px;
-  z-index: 2;
+
+  transition: opacity .2s;
 } 
 
-.abLoading {
-  filter: blur(12px);
-  opacity: 0;
-}
+#aboutImgNext {
+  left: -1px;
+  right: auto; 
+  top: -1px;
+  bottom: auto; 
+} 
 
 
 
@@ -1168,6 +1195,7 @@ html[mobile] .pr {
   flex-direction: row-reverse;
 }
 
+/* Projects (media) */
 .pr > div:nth-of-type(1) {
   height: 100%;
   width: 65%; 
@@ -1182,6 +1210,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   width: 100%; 
 }
 
+/* Projects (media, tag) */
 .pr > div:nth-of-type(1) > span:nth-of-type(1) {
   padding: 8px 14px;
 
@@ -1214,6 +1243,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   opacity: 0;
 }
 
+/* Projects (media, video button) */
 .pr > div:nth-of-type(1) > div:nth-of-type(1) {
   width: 100%;
 
@@ -1234,6 +1264,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   
   border-radius: 30px; 
   background-color: var(--button);
@@ -1253,6 +1284,12 @@ html[mobile] .pr > div:nth-of-type(1) {
   transform: translateY(40px);
 }
 
+.pr > div:nth-of-type(1) > div:nth-of-type(1) > span > img {
+  width: 12px;
+  height: 12px;
+}
+
+/* Projects (media, image & video) */
 .pr > div:nth-of-type(1) > div:nth-of-type(2) {
   width: calc(100% - 40px); 
   margin: 20px; 
@@ -1296,6 +1333,7 @@ html:not([mobile]) .pr > div:nth-of-type(1)[video] + div:nth-of-type(2) {
   opacity: .6;
 }
 
+/* Projects (description) */
 .pr > div:nth-of-type(2) {
   width: 50%; 
   --prMar: -10%;

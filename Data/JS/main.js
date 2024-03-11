@@ -88,6 +88,7 @@ const lans = {
       desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who loves designing and programming indie games and apps.",
       desc2: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
       s: 'Check out my skills!',
+      next: 'Click for next image',
       names: ['Artyom',
               'Canary Islands',
               'Sleeping Cat',
@@ -234,7 +235,8 @@ const lans = {
         con: `Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
               <br><br>
               On the way you will find puzzles in which you will have to cooperate in order to continue.`,
-        b1:  "Download&nbsp<i>Twin Spirits</i>"
+        b1:  "Download&nbsp<i>Twin Spirits</i>",
+        vid: 'Watch Trailer'
       },
       memory:{
         inf: 'Unity · VS Code · Photoshop · Illustrator',
@@ -251,12 +253,13 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "Escape From LMDShow",
-        con: `Thanks <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
+        con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
               <br><br>
               Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
               <br><br>
               To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
-        b1:  "Download&nbsp<i>Escape From LMDShow</i>"
+        b1:  "Download&nbsp<i>Escape From LMDShow</i>",
+        vid: 'Watch IlloJuan play'
       },
       raccoon:{
         inf: 'Unity · Blender · VS Code · Photoshop',
@@ -269,7 +272,8 @@ const lans = {
               Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
               <br><br>
               Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
-        b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>"
+        b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>",
+        vid: 'Watch Gameplay'
       }
     },
     bot: {
@@ -323,6 +327,7 @@ const lans = {
       desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta diseñar y programar juegos indie y aplicaciones.",
       desc2: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
       s: '¡Ver mis habilidades!',
+      next: 'Click para siguiente imagen',
       names: ['Artyom',
               'Islas Canarias',
               'Gato Durmiendo',
@@ -469,7 +474,8 @@ const lans = {
         con: `Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
               <br><br>
               Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
-        b1:  "Descargar&nbsp<i>Twin Spirits</i>"
+        b1:  "Descargar&nbsp<i>Twin Spirits</i>",
+        vid: 'Ver Trailer'
       },
       memory:{
         inf: 'Unity · VS Code · Photoshop · Illustrator',
@@ -491,7 +497,8 @@ const lans = {
               Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
               <br><br>
               Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
-        b1:  "Descargar&nbsp<i>Escape From LMDShow</i>"
+        b1:  "Descargar&nbsp<i>Escape From LMDShow</i>",
+        vid: 'Ver a IlloJuan jugar'
       },
       raccoon:{
         inf: 'Unity · Blender · VS Code · Photoshop',
@@ -504,7 +511,8 @@ const lans = {
               Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
               <br><br>
               Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
-        b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>"
+        b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
+        vid: 'Ver Gameplay'
       }
     },
     bot: {
@@ -725,7 +733,7 @@ changeTitle()
 
 function changeTitle() {
   let emojis = ['😎', '😄', '🦝', '🦎', '🦖', '🦦', '🍜']
-  document.title = lan.name+' '+emojis[Math.floor(Math.random() * emojis.length)]
+  document.title = lan.name + ' ' + emojis[Math.floor(Math.random() * emojis.length)]
 }
 
 
@@ -855,6 +863,7 @@ function setLan() {
   document.getElementById('aboutDesc2').innerText = lan.a.desc2
   document.getElementById('aboutSkills').innerText = lan.a.s
   document.getElementById('aboutImgName').innerText = lan.a.names[abOrder[abIndex]]
+  document.getElementById('aboutImgNext').innerText = lan.a.next
 
   //Skills
   document.getElementById('skTit').innerText = lan.s.tit
@@ -1177,7 +1186,7 @@ aboutImg.onload = () => {
   //Loading
   if (abLoading) {
     //Stop animation
-    aboutImg.classList.remove("abLoading")
+    aboutImg.removeAttribute("loading")
     //Artyom
     if (abIndex == lan.a.names.length - 1) giveAchievement('artyom')
     //Finish
@@ -1193,7 +1202,8 @@ function abClick() {
   let nextIndex = abIndex + 1
   if (nextIndex >= lan.a.names.length) nextIndex = 0
   //Load animation
-  aboutImg.classList.add("abLoading")
+  aboutImg.setAttribute("clicked", "")
+  aboutImg.setAttribute("loading", "")
   setTimeout(function() {
     //Update
     abIndex = nextIndex
@@ -1264,8 +1274,10 @@ function addProject(animate) {
   element.innerHTML = `
     <div id="pr${projsLength}Media">
       <span id="pr${projsLength}Tag">${key.tag}</span>
-      <div>
-        ${vid == undefined ? `` : `<span onclick="toggleVideo(${projsLength}, 'https://www.youtube.com/embed/${vid}')">► Video</span>`}
+      <div ${vid ? '' : 'style="display: none;"'}>
+        <span onclick="toggleVideo(${projsLength}, 'https://www.youtube.com/embed/${vid}')">
+          <img src="Data/Images/Icons/play.png">${key.vid}
+        </span>
       </div>
       <div>
         <img id="pr${projsLength}Img" src="${img}">
