@@ -1,5 +1,5 @@
 
-/*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
+ /*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
 | $$$    /$$$ /$$__  $$|_  $$_/| $$$ | $$
 | $$$$  /$$$$| $$  \ $$  | $$  | $$$$| $$
 | $$ $$/$$ $$| $$$$$$$$  | $$  | $$ $$ $$
@@ -73,22 +73,23 @@ const lans = {
       hi: "Howdy! I'm",
       tit1: 'ALEJANDRO PANIAGUA',
       tit2: 'And I love programming and designing',
-      desc: "I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.",
+      desc: `I'm a spanish studient, currently studying videogame development in <a href="https://www.urjc.es/" target="_blank">URJC</a>, who has been interested in videogames since little.<br>`,
       type1: 'I consider myself',
       type2: [
-        'an android developer', 
         'an indie game developer', 
+        'an app developer', 
         'a web developer',
-        'a 3D printing hobbyist'
+        'a 3D printing hobbyist',
+        'a videogame enthusiast'
       ],
       a: 'See more about me!'
     },
     a: {
       tit: 'About Me',
-      desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who loves designing and programming indie games and apps.",
+      desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer spends time designing and programming indie games and apps.",
       desc2: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
       s: 'Check out my skills!',
-      next: 'Click for next image',
+      next: 'Click me!',
       names: ['Artyom',
               'Canary Islands',
               'Sleeping Cat',
@@ -100,9 +101,9 @@ const lans = {
     },
     s: {
       tit: 'My Skills',
-      desc: "I've been interested in the world of technology ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics.",
+      desc: "I've been interested in the world of technology ever since ever. Thanks to that, I've learnt and manage a large number of skills related to different topics.",
       videogames: 'Videogame Development',
-      android: 'Android Development',
+      apps: 'Apps Development',
       web: 'Web Development',
       ui: 'UI/UX Design',
       d3: '3D Modeling/Printing &  CAD',
@@ -312,22 +313,23 @@ const lans = {
       hi: '¡Hey! Soy',
       tit1: 'ALEJANDRO PANIAGUA',
       tit2: 'Y me encanta programar y diseñar',
-      desc: 'Soy un estudiante español, actualmente estudiando un grado de desarrollo de videojuegos, el cual ha desarrollado todo tipo de habilidades desde pequeño.',
+      desc: 'Soy un estudiante español, actualmente estudiando desarrollo de videojuegos en la <a href="https://www.urjc.es/" target="_blank">URJC</a>, al cual le han interesado los videojuegos desde pequeño.<br>',
       type1: 'Me considero',
       type2: [
-        'un desarrollador de android', 
         'un desarrollador de juegos indie', 
+        'un desarrollador de aplicaciones', 
         'un desarrollador web',
-        'un fan de la impresión 3D'
+        'un fan de la impresión 3D',
+        'un entusiasta de los videojuegos'
       ],
       a: '¡Ver más sobre mi!'
     },
     a: {
       tit: 'Sobre Mi',
-      desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le encanta diseñar y programar juegos indie y aplicaciones.",
+      desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español que se dedica a diseñar y programar juegos indie y aplicaciones.",
       desc2: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
       s: '¡Ver mis habilidades!',
-      next: 'Click para siguiente imagen',
+      next: '¡Hazme click!',
       names: ['Artyom',
               'Islas Canarias',
               'Gato Durmiendo',
@@ -339,9 +341,9 @@ const lans = {
     },
     s: {
       tit: 'Mis Habilidades',
-      desc: "He estado interesado en el mundo de la tecnología desde pequeño y, gracias a eso, he expandido mis habilidades alrededor de una gran variedad de temas.",
+      desc: "He estado interesado en el mundo de la tecnología desde siempre. Debido a eso, he aprendido y manejo una gran cantidad de habilidades relacionadas con diferentes temas.",
       videogames: 'Desarrollo de Videojuegos',
-      android: 'Desarrollo de Android',
+      apps: 'Desarrollo de Aplicaciones',
       web: 'Desarrollo Web',
       ui: 'Diseño de UI/UX',
       d3: 'Modelado/Impresión 3D & CAD',
@@ -657,8 +659,8 @@ function scrolled() {
   if (isVisible(document.getElementById('skills'))) {
     if (isVisible(document.getElementById('skVidTit')))
       html.style.setProperty('--sk1', '90%')
-    if (isVisible(document.getElementById('skAndTit')))
-      html.style.setProperty('--sk2', '55%')
+    if (isVisible(document.getElementById('skAppTit')))
+      html.style.setProperty('--sk2', '60%')
     if (isVisible(document.getElementById('skWebTit')))
       html.style.setProperty('--sk3', '55%')
     if (isVisible(document.getElementById('sk3dTit')))
@@ -729,8 +731,6 @@ function toggleMenu(open) {
 
 
 //Change title
-changeTitle()
-
 function changeTitle() {
   let emojis = ['😎', '😄', '🦝', '🦎', '🦖', '🦦', '🍜']
   document.title = lan.name + ' ' + emojis[Math.floor(Math.random() * emojis.length)]
@@ -818,6 +818,8 @@ switch (localStorage.getItem('language')) {
     break;
 }
 
+changeTitle()
+
 
 
 //Set language
@@ -853,7 +855,7 @@ function setLan() {
   document.getElementById('homeHi').innerText = lan.h.hi
   document.getElementById('homeTit1').innerText = lan.h.tit1
   document.getElementById('homeTit2').innerText = lan.h.tit2
-  document.getElementById('homeDesc').innerText = lan.h.desc
+  document.getElementById('homeDesc').innerHTML = lan.h.desc
   document.getElementById('homeType1').innerText = lan.h.type1
   document.getElementById('homeAbout').innerText = lan.h.a
 
@@ -870,8 +872,8 @@ function setLan() {
   document.getElementById('skDesc').innerText = lan.s.desc
   document.getElementById('skVidTit').innerText = lan.s.videogames
   document.getElementById('skVidPro').innerText = lan.s.advanced
-  document.getElementById('skAndTit').innerText = lan.s.android
-  document.getElementById('skAndPro').innerText = lan.s.high
+  document.getElementById('skAppTit').innerText = lan.s.apps
+  document.getElementById('skAppPro').innerText = lan.s.high
   document.getElementById('skWebTit').innerText = lan.s.web
   document.getElementById('skWebPro').innerText = lan.s.high
   document.getElementById('sk3dTit').innerText = lan.s.d3
