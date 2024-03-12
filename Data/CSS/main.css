@@ -953,7 +953,7 @@ html[mobile] .homeDT {
 
 #homeDesc {
   text-align: justify; 
-  /*display: flex;*/
+  display: flex;
 }
 
 .homeLine {

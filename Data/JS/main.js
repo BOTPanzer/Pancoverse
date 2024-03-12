@@ -73,7 +73,7 @@ const lans = {
       hi: "Howdy! I'm",
       tit1: 'ALEJANDRO PANIAGUA',
       tit2: 'And I love programming and designing',
-      desc: `I'm a spanish studient, currently studying videogame development in <a href="https://www.urjc.es/" target="_blank">URJC</a>, who has been interested in videogames since little.<br>`,
+      desc: `I'm a spanish studient, currently studying videogame development, who has been interested in games since little.`,
       type1: 'I consider myself',
       type2: [
         'an indie game developer', 
@@ -313,7 +313,7 @@ const lans = {
       hi: '¡Hey! Soy',
       tit1: 'ALEJANDRO PANIAGUA',
       tit2: 'Y me encanta programar y diseñar',
-      desc: 'Soy un estudiante español, actualmente estudiando desarrollo de videojuegos en la <a href="https://www.urjc.es/" target="_blank">URJC</a>, al cual le han interesado los videojuegos desde pequeño.<br>',
+      desc: 'Soy un estudiante español, actualmente estudiando desarrollo de videojuegos, al cual le han interesado los juegos desde pequeño.',
       type1: 'Me considero',
       type2: [
         'un desarrollador de juegos indie', 
@@ -855,7 +855,7 @@ function setLan() {
   document.getElementById('homeHi').innerText = lan.h.hi
   document.getElementById('homeTit1').innerText = lan.h.tit1
   document.getElementById('homeTit2').innerText = lan.h.tit2
-  document.getElementById('homeDesc').innerHTML = lan.h.desc
+  document.getElementById('homeDesc').innerText = lan.h.desc
   document.getElementById('homeType1').innerText = lan.h.type1
   document.getElementById('homeAbout').innerText = lan.h.a
 
