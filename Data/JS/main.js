@@ -280,7 +280,7 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "The lost Fresquita",
-        con: `Submitted to the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+        con: `Submitted to the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
               In The lost Fresquita you will play the role of Juan in a day at night. 
               The day before you celebrated a party in the forest and forgot some beers there but, since that's irresponsible, you came back for them. 
@@ -535,7 +535,7 @@ const lans = {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto Personal',
         tit: "The lost Fresquita",
-        con: `Presentado para la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+        con: `Presentado para la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
               En The lost Fresquita encarnaras el rol de Juan en un día por la noche. 
               El día de antes celebrasteis una fiesta en el bosque y se te olvidó recoger unas cervezas pero, como eso es irresponsable, has vuelto a por ellas. 
