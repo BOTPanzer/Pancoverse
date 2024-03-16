@@ -275,7 +275,22 @@ const lans = {
               Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
         b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>",
         vid: 'Watch Gameplay'
-      }
+      },
+      fresquita:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Personal Project',
+        tit: "The lost Fresquita",
+        con: `Submitted to the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+              <br><br>
+              In The lost Fresquita you will play the role of Juan in a day at night. 
+              The day before you celebrated a party in the forest and forgot some beers there but, since that's irresponsible, you came back for them. 
+              <br><br>
+              Your mission will be to find the 3 forgotten beers and take them back home safe and sound. 
+              What do I mean by safe? 
+              Lets say some of your friends wont make it easy...`,
+        b1:  "Download&nbsp<i>The lost Fresquita</i>",
+        vid: 'Watch IlloJuan play'
+      },
     },
     bot: {
       mail: 'Email copied to clipboard'
@@ -515,7 +530,22 @@ const lans = {
               Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
         b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
         vid: 'Ver Gameplay'
-      }
+      },
+      fresquita:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Proyecto Personal',
+        tit: "The lost Fresquita",
+        con: `Presentado para la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+              <br><br>
+              En The lost Fresquita encarnaras el rol de Juan en un día por la noche. 
+              El día de antes celebrasteis una fiesta en el bosque y se te olvidó recoger unas cervezas pero, como eso es irresponsable, has vuelto a por ellas. 
+              <br><br>
+              Tu misión será encontrar las 3 cervezas olvidadas y volver a casa a salvo. 
+              ¿Que a qué me refiero con a salvo? 
+              Digamos que algunos de tus amigos no te harán la vida facil...`,
+        b1:  "Descargar&nbsp<i>The lost Fresquita</i>",
+        vid: 'Ver a IlloJuan jugar'
+      },
     },
     bot: {
       mail: 'Email copiado al portapapeles'
@@ -530,16 +560,22 @@ let lan = lans.es
 //Created projects
 const projs = [
   {
-    key: 'lmdshow',
-    img: 'Data/Images/Projects/lmdshow.jpg',
-    btn: ["https://botpa.itch.io/escape-from-lmdshow"],
-    vid: 'z0Qv5HZyZgU',
+    key: 'fresquita',
+    img: 'Data/Images/Projects/fresquita.jpg',
+    btn: ["https://botpa.itch.io/the-lost-fresquita"],
+    //vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'raccoon',
     img: 'Data/Images/Projects/raccoon.jpg',
     btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
     vid: 'UGH5wQYlAt4',
+  },
+  {
+    key: 'lmdshow',
+    img: 'Data/Images/Projects/lmdshow.jpg',
+    btn: ["https://botpa.itch.io/escape-from-lmdshow"],
+    vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'memory',
