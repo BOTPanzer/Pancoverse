@@ -1210,7 +1210,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   width: 100%; 
 }
 
-/* Projects (media, tag) */
+/* Projects (media -> tag) */
 .pr > div:nth-of-type(1) > span:nth-of-type(1) {
   padding: 8px 14px;
 
@@ -1243,7 +1243,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   opacity: 0;
 }
 
-/* Projects (media, video button) */
+/* Projects (media -> video button) */
 .pr > div:nth-of-type(1) > div:nth-of-type(1) {
   width: 100%;
 
@@ -1289,7 +1289,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   height: 12px;
 }
 
-/* Projects (media, image & video) */
+/* Projects (media -> image & video) */
 .pr > div:nth-of-type(1) > div:nth-of-type(2) {
   width: calc(100% - 40px); 
   margin: 20px; 
@@ -1297,7 +1297,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  background-color: var(--accent);
+  /*background-color: var(--accent);*/
 }
 
 .pr > div:nth-of-type(1) > div:nth-of-type(2) > img {

@@ -118,162 +118,18 @@ const lans = {
     p: {
       tit: 'My Projects',
       more: 'Show more projects!',
-      asisAn: {
-        inf: 'Java · Android Studio · UI/UX Design',
-        tag: 'Personal Project',
-        tit: 'Oriøn Assistant (Android)',
-        con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
-              <br><br>
-              At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
-              After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
-              At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and an app to send data to the Windows version of the app.`,
-        b1: 'Download v1.9.0'
-      },
-      asisPC: {
-        inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · UI/UX Design',
-        tag: 'Personal Project',
-        tit: 'Oriøn Assistant (Windows)',
-        con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML apps called modules.
-              <br><br>
-              I like to carry my apps on a USB but plugging drives in different computers changes their letter and shortcuts break, so I had to come up with a solution.
-              The first iteration of the assistant was a command line app that replaced path letters with "?:\\", which would use the drive it was installed on.
-              <br><br>
-              After that I wanted to go further with a UI, so I started a new version called Oriøn Launcher using Electron.js. 
-              Some updates later I renamed it to Oriøn Assistant to match the Android app and added compatibility between them.`,
-        b1: 'Oriøn Assistant',
-        b2: 'Batch Launcher'
-      },
-      frame: {
-        inf: 'HTML · CSS · JS · VS Code · UI/UX Design',
-        tag: 'Personal Project',
-        tit: 'Oriøn Framework',
-        con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
-              This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
-              <br><br>
-              Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
-        b1: 'See documentation'
-      },
-      hoodie: {
-        inf: 'Illustrator · Photoshop · Sketching',
-        tag: 'Personal Project',
-        tit: 'Futuristic Hoodie',
-        con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
-              It isn't exactly streetwear but it's indeed a futuristic hoodie design.
-              I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
-              Then I made a preview in Photoshop of how the hoodie would look like if it was real.`
-      },
-      mod:{
-        inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
-        tag: 'Personal Project',
-        tit: 'PC Modding',
-        con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
-              <br><br>
-              I began by extracting 3D models from some of my favorite games since I couldn't find them online.
-              I printed a deathclaw figure and made a large rock model to place inside the case.
-              Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
-              <br><br>
-              After printing them, I painted and placed them on my PC.`
-      },
-      usb:{
-        inf: '3D Modeling · 3D Printing · Electronics · DIY',
-        tag: 'Personal Project',
-        tit: 'GTX USB',
-        con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
-              To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
-              <br><br>
-              After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
-              Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
-      },
-      dis:{
-        inf: 'JS · VS Code · Discord API',
-        tag: 'Personal Project',
-        tit: 'Discord Bots',
-        con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
-              <br><br>
-              After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.`,
-        b1: 'Syrup Repository'
-      },
-      t45:{
-        inf: '3D Printing · DIY',
-        tag: 'Personal Project',
-        tit: 'T45 Helmet',
-        con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
-              <br><br>
-              As I found a helmet 3D model I decided to print it in small pieces to make my own. 
-              After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
-      },
-      otters:{
-        inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
+      hightime:{
+        inf: 'Unity · VS Code · Photoshop',
         tag: 'Team Project',
-        tit: "Otter's Odyssey",
-        con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
+        tit: "High on Time",
+        con: `Submitted to the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
-              It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
-        b1:  "Download&nbsp<i>Otter's Odyssey</i>"
-      },
-      vapor:{
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Personal Project',
-        tit: "Vaporcade",
-        con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
+              High on Time is a frenetic shooter in which, thanks to a drug, you are capable of controling time at the cost of your life.
               <br><br>
-              Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
-        b1:  "Download&nbsp<i>Vaporcade</i>"
-      },
-      papa:{
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Team Project',
-        tit: "Cooking Papa",
-        con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
+              You will have to survive 3 waves of enemies with different weapons to complete the game, sliding and slowing time at your will in a building in construction.
               <br><br>
-              The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.`,
-        b1:  "Download&nbsp<i>Cooking Papa</i>"
-      },
-      spirits:{
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Team Project',
-        tit: "Twin Spirits",
-        con: `Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
-              <br><br>
-              On the way you will find puzzles in which you will have to cooperate in order to continue.`,
-        b1:  "Download&nbsp<i>Twin Spirits</i>",
-        vid: 'Watch Trailer'
-      },
-      memory:{
-        inf: 'Unity · VS Code · Photoshop · Illustrator',
-        tag: 'Personal Project',
-        tit: "Memory Shift",
-        con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
-              <br><br>
-              Inspired by Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
-              <br><br>
-              Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
-        b1:  "Download&nbsp<i>Memory Shift</i>"
-      },
-      lmdshow:{
-        inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Personal Project',
-        tit: "Escape From LMDShow",
-        con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
-              <br><br>
-              Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
-              <br><br>
-              To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
-        b1:  "Download&nbsp<i>Escape From LMDShow</i>",
-        vid: 'Watch IlloJuan play'
-      },
-      raccoon:{
-        inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Team Project',
-        tit: "Esto AÚN no es un Juego",
-        con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
-              <br><br>
-              In Esto AÚN no es un juego you will help a programer raccoon finish his game before his gamejam ends.
-              <br><br>
-              Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
-              <br><br>
-              Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
-        b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>",
+              Optionaly, an endless mode with infinite waves is also available.`,
+        b1:  "Download&nbsp<i>High on Time</i>",
         vid: 'Watch Gameplay'
       },
       fresquita:{
@@ -290,6 +146,166 @@ const lans = {
               Lets say some of your friends wont make it easy...`,
         b1:  "Download&nbsp<i>The lost Fresquita</i>",
         vid: 'Watch IlloJuan play'
+      },
+      raccoon:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Team Project',
+        tit: "Esto AÚN no es un Juego",
+        con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
+              <br><br>
+              In Esto AÚN no es un juego you will help a programer raccoon finish his game before his gamejam ends.
+              <br><br>
+              Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
+              <br><br>
+              Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
+        b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>",
+        vid: 'Watch Gameplay'
+      },
+      lmdshow:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Personal Project',
+        tit: "Escape From LMDShow",
+        con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
+              <br><br>
+              Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
+              <br><br>
+              To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
+        b1:  "Download&nbsp<i>Escape From LMDShow</i>",
+        vid: 'Watch IlloJuan play'
+      },
+      memory:{
+        inf: 'Unity · VS Code · Photoshop · Illustrator',
+        tag: 'Personal Project',
+        tit: "Memory Shift",
+        con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
+              <br><br>
+              Inspired by Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
+              <br><br>
+              Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
+        b1:  "Download&nbsp<i>Memory Shift</i>"
+      },
+      spirits:{
+        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        tag: 'Team Project',
+        tit: "Twin Spirits",
+        con: `Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
+              <br><br>
+              Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
+              <br><br>
+              On the way you will find puzzles in which you will have to cooperate in order to continue.`,
+        b1:  "Download&nbsp<i>Twin Spirits</i>",
+        vid: 'Watch Trailer'
+      },
+      papa:{
+        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        tag: 'Team Project',
+        tit: "Cooking Papa",
+        con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
+              <br><br>
+              The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.`,
+        b1:  "Download&nbsp<i>Cooking Papa</i>"
+      },
+      vaporcade:{
+        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        tag: 'Personal Project',
+        tit: "Vaporcade",
+        con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
+              <br><br>
+              Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
+        b1:  "Download&nbsp<i>Vaporcade</i>"
+      },
+      otters:{
+        inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
+        tag: 'Team Project',
+        tit: "Otter's Odyssey",
+        con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
+              <br><br>
+              It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
+        b1:  "Download&nbsp<i>Otter's Odyssey</i>"
+      },
+      asisPC: {
+        inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · UI/UX Design',
+        tag: 'Personal Project',
+        tit: 'Oriøn Assistant (Windows)',
+        con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML apps called modules.
+              <br><br>
+              I like to carry my apps on a USB but plugging drives in different computers changes their letter and shortcuts break, so I had to come up with a solution.
+              The first iteration of the assistant was a command line app that replaced path letters with "?:\\", which would use the drive it was installed on.
+              <br><br>
+              After that I wanted to go further with a UI, so I started a new version called Oriøn Launcher using Electron.js. 
+              Some updates later I renamed it to Oriøn Assistant to match the Android app and added compatibility between them.`,
+        b1: 'Oriøn Assistant',
+        b2: 'Batch Launcher'
+      },
+      asisAn: {
+        inf: 'Java · Android Studio · UI/UX Design',
+        tag: 'Personal Project',
+        tit: 'Oriøn Assistant (Android)',
+        con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
+              <br><br>
+              At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
+              After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
+              At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and an app to send data to the Windows version of the app.`,
+        b1: 'Download v1.9.0'
+      },
+      frame: {
+        inf: 'HTML · CSS · JS · VS Code · UI/UX Design',
+        tag: 'Personal Project',
+        tit: 'Oriøn Framework',
+        con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
+              This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
+              <br><br>
+              Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
+        b1: 'See documentation'
+      },
+      dis:{
+        inf: 'JS · VS Code · Discord API',
+        tag: 'Personal Project',
+        tit: 'Discord Bots',
+        con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
+              <br><br>
+              After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.`,
+        b1: 'Syrup Repository'
+      },
+      mod:{
+        inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
+        tag: 'Personal Project',
+        tit: 'PC Modding',
+        con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
+              <br><br>
+              I began by extracting 3D models from some of my favorite games since I couldn't find them online.
+              I printed a deathclaw figure and made a large rock model to place inside the case.
+              Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
+              <br><br>
+              After printing them, I painted and placed them on my PC.`
+      },
+      t45:{
+        inf: '3D Printing · DIY',
+        tag: 'Personal Project',
+        tit: 'T45 Helmet',
+        con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
+              <br><br>
+              As I found a helmet 3D model I decided to print it in small pieces to make my own. 
+              After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
+      },
+      usb:{
+        inf: '3D Modeling · 3D Printing · Electronics · DIY',
+        tag: 'Personal Project',
+        tit: 'GTX USB',
+        con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
+              To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
+              <br><br>
+              After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
+              Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
+      },
+      hoodie: {
+        inf: 'Illustrator · Photoshop · Sketching',
+        tag: 'Personal Project',
+        tit: 'Futuristic Hoodie',
+        con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
+              It isn't exactly streetwear but it's indeed a futuristic hoodie design.
+              I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
+              Then I made a preview in Photoshop of how the hoodie would look like if it was real.`
       },
     },
     bot: {
@@ -373,162 +389,18 @@ const lans = {
     p: {
       tit: 'Mis Proyectos',
       more: '¡Ver más proyectos!',
-      asisAn: {
-        inf: 'Java · Android Studio · Diseño UI/UX',
-        tag: 'Proyecto Personal',
-        tit: 'Oriøn Assistant (Android)',
-        con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
-              <br><br>
-              Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
-              Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
-              Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un buscador, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
-        b1: 'Descargar v1.9.0'
-      },
-      asisPC: {
-        inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · Diseño UI/UX',
-        tag: 'Proyecto Personal',
-        tit: 'Oriøn Assistant (Windows)',
-        con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML custom llamadas módulos.
-              <br><br>
-              Suelo llevar mis apps en un USB pero al conectarlo a diferentes ordenadores la letra cambia y los accesos directos se rompen, por lo que tuve que llegar a una solución.
-              La primera iteración del asistente era una app de comandos que reemplaza la letra de las rutas con "?:\\", lo que usaría el disco donde estaba instalado.
-              <br><br>
-              Tras esto quise ir más allá con una UI, por lo que comencé una nueva versión llamada Oriøn Launcher con Electron.js.
-              Algunas actualizaciones después lo renombré a Oriøn Assistant para que coincidiera con la app de Android y añadí compatibilidad entre ellas.`,
-        b1: 'Asistente Oriøn',
-        b2: 'Launcher Batch'
-      },
-      frame: {
-        inf: 'HTML · CSS · JS · VS Code · Diseño UI/UX',
-        tag: 'Proyecto Personal',
-        tit: 'Framework Oriøn',
-        con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
-              Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
-              <br><br>
-              Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
-        b1: 'Ver documentación'
-      },
-      hoodie: {
-        inf: 'Illustrator · Photoshop · Dibujo',
-        tag: 'Proyecto Personal',
-        tit: 'Sudadera Futurística',
-        con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
-              No es exactamente streetwear, pero sí es una sudadera futuristica.
-              Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
-              Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.`
-      },        
-      mod:{
-        inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
-        tag: 'Proyecto Personal',
-        tit: 'PC Modding',
-        con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
-              <br><br>
-              Empecé extrayendo modelos 3D de algunos de mis juegos favoritos ya que no los podía encontrar online.
-              Imprimí una figura de deathclaw e hice un modelo de roca larga para colocar dentro del PC.
-              Después continúe diseñando las piezas exteriores, basadas en Cyberpunk 2077, para más tarde modelarlas e imprimirlas.
-              <br><br>
-              Tras imprimirlas las pinté y coloqué en el PC.`
-      },
-      usb:{
-        inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
-        tag: 'Proyecto Personal',
-        tit: 'USB GTX ',
-        con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
-              Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
-              <br><br>
-              Después de hacer agujeros para la ventilación, imprimí la carcasa y coloqué un ventilador pequeño alimentado por un conector en el lado.
-              Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
-      },
-      dis:{
-        inf: 'JS · VS Code · API de Discord',
-        tag: 'Proyecto Personal',
-        tit: 'Bots de Discord',
-        con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
-              <br><br>
-              Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.`,
-        b1: 'Repositorio de Syrup'
-      },
-      t45:{
-        inf: 'Impresión 3D · Manualidades',
-        tag: 'Proyecto Personal',
-        tit: 'Casco T45',
-        con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
-              <br><br>
-              Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
-              Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
-      },
-      otters:{
-        inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
+      hightime:{
+        inf: 'Unity · VS Code · Photoshop',
         tag: 'Proyecto de Equipo',
-        tit: "Otter's Odyssey",
-        con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
+        tit: "High on Time",
+        con: `Presentado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
-              Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
-        b1:  "Descargar&nbsp<i>Otter's Odyssey</i>"
-      },
-      vapor:{
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Proyecto Personal',
-        tit: "Vaporcade",
-        con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
+              High on Time es un shooter frenetico en el que, debido a una droga, eres capaz de controlar el tiempo a costo de tu vida.
               <br><br>
-              Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
-        b1:  "Descargar&nbsp<i>Vaporcade</i>"
-      },
-      papa:{
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Proyecto de Equipo',
-        tit: "Cooking Papa",
-        con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
+              Tendras que sobrevivir a 3 oleadas de enemigos con armas diferentes para completar el juego, deslizandote y realentizando el tiempo a tu antojo en un edificio en construcción.
               <br><br>
-              Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.`,
-        b1:  "Descargar&nbsp<i>Cooking Papa</i>"
-      },
-      spirits:{
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Proyecto de Equipo',
-        tit: "Twin Spirits",
-        con: `Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
-              <br><br>
-              Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
-        b1:  "Descargar&nbsp<i>Twin Spirits</i>",
-        vid: 'Ver Trailer'
-      },
-      memory:{
-        inf: 'Unity · VS Code · Photoshop · Illustrator',
-        tag: 'Proyecto Personal',
-        tit: "Memory Shift",
-        con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
-              <br><br>
-              Inspirado por Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
-              <br><br>
-              Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
-        b1:  "Descargar&nbsp<i>Memory Shift</i>"
-      },
-      lmdshow:{
-        inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Proyecto Personal',
-        tit: "Escape From LMDShow",
-        con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
-              <br><br>
-              Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
-              <br><br>
-              Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
-        b1:  "Descargar&nbsp<i>Escape From LMDShow</i>",
-        vid: 'Ver a IlloJuan jugar'
-      },
-      raccoon:{
-        inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Proyecto de Equipo',
-        tit: "Esto AÚN no es un Juego",
-        con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
-              <br><br>
-              En Esto AÚN no es un juego ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
-              <br><br>
-              Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
-              <br><br>
-              Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
-        b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
+              Opcionalmente, un modo endless con oleadas infinitas tambien está disponible.`,
+        b1:  "Descargar&nbsp<i>High on Time</i>",
         vid: 'Ver Gameplay'
       },
       fresquita:{
@@ -546,6 +418,166 @@ const lans = {
         b1:  "Descargar&nbsp<i>The lost Fresquita</i>",
         vid: 'Ver a IlloJuan jugar'
       },
+      raccoon:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Proyecto de Equipo',
+        tit: "Esto AÚN no es un Juego",
+        con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
+              <br><br>
+              En Esto AÚN no es un juego ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
+              <br><br>
+              Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
+              <br><br>
+              Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
+        b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
+        vid: 'Ver Gameplay'
+      },
+      lmdshow:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Proyecto Personal',
+        tit: "Escape From LMDShow",
+        con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
+              <br><br>
+              Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
+              <br><br>
+              Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
+        b1:  "Descargar&nbsp<i>Escape From LMDShow</i>",
+        vid: 'Ver a IlloJuan jugar'
+      },
+      memory:{
+        inf: 'Unity · VS Code · Photoshop · Illustrator',
+        tag: 'Proyecto Personal',
+        tit: "Memory Shift",
+        con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
+              <br><br>
+              Inspirado por Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
+              <br><br>
+              Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
+        b1:  "Descargar&nbsp<i>Memory Shift</i>"
+      },
+      spirits:{
+        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        tag: 'Proyecto de Equipo',
+        tit: "Twin Spirits",
+        con: `Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
+              <br><br>
+              Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
+              <br><br>
+              Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
+        b1:  "Descargar&nbsp<i>Twin Spirits</i>",
+        vid: 'Ver Trailer'
+      },
+      papa:{
+        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        tag: 'Proyecto de Equipo',
+        tit: "Cooking Papa",
+        con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
+              <br><br>
+              Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.`,
+        b1:  "Descargar&nbsp<i>Cooking Papa</i>"
+      },
+      vaporcade:{
+        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        tag: 'Proyecto Personal',
+        tit: "Vaporcade",
+        con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
+              <br><br>
+              Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
+        b1:  "Descargar&nbsp<i>Vaporcade</i>"
+      },
+      otters:{
+        inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
+        tag: 'Proyecto de Equipo',
+        tit: "Otter's Odyssey",
+        con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
+              <br><br>
+              Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
+        b1:  "Descargar&nbsp<i>Otter's Odyssey</i>"
+      },
+      asisPC: {
+        inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · Diseño UI/UX',
+        tag: 'Proyecto Personal',
+        tit: 'Oriøn Assistant (Windows)',
+        con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML custom llamadas módulos.
+              <br><br>
+              Suelo llevar mis apps en un USB pero al conectarlo a diferentes ordenadores la letra cambia y los accesos directos se rompen, por lo que tuve que llegar a una solución.
+              La primera iteración del asistente era una app de comandos que reemplaza la letra de las rutas con "?:\\", lo que usaría el disco donde estaba instalado.
+              <br><br>
+              Tras esto quise ir más allá con una UI, por lo que comencé una nueva versión llamada Oriøn Launcher con Electron.js.
+              Algunas actualizaciones después lo renombré a Oriøn Assistant para que coincidiera con la app de Android y añadí compatibilidad entre ellas.`,
+        b1: 'Asistente Oriøn',
+        b2: 'Launcher Batch'
+      },
+      asisAn: {
+        inf: 'Java · Android Studio · Diseño UI/UX',
+        tag: 'Proyecto Personal',
+        tit: 'Oriøn Assistant (Android)',
+        con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
+              <br><br>
+              Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
+              Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
+              Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un buscador, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
+        b1: 'Descargar v1.9.0'
+      },
+      frame: {
+        inf: 'HTML · CSS · JS · VS Code · Diseño UI/UX',
+        tag: 'Proyecto Personal',
+        tit: 'Framework Oriøn',
+        con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
+              Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
+              <br><br>
+              Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
+        b1: 'Ver documentación'
+      },
+      dis:{
+        inf: 'JS · VS Code · API de Discord',
+        tag: 'Proyecto Personal',
+        tit: 'Bots de Discord',
+        con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
+              <br><br>
+              Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.`,
+        b1: 'Repositorio de Syrup'
+      },       
+      mod:{
+        inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
+        tag: 'Proyecto Personal',
+        tit: 'PC Modding',
+        con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
+              <br><br>
+              Empecé extrayendo modelos 3D de algunos de mis juegos favoritos ya que no los podía encontrar online.
+              Imprimí una figura de deathclaw e hice un modelo de roca larga para colocar dentro del PC.
+              Después continúe diseñando las piezas exteriores, basadas en Cyberpunk 2077, para más tarde modelarlas e imprimirlas.
+              <br><br>
+              Tras imprimirlas las pinté y coloqué en el PC.`
+      },
+      t45:{
+        inf: 'Impresión 3D · Manualidades',
+        tag: 'Proyecto Personal',
+        tit: 'Casco T45',
+        con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
+              <br><br>
+              Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
+              Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
+      },
+      usb:{
+        inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
+        tag: 'Proyecto Personal',
+        tit: 'USB GTX ',
+        con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
+              Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
+              <br><br>
+              Después de hacer agujeros para la ventilación, imprimí la carcasa y coloqué un ventilador pequeño alimentado por un conector en el lado.
+              Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
+      },
+      hoodie: {
+        inf: 'Illustrator · Photoshop · Dibujo',
+        tag: 'Proyecto Personal',
+        tit: 'Sudadera Futurística',
+        con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
+              No es exactamente streetwear, pero sí es una sudadera futuristica.
+              Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
+              Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.`
+      }, 
     },
     bot: {
       mail: 'Email copiado al portapapeles'
@@ -560,62 +592,56 @@ let lan = lans.es
 //Created projects
 const projs = [
   {
+    key: 'hightime',
+    btn: ["https://botpa.itch.io/high-on-time"],
+    //vid: 'z0Qv5HZyZgU',
+  },
+  {
     key: 'fresquita',
-    img: 'Data/Images/Projects/fresquita.jpg',
     btn: ["https://botpa.itch.io/the-lost-fresquita"],
     //vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'raccoon',
-    img: 'Data/Images/Projects/raccoon.jpg',
     btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
     vid: 'UGH5wQYlAt4',
   },
   {
     key: 'lmdshow',
-    img: 'Data/Images/Projects/lmdshow.jpg',
     btn: ["https://botpa.itch.io/escape-from-lmdshow"],
     vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'memory',
-    img: 'Data/Images/Projects/memory.jpg',
     btn: ["https://botpa.itch.io/memory-shift"]
   },
   {
     key: 'spirits',
-    img: 'Data/Images/Projects/spirits.jpg',
     btn: ["https://botpa.itch.io/twin-spirits"],
     vid: 'SdIGAw2ABeU',
   },
   {
-    key: 'vapor',
-    img: 'Data/Images/Projects/vaporcade.jpg',
+    key: 'vaporcade',
     btn: ["https://botpa.itch.io/vaporcade"]
   },
   {
     key: 'papa',
-    img: 'Data/Images/Projects/papa.jpg',
     btn: ["https://botpa.itch.io/cooking-papa"]
   },
   {
     key: 'otters',
-    img: 'Data/Images/Projects/otters.jpg',
     btn: ["https://botpa.itch.io/vaporcade"]
   },
   /*{
     key: 'asisAn',
-    img: 'Data/Images/Projects/assAndroid.jpg',
     btn: ["Data/Orion Assistant.apk"]
   },
   {
     key: 'asisPC',
-    img: 'Data/Images/Projects/assPC.jpg',
     btn: ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"]
   },
   {
     key: 'frame',
-    img: 'Data/Images/Projects/frame.jpg',
     btn: ["https://botpanzer.github.io/Orion-Framework"]
   }*/
 ]
@@ -1290,7 +1316,7 @@ function addProject(animate) {
   //Get info
   let p = projs[projsLength]
   let key = lan.p[p.key]
-  let img = p.img
+  let img = `Data/Images/Projects/${p.key}.jpg`
   let btn = p.btn
   let vid = p.vid
 
