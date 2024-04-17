@@ -118,7 +118,18 @@ const lans = {
     p: {
       tit: 'My Projects',
       more: 'Show more projects!',
-      hightime:{
+      hackoon: {
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Personal Project',
+        tit: "Hackoon",
+        con: `Hackoon is an in development puzzle game about a hacker raccoon.
+              <br><br>
+              Your robot friend has a virus and his memories have been corrupted so, in order to save him, you will have to go in and fix everything that has changed.
+              <br><br>
+              In Hackoon, you will be able to modify the code of the objects of each level to complete ingenious puzzles and save your friend.`,
+        b1:  "Follow it's progress!"
+      },
+      hightime: {
         inf: 'Unity · VS Code · Photoshop',
         tag: 'Team Project',
         tit: "High on Time",
@@ -132,7 +143,7 @@ const lans = {
         b1:  "Download&nbsp<i>High on Time</i>",
         vid: 'Watch Gameplay'
       },
-      fresquita:{
+      fresquita: {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "The lost Fresquita",
@@ -147,7 +158,7 @@ const lans = {
         b1:  "Download&nbsp<i>The lost Fresquita</i>",
         vid: 'Watch IlloJuan play'
       },
-      raccoon:{
+      raccoon: {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Team Project',
         tit: "Esto AÚN no es un Juego",
@@ -161,7 +172,7 @@ const lans = {
         b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>",
         vid: 'Watch Gameplay'
       },
-      lmdshow:{
+      lmdshow: {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Personal Project',
         tit: "Escape From LMDShow",
@@ -173,7 +184,7 @@ const lans = {
         b1:  "Download&nbsp<i>Escape From LMDShow</i>",
         vid: 'Watch IlloJuan play'
       },
-      memory:{
+      memory: {
         inf: 'Unity · VS Code · Photoshop · Illustrator',
         tag: 'Personal Project',
         tit: "Memory Shift",
@@ -184,7 +195,7 @@ const lans = {
               Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
         b1:  "Download&nbsp<i>Memory Shift</i>"
       },
-      spirits:{
+      spirits: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
         tag: 'Team Project',
         tit: "Twin Spirits",
@@ -196,7 +207,7 @@ const lans = {
         b1:  "Download&nbsp<i>Twin Spirits</i>",
         vid: 'Watch Trailer'
       },
-      papa:{
+      papa: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
         tag: 'Team Project',
         tit: "Cooking Papa",
@@ -205,7 +216,7 @@ const lans = {
               The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.`,
         b1:  "Download&nbsp<i>Cooking Papa</i>"
       },
-      vaporcade:{
+      vaporcade: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
         tag: 'Personal Project',
         tit: "Vaporcade",
@@ -214,7 +225,7 @@ const lans = {
               Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
         b1:  "Download&nbsp<i>Vaporcade</i>"
       },
-      otters:{
+      otters: {
         inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
         tag: 'Team Project',
         tit: "Otter's Odyssey",
@@ -258,7 +269,7 @@ const lans = {
               Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
         b1: 'See documentation'
       },
-      dis:{
+      dis: {
         inf: 'JS · VS Code · Discord API',
         tag: 'Personal Project',
         tit: 'Discord Bots',
@@ -267,7 +278,7 @@ const lans = {
               After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.`,
         b1: 'Syrup Repository'
       },
-      mod:{
+      mod: {
         inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
         tag: 'Personal Project',
         tit: 'PC Modding',
@@ -279,7 +290,7 @@ const lans = {
               <br><br>
               After printing them, I painted and placed them on my PC.`
       },
-      t45:{
+      t45: {
         inf: '3D Printing · DIY',
         tag: 'Personal Project',
         tit: 'T45 Helmet',
@@ -288,7 +299,7 @@ const lans = {
               As I found a helmet 3D model I decided to print it in small pieces to make my own. 
               After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
       },
-      usb:{
+      usb: {
         inf: '3D Modeling · 3D Printing · Electronics · DIY',
         tag: 'Personal Project',
         tit: 'GTX USB',
@@ -389,7 +400,18 @@ const lans = {
     p: {
       tit: 'Mis Proyectos',
       more: '¡Ver más proyectos!',
-      hightime:{
+      hackoon:{
+        inf: 'Unity · Blender · VS Code · Photoshop',
+        tag: 'Proyecto Personal',
+        tit: "Hackoon",
+        con: `Hackoon es un juego de puzles en desarrollo sobre un mapache hacker.
+              <br><br>
+              Tu amigo robot tiene un virus y sus recuerdos han sido corrompidos así que, para salvarlo, tendrás que entrar en él y arreglar todo lo que ha cambiado.
+              <br><br>
+              En Hackoon, podrás modificar el código de los objetos de cada nivel para completar ingeniosos rompecabezas y salvar a tu amigo.`,
+        b1:  "¡Sigue el progreso!"
+      },
+      hightime: {
         inf: 'Unity · VS Code · Photoshop',
         tag: 'Proyecto de Equipo',
         tit: "High on Time",
@@ -403,7 +425,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>High on Time</i>",
         vid: 'Ver Gameplay'
       },
-      fresquita:{
+      fresquita: {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto Personal',
         tit: "The lost Fresquita",
@@ -418,7 +440,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>The lost Fresquita</i>",
         vid: 'Ver a IlloJuan jugar'
       },
-      raccoon:{
+      raccoon: {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto de Equipo',
         tit: "Esto AÚN no es un Juego",
@@ -432,7 +454,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
         vid: 'Ver Gameplay'
       },
-      lmdshow:{
+      lmdshow: {
         inf: 'Unity · Blender · VS Code · Photoshop',
         tag: 'Proyecto Personal',
         tit: "Escape From LMDShow",
@@ -444,7 +466,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>Escape From LMDShow</i>",
         vid: 'Ver a IlloJuan jugar'
       },
-      memory:{
+      memory: {
         inf: 'Unity · VS Code · Photoshop · Illustrator',
         tag: 'Proyecto Personal',
         tit: "Memory Shift",
@@ -455,7 +477,7 @@ const lans = {
               Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
         b1:  "Descargar&nbsp<i>Memory Shift</i>"
       },
-      spirits:{
+      spirits: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
         tag: 'Proyecto de Equipo',
         tit: "Twin Spirits",
@@ -467,7 +489,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>Twin Spirits</i>",
         vid: 'Ver Trailer'
       },
-      papa:{
+      papa: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
         tag: 'Proyecto de Equipo',
         tit: "Cooking Papa",
@@ -476,7 +498,7 @@ const lans = {
               Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.`,
         b1:  "Descargar&nbsp<i>Cooking Papa</i>"
       },
-      vaporcade:{
+      vaporcade: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
         tag: 'Proyecto Personal',
         tit: "Vaporcade",
@@ -485,7 +507,7 @@ const lans = {
               Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
         b1:  "Descargar&nbsp<i>Vaporcade</i>"
       },
-      otters:{
+      otters: {
         inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
         tag: 'Proyecto de Equipo',
         tit: "Otter's Odyssey",
@@ -529,7 +551,7 @@ const lans = {
               Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
         b1: 'Ver documentación'
       },
-      dis:{
+      dis: {
         inf: 'JS · VS Code · API de Discord',
         tag: 'Proyecto Personal',
         tit: 'Bots de Discord',
@@ -538,7 +560,7 @@ const lans = {
               Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.`,
         b1: 'Repositorio de Syrup'
       },       
-      mod:{
+      mod: {
         inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
         tag: 'Proyecto Personal',
         tit: 'PC Modding',
@@ -550,7 +572,7 @@ const lans = {
               <br><br>
               Tras imprimirlas las pinté y coloqué en el PC.`
       },
-      t45:{
+      t45: {
         inf: 'Impresión 3D · Manualidades',
         tag: 'Proyecto Personal',
         tit: 'Casco T45',
@@ -559,7 +581,7 @@ const lans = {
               Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
               Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
       },
-      usb:{
+      usb: {
         inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
         tag: 'Proyecto Personal',
         tit: 'USB GTX ',
@@ -591,6 +613,11 @@ let lan = lans.es
 
 //Created projects
 const projs = [
+  {
+    key: 'hackoon',
+    btn: ["https://www.tiktok.com/@botpanzer"],
+    //vid: 'UGH5wQYlAt4',
+  },
   {
     key: 'hightime',
     btn: ["https://botpa.itch.io/high-on-time"],
