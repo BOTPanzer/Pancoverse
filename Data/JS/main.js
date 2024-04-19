@@ -67,7 +67,8 @@ const lans = {
       p: 'Projects',
       t: 'Theme',
       l: 'English',
-      ac: 'Achievements'
+      ac: 'Achievements',
+      c: 'Contact'
     },
     h: {
       hi: "Howdy! I'm",
@@ -118,20 +119,23 @@ const lans = {
     p: {
       tit: 'My Projects',
       more: 'Show more projects!',
+      tag: {
+        personal: 'Personal Project',
+        team: 'Team Project',
+        jam: 'Jam Game',
+      },
       hackoon: {
         inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Personal Project',
         tit: "Hackoon",
         con: `Hackoon is an in development puzzle game about a hacker raccoon.
               <br><br>
               Your robot friend has a virus and his memories have been corrupted so, in order to save him, you will have to go in and fix everything that has changed.
               <br><br>
               In Hackoon, you will be able to modify the code of the objects of each level to complete ingenious puzzles and save your friend.`,
-        b1:  "Follow it's progress!"
+        b1:  "Follow the development!"
       },
       hightime: {
         inf: 'Unity · VS Code · Photoshop',
-        tag: 'Team Project',
         tit: "High on Time",
         con: `Submitted to the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -141,11 +145,10 @@ const lans = {
               <br><br>
               Optionaly, an endless mode with infinite waves is also available.`,
         b1:  "Download&nbsp<i>High on Time</i>",
-        vid: 'Watch Gameplay'
+        vid: 'Gameplay Video'
       },
       fresquita: {
         inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Personal Project',
         tit: "The lost Fresquita",
         con: `Submitted to the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
@@ -160,7 +163,6 @@ const lans = {
       },
       raccoon: {
         inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Team Project',
         tit: "Esto AÚN no es un Juego",
         con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -170,11 +172,10 @@ const lans = {
               <br><br>
               Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
         b1:  "Download&nbsp<i>Esto AÚN no es un Juego</i>",
-        vid: 'Watch Gameplay'
+        vid: 'Gameplay Video'
       },
       lmdshow: {
         inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Personal Project',
         tit: "Escape From LMDShow",
         con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
               <br><br>
@@ -182,11 +183,10 @@ const lans = {
               <br><br>
               To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
         b1:  "Download&nbsp<i>Escape From LMDShow</i>",
-        vid: 'Watch IlloJuan play'
+        vid: 'IlloJuan Playing on Stream'
       },
       memory: {
         inf: 'Unity · VS Code · Photoshop · Illustrator',
-        tag: 'Personal Project',
         tit: "Memory Shift",
         con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
               <br><br>
@@ -197,7 +197,6 @@ const lans = {
       },
       spirits: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Team Project',
         tit: "Twin Spirits",
         con: `Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -205,11 +204,10 @@ const lans = {
               <br><br>
               On the way you will find puzzles in which you will have to cooperate in order to continue.`,
         b1:  "Download&nbsp<i>Twin Spirits</i>",
-        vid: 'Watch Trailer'
+        vid: 'Trailer Video'
       },
       papa: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Team Project',
         tit: "Cooking Papa",
         con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
               <br><br>
@@ -218,7 +216,6 @@ const lans = {
       },
       vaporcade: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Personal Project',
         tit: "Vaporcade",
         con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
               <br><br>
@@ -227,7 +224,6 @@ const lans = {
       },
       otters: {
         inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
-        tag: 'Team Project',
         tit: "Otter's Odyssey",
         con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
               <br><br>
@@ -236,7 +232,6 @@ const lans = {
       },
       asisPC: {
         inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · UI/UX Design',
-        tag: 'Personal Project',
         tit: 'Oriøn Assistant (Windows)',
         con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML apps called modules.
               <br><br>
@@ -250,7 +245,6 @@ const lans = {
       },
       asisAn: {
         inf: 'Java · Android Studio · UI/UX Design',
-        tag: 'Personal Project',
         tit: 'Oriøn Assistant (Android)',
         con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
               <br><br>
@@ -261,7 +255,6 @@ const lans = {
       },
       frame: {
         inf: 'HTML · CSS · JS · VS Code · UI/UX Design',
-        tag: 'Personal Project',
         tit: 'Oriøn Framework',
         con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
               This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
@@ -271,7 +264,6 @@ const lans = {
       },
       dis: {
         inf: 'JS · VS Code · Discord API',
-        tag: 'Personal Project',
         tit: 'Discord Bots',
         con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
               <br><br>
@@ -280,7 +272,6 @@ const lans = {
       },
       mod: {
         inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
-        tag: 'Personal Project',
         tit: 'PC Modding',
         con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
               <br><br>
@@ -292,7 +283,6 @@ const lans = {
       },
       t45: {
         inf: '3D Printing · DIY',
-        tag: 'Personal Project',
         tit: 'T45 Helmet',
         con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
               <br><br>
@@ -301,7 +291,6 @@ const lans = {
       },
       usb: {
         inf: '3D Modeling · 3D Printing · Electronics · DIY',
-        tag: 'Personal Project',
         tit: 'GTX USB',
         con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
               To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
@@ -311,7 +300,6 @@ const lans = {
       },
       hoodie: {
         inf: 'Illustrator · Photoshop · Sketching',
-        tag: 'Personal Project',
         tit: 'Futuristic Hoodie',
         con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
               It isn't exactly streetwear but it's indeed a futuristic hoodie design.
@@ -349,7 +337,8 @@ const lans = {
       p: 'Proyectos',
       t: 'Tema',
       l: 'Español',
-      ac: 'Logros'
+      ac: 'Logros',
+      c: 'Contacto'
     },
     h: {
       hi: '¡Hey! Soy',
@@ -400,20 +389,23 @@ const lans = {
     p: {
       tit: 'Mis Proyectos',
       more: '¡Ver más proyectos!',
+      tag: {
+        personal: 'Proyecto Personal',
+        team: 'Proyecto de Equipo',
+        jam: 'Juego de Jam',
+      },
       hackoon:{
-        inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Proyecto Personal',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
         con: `Hackoon es un juego de puzles en desarrollo sobre un mapache hacker.
               <br><br>
               Tu amigo robot tiene un virus y sus recuerdos han sido corrompidos así que, para salvarlo, tendrás que entrar en él y arreglar todo lo que ha cambiado.
               <br><br>
               En Hackoon, podrás modificar el código de los objetos de cada nivel para completar ingeniosos rompecabezas y salvar a tu amigo.`,
-        b1:  "¡Sigue el progreso!"
+        b1:  "¡Sigue el desarrollo!"
       },
       hightime: {
-        inf: 'Unity · VS Code · Photoshop',
-        tag: 'Proyecto de Equipo',
+        inf: 'Unity · C# · VS Code · Photoshop',
         tit: "High on Time",
         con: `Presentado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -426,8 +418,7 @@ const lans = {
         vid: 'Ver Gameplay'
       },
       fresquita: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Proyecto Personal',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "The lost Fresquita",
         con: `Presentado para la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
@@ -442,7 +433,6 @@ const lans = {
       },
       raccoon: {
         inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Proyecto de Equipo',
         tit: "Esto AÚN no es un Juego",
         con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -456,7 +446,6 @@ const lans = {
       },
       lmdshow: {
         inf: 'Unity · Blender · VS Code · Photoshop',
-        tag: 'Proyecto Personal',
         tit: "Escape From LMDShow",
         con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
               <br><br>
@@ -464,11 +453,10 @@ const lans = {
               <br><br>
               Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
         b1:  "Descargar&nbsp<i>Escape From LMDShow</i>",
-        vid: 'Ver a IlloJuan jugar'
+        vid: 'IlloJuan Jugando en Stream'
       },
       memory: {
         inf: 'Unity · VS Code · Photoshop · Illustrator',
-        tag: 'Proyecto Personal',
         tit: "Memory Shift",
         con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
               <br><br>
@@ -479,7 +467,6 @@ const lans = {
       },
       spirits: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Proyecto de Equipo',
         tit: "Twin Spirits",
         con: `Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -491,7 +478,6 @@ const lans = {
       },
       papa: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Proyecto de Equipo',
         tit: "Cooking Papa",
         con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
               <br><br>
@@ -500,7 +486,6 @@ const lans = {
       },
       vaporcade: {
         inf: 'Unity · VS Code · Illustrator · Photoshop',
-        tag: 'Proyecto Personal',
         tit: "Vaporcade",
         con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
               <br><br>
@@ -509,7 +494,6 @@ const lans = {
       },
       otters: {
         inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
-        tag: 'Proyecto de Equipo',
         tit: "Otter's Odyssey",
         con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
               <br><br>
@@ -518,7 +502,6 @@ const lans = {
       },
       asisPC: {
         inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · Diseño UI/UX',
-        tag: 'Proyecto Personal',
         tit: 'Oriøn Assistant (Windows)',
         con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML custom llamadas módulos.
               <br><br>
@@ -532,7 +515,6 @@ const lans = {
       },
       asisAn: {
         inf: 'Java · Android Studio · Diseño UI/UX',
-        tag: 'Proyecto Personal',
         tit: 'Oriøn Assistant (Android)',
         con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
               <br><br>
@@ -543,7 +525,6 @@ const lans = {
       },
       frame: {
         inf: 'HTML · CSS · JS · VS Code · Diseño UI/UX',
-        tag: 'Proyecto Personal',
         tit: 'Framework Oriøn',
         con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
               Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
@@ -553,7 +534,6 @@ const lans = {
       },
       dis: {
         inf: 'JS · VS Code · API de Discord',
-        tag: 'Proyecto Personal',
         tit: 'Bots de Discord',
         con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
               <br><br>
@@ -562,7 +542,6 @@ const lans = {
       },       
       mod: {
         inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
-        tag: 'Proyecto Personal',
         tit: 'PC Modding',
         con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
               <br><br>
@@ -574,7 +553,6 @@ const lans = {
       },
       t45: {
         inf: 'Impresión 3D · Manualidades',
-        tag: 'Proyecto Personal',
         tit: 'Casco T45',
         con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
               <br><br>
@@ -583,7 +561,6 @@ const lans = {
       },
       usb: {
         inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
-        tag: 'Proyecto Personal',
         tit: 'USB GTX ',
         con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
               Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
@@ -593,7 +570,6 @@ const lans = {
       },
       hoodie: {
         inf: 'Illustrator · Photoshop · Dibujo',
-        tag: 'Proyecto Personal',
         tit: 'Sudadera Futurística',
         con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
               No es exactamente streetwear, pero sí es una sudadera futuristica.
@@ -615,60 +591,72 @@ let lan = lans.es
 const projs = [
   {
     key: 'hackoon',
+    tag: 'personal',
     btn: ["https://www.tiktok.com/@botpanzer"],
     //vid: 'UGH5wQYlAt4',
   },
   {
     key: 'hightime',
+    tag: ['team', 'jam'],
     btn: ["https://botpa.itch.io/high-on-time"],
     vid: 'UGMQDJxov1M',
   },
   {
     key: 'fresquita',
+    tag: ['personal', 'jam'],
     btn: ["https://botpa.itch.io/the-lost-fresquita"],
-    //vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'raccoon',
+    tag: ['team', 'jam'],
     btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
     vid: 'UGH5wQYlAt4',
   },
   {
     key: 'lmdshow',
+    tag: 'personal',
     btn: ["https://botpa.itch.io/escape-from-lmdshow"],
     vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'memory',
-    btn: ["https://botpa.itch.io/memory-shift"]
+    tag: 'personal',
+    btn: ["https://botpa.itch.io/memory-shift"],
   },
   {
     key: 'spirits',
+    tag: ['team', 'jam'],
     btn: ["https://botpa.itch.io/twin-spirits"],
     vid: 'SdIGAw2ABeU',
   },
   {
     key: 'vaporcade',
+    tag: 'personal',
     btn: ["https://botpa.itch.io/vaporcade"]
   },
   {
     key: 'papa',
+    tag: ['team', 'jam'],
     btn: ["https://botpa.itch.io/cooking-papa"]
   },
   {
     key: 'otters',
+    tag: ['team', 'jam'],
     btn: ["https://botpa.itch.io/vaporcade"]
   },
   /*{
     key: 'asisAn',
+    tag: 'personal',
     btn: ["Data/Orion Assistant.apk"]
   },
   {
     key: 'asisPC',
+    tag: 'personal',
     btn: ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"]
   },
   {
     key: 'frame',
+    tag: 'personal',
     btn: ["https://botpanzer.github.io/Orion-Framework"]
   }*/
 ]
@@ -927,6 +915,7 @@ function setLan() {
   document.getElementById('navMenuThe').innerText = lan.top.t
   document.getElementById('navMenuLan').innerText = lan.top.l
   document.getElementById('navMenuAch').innerText = lan.top.ac
+  document.getElementById('navMenuCon').innerText = lan.top.c
 
   //Achievements
   document.getElementById('achMenuTit').innerText = lan.ach.tit
@@ -1340,14 +1329,30 @@ function addProject(animate) {
   //No more space
   if (projsLength >= projs.length) return
 
-  //Get info
+  //Get basic info
   let p = projs[projsLength]
   let key = lan.p[p.key]
   let img = `Data/Images/Projects/${p.key}.jpg`
   let btn = p.btn
   let vid = p.vid
 
-  //Buttons
+  //Get tag
+  let tag = p.tag
+  if (typeof tag == 'string') {
+    tag = '<b>·</b>&nbsp&nbsp' + lan.p.tag[tag]
+  } else if (Array.isArray(tag)) {
+    let max = tag.length
+    let tmp = ''
+    for (let i = 0; i < max; i++) {
+      const element = tag[i]
+      tmp = tmp + '<b>·</b>&nbsp&nbsp' + lan.p.tag[element] + (i + 1 != max ? '<br>' : '')
+    }
+    tag = tmp
+  } else {
+    tag = ''
+  }
+
+  //Create buttons
   let buttonHTML = ''
   if (Array.isArray(btn) && btn.length > 0) {
     //Has buttons -> Add them
@@ -1364,7 +1369,7 @@ function addProject(animate) {
   if (projsLength % 2 != 0) element.setAttribute('reverse', '')
   element.innerHTML = `
     <div id="pr${projsLength}Media">
-      <span id="pr${projsLength}Tag">${key.tag}</span>
+      <span id="pr${projsLength}Tag" ${tag == '' ? 'style="display: none"' : ''}>${tag}</span>
       <div ${vid ? '' : 'style="display: none;"'}>
         <span onclick="toggleVideo(${projsLength}, 'https://www.youtube.com/embed/${vid}')">
           <img src="Data/Images/Icons/play.png">${key.vid}

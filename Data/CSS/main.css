@@ -458,10 +458,6 @@ html:not([mobile]) #navMenu[menu] {
 
 /* Menu buttons */
 .navMenuBtn {
-  display: none;
-}
- 
-.navMenuBtn:nth-of-type(n + 5), html[mobile] .navMenuBtn {
   min-width: 100%;
   display: flex;
   align-items: center;
@@ -471,6 +467,10 @@ html:not([mobile]) #navMenu[menu] {
   cursor: pointer;
   transition: background .1s;
   position: relative;
+}
+
+html:not([mobile]) .navMenuBtn:not([always]) {
+  display: none;
 }
 
 .navMenuBtn:hover, .navMenuBtn:hover {
@@ -1222,11 +1222,12 @@ html[mobile] .pr > div:nth-of-type(1) {
   
   border-radius: 10px; 
   background-color: var(--button); 
-  box-shadow: 1px 1px 5px var(--bg), 
-              1px -1px 5px var(--bg), 
-              -1px -1px 5px var(--bg), 
-              -1px 1px 5px var(--bg);
+  box-shadow: 1px 1px 3px var(--bg), 
+              1px -1px 3px var(--bg), 
+              -1px -1px 3px var(--bg), 
+              -1px 1px 3px var(--bg);
   
+  text-align: center;
   transform: rotate(-10deg);
 
   transition: opacity 0.3s;
@@ -1268,11 +1269,11 @@ html[mobile] .pr > div:nth-of-type(1) {
   
   border-radius: 30px; 
   background-color: var(--button);
-  outline: solid 2px var(--accent);/**/
-  /*box-shadow: 1px 1px 5px var(--button), 
-              1px -1px 5px var(--button), 
-              -1px -1px 5px var(--button), 
-              -1px 1px 5px var(--button);*/
+  /*outline: solid 2px var(--accent);*/
+  box-shadow: 1px 1px 3px var(--button), 
+              1px -1px 3px var(--button), 
+              -1px -1px 3px var(--button), 
+              -1px 1px 3px var(--button);/**/
   
   pointer-events: all;
   cursor: pointer;

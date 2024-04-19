@@ -61,15 +61,19 @@
               <img src="Data/Images/Icons/projects.png">
               <span id="navMenuP">Projects</span>
             </div>
-            <div class="navMenuBtn" onclick="switchTheme()">
+            <div class="navMenuBtn" onclick="goto('bot')">
+              <img src="Data/Images/Icons/email.png">
+              <span id="navMenuCon">Contact</span>
+            </div>
+            <div class="navMenuBtn" always onclick="switchTheme()">
               <img id="topTheImg" src="Data/Images/Icons/dark.png">
               <span id="navMenuThe">Theme</span>
             </div>
-            <div class="navMenuBtn" onclick="switchLan()">
+            <div class="navMenuBtn" always onclick="switchLan()">
               <img src="Data/Images/Icons/language.png">
               <span id="navMenuLan">English</span>
             </div>
-            <div class="navMenuBtn" onclick="toggleAchi()">
+            <div class="navMenuBtn" always onclick="toggleAchi()">
               <img src="Data/Images/Icons/cup.png">
               <span id="navMenuAch">Achievements</span>
               <dot id="navMenuDot2" class="navMenuDot" style="left: 35px;"></dot>
@@ -306,13 +310,13 @@
       <div id="prProjects"  class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));"></div>
 
       <div id="prMoreBox" class="vc cc" style="margin-top: 50px;">
-        <div id="prMore" class="pageBtn" onclick="addProject()">Load More</div>
+        <div id="prMore" class="pageBtn" onclick="addProject(); addProject();">Load More</div>
       </div>
     </div>
 
     <!-- Bottom -->
-    <div class="bot">
-      <div id="botFrom" style="font-size: 1em; font-family: lemon;">Arcane</div>
+    <div id="bot" class="bot">
+      <div id="botFrom" style="font-size: 1.2em; font-family: lemon;">Arcane</div>
       <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
       <div class="botSocials">
         <a class="socialsButton" onclick="copyMail()">
@@ -334,6 +338,7 @@
           <img src="Data/Images/Icons/tiktok.png">
         </a>
       </div>
+      <div id="botCredits" style="font-size: 0.75em; text-align: center; margin-top: 12px; margin-bottom: 10x;">Copyright © Alejandro Paniagua</div>
     </div>
   </body>
 
