@@ -125,7 +125,7 @@ const lans = {
         jam: 'Jam Game',
       },
       hackoon: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
         con: `Hackoon is an in development puzzle game about a hacker raccoon.
               <br><br>
@@ -135,7 +135,7 @@ const lans = {
         b1:  "Follow the development!"
       },
       hightime: {
-        inf: 'Unity · VS Code · Photoshop',
+        inf: 'Unity · C# · VS Code · Photoshop',
         tit: "High on Time",
         con: `Submitted to the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -148,7 +148,7 @@ const lans = {
         vid: 'Gameplay Video'
       },
       fresquita: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "The lost Fresquita",
         con: `Submitted to the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
@@ -162,7 +162,7 @@ const lans = {
         vid: 'Watch IlloJuan play'
       },
       raccoon: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Esto AÚN no es un Juego",
         con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -175,7 +175,7 @@ const lans = {
         vid: 'Gameplay Video'
       },
       lmdshow: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Escape From LMDShow",
         con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
               <br><br>
@@ -186,7 +186,7 @@ const lans = {
         vid: 'IlloJuan Playing on Stream'
       },
       memory: {
-        inf: 'Unity · VS Code · Photoshop · Illustrator',
+        inf: 'Unity · C# · VS Code · Photoshop · Illustrator',
         tit: "Memory Shift",
         con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
               <br><br>
@@ -196,7 +196,7 @@ const lans = {
         b1:  "Download&nbsp<i>Memory Shift</i>"
       },
       spirits: {
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Twin Spirits",
         con: `Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -207,7 +207,7 @@ const lans = {
         vid: 'Trailer Video'
       },
       papa: {
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Cooking Papa",
         con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
               <br><br>
@@ -215,7 +215,7 @@ const lans = {
         b1:  "Download&nbsp<i>Cooking Papa</i>"
       },
       vaporcade: {
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Vaporcade",
         con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
               <br><br>
@@ -223,7 +223,7 @@ const lans = {
         b1:  "Download&nbsp<i>Vaporcade</i>"
       },
       otters: {
-        inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
+        inf: 'Unity · C# · VS Code · 3ds Max · Substance Painter · Photoshop',
         tit: "Otter's Odyssey",
         con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
               <br><br>
@@ -432,7 +432,7 @@ const lans = {
         vid: 'Ver a IlloJuan jugar'
       },
       raccoon: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Esto AÚN no es un Juego",
         con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -445,7 +445,7 @@ const lans = {
         vid: 'Ver Gameplay'
       },
       lmdshow: {
-        inf: 'Unity · Blender · VS Code · Photoshop',
+        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Escape From LMDShow",
         con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
               <br><br>
@@ -456,7 +456,7 @@ const lans = {
         vid: 'IlloJuan Jugando en Stream'
       },
       memory: {
-        inf: 'Unity · VS Code · Photoshop · Illustrator',
+        inf: 'Unity · C# · VS Code · Photoshop · Illustrator',
         tit: "Memory Shift",
         con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
               <br><br>
@@ -466,7 +466,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>Memory Shift</i>"
       },
       spirits: {
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Twin Spirits",
         con: `Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -477,7 +477,7 @@ const lans = {
         vid: 'Ver Trailer'
       },
       papa: {
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Cooking Papa",
         con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
               <br><br>
@@ -485,7 +485,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>Cooking Papa</i>"
       },
       vaporcade: {
-        inf: 'Unity · VS Code · Illustrator · Photoshop',
+        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Vaporcade",
         con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
               <br><br>
@@ -493,7 +493,7 @@ const lans = {
         b1:  "Descargar&nbsp<i>Vaporcade</i>"
       },
       otters: {
-        inf: 'Unity · VS Code · 3ds Max · Substance Painter · Photoshop',
+        inf: 'Unity · C# · VS Code · 3ds Max · Substance Painter · Photoshop',
         tit: "Otter's Odyssey",
         con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
               <br><br>
