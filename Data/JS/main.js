@@ -127,11 +127,9 @@ const lans = {
       hackoon: {
         inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
-        con: `Hackoon is an in development puzzle game about a hacker raccoon.
+        con: `Hackoon is an in development puzzle game about a game developer raccoon that needs to fix his game before release.
               <br><br>
-              Your robot friend has a virus and his memories have been corrupted so, in order to save him, you will have to go in and fix everything that has changed.
-              <br><br>
-              In Hackoon, you will be able to modify the code of the objects of each level to complete ingenious puzzles and save your friend.`,
+              In order to achieve this, he will go inside of his own game. There, with the help of a little robot, you will be able to modify the code that controls the objects of each level to complete ingenious puzzles.`,
         b1:  "Follow the development!"
       },
       hightime: {
@@ -397,11 +395,9 @@ const lans = {
       hackoon:{
         inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
-        con: `Hackoon es un juego de puzles en desarrollo sobre un mapache hacker.
+        con: `Hackoon es un juego de puzles en desarrollo sobre un mapache desarrollador de videojuegos que necesita arreglar su juego antes de publicarlo.
               <br><br>
-              Tu amigo robot tiene un virus y sus recuerdos han sido corrompidos así que, para salvarlo, tendrás que entrar en él y arreglar todo lo que ha cambiado.
-              <br><br>
-              En Hackoon, podrás modificar el código de los objetos de cada nivel para completar ingeniosos rompecabezas y salvar a tu amigo.`,
+              Para conseguirlo, tendrá que meterse dentro de su propio juego. Ahí, con la ayuda de un pequeño robot, podrás modificar el codigo que controla los objetos de cada nivel para completar ingeniosos puzles.`,
         b1:  "¡Sigue el desarrollo!"
       },
       hightime: {
