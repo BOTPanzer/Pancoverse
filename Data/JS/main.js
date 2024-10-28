@@ -124,6 +124,16 @@ const lans = {
         team: 'Team Project',
         jam: 'Jam Game',
       },
+      spyw4re: {
+        inf: 'Unity · C# · VS Code · Photoshop',
+        tit: "Spyw4re",
+        con: `Submitted to the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
+              <br><br>
+              In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a pacient is still inside, so you'll need to help him get out.
+              <br><br>
+              In order to leave, you'll need need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...`,
+        b1:  "Download&nbsp<i>Spyw4re</i>",
+      },
       hackoon: {
         inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
@@ -392,6 +402,16 @@ const lans = {
         team: 'Proyecto de Equipo',
         jam: 'Juego de Jam',
       },
+      spyw4re: {
+        inf: 'Unity · C# · VS Code · Photoshop',
+        tit: "Spyw4re",
+        con: `Presentado para la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
+              <br><br>
+              En Spyw4re, eres un operador de CCTV en un asilo. El edificio se está derrumbando y un paciente todavía está dentro, por lo que tendrás que ayudarlo a salir.
+              <br><br>
+              Para lograrlo, tendrás que resolver algunos acertijos y derrotar a algunos enemigos, pero no creas que será tan fácil, alguien no quiere que lo ayudes...`,
+        b1:  "Descarga&nbsp<i>Spyw4re</i>",
+      },
       hackoon:{
         inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
@@ -585,6 +605,11 @@ let lan = lans.es
 
 //Created projects
 const projs = [
+  {
+    key: 'spyw4re',
+    tag: ['team', 'jam'],
+    btn: ["https://botpa.itch.io/spyw4re"],
+  },
   {
     key: 'hackoon',
     tag: 'personal',
