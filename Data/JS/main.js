@@ -104,7 +104,7 @@ const lans = {
       tit: 'My Skills',
       desc: "I've been interested in the world of technology ever since ever. Thanks to that, I've learnt and manage a large number of skills related to different topics.",
       videogames: 'Videogame Development',
-      apps: 'Apps Development',
+      apps: 'App Development',
       web: 'Web Development',
       ui: 'UI/UX Design',
       d3: '3D Modeling/Printing &  CAD',
