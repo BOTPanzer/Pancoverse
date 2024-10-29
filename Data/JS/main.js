@@ -390,7 +390,7 @@ const lans = {
       basic: 'Basico',
       medium: 'Medio',
       high: 'Alto',
-      advanced: 'Advanzado',
+      advanced: 'Avanzado',
       expert: 'Experto',
       p: '¡Ver mis proyectos!'
     },
