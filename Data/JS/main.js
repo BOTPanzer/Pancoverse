@@ -1412,6 +1412,7 @@ function addProject(animate) {
   if (projs.created >= projs.list.length) return
 
   //Get basic info
+  const id = `project${projs.created}`
   const project = projs.list[projs.created]
   const locales = lan.p[project.key]
 
@@ -1440,7 +1441,7 @@ function addProject(animate) {
   if (Array.isArray(btn)) {
     for (let i = 0; i < btn.length; i++) {
       const buttonText = locales['b' + (i + 1)]
-      buttons += `<a id="pr${projs.created}B${i}" class="projectButton" target="_blank" href="${btn[i]}">${buttonText ? buttonText : locales.tit}</a>`
+      buttons += `<a id="${id}B${i}" class="projectButton" target="_blank" href="${btn[i]}">${buttonText ? buttonText : locales.tit}</a>`
     }
   }
 
@@ -1448,7 +1449,6 @@ function addProject(animate) {
   const vid = project.vid
 
   //Create project HTML base
-  const id = `project${projs.created}`
   const element = document.createElement('div')
   element.id = id
   element.classList.add('project')
@@ -1489,8 +1489,8 @@ function addProject(animate) {
 }
 
 function toggleVideo(number, url) {
-  const media = document.getElementById(`pr${number}Media`)
-  const video = document.getElementById(`pr${number}Vid`)
+  const media = document.getElementById(`project${number}Media`)
+  const video = document.getElementById(`project${number}Vid`)
   if (media.getAttribute('video') != null) {
     media.removeAttribute('video')
     video.src = ''
