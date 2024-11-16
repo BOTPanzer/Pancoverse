@@ -119,15 +119,24 @@ const lans = {
     p: {
       tit: 'My Projects',
       more: 'Show more projects!',
-      tag: {
+      tags: {
         personal: 'Personal Project',
         team: 'Team Project',
         jam: 'Jam Game',
       },
+      skills: {
+        cs: 'C#',
+        uiux: 'UI/UX Design',
+        discord: 'Discord API',
+        '3dmodel': '3D Modeling',
+        '3dprint': '3D Printing',
+        sketching: 'Sketching',
+        diy: 'DIY',
+        electronics: 'Electronics',
+      },
       spyw4re: {
-        inf: 'Unity · C# · VS Code · Photoshop',
         tit: "Spyw4re",
-        con: `Submitted to the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
+        con: `Second place in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
               <br><br>
               In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a pacient is still inside, so you'll need to help him get out.
               <br><br>
@@ -135,7 +144,6 @@ const lans = {
         b1:  "Download&nbsp<i>Spyw4re</i>",
       },
       hackoon: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
         con: `Hackoon is an in development puzzle game about a game developer raccoon that needs to fix his game before release.
               <br><br>
@@ -143,7 +151,6 @@ const lans = {
         b1:  "Follow the development!"
       },
       hightime: {
-        inf: 'Unity · C# · VS Code · Photoshop',
         tit: "High on Time",
         con: `Submitted to the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -156,7 +163,6 @@ const lans = {
         vid: 'Gameplay Video'
       },
       fresquita: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "The lost Fresquita",
         con: `Finalist of the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
@@ -167,10 +173,9 @@ const lans = {
               What do I mean by safe? 
               Lets say some of your friends wont make it easy...`,
         b1:  "Download&nbsp<i>The lost Fresquita</i>",
-        vid: 'Watch IlloJuan play'
+        vid: 'IlloJuan Playing on Stream'
       },
       raccoon: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Esto AÚN no es un Juego",
         con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -183,7 +188,6 @@ const lans = {
         vid: 'Gameplay Video'
       },
       lmdshow: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Escape From LMDShow",
         con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
               <br><br>
@@ -194,7 +198,6 @@ const lans = {
         vid: 'IlloJuan Playing on Stream'
       },
       memory: {
-        inf: 'Unity · C# · VS Code · Photoshop · Illustrator',
         tit: "Memory Shift",
         con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
               <br><br>
@@ -204,7 +207,6 @@ const lans = {
         b1:  "Download&nbsp<i>Memory Shift</i>"
       },
       spirits: {
-        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Twin Spirits",
         con: `Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
               <br><br>
@@ -215,7 +217,6 @@ const lans = {
         vid: 'Trailer Video'
       },
       papa: {
-        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Cooking Papa",
         con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
               <br><br>
@@ -223,7 +224,6 @@ const lans = {
         b1:  "Download&nbsp<i>Cooking Papa</i>"
       },
       vaporcade: {
-        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Vaporcade",
         con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
               <br><br>
@@ -231,15 +231,22 @@ const lans = {
         b1:  "Download&nbsp<i>Vaporcade</i>"
       },
       otters: {
-        inf: 'Unity · C# · VS Code · 3ds Max · Substance Painter · Photoshop',
         tit: "Otter's Odyssey",
         con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
               <br><br>
               It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
         b1:  "Download&nbsp<i>Otter's Odyssey</i>"
       },
-      asisPC: {
-        inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · UI/UX Design',
+      assAn: {
+        tit: 'Oriøn Assistant (Android)',
+        con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
+              <br><br>
+              At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
+              After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
+              At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.`,
+        b1: 'Download v1.9.0'
+      },
+      assPC: {
         tit: 'Oriøn Assistant (Windows)',
         con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML apps called modules.
               <br><br>
@@ -251,18 +258,7 @@ const lans = {
         b1: 'Oriøn Assistant',
         b2: 'Batch Launcher'
       },
-      asisAn: {
-        inf: 'Java · Android Studio · UI/UX Design',
-        tit: 'Oriøn Assistant (Android)',
-        con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
-              <br><br>
-              At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
-              After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
-              At the moment it has music and video players, a photo vault, notes, a browser, a QR scanner and an app to send data to the Windows version of the app.`,
-        b1: 'Download v1.9.0'
-      },
       frame: {
-        inf: 'HTML · CSS · JS · VS Code · UI/UX Design',
         tit: 'Oriøn Framework',
         con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
               This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
@@ -270,8 +266,7 @@ const lans = {
               Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
         b1: 'See documentation'
       },
-      dis: {
-        inf: 'JS · VS Code · Discord API',
+      disbots: {
         tit: 'Discord Bots',
         con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
               <br><br>
@@ -279,7 +274,6 @@ const lans = {
         b1: 'Syrup Repository'
       },
       mod: {
-        inf: '3D Modeling · 3D Printing · Illustrator · Sketching · DIY',
         tit: 'PC Modding',
         con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
               <br><br>
@@ -290,7 +284,6 @@ const lans = {
               After printing them, I painted and placed them on my PC.`
       },
       t45: {
-        inf: '3D Printing · DIY',
         tit: 'T45 Helmet',
         con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
               <br><br>
@@ -298,7 +291,6 @@ const lans = {
               After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
       },
       usb: {
-        inf: '3D Modeling · 3D Printing · Electronics · DIY',
         tit: 'GTX USB',
         con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
               To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
@@ -307,7 +299,6 @@ const lans = {
               Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
       },
       hoodie: {
-        inf: 'Illustrator · Photoshop · Sketching',
         tit: 'Futuristic Hoodie',
         con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
               It isn't exactly streetwear but it's indeed a futuristic hoodie design.
@@ -397,15 +388,24 @@ const lans = {
     p: {
       tit: 'Mis Proyectos',
       more: '¡Ver más proyectos!',
-      tag: {
+      tags: {
         personal: 'Proyecto Personal',
         team: 'Proyecto de Equipo',
         jam: 'Juego de Jam',
       },
+      skills: {
+        cs: 'C#',
+        uiux: 'Diseño UI/UX',
+        discord: 'API de Discord',
+        '3dmodel': 'Modelado 3D',
+        '3dprint': 'Impresión 3D',
+        sketching: 'Dibujo',
+        diy: 'Manualidades',
+        electronics: 'Electrónica',
+      },
       spyw4re: {
-        inf: 'Unity · C# · VS Code · Photoshop',
         tit: "Spyw4re",
-        con: `Presentado para la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
+        con: `Segundo puesto en la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
               <br><br>
               En Spyw4re, eres un operador de CCTV en un asilo. El edificio se está derrumbando y un paciente todavía está dentro, por lo que tendrás que ayudarlo a salir.
               <br><br>
@@ -413,7 +413,6 @@ const lans = {
         b1:  "Descarga&nbsp<i>Spyw4re</i>",
       },
       hackoon:{
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Hackoon",
         con: `Hackoon es un juego de puzles en desarrollo sobre un mapache desarrollador de videojuegos que necesita arreglar su juego antes de publicarlo.
               <br><br>
@@ -421,7 +420,6 @@ const lans = {
         b1:  "¡Sigue el desarrollo!"
       },
       hightime: {
-        inf: 'Unity · C# · VS Code · Photoshop',
         tit: "High on Time",
         con: `Presentado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -434,7 +432,6 @@ const lans = {
         vid: 'Ver Gameplay'
       },
       fresquita: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "The lost Fresquita",
         con: `Finalista de la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
               <br><br>
@@ -445,10 +442,9 @@ const lans = {
               ¿Que a qué me refiero con a salvo? 
               Digamos que algunos de tus amigos no te harán la vida facil...`,
         b1:  "Descargar&nbsp<i>The lost Fresquita</i>",
-        vid: 'Ver a IlloJuan jugar'
+        vid: 'IlloJuan jugando en Stream'
       },
       raccoon: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Esto AÚN no es un Juego",
         con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -461,7 +457,6 @@ const lans = {
         vid: 'Ver Gameplay'
       },
       lmdshow: {
-        inf: 'Unity · C# · Blender · VS Code · Photoshop',
         tit: "Escape From LMDShow",
         con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
               <br><br>
@@ -472,7 +467,6 @@ const lans = {
         vid: 'IlloJuan Jugando en Stream'
       },
       memory: {
-        inf: 'Unity · C# · VS Code · Photoshop · Illustrator',
         tit: "Memory Shift",
         con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
               <br><br>
@@ -482,7 +476,6 @@ const lans = {
         b1:  "Descargar&nbsp<i>Memory Shift</i>"
       },
       spirits: {
-        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Twin Spirits",
         con: `Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
               <br><br>
@@ -493,7 +486,6 @@ const lans = {
         vid: 'Ver Trailer'
       },
       papa: {
-        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Cooking Papa",
         con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
               <br><br>
@@ -501,7 +493,6 @@ const lans = {
         b1:  "Descargar&nbsp<i>Cooking Papa</i>"
       },
       vaporcade: {
-        inf: 'Unity · C# · VS Code · Illustrator · Photoshop',
         tit: "Vaporcade",
         con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
               <br><br>
@@ -509,15 +500,22 @@ const lans = {
         b1:  "Descargar&nbsp<i>Vaporcade</i>"
       },
       otters: {
-        inf: 'Unity · C# · VS Code · 3ds Max · Substance Painter · Photoshop',
         tit: "Otter's Odyssey",
         con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
               <br><br>
               Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
         b1:  "Descargar&nbsp<i>Otter's Odyssey</i>"
       },
-      asisPC: {
-        inf: 'CMD · HTML · CSS · JS · NodeJS · ElectronJS · VS Code · Diseño UI/UX',
+      assAn: {
+        tit: 'Oriøn Assistant (Android)',
+        con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
+              <br><br>
+              Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
+              Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
+              Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
+        b1: 'Descargar v1.9.0'
+      },
+      assPC: {
         tit: 'Oriøn Assistant (Windows)',
         con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML custom llamadas módulos.
               <br><br>
@@ -529,18 +527,7 @@ const lans = {
         b1: 'Asistente Oriøn',
         b2: 'Launcher Batch'
       },
-      asisAn: {
-        inf: 'Java · Android Studio · Diseño UI/UX',
-        tit: 'Oriøn Assistant (Android)',
-        con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
-              <br><br>
-              Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
-              Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
-              Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un buscador, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
-        b1: 'Descargar v1.9.0'
-      },
       frame: {
-        inf: 'HTML · CSS · JS · VS Code · Diseño UI/UX',
         tit: 'Framework Oriøn',
         con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
               Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
@@ -548,8 +535,7 @@ const lans = {
               Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
         b1: 'Ver documentación'
       },
-      dis: {
-        inf: 'JS · VS Code · API de Discord',
+      disbots: {
         tit: 'Bots de Discord',
         con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
               <br><br>
@@ -557,7 +543,6 @@ const lans = {
         b1: 'Repositorio de Syrup'
       },       
       mod: {
-        inf: 'Modelado 3D · Impresión 3D · Illustrator · Dibujo · Manualidades',
         tit: 'PC Modding',
         con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
               <br><br>
@@ -568,7 +553,6 @@ const lans = {
               Tras imprimirlas las pinté y coloqué en el PC.`
       },
       t45: {
-        inf: 'Impresión 3D · Manualidades',
         tit: 'Casco T45',
         con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
               <br><br>
@@ -576,7 +560,6 @@ const lans = {
               Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
       },
       usb: {
-        inf: 'Modelado 3D · Impresión 3D · Electrónica · Manualidades',
         tit: 'USB GTX ',
         con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
               Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
@@ -585,7 +568,6 @@ const lans = {
               Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
       },
       hoodie: {
-        inf: 'Illustrator · Photoshop · Dibujo',
         tit: 'Sudadera Futurística',
         con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
               No es exactamente streetwear, pero sí es una sudadera futuristica.
@@ -607,80 +589,135 @@ let lan = lans.es
 const projs = [
   {
     key: 'spyw4re',
-    tag: ['team', 'jam'],
+    year: 2024,
+    tags: ['team', 'jam'],
+    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
     btn: ["https://botpa.itch.io/spyw4re"],
   },
   {
     key: 'hackoon',
-    tag: 'personal',
+    tags: ['personal'],
+    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
     btn: ["https://www.tiktok.com/@botpanzer"],
     //vid: 'UGH5wQYlAt4',
   },
   {
     key: 'hightime',
-    tag: ['team', 'jam'],
+    year: 2024,
+    tags: ['team', 'jam'],
+    skills: ['Unity', 'cs', 'VS Code', 'Photoshop'],
     btn: ["https://botpa.itch.io/high-on-time"],
     vid: 'UGMQDJxov1M',
   },
   {
     key: 'fresquita',
-    tag: ['personal', 'jam'],
+    year: 2024,
+    tags: ['personal', 'jam'],
+    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
     btn: ["https://botpa.itch.io/the-lost-fresquita"],
     vid: 'SC_3TWWP46k',
   },
   {
     key: 'raccoon',
-    tag: ['team', 'jam'],
+    year: 2023,
+    tags: ['team', 'jam'],
+    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
     btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
     vid: 'UGH5wQYlAt4',
   },
   {
     key: 'lmdshow',
-    tag: 'personal',
+    year: 2023,
+    tags: ['personal'],
+    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
     btn: ["https://botpa.itch.io/escape-from-lmdshow"],
     vid: 'z0Qv5HZyZgU',
   },
   {
     key: 'memory',
-    tag: 'personal',
+    year: 2023,
+    tags: ['personal'],
+    skills: ['Unity', 'cs', 'VS Code', 'Photoshop', 'Illustrator'],
     btn: ["https://botpa.itch.io/memory-shift"],
   },
   {
     key: 'spirits',
-    tag: ['team', 'jam'],
+    year: 2023,
+    tags: ['team', 'jam'],
+    skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
     btn: ["https://botpa.itch.io/twin-spirits"],
     vid: 'SdIGAw2ABeU',
   },
   {
     key: 'vaporcade',
-    tag: 'personal',
+    year: 2022,
+    tags: ['personal'],
+    skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
     btn: ["https://botpa.itch.io/vaporcade"]
   },
   {
     key: 'papa',
-    tag: ['team', 'jam'],
+    year: 2023,
+    tags: ['team', 'jam'],
+    skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
     btn: ["https://botpa.itch.io/cooking-papa"]
   },
   {
     key: 'otters',
-    tag: ['team', 'jam'],
+    year: 2022,
+    tags: ['team', 'jam'],
+    skills: ['Unity', 'cs', 'VS Code', '3ds Max', 'Substance Painter', 'Illustrator', 'Photoshop'],
     btn: ["https://botpa.itch.io/vaporcade"]
   },
-  /*{
-    key: 'asisAn',
-    tag: 'personal',
+  {
+    key: 'assAn',
+    tags: ['personal'],
+    skills: ['JAVA', 'Android Studio', 'uiux'],
     btn: ["Data/Orion Assistant.apk"]
   },
   {
-    key: 'asisPC',
-    tag: 'personal',
+    key: 'assPC',
+    tags: ['personal'],
+    skills: ['CMD', 'HTML', 'CSS', 'JS', 'NodeJS', 'ElectronJS', 'VS Code', 'uiux'],
     btn: ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"]
   },
   {
     key: 'frame',
-    tag: 'personal',
+    tags: ['personal'],
+    skills: ['HTML', 'CSS', 'JS', 'VS Code', 'uiux'],
     btn: ["https://botpanzer.github.io/Orion-Framework"]
-  }*/
+  },
+  /*{
+    key: 'disbots',
+    year: 2019,
+    tags: ['personal'],
+    skills: ['JS', 'VS Code', 'discord'],
+    btn: ["https://github.com/BOTPanzer/Syrup"]
+  },
+  {
+    key: 'mod',
+    year: 2021,
+    tags: ['personal'],
+    skills: ['3dmodel', '3dprint', 'Illustrator', 'sketching', 'diy'],
+  },
+  {
+    key: 't45',
+    year: 2018,
+    tags: ['personal'],
+    skills: ['3dprint', 'diy'],
+  },
+  {
+    key: 'usb',
+    year: 2018,
+    tags: ['personal'],
+    skills: ['3dmodel', '3dprint', 'electronics', 'diy'],
+  },
+  {
+    key: 'hoodie',
+    year: 2021,
+    tags: ['personal'],
+    skills: ['Illustrator', 'Photoshop', 'sketching'],
+  },*/
 ]
 
 let projsLength = 0
@@ -1352,63 +1389,77 @@ function addProject(animate) {
   if (projsLength >= projs.length) return
 
   //Get basic info
-  let p = projs[projsLength]
-  let key = lan.p[p.key]
-  let img = `Data/Images/Projects/${p.key}.jpg`
-  let btn = p.btn
-  let vid = p.vid
+  const project = projs[projsLength]
+  const locales = lan.p[project.key]
 
-  //Get tag
-  let tag = p.tag
-  if (typeof tag == 'string') {
-    tag = '<b>·</b>&nbsp&nbsp' + lan.p.tag[tag]
-  } else if (Array.isArray(tag)) {
-    let max = tag.length
+  //Get tags
+  let tags = project.tags
+  if (Array.isArray(tags)) {
+    let max = tags.length
     let tmp = ''
     for (let i = 0; i < max; i++) {
-      const element = tag[i]
-      tmp = tmp + '<b>·</b>&nbsp&nbsp' + lan.p.tag[element] + (i + 1 != max ? '<br>' : '')
+      const element = tags[i]
+      tmp = tmp + '<b>·</b>&nbsp&nbsp' + lan.p.tags[element] + (i + 1 != max ? '<br>' : '')
     }
-    tag = tmp
+    tags = tmp
   } else {
-    tag = ''
+    tags = ''
   }
 
-  //Create buttons
-  let buttonHTML = ''
-  if (Array.isArray(btn) && btn.length > 0) {
-    //Has buttons -> Add them
+  //Get skills
+  let skills = ''
+  if (project.year) skills += '<span class="prTag" year>' + project.year + '</span>'
+  if (Array.isArray(project.skills)) {
+    project.skills.forEach(elem => {
+      const skillName = lan.p.skills[elem]
+      skills += '<span class="prTag">' + (skillName ? skillName : elem) + '</span>'
+    })
+  }
+
+  //Get buttons
+  const btn = project.btn
+  let buttons = ''
+  if (Array.isArray(btn)) {
     for (let i = 0; i < btn.length; i++) {
-      buttonHTML += `<a id="pr${projsLength}B${i}" class="prBtn" target="_blank" href="${btn[i]}">${key['b'+(i+1)]}</a>`
+      const buttonText = locales['b'+(i+1)]
+      buttons += `<a id="pr${projsLength}B${i}" class="prBtn" target="_blank" href="${btn[i]}">${buttonText ? buttonText : locales.tit}</a>`
     }
   }
 
-  //Add HTML
+  //Video button (youtube link key)
+  const vid = project.vid
+
+  //Create project HTML base
+  const id = `pr${projsLength}`
   const element = document.createElement('div')
-  element.id = `pr${projsLength}`
+  element.id = id
   element.classList.add('pr')
+
+  //Animation & reverse
   if (animate) element.classList.add('pr', projsLength < 4 ? 'appear' : 'appeared')
   if (projsLength % 2 != 0) element.setAttribute('reverse', '')
+  
+  //Add project HTML content
   element.innerHTML = `
-    <div id="pr${projsLength}Media">
-      <span id="pr${projsLength}Tag" ${tag == '' ? 'style="display: none"' : ''}>${tag}</span>
+    <div id="${id}Media">
+      <span id="${id}Tag" ${tags == '' ? 'style="display: none"' : ''}>${tags}</span>
       <div ${vid ? '' : 'style="display: none;"'}>
         <span onclick="toggleVideo(${projsLength}, 'https://www.youtube.com/embed/${vid}')">
-          <img src="Data/Images/Icons/play.png">${key.vid}
+          <img src="Data/Images/Icons/play.png">${locales.vid}
         </span>
       </div>
       <div>
-        <img id="pr${projsLength}Img" src="${img}">
-        <iframe id="pr${projsLength}Vid" allow="fullscreen;"></iframe>
+        <img id="${id}Img" src="Data/Images/Projects/${project.key}.jpg">
+        <iframe id="${id}Vid" allow="fullscreen;"></iframe>
       </div>
     </div>
     <div>
-      <span id="pr${projsLength}Inf">${key.inf}</span>
+      <div id="${id}Skl">${skills}</div>
       <div>
-        <span id="pr${projsLength}Tit">${key.tit}</span>
-        <span id="pr${projsLength}Con">${key.con}</span>
+        <span id="${id}Tit">${locales.tit}</span>
+        <span id="${id}Con">${locales.con}</span>
       </div>
-      <div id="pr${projsLength}Btn" class="hc" style="gap: 20px;">${buttonHTML}</div>
+      <div id="${id}Btn" class="hc" style="gap: 20px;">${buttons}</div>
     </div>`
   document.getElementById('prProjects').appendChild(element)
 

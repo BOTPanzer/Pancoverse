@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" mobile>
+<html lang="en">
   <head>
     <!-- Main -->
     <meta charset="utf-8">
@@ -144,10 +144,10 @@
 
       <!-- Balls -->
       <div class="balls">
-        <div id="ball1" class="ball" checked></div>
-        <div id="ball2" class="ball"></div>
-        <div id="ball3" class="ball"></div>
-        <div id="ball4" class="ball"></div>
+        <div id="ball1" class="ball" onclick="goto('home')" checked></div>
+        <div id="ball2" class="ball" onclick="goto('about')"></div>
+        <div id="ball3" class="ball" onclick="goto('skills')"></div>
+        <div id="ball4" class="ball" onclick="goto('projects')"></div>
       </div>
 
       <!-- Snackbar -->
@@ -309,8 +309,9 @@
 
       <div id="prProjects"  class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));"></div>
 
-      <div id="prMoreBox" class="vc cc" style="margin-top: 50px;">
-        <div id="prMore" class="pageBtn" onclick="addProject(); addProject();">Load More</div>
+      <div id="prMoreBox" class="prMoreBox">
+        <div id="prMore" class="pageBtn" onclick="addProject(); addProject();">Show more</div>
+        <!--div id="prAll" class="pageBtn" onclick="addProject(); addProject();">Show all</div-->
       </div>
     </div>
 

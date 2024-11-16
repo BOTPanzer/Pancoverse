@@ -28,6 +28,7 @@ html {
   --accent: #DC2249;
   --accentT: #dc224a31;
   --accentFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
+  --shadowSmall: 1px 1px 3px var(--bg), 1px -1px 3px var(--bg), -1px -1px 3px var(--bg), -1px 1px 3px var(--bg);
   --shadowBig: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
 
   /*Waves*/
@@ -719,6 +720,8 @@ html[mobile] .balls {
   width: 10px;
   background: var(--text2);
   border-radius: 10px;
+  cursor: pointer;
+  pointer-events: auto;
   transition: background .3s;
 }
 
@@ -1210,7 +1213,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   width: 100%; 
 }
 
-/* Projects (media -> tag) */
+/* Projects (media -> tags) */
 .pr > div:nth-of-type(1) > span:nth-of-type(1) {
   padding: 8px 14px;
 
@@ -1222,10 +1225,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   
   border-radius: 10px; 
   background-color: var(--button); 
-  box-shadow: 1px 1px 3px var(--bg), 
-              1px -1px 3px var(--bg), 
-              -1px -1px 3px var(--bg), 
-              -1px 1px 3px var(--bg);
+  /*box-shadow: var(--shadowSmall);*/
   
   text-align: center;
   transform: rotate(-10deg);
@@ -1269,11 +1269,7 @@ html[mobile] .pr > div:nth-of-type(1) {
   
   border-radius: 30px; 
   background-color: var(--button);
-  /*outline: solid 2px var(--accent);*/
-  box-shadow: 1px 1px 3px var(--button), 
-              1px -1px 3px var(--button), 
-              -1px -1px 3px var(--button), 
-              -1px 1px 3px var(--button);/**/
+  /*box-shadow: var(--shadowSmall);*/
   
   pointer-events: all;
   cursor: pointer;
@@ -1346,9 +1342,10 @@ html:not([mobile]) .pr > div:nth-of-type(1)[video] + div:nth-of-type(2) {
   text-align: end; 
   z-index: 2;
   transition: opacity .5s, z-index 0s;
+  pointer-events: none;
 }
 
-.pr[reverse] > div:nth-of-type(2) {
+html:not([mobile]) .pr[reverse] > div:nth-of-type(2) {
   margin-left: 0; 
   margin-right: var(--prMar); 
   align-items: flex-start;
@@ -1361,15 +1358,26 @@ html[mobile] .pr > div:nth-of-type(2) {
   margin-top: 20px; 
 }
 
-.pr > div:nth-of-type(2) > span:nth-child(1) {
-  margin-left: 20px; 
-  margin-right: 20px; 
-  font-family: roboto; 
-  font-size: .86rem; 
-  font-weight: 700; 
-  color: var(--text2);
+/* Projects (description -> tags) */
+.pr > div:nth-of-type(2) > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 10px;
 }
 
+html[reverse] .pr > div:nth-of-type(2) > div:nth-child(1) {
+  justify-content: start;
+  width: 100%;
+}
+
+html[mobile] .pr > div:nth-of-type(2) > div:nth-child(1) {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Projects (description -> content) */
 .pr > div:nth-of-type(2) > div:nth-child(2) {
   width: 100%; 
   padding: 20px; 
@@ -1379,6 +1387,7 @@ html[mobile] .pr > div:nth-of-type(2) {
   gap: 20px; 
   background: var(--button); 
   border-radius: 20px;
+  pointer-events: auto;
 }
 
 .pr > div:nth-of-type(2) > div:nth-child(2) span:nth-child(1) {
@@ -1391,6 +1400,11 @@ html[mobile] .pr > div:nth-of-type(2) {
   width: 100%; 
   text-align: justify; 
   opacity: .8;
+}
+
+/* Projects (description -> buttons) */
+.pr > div:nth-of-type(2) > div:nth-child(3) {
+  pointer-events: auto;
 }
 
 /* Project buttons */
@@ -1418,6 +1432,38 @@ html[mobile] .pr > div:nth-of-type(2) {
 
 .prBtn:hover {
   background: var(--accentT);
+}
+
+/* Project tags */
+.prTag {
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 12px;
+
+  font-family: roboto; 
+  font-size: .86rem; 
+  font-weight: 700; 
+
+  color: var(--text);
+  background-color: var(--button);
+  border-radius: 50px;
+
+  pointer-events: auto;
+}
+
+.prTag[year] {
+  box-sizing: border-box;
+  border: solid 2px var(--accent);
+}
+
+/* Projects show more */
+.prMoreBox {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 
