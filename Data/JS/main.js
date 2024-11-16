@@ -45,30 +45,30 @@ const lans = {
     tag: 'en', 
     name: "Alex's Portfolio", 
     ach: {
-      tit: 'ACHIEVEMENTS',
+      title: 'ACHIEVEMENTS',
       lock: 'LOCKED',
-      a1: {
-        tit: 'Interested Fellow',
-        con: 'Given after opening one of my social links'
+      ach1: {
+        title: 'Interested Fellow',
+        desc: 'Given after opening one of my social links'
       },
-      a2: {
-        tit: 'Best Friends',
-        con: 'Given after finding Artyom (my first gecko)'
+      ach2: {
+        title: 'Best Friends',
+        desc: 'Given after finding Artyom (my first gecko)'
       },
-      a3: {
-        tit: 'Go with the Flow',
-        con: 'Given after changing the theme twice'
+      ach3: {
+        title: 'Go with the Flow',
+        desc: 'Given after changing the theme twice'
       }
     },
     top: {
-      h: 'Home',
-      a: 'About',
-      s: 'Skills',
-      p: 'Projects',
-      t: 'Theme',
-      l: 'English',
-      ac: 'Achievements',
-      c: 'Contact'
+      home: 'Home',
+      about: 'About',
+      skills: 'Skills',
+      projects: 'Projects',
+      theme: 'Theme',
+      language: 'English',
+      achievements: 'Achievements',
+      contact: 'Contact'
     },
     h: {
       hi: "Howdy! I'm",
@@ -136,7 +136,7 @@ const lans = {
       },
       spyw4re: {
         tit: "Spyw4re",
-        con: `Second place in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
+        con: `Second place out of 25 in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
               <br><br>
               In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a pacient is still inside, so you'll need to help him get out.
               <br><br>
@@ -239,7 +239,7 @@ const lans = {
       },
       assAn: {
         tit: 'Oriøn Assistant (Android)',
-        con: `Oriøn Assistant for Android is an app filled with useful smaller apps such as a music player or a QR scanner.
+        con: `Oriøn Assistant for Android is an app full of useful smaller apps such as a music player or a QR scanner.
               <br><br>
               At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
               After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
@@ -248,7 +248,7 @@ const lans = {
       },
       assPC: {
         tit: 'Oriøn Assistant (Windows)',
-        con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML apps called modules.
+        con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML/JS apps called modules.
               <br><br>
               I like to carry my apps on a USB but plugging drives in different computers changes their letter and shortcuts break, so I had to come up with a solution.
               The first iteration of the assistant was a command line app that replaced path letters with "?:\\", which would use the drive it was installed on.
@@ -314,30 +314,30 @@ const lans = {
     tag: 'es', 
     name: 'Portfolio de Alex', 
     ach: {
-      tit: 'LOGROS',
+      title: 'LOGROS',
       lock: 'BLOQUEADO',
-      a1: {
-        tit: 'Chavalin Interesado',
-        con: 'Dado por abrir uno de los links de mis redes'
+      ach1: {
+        title: 'Chavalin Interesado',
+        desc: 'Dado por abrir uno de los links de mis redes'
       },
-      a2: {
-        tit: 'Mejores Amigos',
-        con: 'Dado por encontrar a Artyom (mi primer gecko)'
+      ach2: {
+        title: 'Mejores Amigos',
+        desc: 'Dado por encontrar a Artyom (mi primer gecko)'
       },
-      a3: {
-        tit: 'Ves con el Flow',
-        con: 'Dado por cambiar el tema 2 veces'
+      ach3: {
+        title: 'Ves con el Flow',
+        desc: 'Dado por cambiar el tema 2 veces'
       }
     },
     top: {
-      h: 'Inicio',
-      a: 'Sobre Mi',
-      s: 'Habilidades',
-      p: 'Proyectos',
-      t: 'Tema',
-      l: 'Español',
-      ac: 'Logros',
-      c: 'Contacto'
+      home: 'Inicio',
+      about: 'Sobre Mi',
+      skills: 'Habilidades',
+      projects: 'Proyectos',
+      theme: 'Tema',
+      language: 'Español',
+      achievements: 'Logros',
+      contact: 'Contacto'
     },
     h: {
       hi: '¡Hey! Soy',
@@ -405,7 +405,7 @@ const lans = {
       },
       spyw4re: {
         tit: "Spyw4re",
-        con: `Segundo puesto en la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
+        con: `Segundo puesto de 25 en la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
               <br><br>
               En Spyw4re, eres un operador de CCTV en un asilo. El edificio se está derrumbando y un paciente todavía está dentro, por lo que tendrás que ayudarlo a salir.
               <br><br>
@@ -517,7 +517,7 @@ const lans = {
       },
       assPC: {
         tit: 'Oriøn Assistant (Windows)',
-        con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML custom llamadas módulos.
+        con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML/JS custom llamadas módulos.
               <br><br>
               Suelo llevar mis apps en un USB pero al conectarlo a diferentes ordenadores la letra cambia y los accesos directos se rompen, por lo que tuve que llegar a una solución.
               La primera iteración del asistente era una app de comandos que reemplaza la letra de las rutas con "?:\\", lo que usaría el disco donde estaba instalado.
@@ -586,153 +586,157 @@ let lan = lans.es
 
 
 //Created projects
-const projs = [
-  {
-    key: 'spyw4re',
-    year: 2024,
-    tags: ['team', 'jam'],
-    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-    btn: ["https://botpa.itch.io/spyw4re"],
-  },
-  {
-    key: 'hackoon',
-    tags: ['personal'],
-    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-    btn: ["https://www.tiktok.com/@botpanzer"],
-    //vid: 'UGH5wQYlAt4',
-  },
-  {
-    key: 'hightime',
-    year: 2024,
-    tags: ['team', 'jam'],
-    skills: ['Unity', 'cs', 'VS Code', 'Photoshop'],
-    btn: ["https://botpa.itch.io/high-on-time"],
-    vid: 'UGMQDJxov1M',
-  },
-  {
-    key: 'fresquita',
-    year: 2024,
-    tags: ['personal', 'jam'],
-    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-    btn: ["https://botpa.itch.io/the-lost-fresquita"],
-    vid: 'SC_3TWWP46k',
-  },
-  {
-    key: 'raccoon',
-    year: 2023,
-    tags: ['team', 'jam'],
-    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-    btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
-    vid: 'UGH5wQYlAt4',
-  },
-  {
-    key: 'lmdshow',
-    year: 2023,
-    tags: ['personal'],
-    skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-    btn: ["https://botpa.itch.io/escape-from-lmdshow"],
-    vid: 'z0Qv5HZyZgU',
-  },
-  {
-    key: 'memory',
-    year: 2023,
-    tags: ['personal'],
-    skills: ['Unity', 'cs', 'VS Code', 'Photoshop', 'Illustrator'],
-    btn: ["https://botpa.itch.io/memory-shift"],
-  },
-  {
-    key: 'spirits',
-    year: 2023,
-    tags: ['team', 'jam'],
-    skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
-    btn: ["https://botpa.itch.io/twin-spirits"],
-    vid: 'SdIGAw2ABeU',
-  },
-  {
-    key: 'vaporcade',
-    year: 2022,
-    tags: ['personal'],
-    skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
-    btn: ["https://botpa.itch.io/vaporcade"]
-  },
-  {
-    key: 'papa',
-    year: 2023,
-    tags: ['team', 'jam'],
-    skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
-    btn: ["https://botpa.itch.io/cooking-papa"]
-  },
-  {
-    key: 'otters',
-    year: 2022,
-    tags: ['team', 'jam'],
-    skills: ['Unity', 'cs', 'VS Code', '3ds Max', 'Substance Painter', 'Illustrator', 'Photoshop'],
-    btn: ["https://botpa.itch.io/vaporcade"]
-  },
-  {
-    key: 'assAn',
-    tags: ['personal'],
-    skills: ['JAVA', 'Android Studio', 'uiux'],
-    btn: ["Data/Orion Assistant.apk"]
-  },
-  {
-    key: 'assPC',
-    tags: ['personal'],
-    skills: ['CMD', 'HTML', 'CSS', 'JS', 'NodeJS', 'ElectronJS', 'VS Code', 'uiux'],
-    btn: ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"]
-  },
-  {
-    key: 'frame',
-    tags: ['personal'],
-    skills: ['HTML', 'CSS', 'JS', 'VS Code', 'uiux'],
-    btn: ["https://botpanzer.github.io/Orion-Framework"]
-  },
-  /*{
-    key: 'disbots',
-    year: 2019,
-    tags: ['personal'],
-    skills: ['JS', 'VS Code', 'discord'],
-    btn: ["https://github.com/BOTPanzer/Syrup"]
-  },
-  {
-    key: 'mod',
-    year: 2021,
-    tags: ['personal'],
-    skills: ['3dmodel', '3dprint', 'Illustrator', 'sketching', 'diy'],
-  },
-  {
-    key: 't45',
-    year: 2018,
-    tags: ['personal'],
-    skills: ['3dprint', 'diy'],
-  },
-  {
-    key: 'usb',
-    year: 2018,
-    tags: ['personal'],
-    skills: ['3dmodel', '3dprint', 'electronics', 'diy'],
-  },
-  {
-    key: 'hoodie',
-    year: 2021,
-    tags: ['personal'],
-    skills: ['Illustrator', 'Photoshop', 'sketching'],
-  },*/
-]
-
-let projsLength = 0
+const projs = {
+  created: 0,
+  list: [
+    {
+      key: 'spyw4re',
+      year: 2024,
+      tags: ['team', 'jam'],
+      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
+      btn: ["https://botpa.itch.io/spyw4re"],
+    },
+    {
+      key: 'hackoon',
+      tags: ['personal'],
+      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
+      btn: ["https://www.tiktok.com/@botpanzer"],
+      //vid: 'UGH5wQYlAt4',
+    },
+    {
+      key: 'hightime',
+      year: 2024,
+      tags: ['team', 'jam'],
+      skills: ['Unity', 'cs', 'VS Code', 'Photoshop'],
+      btn: ["https://botpa.itch.io/high-on-time"],
+      vid: 'UGMQDJxov1M',
+    },
+    {
+      key: 'fresquita',
+      year: 2024,
+      tags: ['personal', 'jam'],
+      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
+      btn: ["https://botpa.itch.io/the-lost-fresquita"],
+      vid: 'SC_3TWWP46k',
+    },
+    {
+      key: 'raccoon',
+      year: 2023,
+      tags: ['team', 'jam'],
+      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
+      btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
+      vid: 'UGH5wQYlAt4',
+    },
+    {
+      key: 'lmdshow',
+      year: 2023,
+      tags: ['personal'],
+      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
+      btn: ["https://botpa.itch.io/escape-from-lmdshow"],
+      vid: 'z0Qv5HZyZgU',
+    },
+    {
+      key: 'memory',
+      year: 2023,
+      tags: ['personal'],
+      skills: ['Unity', 'cs', 'VS Code', 'Photoshop', 'Illustrator'],
+      btn: ["https://botpa.itch.io/memory-shift"],
+    },
+    {
+      key: 'spirits',
+      year: 2023,
+      tags: ['team', 'jam'],
+      skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
+      btn: ["https://botpa.itch.io/twin-spirits"],
+      vid: 'SdIGAw2ABeU',
+    },
+    {
+      key: 'vaporcade',
+      year: 2022,
+      tags: ['personal'],
+      skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
+      btn: ["https://botpa.itch.io/vaporcade"]
+    },
+    {
+      key: 'papa',
+      year: 2023,
+      tags: ['team', 'jam'],
+      skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
+      btn: ["https://botpa.itch.io/cooking-papa"]
+    },
+    {
+      key: 'otters',
+      year: 2022,
+      tags: ['team', 'jam'],
+      skills: ['Unity', 'cs', 'VS Code', '3ds Max', 'Substance Painter', 'Illustrator', 'Photoshop'],
+      btn: ["https://botpa.itch.io/vaporcade"]
+    },
+    {
+      key: 'assAn',
+      tags: ['personal'],
+      skills: ['JAVA', 'Android Studio', 'uiux'],
+      btn: ["Data/Orion Assistant.apk"]
+    },
+    {
+      key: 'assPC',
+      tags: ['personal'],
+      skills: ['CMD', 'HTML', 'CSS', 'JS', 'NodeJS', 'ElectronJS', 'VS Code', 'uiux'],
+      btn: ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"]
+    },
+    {
+      key: 'frame',
+      tags: ['personal'],
+      skills: ['HTML', 'CSS', 'JS', 'VS Code', 'uiux'],
+      btn: ["https://botpanzer.github.io/Orion-Framework"]
+    },
+    /*{
+      key: 'disbots',
+      year: 2019,
+      tags: ['personal'],
+      skills: ['JS', 'VS Code', 'discord'],
+      btn: ["https://github.com/BOTPanzer/Syrup"]
+    },
+    {
+      key: 'mod',
+      year: 2021,
+      tags: ['personal'],
+      skills: ['3dmodel', '3dprint', 'Illustrator', 'sketching', 'diy'],
+    },
+    {
+      key: 't45',
+      year: 2018,
+      tags: ['personal'],
+      skills: ['3dprint', 'diy'],
+    },
+    {
+      key: 'usb',
+      year: 2018,
+      tags: ['personal'],
+      skills: ['3dmodel', '3dprint', 'electronics', 'diy'],
+    },
+    {
+      key: 'hoodie',
+      year: 2021,
+      tags: ['personal'],
+      skills: ['Illustrator', 'Photoshop', 'sketching'],
+    },*/
+  ]
+}
 
 
 
 //About image index & order (shuffle all & add artyom last)
-let abIndex = 0
-let abOrder = []
-for (let i = 1; i < lan.a.names.length; i++) { abOrder.push(i) }
-for (let i = abOrder.length - 1; i > 0; i--) {
-  let randomIndex = Math.floor(Math.random() * i);
-  [abOrder[i], abOrder[randomIndex]] = [abOrder[randomIndex], abOrder[i]];
+const about = {
+  order: [],
+  index: 0
 }
-abOrder.push(0)
+
+for (let i = 1; i < lan.a.names.length; i++) about.order.push(i)
+for (let i = about.order.length - 1; i > 0; i--) {
+  const randomIndex = Math.floor(Math.random() * i);
+  [about.order[i], about.order[randomIndex]] = [about.order[randomIndex], about.order[i]];
+}
+about.order.push(0)
 
 
 
@@ -753,69 +757,68 @@ function isVisible(elm) {
 
 
 //Scrolling
-const ball1 = document.getElementById('ball1')
-const ball2 = document.getElementById('ball2')
-const ball3 = document.getElementById('ball3')
-const ball4 = document.getElementById('ball4')
+const ballHome = document.getElementById('ballHome')
+const ballAbout = document.getElementById('ballAbout')
+const ballSkills = document.getElementById('ballSkills')
+const ballProjects = document.getElementById('ballProjects')
 
 let scrollCount = 0
 
 window.onscroll = scrolled
 
 function scrolled() {
+  //Run code every 5 counts
   scrollCount--
   if (scrollCount > 0) return
   scrollCount = 5
 
   //Balls
   if (isVisible(document.getElementById('home'))) {
-    ball1.setAttribute('checked', '')
-    ball2.removeAttribute('checked')
-    ball3.removeAttribute('checked')
-    ball4.removeAttribute('checked')
+    ballHome.setAttribute('checked', '')
+    ballAbout.removeAttribute('checked')
+    ballSkills.removeAttribute('checked')
+    ballProjects.removeAttribute('checked')
   } else {
-    ball1.removeAttribute('checked')
+    ballHome.removeAttribute('checked')
     if (isVisible(document.getElementById('about'))) {
-      ball2.setAttribute('checked', '')
-      ball3.removeAttribute('checked')
-      ball4.removeAttribute('checked')
+      ballAbout.setAttribute('checked', '')
+      ballSkills.removeAttribute('checked')
+      ballProjects.removeAttribute('checked')
     } else {
-      ball2.removeAttribute('checked')
+      ballAbout.removeAttribute('checked')
       if (isVisible(document.getElementById('skills'))) {
-        ball3.setAttribute('checked', '')
-        ball4.removeAttribute('checked')
+        ballSkills.setAttribute('checked', '')
+        ballProjects.removeAttribute('checked')
       } else {
-        ball3.removeAttribute('checked')
-        ball4.setAttribute('checked', '')
+        ballSkills.removeAttribute('checked')
+        ballProjects.setAttribute('checked', '')
       }
     }
   }
 
   //Skills
   if (isVisible(document.getElementById('skills'))) {
-    if (isVisible(document.getElementById('skVidTit')))
-      html.style.setProperty('--sk1', '90%')
-    if (isVisible(document.getElementById('skAppTit')))
-      html.style.setProperty('--sk2', '60%')
-    if (isVisible(document.getElementById('skWebTit')))
-      html.style.setProperty('--sk3', '55%')
-    if (isVisible(document.getElementById('sk3dTit')))
-      html.style.setProperty('--sk4', '35%')
-    if (isVisible(document.getElementById('skUiTit')))
-      html.style.setProperty('--sk5', '35%')
-    if (isVisible(document.getElementById('skArtTit')))
-      html.style.setProperty('--sk6', '35%')
+    if (isVisible(document.getElementById('skillsVidTitle')))
+      html.style.setProperty('--skills1', '90%')
+    if (isVisible(document.getElementById('skillsAppTitle')))
+      html.style.setProperty('--skills2', '60%')
+    if (isVisible(document.getElementById('skillsWebTitle')))
+      html.style.setProperty('--skills3', '55%')
+    if (isVisible(document.getElementById('skills3dTitle')))
+      html.style.setProperty('--skills4', '35%')
+    if (isVisible(document.getElementById('skillsUiTitle')))
+      html.style.setProperty('--skills5', '35%')
+    if (isVisible(document.getElementById('skillsArtTitle')))
+      html.style.setProperty('--skills6', '35%')
   }
 
   //Appear anim
   const elems = document.querySelectorAll('.appear')
-  for (let i = 0; i < elems.length; i++) {
-    const elem = elems[i]
-    if (isVisible(elem)) {
-      elem.classList.add('appeared')
-      elem.classList.remove('appear')
-    }
-  }
+  elems.forEach(elem => {
+    if (!isVisible(elem)) return
+    elem.classList.add('appeared')
+    elem.classList.remove('appear')
+  })
 }
 
 
@@ -848,18 +851,23 @@ function toggleMenu(open) {
   //Elems
   const exit = document.getElementById('navMenuExit')
   const menu = document.getElementById('navMenu')
+  const space = document.getElementById('navSpace')
 
   //Toggle
   if (open) {
     //Open
     exit.style.pointerEvents = 'all'
     menu.setAttribute('menu', '')
-    setTimeout(() => { if (menuOpen) document.getElementById('navSpace').style.marginLeft = '-60px' }, 150)
+    setTimeout(() => { 
+      if (menuOpen) space.setAttribute('open', '')
+    }, 150)
   } else {
     //Close
-    exit.style.pointerEvents = ''  
-    document.getElementById('navSpace').style.marginLeft = '0'
-    setTimeout(() => { if (!menuOpen) menu.removeAttribute('menu') }, 150)
+    exit.style.pointerEvents = ''
+    space.removeAttribute('open', '')
+    setTimeout(() => { 
+      if (!menuOpen) menu.removeAttribute('menu') 
+    }, 150)
   }
   menuOpen = open
 }
@@ -885,7 +893,7 @@ function copyMail() {
 
 
 //Snackbar & Confetti 🎊
-let snacks = []
+const snacks = []
 
 function createSnackbar(text, confetti) {
   if (typeof text !== 'string') return
@@ -898,17 +906,23 @@ function createSnackbar(text, confetti) {
 }
 
 function snackbarController() {
+  //Get snackbar
   const snack = document.getElementById('snackbar')
+
+  //Show snackbar
   if (!snack.classList.contains('snackbar') && snacks.length > 0) {
     //Data
     snack.innerHTML = snacks[0].text
     snack.classList.add('snackbar')
     if (snacks[0].confetti) createConfetti()
     snacks.shift()
+
     //Wait to disappear
     setTimeout(() => {
+      //Disappear
       snack.innerHTML = ''
       snack.classList.remove('snackbar')
+
       //Wait to show text
       setTimeout(() => { snackbarController() }, 50)
     }, 3000)
@@ -946,12 +960,12 @@ switch (localStorage.getItem('language')) {
     if (lang.startsWith('en')) lan = lans.en
     //Save language
     localStorage.setItem('language', lan.tag)
-    break;
+    break
 
   //English saved
   case 'en':
     lan = lans.en
-    break;
+    break
 }
 
 changeTitle()
@@ -961,69 +975,69 @@ changeTitle()
 //Set language
 function setLan() {
   //Navbar
-  document.getElementById('navH').innerText = lan.top.h
-  document.getElementById('navA').innerText = lan.top.a
-  document.getElementById('navS').innerText = lan.top.s
-  document.getElementById('navP').innerText = lan.top.p
+  document.getElementById('navHome').innerText = lan.top.home
+  document.getElementById('navAbout').innerText = lan.top.about
+  document.getElementById('navSkills').innerText = lan.top.skills
+  document.getElementById('navProjects').innerText = lan.top.projects
 
   //Navbar menu
-  document.getElementById('navMenuH').innerText = lan.top.h
-  document.getElementById('navMenuA').innerText = lan.top.a
-  document.getElementById('navMenuS').innerText = lan.top.s
-  document.getElementById('navMenuP').innerText = lan.top.p
-  document.getElementById('navMenuThe').innerText = lan.top.t
-  document.getElementById('navMenuLan').innerText = lan.top.l
-  document.getElementById('navMenuAch').innerText = lan.top.ac
-  document.getElementById('navMenuCon').innerText = lan.top.c
+  document.getElementById('navMenuHome').innerText = lan.top.home
+  document.getElementById('navMenuAbout').innerText = lan.top.about
+  document.getElementById('navMenuSkills').innerText = lan.top.skills
+  document.getElementById('navMenuProjects').innerText = lan.top.projects
+  document.getElementById('navMenuTheme').innerText = lan.top.theme
+  document.getElementById('navMenuLanguage').innerText = lan.top.language
+  document.getElementById('navMenuAchievements').innerText = lan.top.achievements
+  document.getElementById('navMenuContact').innerText = lan.top.contact
 
   //Achievements
-  document.getElementById('achMenuTit').innerText = lan.ach.tit
-  document.getElementById('achi1Tit').innerText = lan.ach.a1.tit
-  document.getElementById('achi1Con').innerText = lan.ach.a1.con
-  document.getElementById('achi1Lock').innerText = lan.ach.lock
-  document.getElementById('achi2Tit').innerText = lan.ach.a2.tit
-  document.getElementById('achi2Con').innerText = lan.ach.a2.con
-  document.getElementById('achi2Lock').innerText = lan.ach.lock
-  document.getElementById('achi3Tit').innerText = lan.ach.a3.tit
-  document.getElementById('achi3Con').innerText = lan.ach.a3.con
-  document.getElementById('achi3Lock').innerText = lan.ach.lock
+  document.getElementById('achMenuTitle').innerText = lan.ach.title
+  document.getElementById('ach1Title').innerText = lan.ach.ach1.title
+  document.getElementById('ach1Description').innerText = lan.ach.ach1.desc
+  document.getElementById('ach1Lock').innerText = lan.ach.lock
+  document.getElementById('ach2Title').innerText = lan.ach.ach2.title
+  document.getElementById('ach2Description').innerText = lan.ach.ach2.desc
+  document.getElementById('ach2Lock').innerText = lan.ach.lock
+  document.getElementById('ach3Title').innerText = lan.ach.ach3.title
+  document.getElementById('ach3Description').innerText = lan.ach.ach3.desc
+  document.getElementById('ach3Lock').innerText = lan.ach.lock
 
   //Home
   document.getElementById('homeHi').innerText = lan.h.hi
-  document.getElementById('homeTit1').innerText = lan.h.tit1
-  document.getElementById('homeTit2').innerText = lan.h.tit2
-  document.getElementById('homeDesc').innerText = lan.h.desc
+  document.getElementById('homeTitle1').innerText = lan.h.tit1
+  document.getElementById('homeTitle2').innerText = lan.h.tit2
+  document.getElementById('homeDescription').innerText = lan.h.desc
   document.getElementById('homeType1').innerText = lan.h.type1
   document.getElementById('homeAbout').innerText = lan.h.a
 
   //About
-  document.getElementById('aboutTit').innerText = lan.a.tit
-  document.getElementById('aboutDesc1').innerText = lan.a.desc1
-  document.getElementById('aboutDesc2').innerText = lan.a.desc2
+  document.getElementById('aboutTitle').innerText = lan.a.tit
+  document.getElementById('aboutDescription1').innerText = lan.a.desc1
+  document.getElementById('aboutDescription2').innerText = lan.a.desc2
   document.getElementById('aboutSkills').innerText = lan.a.s
-  document.getElementById('aboutImgName').innerText = lan.a.names[abOrder[abIndex]]
+  document.getElementById('aboutImgName').innerText = lan.a.names[about.order[about.index]]
   document.getElementById('aboutImgNext').innerText = lan.a.next
 
   //Skills
-  document.getElementById('skTit').innerText = lan.s.tit
-  document.getElementById('skDesc').innerText = lan.s.desc
-  document.getElementById('skVidTit').innerText = lan.s.videogames
-  document.getElementById('skVidPro').innerText = lan.s.advanced
-  document.getElementById('skAppTit').innerText = lan.s.apps
-  document.getElementById('skAppPro').innerText = lan.s.high
-  document.getElementById('skWebTit').innerText = lan.s.web
-  document.getElementById('skWebPro').innerText = lan.s.high
-  document.getElementById('sk3dTit').innerText = lan.s.d3
-  document.getElementById('sk3dPro').innerText = lan.s.medium
-  document.getElementById('skUiTit').innerText = lan.s.ui
-  document.getElementById('skUiPro').innerText = lan.s.medium
-  document.getElementById('skArtTit').innerText = lan.s.art
-  document.getElementById('skArtPro').innerText = lan.s.medium
-  document.getElementById('skProj').innerText = lan.s.p
+  document.getElementById('skillsTitle').innerText = lan.s.tit
+  document.getElementById('skillsDescription').innerText = lan.s.desc
+  document.getElementById('skillsVidTitle').innerText = lan.s.videogames
+  document.getElementById('skillsVidPro').innerText = lan.s.advanced
+  document.getElementById('skillsAppTitle').innerText = lan.s.apps
+  document.getElementById('skillsAppPro').innerText = lan.s.high
+  document.getElementById('skillsWebTitle').innerText = lan.s.web
+  document.getElementById('skillsWebPro').innerText = lan.s.high
+  document.getElementById('skills3dTitle').innerText = lan.s.d3
+  document.getElementById('skills3dPro').innerText = lan.s.medium
+  document.getElementById('skillsUiTitle').innerText = lan.s.ui
+  document.getElementById('skillsUiPro').innerText = lan.s.medium
+  document.getElementById('skillsArtTitle').innerText = lan.s.art
+  document.getElementById('skillsArtPro').innerText = lan.s.medium
+  document.getElementById('skillsProjects').innerText = lan.s.p
 
   //Projects
-  document.getElementById('prTit').innerText = lan.p.tit
-  document.getElementById('prMore').innerText = lan.p.more
+  document.getElementById('projectsTitle').innerText = lan.p.tit
+  document.getElementById('projectsMore').innerText = lan.p.more
   addProjects()
 }
 
@@ -1054,13 +1068,15 @@ function switchLan() {
    | $$   | $$  | $$| $$$$$$$$| $$ \/  | $$| $$$$$$$$
    |__/   |__/  |__/|________/|__/     |__/|_______*/
 
-let themeChanged = false
-let themeDark = !(localStorage.getItem('theme') == 'light')
+const theme = {
+  changed: false,
+  dark: !(localStorage.getItem('theme') == 'light')
+}
 
 setTheme()
 
 function setTheme() {
-  if (themeDark) {
+  if (theme.dark) {
     localStorage.setItem('theme', 'dark')
     document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.png'
     html.removeAttribute('light')
@@ -1074,12 +1090,12 @@ function setTheme() {
 function switchTheme() {
   //Switch theme
   toggleMenu()
-  themeDark = !themeDark
+  theme.dark = !theme.dark
   setTheme()
 
   //Achievement
-  if (themeChanged) giveAchievement('drill')
-  themeChanged = true
+  if (theme.changed) giveAchievement('drill')
+  theme.changed = true
 }
 
 
@@ -1096,7 +1112,7 @@ function switchTheme() {
 |__/  |__/ \______/ |__/  |__/|______/|________/    \_/    |________/|__/     |__/|________/|__/  \__/   |_*/   
 
 //Given achievements
-let ach = {
+const ach = {
   socials: false,
   artyom: false,
   drill: false
@@ -1121,17 +1137,17 @@ function giveAchievement(name) {
   switch(name) {
     case 'socials':
       if (ach.socials == true) return
-      createSnackbar(`🏆 ${lan.ach.a1.tit}`, true)
+      createSnackbar(`🏆 ${lan.ach.ach1.tit}`, true)
       given = true
       break
     case 'artyom':
       if (ach.artyom == true) return
-      createSnackbar(`🏆 ${lan.ach.a2.tit}`, true)
+      createSnackbar(`🏆 ${lan.ach.ach2.tit}`, true)
       given = true
       break
     case 'drill':
       if (ach.drill == true) return
-      createSnackbar(`🏆 ${lan.ach.a3.tit}`, true)
+      createSnackbar(`🏆 ${lan.ach.ach3.tit}`, true)
       given = true
       break
   }
@@ -1150,17 +1166,17 @@ function addAchievement(name) {
     case 'socials':
       ach.socials = true
       localStorage.setItem('achSocials', 'true')
-      document.getElementById('achi1').removeAttribute('locked')
+      document.getElementById('ach1').removeAttribute('locked')
       break
     case 'artyom':
       ach.artyom = true
       localStorage.setItem('achArtyom', 'true')
-      document.getElementById('achi2').removeAttribute('locked')
+      document.getElementById('ach2').removeAttribute('locked')
       break
     case 'drill':
       ach.drill = true
       localStorage.setItem('achDrill', 'true')
-      document.getElementById('achi3').removeAttribute('locked')
+      document.getElementById('ach3').removeAttribute('locked')
       break
   }
 }
@@ -1189,7 +1205,7 @@ function resetAchievements() {
 //Achievements menu
 let achiOpen = false
 
-function toggleAchi() {
+function toggleAchievements() {
   //Hide menu dot
   document.getElementById('navMenuDot2').style.opacity = '0'
 
@@ -1302,51 +1318,58 @@ const aboutImg = document.getElementById('aboutImg')
 const aboutImgName = document.getElementById('aboutImgName')
 
 //Update about image
-abUpdate()
+aboutUpdate()
 
-function abUpdate() {
-  let imgs = ['Data/Images/About/artyom.jpg',
-              'Data/Images/About/canary.jpg',
-              'Data/Images/About/cat.jpg',
-              'Data/Images/About/finisterre.jpg',
-              'Data/Images/About/mallorca.jpg',
-              'Data/Images/About/otivar.jpg',
-              'Data/Images/About/flower.jpg',
-              'Data/Images/About/lennon.jpg']
-  aboutImg.src = imgs[abOrder[abIndex]]
+function aboutUpdate() {
+  const imgs = [
+    'Data/Images/About/artyom.jpg',
+    'Data/Images/About/canary.jpg',
+    'Data/Images/About/cat.jpg',
+    'Data/Images/About/finisterre.jpg',
+    'Data/Images/About/mallorca.jpg',
+    'Data/Images/About/otivar.jpg',
+    'Data/Images/About/flower.jpg',
+    'Data/Images/About/lennon.jpg'
+  ]
+  aboutImg.src = imgs[about.order[about.index]]
 }
 
 //About image loading
-let abLoading = false
+let aboutImgLoading = false
 
 aboutImg.onload = () => { 
   //Update text
-  aboutImgName.innerText = lan.a.names[abOrder[abIndex]]
+  aboutImgName.innerText = lan.a.names[about.order[about.index]]
+
   //Loading
-  if (abLoading) {
+  if (aboutImgLoading) {
     //Stop animation
     aboutImg.removeAttribute("loading")
+
     //Artyom
-    if (abIndex == lan.a.names.length - 1) giveAchievement('artyom')
+    if (about.index == lan.a.names.length - 1) giveAchievement('artyom')
+
     //Finish
-    setTimeout(function() { abLoading = false }, 400)
+    setTimeout(() => { aboutImgLoading = false }, 400)
   }
 }
 
-function abClick() {
+function aboutClick() {
   //Is loading
-  if (abLoading) return
-  abLoading = true
-  //Get image
-  let nextIndex = abIndex + 1
+  if (aboutImgLoading) return
+  aboutImgLoading = true
+
+  //Get next image index
+  let nextIndex = about.index + 1
   if (nextIndex >= lan.a.names.length) nextIndex = 0
+
   //Load animation
   aboutImg.setAttribute("clicked", "")
   aboutImg.setAttribute("loading", "")
-  setTimeout(function() {
+  setTimeout(() => {
     //Update
-    abIndex = nextIndex
-    abUpdate()
+    about.index = nextIndex
+    aboutUpdate()
   }, 400)
 }
 
@@ -1365,20 +1388,20 @@ function abClick() {
 
 function addProjects() {
   //Get animate & projects length (minimum of 4)
-  let animate = projsLength == 0
-  let pLength = Math.max(projsLength, 4)
+  const animate = projs.created == 0
+  const length = Math.max(projs.created, 4)
 
   //Clear
   clearProjects()
 
   //Add projects
-  for (let i = 0; i < pLength; i++) addProject(animate)
+  for (let i = 0; i < length; i++) addProject(animate)
 }
 
 function clearProjects() {
   //Clear projects
-  projsLength = 0
-  document.getElementById('prProjects').innerHTML = ''
+  projs.created = 0
+  document.getElementById('projectsList').innerHTML = ''
 }
 
 function addProject(animate) {
@@ -1386,33 +1409,28 @@ function addProject(animate) {
   if (typeof animate != 'boolean') animate = true
 
   //No more space
-  if (projsLength >= projs.length) return
+  if (projs.created >= projs.list.length) return
 
   //Get basic info
-  const project = projs[projsLength]
+  const project = projs.list[projs.created]
   const locales = lan.p[project.key]
 
   //Get tags
-  let tags = project.tags
-  if (Array.isArray(tags)) {
-    let max = tags.length
-    let tmp = ''
-    for (let i = 0; i < max; i++) {
-      const element = tags[i]
-      tmp = tmp + '<b>·</b>&nbsp&nbsp' + lan.p.tags[element] + (i + 1 != max ? '<br>' : '')
+  let tags = ''
+  if (Array.isArray(project.tags)) {
+    for (let i = 0; i < project.tags.length; i++) {
+      const element = project.tags[i]
+      tags += (i != 0 ? '<br>' : '') + '&gt;&nbsp&nbsp' + lan.p.tags[element]
     }
-    tags = tmp
-  } else {
-    tags = ''
   }
 
   //Get skills
   let skills = ''
-  if (project.year) skills += '<span class="prTag" year>' + project.year + '</span>'
+  if (project.year) skills += '<span class="projectTag" year>' + project.year + '</span>'
   if (Array.isArray(project.skills)) {
     project.skills.forEach(elem => {
       const skillName = lan.p.skills[elem]
-      skills += '<span class="prTag">' + (skillName ? skillName : elem) + '</span>'
+      skills += '<span class="projectTag">' + (skillName ? skillName : elem) + '</span>'
     })
   }
 
@@ -1421,8 +1439,8 @@ function addProject(animate) {
   let buttons = ''
   if (Array.isArray(btn)) {
     for (let i = 0; i < btn.length; i++) {
-      const buttonText = locales['b'+(i+1)]
-      buttons += `<a id="pr${projsLength}B${i}" class="prBtn" target="_blank" href="${btn[i]}">${buttonText ? buttonText : locales.tit}</a>`
+      const buttonText = locales['b' + (i + 1)]
+      buttons += `<a id="pr${projs.created}B${i}" class="projectButton" target="_blank" href="${btn[i]}">${buttonText ? buttonText : locales.tit}</a>`
     }
   }
 
@@ -1430,21 +1448,21 @@ function addProject(animate) {
   const vid = project.vid
 
   //Create project HTML base
-  const id = `pr${projsLength}`
+  const id = `project${projs.created}`
   const element = document.createElement('div')
   element.id = id
-  element.classList.add('pr')
+  element.classList.add('project')
 
   //Animation & reverse
-  if (animate) element.classList.add('pr', projsLength < 4 ? 'appear' : 'appeared')
-  if (projsLength % 2 != 0) element.setAttribute('reverse', '')
+  if (animate) element.classList.add(projs.created < 4 ? 'appear' : 'appeared')
+  if (projs.created % 2 != 0) element.setAttribute('reverse', '')
   
   //Add project HTML content
   element.innerHTML = `
     <div id="${id}Media">
       <span id="${id}Tag" ${tags == '' ? 'style="display: none"' : ''}>${tags}</span>
       <div ${vid ? '' : 'style="display: none;"'}>
-        <span onclick="toggleVideo(${projsLength}, 'https://www.youtube.com/embed/${vid}')">
+        <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
           <img src="Data/Images/Icons/play.png">${locales.vid}
         </span>
       </div>
@@ -1461,13 +1479,13 @@ function addProject(animate) {
       </div>
       <div id="${id}Btn" class="hc" style="gap: 20px;">${buttons}</div>
     </div>`
-  document.getElementById('prProjects').appendChild(element)
+  document.getElementById('projectsList').appendChild(element)
 
   //Done
-  projsLength++
+  projs.created++
 
   //Hide load more button
-  if (projsLength == projs.length) document.getElementById('prMoreBox').style.display = 'none'
+  if (projs.created == projs.list.length) document.getElementById('projectsMoreBox').style.display = 'none'
 }
 
 function toggleVideo(number, url) {
@@ -1475,11 +1493,9 @@ function toggleVideo(number, url) {
   const video = document.getElementById(`pr${number}Vid`)
   if (media.getAttribute('video') != null) {
     media.removeAttribute('video')
-    //video.style.display = 'none'
     video.src = ''
   } else {
     media.setAttribute('video', '')
-    //video.style.display = 'flex'
     video.src = url
   }
 }
@@ -1498,40 +1514,44 @@ function toggleVideo(number, url) {
 |_______/  \______/    |__/      |__/   \______/ |__/     |_*/
 
 //Bottom text quotes
-(function() {
-  const quote  = ['War never changes', 
-                  'Truth is, the game was rigged grom the start', 
-                  'OPA! Artyom!', 
-                  "See you in the major leagues, Jack", 
-                  "There's a monster inside all of us", 
-                  "Keep it cool, that's how you survive",
-                  'Oh my stars she is just so handsome', 
-                  "Oh, it's you. It's been a looong time", 
-                  'Your brother needs you', 
-                  "I can't believe we did that!",
-                  "It's only been a week, but it feels like a year",
-                  'No matter what, you keep finding something to fight for',
-                  'The body is naught but a vessel for the soul',
-                  "I'm always succeeding, even when I'm not",
-                  "Link, this is a huge discovery!",
-                  "Any adventure you can fly away from"]
-  const game = ['Fallout', 
-                'Fallout NV', 
-                'Metro Exodus', 
-                'Cyberpunk 2077', 
-                'Arcane',
-                'Valorant',
-                'The Outer Worlds',
-                'Portal 2',
-                'Ruiner',
-                'Celeste',
-                'Katana Zero',
-                'The Last of Us',
-                'Ghostwire: Tokyo',
-                'Deathloop',
-                'Zelda: Tears of the Kingdom',
-                'Starfield']
-  let q = Math.floor(Math.random() * quote.length)
+(() => {
+  const quote  = [
+    'War never changes', 
+    'Truth is, the game was rigged grom the start', 
+    'OPA! Artyom!', 
+    'See you in the major leagues, Jack', 
+    "There's a monster inside all of us", 
+    "Keep it cool, that's how you survive",
+    'Oh my stars she is just so handsome', 
+    "Oh, it's you. It's been a looong time", 
+    'Your brother needs you', 
+    "I can't believe we did that!",
+    "It's only been a week, but it feels like a year",
+    'No matter what, you keep finding something to fight for',
+    'The body is naught but a vessel for the soul',
+    "I'm always succeeding, even when I'm not",
+    'Link, this is a huge discovery!',
+    'Any adventure you can fly away from'
+  ]
+  const from = [
+    'Fallout', 
+    'Fallout NV', 
+    'Metro Exodus', 
+    'Cyberpunk 2077', 
+    'Arcane',
+    'Valorant',
+    'The Outer Worlds',
+    'Portal 2',
+    'Ruiner',
+    'Celeste',
+    'Katana Zero',
+    'The Last of Us',
+    'Ghostwire: Tokyo',
+    'Deathloop',
+    'Zelda: Tears of the Kingdom',
+    'Starfield'
+  ]
+  const q = Math.floor(Math.random() * quote.length)
   document.getElementById('botQuote').innerHTML = quote[q]
-  document.getElementById('botFrom').innerHTML = game[q]
-})();
+  document.getElementById('botFrom').innerHTML = from[q]
+})()

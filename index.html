@@ -20,21 +20,21 @@
     <div class="overlay">  
       <!-- Navbar -->
       <div class="nav">
-        <div class="navBtn" onclick="goto('home')">
+        <div class="navButton" onclick="goto('home')">
           <span>00.&nbsp;</span>
-          <span id="navH">Home</span>
+          <span id="navHome">Home</span>
         </div>
-        <div class="navBtn" onclick="goto('about')">
+        <div class="navButton" onclick="goto('about')">
           <span>01.&nbsp;</span>
-          <span id="navA">About</span>
+          <span id="navAbout">About</span>
         </div>
-        <div class="navBtn" onclick="goto('skills')">
+        <div class="navButton" onclick="goto('skills')">
           <span>02.&nbsp;</span>
-          <span id="navS">Skills</span>
+          <span id="navSkills">Skills</span>
         </div>
-        <div class="navBtn" onclick="goto('projects')">
+        <div class="navButton" onclick="goto('projects')">
           <span>03.&nbsp;</span>
-          <span id="navP">Projects</span>
+          <span id="navProjects">Projects</span>
         </div>
         <div id="navSpace"></div>
       </div>
@@ -45,37 +45,37 @@
           <img src="Data/Images/Icons/more.png">
           <dot id="navMenuDot1" class="navMenuDot"></dot>
           <div onclick="event.stopPropagation()">
-            <div class="navMenuBtn" onclick="goto('home')">
+            <div class="navMenuButton" onclick="goto('home')">
               <img src="Data/Images/Icons/home.png">
-              <span id="navMenuH">Home</span>
+              <span id="navMenuHome">Home</span>
             </div>
-            <div class="navMenuBtn" onclick="goto('about')">
+            <div class="navMenuButton" onclick="goto('about')">
               <img src="Data/Images/Icons/about.png">
-              <span id="navMenuA">About</span>
+              <span id="navMenuAbout">About</span>
             </div>
-            <div class="navMenuBtn" onclick="goto('skills')">
+            <div class="navMenuButton" onclick="goto('skills')">
               <img src="Data/Images/Icons/skills.png">
-              <span id="navMenuS">Skills</span>
+              <span id="navMenuSkills">Skills</span>
             </div>
-            <div class="navMenuBtn" onclick="goto('projects')">
+            <div class="navMenuButton" onclick="goto('projects')">
               <img src="Data/Images/Icons/projects.png">
-              <span id="navMenuP">Projects</span>
+              <span id="navMenuProjects">Projects</span>
             </div>
-            <div class="navMenuBtn" onclick="goto('bot')">
+            <div class="navMenuButton" onclick="goto('bot')">
               <img src="Data/Images/Icons/email.png">
-              <span id="navMenuCon">Contact</span>
+              <span id="navMenuContact">Contact</span>
             </div>
-            <div class="navMenuBtn" always onclick="switchTheme()">
+            <div class="navMenuButton" always onclick="switchTheme()">
               <img id="topTheImg" src="Data/Images/Icons/dark.png">
-              <span id="navMenuThe">Theme</span>
+              <span id="navMenuTheme">Theme</span>
             </div>
-            <div class="navMenuBtn" always onclick="switchLan()">
+            <div class="navMenuButton" always onclick="switchLan()">
               <img src="Data/Images/Icons/language.png">
-              <span id="navMenuLan">English</span>
+              <span id="navMenuLanguage">English</span>
             </div>
-            <div class="navMenuBtn" always onclick="toggleAchi()">
+            <div class="navMenuButton" always onclick="toggleAchievements()">
               <img src="Data/Images/Icons/cup.png">
-              <span id="navMenuAch">Achievements</span>
+              <span id="navMenuAchievements">Achievements</span>
               <dot id="navMenuDot2" class="navMenuDot" style="left: 35px;"></dot>
             </div>
           </div>
@@ -83,37 +83,37 @@
       </div>
 
       <!-- Achievements -->
-      <div id="achMenuExit" onclick="toggleAchi()">
+      <div id="achMenuExit" onclick="toggleAchievements()">
         <div id="achMenu" onclick="event.stopPropagation()">
           <div></div>
-          <span id="achMenuTit">ACHIEVEMENTS</span>
-          <div class="achMenuClose" onclick="toggleAchi()">
+          <span id="achMenuTitle">ACHIEVEMENTS</span>
+          <div class="achMenuClose" onclick="toggleAchievements()">
             <img src="Data/Images/Icons/close.png">
           </div>
           <div>
-            <div id="achi1" class="achievement" locked>
+            <div id="ach1" class="achievement" locked>
               <img src="Data/Images/Achievements/socials.jpg">
               <div>
-                <div id="achi1Tit">Interested fellow</div>
-                <div id="achi1Con">Given after opening all my social links</div>
+                <div id="ach1Title">Interested fellow</div>
+                <div id="ach1Description">Given after opening all my social links</div>
               </div>
-              <span id="achi1Lock">LOCKED</span>
+              <span id="ach1Lock">LOCKED</span>
             </div>
-            <div id="achi2" class="achievement" locked>
+            <div id="ach2" class="achievement" locked>
               <img src="Data/Images/Achievements/artyom.jpg">
               <div>
-                <div id="achi2Tit">Best friends</div>
-                <div id="achi2Con">Given after clicking 7 times on Artyom (my gecko)</div>
+                <div id="ach2Title">Best friends</div>
+                <div id="ach2Description">Given after clicking 7 times on Artyom (my gecko)</div>
               </div>
-              <span id="achi2Lock">LOCKED</span>
+              <span id="ach2Lock">LOCKED</span>
             </div>
-            <div id="achi3" class="achievement" locked>
+            <div id="ach3" class="achievement" locked>
               <img src="Data/Images/Achievements/drill.jpg">
               <div>
-                <div id="achi3Tit">Go with the flow</div>
-                <div id="achi3Con">Given after finding the secret Drill glasses</div>
+                <div id="ach3Title">Go with the flow</div>
+                <div id="ach3Description">Given after finding the secret Drill glasses</div>
               </div>
-              <span id="achi3Lock">LOCKED</span>
+              <span id="ach3Lock">LOCKED</span>
             </div>
           </div>
         </div>
@@ -144,10 +144,10 @@
 
       <!-- Balls -->
       <div class="balls">
-        <div id="ball1" class="ball" onclick="goto('home')" checked></div>
-        <div id="ball2" class="ball" onclick="goto('about')"></div>
-        <div id="ball3" class="ball" onclick="goto('skills')"></div>
-        <div id="ball4" class="ball" onclick="goto('projects')"></div>
+        <div id="ballHome" class="ball" onclick="goto('home')" checked></div>
+        <div id="ballAbout" class="ball" onclick="goto('about')"></div>
+        <div id="ballSkills" class="ball" onclick="goto('skills')"></div>
+        <div id="ballProjects" class="ball" onclick="goto('projects')"></div>
       </div>
 
       <!-- Snackbar -->
@@ -172,41 +172,53 @@
 
     <!-- Home -->
     <div id="home" class="page">
+      <!-- Image -->
       <div class="homeMe">
         <img src="Data/Images/me.png">
         <div></div>
       </div>
+
+      <!-- Text -->
       <span id="homeHi">Howdy! I'm</span>
-      <span id="homeTit1">ALEJANDRO PANIAGUA</span>
-      <span id="homeTit2" class="shadow">And I love programming and designing</span>
+      <span id="homeTitle1">ALEJANDRO PANIAGUA</span>
+      <span id="homeTitle2" class="shadow">And I love programming and designing</span>
       <span class="homeDT shadow">
-        <span id="homeDesc">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
+        <span id="homeDescription">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
         <span id="homeType1">I consider myself</span>
         <span id="homeType2">a 3D printing hobbyist</span><span class="homeLine">|</span>
       </span>
-      <div id="homeAbout" class="pageBtn" onclick="goto('about')">See more about me!</div>
+
+      <!-- Go to about -->
+      <div id="homeAbout" class="pageButton" onclick="goto('about')">See more about me!</div>
     </div>
     
     <!-- About -->
     <div id="about" class="page">
+      <!-- Text -->
       <div class="aboutTextBox appear">
-        <div>
-          <div class="pageTit">
+        <!-- Top -->
+        <div class="pageTop">
+          <div class="pageTitle">
             <span>01.&nbsp;</span>
-            <span id="aboutTit">About Me</span>
+            <span id="aboutTitle">About Me</span>
           </div>
-          <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
+          <div class="pageTitleLine"></div>
         </div>
+
+        <!-- Description -->
         <span>
-          <span id="aboutDesc1">Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.</span>
+          <span id="aboutDescription1">Howdy! My name is Alejandro, but you call me Panco or Alex. I'm a spanish web and android developer who loves making user-friendly and responsive web interfaces along with multiplatform apps of all kinds.</span>
           <br><br>
-          <span id="aboutDesc2">I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.</span>
+          <span id="aboutDescription2">I'm an independant well-organised person who finds problem-solving an easy task and loves giving things his own touch. Some of my interests are making apps and games, but I also enjoy 3D printing and DIY projects.</span>
         </span>
-        <div id="aboutSkills" class="pageBtn" onclick="goto('skills')">Check out my skills!</div>
+
+        <!-- Go to skills -->
+        <div id="aboutSkills" class="pageButton" onclick="goto('skills')">Check out my skills!</div>
       </div>
 
-      <div class="aboutImgBox appear">
-        <img id="aboutImg" onclick="abClick()">
+      <!-- Image -->
+      <div class="aboutImgBox appear" onclick="aboutClick()">
+        <img id="aboutImg">
         <div id="aboutImgName">Image Name</div>
         <div id="aboutImgNext">Click for next image</div>
       </div>
@@ -214,104 +226,111 @@
 
     <!-- Skills -->
     <div id="skills" class="page">
-      <div class="skTop">
-        <div class="hc" style="align-items: center; gap: 20px;">
-          <div class="pageTit">
+      <!-- Text -->
+      <div class="skillsTextBox">
+        <!-- Top -->
+        <div class="pageTop">
+          <div class="pageTitle">
             <span>02.&nbsp;</span>
-            <span id="skTit">My Skills</span>
+            <span id="skillsTitle">My Skills</span>
           </div>
-          <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
+          <div class="pageTitleLine"></div>
         </div>
 
-        <span id="skDesc" style="margin-top: 40px; text-align: justify;">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
+        <!-- Description -->
+        <span id="skillsDescription">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
       </div>
 
-      <div class="vc" style="gap: calc(1.5 * var(--pageGap));">
-        <div class="skBar">
+      <!-- Skill bars -->
+      <div class="skillsBars">
+        <div class="skillsBar">
           <div>
-            <span id="skVidTit">Videogames Development</span>
-            <span id="skVidPro">Advanced</span>
+            <span id="skillsVidTitle">Videogames Development</span>
+            <span id="skillsVidPro">Advanced</span>
           </div>
           <div>
-            <div style="width: var(--sk1);"></div>
+            <div style="width: var(--skills1);"></div>
           </div>
           <span>Unity · C# · C++</span>
         </div>
         
-        <div class="skBar">
+        <div class="skillsBar">
           <div>
-            <span id="skAppTit">Apps Development</span>
-            <span id="skAppPro">High</span>
+            <span id="skillsAppTitle">Apps Development</span>
+            <span id="skillsAppPro">High</span>
           </div>
           <div>
-            <div style="width: var(--sk2);"></div>
+            <div style="width: var(--skills2);"></div>
           </div>
           <span>Android Studio · Java · ElectronJS · C++</span>
         </div>
 
-        <div class="skBar">
+        <div class="skillsBar">
           <div>
-            <span id="skWebTit">Web Development</span>
-            <span id="skWebPro">High</span>
+            <span id="skillsWebTitle">Web Development</span>
+            <span id="skillsWebPro">High</span>
           </div>
           <div>
-            <div style="width: var(--sk3);"></div>
+            <div style="width: var(--skills3);"></div>
           </div>
           <span>HTML · CSS · JS</span>
         </div>
         
-        <div class="skBar">
+        <div class="skillsBar">
           <div>
-            <span id="sk3dTit">3D Modeling/Printing & CAD</span>
-            <span id="sk3dPro">Medium</span>
+            <span id="skills3dTitle">3D Modeling/Printing & CAD</span>
+            <span id="skills3dPro">Medium</span>
           </div>
           <div>
-            <div style="width: var(--sk4);"></div>
+            <div style="width: var(--skills4);"></div>
           </div>
           <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
         </div>
         
-        <div class="skBar">
+        <div class="skillsBar">
           <div>
-            <span id="skUiTit">UI/UX Design</span>
-            <span id="skUiPro">Medium</span>
+            <span id="skillsUiTitle">UI/UX Design</span>
+            <span id="skillsUiPro">Medium</span>
           </div>
           <div>
-            <div style="width: var(--sk5);"></div>
+            <div style="width: var(--skills5);"></div>
           </div>
           <span>Figma · Illustrator</span>
         </div>
         
-        <div class="skBar">
+        <div class="skillsBar">
           <div>
-            <span id="skArtTit">Art & Media</span>
-            <span id="skArtPro">Medium</span>
+            <span id="skillsArtTitle">Art & Media</span>
+            <span id="skillsArtPro">Medium</span>
           </div>
           <div>
-            <div style="width: var(--sk6);"></div>
+            <div style="width: var(--skills6);"></div>
           </div>
           <span>Photoshop · Illustrator · Audition · DaVinci Resolve</span>
         </div>
       </div>
       
-      <div id="skProj" class="pageBtn" onclick="goto('projects')">Check out my projects!</div>
+      <!-- Go to projects -->
+      <div id="skillsProjects" class="pageButton" onclick="goto('projects')">Check out my projects!</div>
     </div>
 
     <!-- Projects -->
     <div id="projects" class="page">
-      <div class="prTop">
-        <div class="pageTit">
+      <!-- Top -->
+      <div class="projectsTop">
+        <div class="pageTitle">
           <span>03.&nbsp;</span>
-          <span id="prTit">My Projects</span>
+          <span id="projectsTitle">My Projects</span>
         </div>
-        <div style="height: 1px; flex-grow: 1; background: var(--text);"></div>
+        <div class="pageTitleLine"></div>
       </div>
 
-      <div id="prProjects"  class="vc" style="margin-top: 50px; gap: calc(5 * var(--pageGap));"></div>
+      <!-- List -->
+      <div id="projectsList"></div>
 
-      <div id="prMoreBox" class="prMoreBox">
-        <div id="prMore" class="pageBtn" onclick="addProject(); addProject();">Show more</div>
-        <!--div id="prAll" class="pageBtn" onclick="addProject(); addProject();">Show all</div-->
+      <!-- Show more -->
+      <div id="projectsMoreBox" class="projectsMoreBox">
+        <div id="projectsMore" class="pageButton" onclick="addProject(); addProject();">Show more</div>
       </div>
     </div>
 
