@@ -1408,9 +1408,8 @@ html[mobile] .project > div:nth-of-type(2) {
   gap: 10px;
 }
 
-html[reverse] .project > div:nth-of-type(2) > div:nth-child(1) {
+.project[reverse] > div:nth-of-type(2) > div:nth-child(1) {
   justify-content: start;
-  width: 100%;
 }
 
 html[mobile] .project > div:nth-of-type(2) > div:nth-child(1) {
