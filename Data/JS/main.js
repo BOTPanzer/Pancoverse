@@ -86,22 +86,24 @@ const lans = {
       a: 'See more about me!'
     },
     a: {
-      tit: 'About Me',
+      title: 'About Me',
       desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer spends time designing and programming indie games and apps.",
       desc2: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
       s: 'Check out my skills!',
       next: 'Click me!',
-      names: ['Artyom',
-              'Canary Islands',
-              'Sleeping Cat',
-              'Finisterre',
-              'Mallorca',
-              'Otivar',
-              'River Flower',
-              'Lennon Wall']
+      names: [
+        'Artyom',
+        'Canary Islands',
+        'Sleeping Cat',
+        'Finisterre',
+        'Mallorca',
+        'Otivar',
+        'River Flower',
+        'Lennon Wall'
+      ]
     },
     s: {
-      tit: 'My Skills',
+      title: 'My Skills',
       desc: "I've been interested in the world of technology ever since ever. Thanks to that, I've learnt and manage a large number of skills related to different topics.",
       videogames: 'Videogame Development',
       apps: 'App Development',
@@ -117,17 +119,18 @@ const lans = {
       p: 'Check out my projects!'
     },
     p: {
-      tit: 'My Projects',
+      title: 'My Projects',
       more: 'Show more projects!',
+      filter1: 'Filtering projects containing:',
+      filter2: '(click to remove)',
       tags: {
         personal: 'Personal Project',
         team: 'Team Project',
         jam: 'Jam Game',
       },
       skills: {
-        cs: 'C#',
         uiux: 'UI/UX Design',
-        discord: 'Discord API',
+        discordapi: 'Discord API',
         '3dmodel': '3D Modeling',
         '3dprint': '3D Printing',
         sketching: 'Sketching',
@@ -244,7 +247,7 @@ const lans = {
               At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
               After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
               At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.`,
-        b1: 'Download v1.9.0'
+        b1: 'Download APK'
       },
       assPC: {
         tit: 'Oriøn Assistant (Windows)',
@@ -355,22 +358,24 @@ const lans = {
       a: '¡Ver más sobre mi!'
     },
     a: {
-      tit: 'Sobre Mi',
+      title: 'Sobre Mi',
       desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español que se dedica a diseñar y programar juegos indie y aplicaciones.",
       desc2: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
       s: '¡Ver mis habilidades!',
       next: '¡Hazme click!',
-      names: ['Artyom',
-              'Islas Canarias',
-              'Gato Durmiendo',
-              'Finisterre',
-              'Mallorca',
-              'Otivar',
-              'Flor en Rio',
-              'Muro Lennon']
+      names: [
+        'Artyom',
+        'Islas Canarias',
+        'Gato Durmiendo',
+        'Finisterre',
+        'Mallorca',
+        'Otivar',
+        'Flor en Rio',
+        'Muro Lennon'
+      ]
     },
     s: {
-      tit: 'Mis Habilidades',
+      title: 'Mis Habilidades',
       desc: "He estado interesado en el mundo de la tecnología desde siempre. Debido a eso, he aprendido y manejo una gran cantidad de habilidades relacionadas con diferentes temas.",
       videogames: 'Desarrollo de Videojuegos',
       apps: 'Desarrollo de Aplicaciones',
@@ -386,17 +391,18 @@ const lans = {
       p: '¡Ver mis proyectos!'
     },
     p: {
-      tit: 'Mis Proyectos',
+      title: 'Mis Proyectos',
       more: '¡Ver más proyectos!',
+      filter1: 'Filtrando proyectos que contengan:',
+      filter2: '(click para quitar)',
       tags: {
         personal: 'Proyecto Personal',
         team: 'Proyecto de Equipo',
         jam: 'Juego de Jam',
       },
       skills: {
-        cs: 'C#',
         uiux: 'Diseño UI/UX',
-        discord: 'API de Discord',
+        discordapi: 'API de Discord',
         '3dmodel': 'Modelado 3D',
         '3dprint': 'Impresión 3D',
         sketching: 'Dibujo',
@@ -513,7 +519,7 @@ const lans = {
               Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
               Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
               Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
-        b1: 'Descargar v1.9.0'
+        b1: 'Descargar APK'
       },
       assPC: {
         tit: 'Oriøn Assistant (Windows)',
@@ -585,142 +591,176 @@ let lan = lans.es
 
 
 
-//Created projects
+//Projects info
+const Skills = Object.freeze({
+  //Languages
+  cs: 'C#',
+  java: 'JAVA',
+  cpp: 'C++',
+  html: 'HTML',
+  css: 'css',
+  js: 'JS',
+  nodejs: 'NodeJS',
+  electronjs: 'ElectronJS',
+  cmd: 'CMD',
+  //Apps
+  unity:  'Unity',
+  vscode: 'VS Code',
+  blender: 'Blender',
+  photoshop: 'Photoshop',
+  illustrator: 'Illustrator',
+  max3ds: '3ds Max',
+  substance: 'Substance Painter',
+  android: 'Android Studio',
+  //Other
+  discordapi: 'discordapi',
+  uiux: 'uiux',
+  print3d: '3dprint',
+  model3d: '3dmodel',
+  sketching: 'sketching',
+  electronics: 'electronics',
+  diy: 'diy',
+});
+
 const projs = {
+  //Created projects
   created: 0,
+  //Filtered list
+  filter: '',
+  filteredList: [],
+  //Unfiltered list
   list: [
     {
       key: 'spyw4re',
       year: 2024,
       tags: ['team', 'jam'],
-      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-      btn: ["https://botpa.itch.io/spyw4re"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+      button: ['https://botpa.itch.io/spyw4re'],
     },
     {
       key: 'hackoon',
       tags: ['personal'],
-      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-      btn: ["https://www.tiktok.com/@botpanzer"],
-      //vid: 'UGH5wQYlAt4',
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+      button: ['https://www.tiktok.com/@botpanzer'],
     },
     {
       key: 'hightime',
       year: 2024,
       tags: ['team', 'jam'],
-      skills: ['Unity', 'cs', 'VS Code', 'Photoshop'],
-      btn: ["https://botpa.itch.io/high-on-time"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop],
+      button: ['https://botpa.itch.io/high-on-time'],
       vid: 'UGMQDJxov1M',
     },
     {
       key: 'fresquita',
       year: 2024,
       tags: ['personal', 'jam'],
-      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-      btn: ["https://botpa.itch.io/the-lost-fresquita"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+      button: ['https://botpa.itch.io/the-lost-fresquita'],
       vid: 'SC_3TWWP46k',
     },
     {
       key: 'raccoon',
       year: 2023,
       tags: ['team', 'jam'],
-      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-      btn: ["https://botpa.itch.io/esto-aun-no-es-un-juego"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+      button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
       vid: 'UGH5wQYlAt4',
     },
     {
       key: 'lmdshow',
       year: 2023,
       tags: ['personal'],
-      skills: ['Unity', 'cs', 'Blender', 'VS Code', 'Photoshop'],
-      btn: ["https://botpa.itch.io/escape-from-lmdshow"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+      button: ['https://botpa.itch.io/escape-from-lmdshow'],
       vid: 'z0Qv5HZyZgU',
     },
     {
       key: 'memory',
       year: 2023,
       tags: ['personal'],
-      skills: ['Unity', 'cs', 'VS Code', 'Photoshop', 'Illustrator'],
-      btn: ["https://botpa.itch.io/memory-shift"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop, Skills.illustrator],
+      button: ['https://botpa.itch.io/memory-shift'],
     },
     {
       key: 'spirits',
       year: 2023,
       tags: ['team', 'jam'],
-      skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
-      btn: ["https://botpa.itch.io/twin-spirits"],
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
+      button: ['https://botpa.itch.io/twin-spirits'],
       vid: 'SdIGAw2ABeU',
     },
     {
       key: 'vaporcade',
       year: 2022,
       tags: ['personal'],
-      skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
-      btn: ["https://botpa.itch.io/vaporcade"]
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
+      button: ['https://botpa.itch.io/vaporcade']
     },
     {
       key: 'papa',
       year: 2023,
       tags: ['team', 'jam'],
-      skills: ['Unity', 'cs', 'VS Code', 'Illustrator', 'Photoshop'],
-      btn: ["https://botpa.itch.io/cooking-papa"]
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
+      button: ['https://botpa.itch.io/cooking-papa']
     },
     {
       key: 'otters',
       year: 2022,
       tags: ['team', 'jam'],
-      skills: ['Unity', 'cs', 'VS Code', '3ds Max', 'Substance Painter', 'Illustrator', 'Photoshop'],
-      btn: ["https://botpa.itch.io/vaporcade"]
+      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.max3ds, Skills.substance, Skills.illustrator, Skills.photoshop],
+      button: ['https://botpa.itch.io/vaporcade']
     },
     {
       key: 'assAn',
       tags: ['personal'],
-      skills: ['JAVA', 'Android Studio', 'uiux'],
-      btn: ["Data/Orion Assistant.apk"]
+      skills: [Skills.java, Skills.android, Skills.uiux],
+      button: ['Data/Orion Assistant 1.10.0.apk']
     },
     {
       key: 'assPC',
       tags: ['personal'],
-      skills: ['CMD', 'HTML', 'CSS', 'JS', 'NodeJS', 'ElectronJS', 'VS Code', 'uiux'],
-      btn: ["https://github.com/BOTPanzer/Orion-Assistant", "https://github.com/BOTPanzer/USB-Launcher"]
+      skills: [Skills.html, Skills.css, Skills.js, Skills.nodejs, Skills.electronjs, Skills.vscode, Skills.uiux],
+      button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
     {
       key: 'frame',
       tags: ['personal'],
-      skills: ['HTML', 'CSS', 'JS', 'VS Code', 'uiux'],
-      btn: ["https://botpanzer.github.io/Orion-Framework"]
+      skills: [Skills.html, Skills.css, Skills.js, Skills.vscode, Skills.uiux],
+      button: ['https://botpanzer.github.io/Orion-Framework']
     },
     /*{
       key: 'disbots',
       year: 2019,
       tags: ['personal'],
-      skills: ['JS', 'VS Code', 'discord'],
-      btn: ["https://github.com/BOTPanzer/Syrup"]
+      skills: [Skills.js, Skills.vscode, Skills.discordapi],
+      button: ["https://github.com/BOTPanzer/Syrup"]
     },
     {
       key: 'mod',
       year: 2021,
       tags: ['personal'],
-      skills: ['3dmodel', '3dprint', 'Illustrator', 'sketching', 'diy'],
+      skills: [Skills.model3d, Skills.print3d, Skills.illustrator, Skills.sketching, Skills.diy],
     },
     {
       key: 't45',
       year: 2018,
       tags: ['personal'],
-      skills: ['3dprint', 'diy'],
+      skills: [Skills.print3d, Skills.diy],
     },
     {
       key: 'usb',
       year: 2018,
       tags: ['personal'],
-      skills: ['3dmodel', '3dprint', 'electronics', 'diy'],
+      skills: [Skills.model3d, Skills.print3d, Skills.electronics, Skills.diy],
     },
     {
       key: 'hoodie',
       year: 2021,
       tags: ['personal'],
-      skills: ['Illustrator', 'Photoshop', 'sketching'],
+      skills: [Skills.illustrator, Skills.photoshop, Skills.sketching],
     },*/
-  ]
+  ],
 }
 
 
@@ -1011,7 +1051,7 @@ function setLan() {
   document.getElementById('homeAbout').innerText = lan.h.a
 
   //About
-  document.getElementById('aboutTitle').innerText = lan.a.tit
+  document.getElementById('aboutTitle').innerText = lan.a.title
   document.getElementById('aboutDescription1').innerText = lan.a.desc1
   document.getElementById('aboutDescription2').innerText = lan.a.desc2
   document.getElementById('aboutSkills').innerText = lan.a.s
@@ -1019,7 +1059,7 @@ function setLan() {
   document.getElementById('aboutImgNext').innerText = lan.a.next
 
   //Skills
-  document.getElementById('skillsTitle').innerText = lan.s.tit
+  document.getElementById('skillsTitle').innerText = lan.s.title
   document.getElementById('skillsDescription').innerText = lan.s.desc
   document.getElementById('skillsVidTitle').innerText = lan.s.videogames
   document.getElementById('skillsVidPro').innerText = lan.s.advanced
@@ -1036,9 +1076,11 @@ function setLan() {
   document.getElementById('skillsProjects').innerText = lan.s.p
 
   //Projects
-  document.getElementById('projectsTitle').innerText = lan.p.tit
+  document.getElementById('projectsTitle').innerText = lan.p.title
   document.getElementById('projectsMore').innerText = lan.p.more
-  addProjects()
+  document.getElementById('projectsFilterStart').innerText = lan.p.filter1
+  document.getElementById('projectsFilterEnd').innerText = lan.p.filter2
+  addProjects(projs.filter)
 }
 
 
@@ -1386,22 +1428,55 @@ function aboutClick() {
 | $$      | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/   | $$  |  $$$$$$/
 |__/      |__/  |__/ \______/  \______/ |________/ \______/    |__/   \_____*/ 
 
-function addProjects() {
+function addProjects(filter) {
+  //Check filter
+  if (typeof filter !== 'string' && typeof filter !== 'number') filter = ''
+  const isRefresh = projs.filter == filter
+  projs.filter = filter
+
   //Get animate & projects length (minimum of 4)
   const animate = projs.created == 0
-  const length = Math.max(projs.created, 4)
+  const length = isRefresh ? Math.max(projs.created, 4) : 4
+
+  //Create filtered list
+  if (filter == '') {
+    //No filter -> Add all projects
+    projs.filteredList = projs.list
+
+    //Hide filter info box
+    document.getElementById('projectsFilterBox').setAttribute('hide', '')
+  } else {
+    //Has filter -> Filter projects
+    projs.filteredList = []
+    projs.list.forEach(project => {
+      if (!Array.isArray(project.skills)) return
+      if (typeof filter === 'string') {
+        //String filter -> Look in skills
+        if (project.skills.includes(filter)) projs.filteredList.push(project)
+      } else {
+        //Number filter -> Look in year
+        if (project.year == filter) projs.filteredList.push(project)
+      }
+    })
+    if (!isRefresh) goto('projects')
+
+    //Show filter info box & update filter
+    document.getElementById('projectsFilterBox').removeAttribute('hide')
+    document.getElementById('projectsFilterSkill').innerText = filter
+  }
 
   //Clear
   clearProjects()
 
   //Add projects
-  for (let i = 0; i < length; i++) addProject(animate)
+  for (let i = 0; i < length; i++) addProject(animate, filter)
 }
 
 function clearProjects() {
   //Clear projects
   projs.created = 0
   document.getElementById('projectsList').innerHTML = ''
+  document.getElementById('projectsMoreBox').style.display = projs.created >= projs.filteredList.length ? 'none' : 'flex'
 }
 
 function addProject(animate) {
@@ -1409,11 +1484,11 @@ function addProject(animate) {
   if (typeof animate != 'boolean') animate = true
 
   //No more space
-  if (projs.created >= projs.list.length) return
+  if (projs.created >= projs.filteredList.length) return
 
   //Get basic info
   const id = `project${projs.created}`
-  const project = projs.list[projs.created]
+  const project = projs.filteredList[projs.created]
   const locales = lan.p[project.key]
 
   //Get tags
@@ -1427,21 +1502,21 @@ function addProject(animate) {
 
   //Get skills
   let skills = ''
-  if (project.year) skills += '<span class="projectTag" year>' + project.year + '</span>'
+  if (project.year) skills += `<span class="projectSkill" year onclick="addProjects(${project.year})">` + project.year + '</span>'
   if (Array.isArray(project.skills)) {
-    project.skills.forEach(elem => {
-      const skillName = lan.p.skills[elem]
-      skills += '<span class="projectTag">' + (skillName ? skillName : elem) + '</span>'
+    project.skills.forEach(skill => {
+      const skillName = lan.p.skills[skill]
+      skills += `<span class="projectSkill" onclick="addProjects('${skill}')">` + (skillName ? skillName : skill) + '</span>'
     })
   }
 
   //Get buttons
-  const btn = project.btn
   let buttons = ''
-  if (Array.isArray(btn)) {
-    for (let i = 0; i < btn.length; i++) {
+  const button = project.button
+  if (Array.isArray(button)) {
+    for (let i = 0; i < button.length; i++) {
       const buttonText = locales['b' + (i + 1)]
-      buttons += `<a id="${id}B${i}" class="projectButton" target="_blank" href="${btn[i]}">${buttonText ? buttonText : locales.tit}</a>`
+      buttons += `<a id="${id}B${i}" class="projectButton" target="_blank" href="${button[i]}">${buttonText ? buttonText : locales.tit}</a>`
     }
   }
 
@@ -1484,8 +1559,8 @@ function addProject(animate) {
   //Done
   projs.created++
 
-  //Hide load more button
-  if (projs.created == projs.list.length) document.getElementById('projectsMoreBox').style.display = 'none'
+  //Update load more button
+  document.getElementById('projectsMoreBox').style.display = projs.created >= projs.filteredList.length ? 'none' : 'flex'
 }
 
 function toggleVideo(number, url) {

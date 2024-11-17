@@ -1197,7 +1197,25 @@ html[mobile] .projectsTop {
   margin-right: unset;
 }
 
-/* Projects list */
+/* Projects filter & list */
+#projectsFilterBox {
+  max-height: 100px;
+  word-wrap: normal;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto -20px auto;
+  opacity: 1;
+  transition: opacity .2s, max-height .2s;
+}
+
+#projectsFilterBox[hide] {
+  opacity: 0;
+  max-height: 0;
+}
+
 #projectsList {
   display: flex;
   flex-direction: column;
@@ -1430,26 +1448,22 @@ html[mobile] .project > div:nth-of-type(2) > div:nth-child(1) {
   pointer-events: auto;
 }
 
-/* Project tags */
-.projectTag {
-  width: fit-content;
+/* Project skills */
+.projectSkill {
+  width: max-content;
   height: fit-content;
   padding: 8px 12px;
 
-  font-family: roboto; 
-  font-size: .86rem; 
-  font-weight: 700; 
+  font-family: roboto;
+  font-size: .86rem;
+  font-weight: 500;
 
   color: var(--text);
   background-color: var(--button);
   border-radius: 50px;
 
   pointer-events: auto;
-}
-
-.projectTag[year] {
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
+  cursor: pointer;
 }
 
 /* Project buttons */
