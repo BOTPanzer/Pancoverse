@@ -1241,7 +1241,7 @@ html[mobile] .project {
 }
 
 /* Projects (media) */
-.project > div:nth-of-type(1) {
+.projectMedia {
   height: 100%;
   width: 65%; 
   display: flex;
@@ -1249,14 +1249,29 @@ html[mobile] .project {
   box-sizing: border-box;
   border: 1px solid var(--text); 
   border-radius: 20px;
+  transition: border .2s margin-bottom .2s;
 }
 
-html[mobile] .project > div:nth-of-type(1) {
+html[mobile] .projectMedia {
   width: 100%; 
 }
 
+html:not([mobile]) .projectMedia:hover {
+  transition-delay: 0.5s;
+}
+
+/* Projects (media on hover) */
+html:not([mobile]) .projectMedia:hover,
+.projectMedia[video] {
+  border: 1px solid transparent; 
+}
+
+html[mobile] .projectMedia[video] {
+  margin-bottom: 20px; 
+}
+
 /* Projects (media -> tags) */
-.project > div:nth-of-type(1) > span:nth-of-type(1) {
+.projectMedia > span:nth-of-type(1) {
   padding: 8px 14px;
 
   position: absolute; 
@@ -1274,19 +1289,26 @@ html[mobile] .project > div:nth-of-type(1) {
   transition: opacity 0.3s;
 }
 
-.project[reverse] > div:nth-of-type(1) > span:nth-of-type(1) {
+.project[reverse] > .projectMedia > span:nth-of-type(1) {
   left: auto;  
   right: -12px;  
 
   transform: rotate(10deg);
 }
 
-.project > div:nth-of-type(1)[video] > span:nth-of-type(1) {
+/* Projects (media -> tags on media hover) */
+html:not([mobile]) .projectMedia:hover > span:nth-of-type(1) {
+  transition-delay: 0.5s;
+  opacity: 0;
+}
+
+.projectMedia[video] > span:nth-of-type(1) {
+  transition-delay: none;
   opacity: 0;
 }
 
 /* Projects (media -> video button) */
-.project > div:nth-of-type(1) > div:nth-of-type(1) {
+.projectMedia > div:nth-of-type(1) {
   width: 100%;
 
   display: flex;
@@ -1300,7 +1322,7 @@ html[mobile] .project > div:nth-of-type(1) {
   pointer-events: none;
 }
 
-.project > div:nth-of-type(1) > div:nth-of-type(1) > span {
+.projectMedia > div:nth-of-type(1) > span {
   padding: 10px 15px;
 
   display: flex;
@@ -1318,36 +1340,38 @@ html[mobile] .project > div:nth-of-type(1) {
   transition: transform .3s;
 }
 
-.project > div:nth-of-type(1)[video] > div:nth-of-type(1) > span {
+.projectMedia[video] > div:nth-of-type(1) > span {
   transform: translateY(40px);
 }
 
-.project > div:nth-of-type(1) > div:nth-of-type(1) > span > img {
+.projectMedia > div:nth-of-type(1) > span > img {
   width: 12px;
   height: 12px;
 }
 
 /* Projects (media -> image & video) */
-.project > div:nth-of-type(1) > div:nth-of-type(2) {
+.projectMedia > div:nth-of-type(2) {
   width: calc(100% - 40px); 
   margin: 20px; 
   aspect-ratio: 16/9;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  /*background-color: var(--accent);*/
+  background-color: var(--accent);
+  transition: width .2s, margin .2s;
 }
 
-.project > div:nth-of-type(1) > div:nth-of-type(2) > img {
+.projectMedia > div:nth-of-type(2) > img {
   width: 100%; 
   height: 100%;
   object-fit: cover;
 }
 
-.project > div:nth-of-type(1) > div:nth-of-type(2) > iframe {
+.projectMedia > div:nth-of-type(2) > iframe {
   width: 100%; 
   height: 100%;
   margin: 0;
+  padding: 0;
 
   position: absolute;
   top: 0;
@@ -1356,23 +1380,29 @@ html[mobile] .project > div:nth-of-type(1) {
   border: none;
 }
 
-.project > div:nth-of-type(1)[video] > div:nth-of-type(2) > iframe {
+.projectMedia[video] > div:nth-of-type(2) > iframe {
   display: flex;
 }
 
-.project > div:nth-of-type(1):hover + div:nth-of-type(2),
-.project > div:nth-of-type(1)[video] + div:nth-of-type(2) {
-  z-index: -1;
+/* Projects (media -> image & video on media hover) */
+html:not([mobile]) .projectMedia:hover > div:nth-of-type(2) {
+  transition-delay: 0.5s;
+  width: 100%; 
+  margin: 9px 0px;
 }
 
-html:not([mobile]) .project > div:nth-of-type(1):hover + div:nth-of-type(2),
-html:not([mobile]) .project > div:nth-of-type(1)[video] + div:nth-of-type(2) {
-  transition-delay: 0.5s;
-  opacity: .6;
+.projectMedia[video] > div:nth-of-type(2) {
+  transition-delay: none;
+  width: 100%; 
+  margin: 9px 0px;
+}
+
+html[mobile] .projectMedia[video] > div:nth-of-type(2) {
+  margin: 0 0 20px 0; 
 }
 
 /* Projects (description) */
-.project > div:nth-of-type(2) {
+.projectDesc {
   width: 50%; 
   --prMar: -10%;
   margin-left: var(--prMar); 
@@ -1382,25 +1412,38 @@ html:not([mobile]) .project > div:nth-of-type(1)[video] + div:nth-of-type(2) {
   align-items: flex-end;
   text-align: end; 
   z-index: 2;
-  transition: opacity .5s, z-index 0s;
   pointer-events: none;
+  transition: opacity .2s, z-index 0s;
 }
 
-html:not([mobile]) .project[reverse] > div:nth-of-type(2) {
+html:not([mobile]) .project[reverse] > .projectDesc {
   margin-left: 0; 
   margin-right: var(--prMar); 
   align-items: flex-start;
   text-align: start; 
 }
 
-html[mobile] .project > div:nth-of-type(2) {
+html[mobile] .projectDesc {
   width: 100%; 
   --prMar: 0;
   margin-top: 20px; 
 }
 
+/* Projects (description on media hover) */
+html:not([mobile]) .projectMedia:hover + .projectDesc {
+  transition-delay: 0.5s;
+  opacity: .6;
+  z-index: -1;
+}
+
+html:not([mobile]) .projectMedia[video] + .projectDesc {
+  transition-delay: none;
+  opacity: .6;
+  z-index: -1;
+}
+
 /* Projects (description -> skills) */
-.project > div:nth-of-type(2) > div:nth-child(1) {
+.projectDesc > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1408,17 +1451,17 @@ html[mobile] .project > div:nth-of-type(2) {
   gap: 10px;
 }
 
-.project[reverse] > div:nth-of-type(2) > div:nth-child(1) {
+.project[reverse] > .projectDesc > div:nth-child(1) {
   justify-content: start;
 }
 
-html[mobile] .project > div:nth-of-type(2) > div:nth-child(1) {
+html[mobile] .projectDesc > div:nth-child(1) {
   justify-content: center;
   width: 100%;
 }
 
 /* Projects (description -> content) */
-.project > div:nth-of-type(2) > div:nth-child(2) {
+.projectDesc > div:nth-child(2) {
   width: 100%; 
   padding: 20px; 
   box-sizing: border-box; 
@@ -1430,20 +1473,20 @@ html[mobile] .project > div:nth-of-type(2) > div:nth-child(1) {
   pointer-events: auto;
 }
 
-.project > div:nth-of-type(2) > div:nth-child(2) span:nth-child(1) {
+.projectDesc > div:nth-child(2) span:nth-child(1) {
   width: 100%; 
   font-family: phonk; 
   font-size: 1.46rem; 
 }
 
-.project > div:nth-of-type(2) > div:nth-child(2) span:nth-child(2) {
+.projectDesc > div:nth-child(2) span:nth-child(2) {
   width: 100%; 
   text-align: justify; 
   opacity: .8;
 }
 
 /* Projects (description -> buttons) */
-.project > div:nth-of-type(2) > div:nth-child(3) {
+.projectDesc > div:nth-child(3) {
   pointer-events: auto;
 }
 

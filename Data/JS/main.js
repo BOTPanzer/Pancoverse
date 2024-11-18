@@ -145,6 +145,7 @@ const lans = {
               <br><br>
               In order to leave, you'll need need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...`,
         b1:  "Download&nbsp<i>Spyw4re</i>",
+        vid: 'Gameplay Video'
       },
       hackoon: {
         tit: "Hackoon",
@@ -417,6 +418,7 @@ const lans = {
               <br><br>
               Para lograrlo, tendrás que resolver algunos acertijos y derrotar a algunos enemigos, pero no creas que será tan fácil, alguien no quiere que lo ayudes...`,
         b1:  "Descarga&nbsp<i>Spyw4re</i>",
+        vid: 'Ver Gameplay'
       },
       hackoon:{
         tit: "Hackoon",
@@ -636,6 +638,7 @@ const projs = {
       tags: ['team', 'jam'],
       skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
       button: ['https://botpa.itch.io/spyw4re'],
+      vid: 'Qc3aWfPAxg0',
     },
     {
       key: 'hackoon',
@@ -839,17 +842,17 @@ function scrolled() {
   //Skills
   if (isVisible(document.getElementById('skills'))) {
     if (isVisible(document.getElementById('skillsVidTitle')))
-      html.style.setProperty('--skills1', '90%')
-    if (isVisible(document.getElementById('skillsAppTitle')))
-      html.style.setProperty('--skills2', '60%')
+      html.style.setProperty('--skills1', '95%')
+    if (isVisible(document.getElementById('skillsUiTitle')))
+      html.style.setProperty('--skills5', '62%')
     if (isVisible(document.getElementById('skillsWebTitle')))
-      html.style.setProperty('--skills3', '55%')
+      html.style.setProperty('--skills3', '65%')
+    if (isVisible(document.getElementById('skillsAppTitle')))
+      html.style.setProperty('--skills2', '58%')
     if (isVisible(document.getElementById('skills3dTitle')))
       html.style.setProperty('--skills4', '35%')
-    if (isVisible(document.getElementById('skillsUiTitle')))
-      html.style.setProperty('--skills5', '35%')
     if (isVisible(document.getElementById('skillsArtTitle')))
-      html.style.setProperty('--skills6', '35%')
+      html.style.setProperty('--skills6', '38%')
   }
 
   //Appear anim
@@ -1061,16 +1064,16 @@ function setLan() {
   //Skills
   document.getElementById('skillsTitle').innerText = lan.s.title
   document.getElementById('skillsDescription').innerText = lan.s.desc
+  document.getElementById('skillsWebTitle').innerText = lan.s.web
+  document.getElementById('skillsWebPro').innerText = lan.s.high
+  document.getElementById('skillsUiTitle').innerText = lan.s.ui
+  document.getElementById('skillsUiPro').innerText = lan.s.high
   document.getElementById('skillsVidTitle').innerText = lan.s.videogames
   document.getElementById('skillsVidPro').innerText = lan.s.advanced
   document.getElementById('skillsAppTitle').innerText = lan.s.apps
   document.getElementById('skillsAppPro').innerText = lan.s.high
-  document.getElementById('skillsWebTitle').innerText = lan.s.web
-  document.getElementById('skillsWebPro').innerText = lan.s.high
   document.getElementById('skills3dTitle').innerText = lan.s.d3
   document.getElementById('skills3dPro').innerText = lan.s.medium
-  document.getElementById('skillsUiTitle').innerText = lan.s.ui
-  document.getElementById('skillsUiPro').innerText = lan.s.medium
   document.getElementById('skillsArtTitle').innerText = lan.s.art
   document.getElementById('skillsArtPro').innerText = lan.s.medium
   document.getElementById('skillsProjects').innerText = lan.s.p
@@ -1534,7 +1537,7 @@ function addProject(animate) {
   
   //Add project HTML content
   element.innerHTML = `
-    <div id="${id}Media">
+    <div id="${id}Media" class="projectMedia">
       <span id="${id}Tag" ${tags == '' ? 'style="display: none"' : ''}>${tags}</span>
       <div ${vid ? '' : 'style="display: none;"'}>
         <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
@@ -1546,7 +1549,7 @@ function addProject(animate) {
         <iframe id="${id}Vid" allow="fullscreen;"></iframe>
       </div>
     </div>
-    <div>
+    <div class="projectDesc">
       <div id="${id}Skl">${skills}</div>
       <div>
         <span id="${id}Tit">${locales.tit}</span>
