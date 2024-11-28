@@ -1543,7 +1543,7 @@ function addProject(animate) {
     <!-- Media (image, video & tags) -->
     <div id="${id}-media" class="projectMedia">
       <!-- Tags -->
-      <span class="projectTags" ${typeof tags === 'string' ? '' : 'hidden'}>${tags}</span>
+      <span class="projectTags" ${tags == '' ? '' : 'hidden'}>${tags}</span>
       <!-- Video button -->
       <div class="projectVideoButton" ${typeof vid === 'string' ? '' : 'hidden'}>
         <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
