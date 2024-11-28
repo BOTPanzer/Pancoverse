@@ -602,7 +602,7 @@ const Skills = Object.freeze({
   java: 'JAVA',
   cpp: 'C++',
   html: 'HTML',
-  css: 'css',
+  css: 'CSS',
   js: 'JS',
   nodejs: 'NodeJS',
   electronjs: 'ElectronJS',
