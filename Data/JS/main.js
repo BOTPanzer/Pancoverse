@@ -124,9 +124,10 @@ const lans = {
       filter1: 'Filtering projects containing:',
       filter2: '(click to remove)',
       tags: {
-        personal: 'Personal Project',
-        team: 'Team Project',
-        jam: 'Jam Game',
+        solo: '🦝 Solo Project',
+        team: '🍻 Team Project',
+        personal: '💖 Personal Project',
+        jam: '💫 Jam Game',
       },
       skills: {
         uiux: 'UI/UX Design',
@@ -397,9 +398,10 @@ const lans = {
       filter1: 'Filtrando proyectos que contengan:',
       filter2: '(click para quitar)',
       tags: {
-        personal: 'Proyecto Personal',
-        team: 'Proyecto de Equipo',
-        jam: 'Juego de Jam',
+        solo: '🦝 Proyecto Solitario',
+        team: '🍻 Proyecto de Equipo',
+        personal: '💖 Proyecto Personal',
+        jam: '💫 Juego de Jam',
       },
       skills: {
         uiux: 'Diseño UI/UX',
@@ -642,7 +644,7 @@ const projs = {
     },
     {
       key: 'hackoon',
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
       button: ['https://www.tiktok.com/@botpanzer'],
     },
@@ -657,7 +659,7 @@ const projs = {
     {
       key: 'fresquita',
       year: 2024,
-      tags: ['personal', 'jam'],
+      tags: ['solo', 'jam'],
       skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
       button: ['https://botpa.itch.io/the-lost-fresquita'],
       vid: 'SC_3TWWP46k',
@@ -673,7 +675,7 @@ const projs = {
     {
       key: 'lmdshow',
       year: 2023,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
       button: ['https://botpa.itch.io/escape-from-lmdshow'],
       vid: 'z0Qv5HZyZgU',
@@ -681,7 +683,7 @@ const projs = {
     {
       key: 'memory',
       year: 2023,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop, Skills.illustrator],
       button: ['https://botpa.itch.io/memory-shift'],
     },
@@ -696,7 +698,7 @@ const projs = {
     {
       key: 'vaporcade',
       year: 2022,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
       button: ['https://botpa.itch.io/vaporcade']
     },
@@ -716,51 +718,51 @@ const projs = {
     },
     {
       key: 'assAn',
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.java, Skills.android, Skills.uiux],
       button: ['Data/Orion Assistant 1.10.0.apk']
     },
     {
       key: 'assPC',
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.html, Skills.css, Skills.js, Skills.nodejs, Skills.electronjs, Skills.vscode, Skills.uiux],
       button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
     {
       key: 'frame',
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.html, Skills.css, Skills.js, Skills.vscode, Skills.uiux],
       button: ['https://botpanzer.github.io/Orion-Framework']
     },
     /*{
       key: 'disbots',
       year: 2019,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.js, Skills.vscode, Skills.discordapi],
       button: ["https://github.com/BOTPanzer/Syrup"]
     },
     {
       key: 'mod',
       year: 2021,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.model3d, Skills.print3d, Skills.illustrator, Skills.sketching, Skills.diy],
     },
     {
       key: 't45',
       year: 2018,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.print3d, Skills.diy],
     },
     {
       key: 'usb',
       year: 2018,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.model3d, Skills.print3d, Skills.electronics, Skills.diy],
     },
     {
       key: 'hoodie',
       year: 2021,
-      tags: ['personal'],
+      tags: ['solo', 'personal'],
       skills: [Skills.illustrator, Skills.photoshop, Skills.sketching],
     },*/
   ],
@@ -1499,7 +1501,8 @@ function addProject(animate) {
   if (Array.isArray(project.tags)) {
     for (let i = 0; i < project.tags.length; i++) {
       const element = project.tags[i]
-      tags += (i != 0 ? '<br>' : '') + '&gt;&nbsp&nbsp' + lan.p.tags[element]
+      //tags += (i != 0 ? '<br>' : '') + '&gt;&nbsp&nbsp' + lan.p.tags[element]
+      tags += (i != 0 ? '<br>' : '') + lan.p.tags[element]
     }
   }
 
@@ -1540,12 +1543,12 @@ function addProject(animate) {
     <!-- Media (image, video & tags) -->
     <div id="${id}-media" class="projectMedia">
       <!-- Tags -->
-      <span class="projectTags" ${tags ? '' : 'hidden'}>${tags}</span>
+      <span class="projectTags" ${typeof tags === 'string' ? '' : 'hidden'}>${tags}</span>
       <!-- Video button -->
-      <div class="projectVideoButton" ${vid ? '' : 'hidden'}>
+      <div class="projectVideoButton" ${typeof vid === 'string' ? '' : 'hidden'}>
         <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
           <img src="Data/Images/Icons/play.png">
-          ${locales.vid}
+          <span>${locales.vid}</span>
         </span>
       </div>
       <!-- Dummy -->
