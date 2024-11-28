@@ -1230,6 +1230,7 @@ html[mobile] .projectsTop {
   flex-direction: row;
   align-items: center;
   position: relative;
+  --projectHoverDelay: 0.7s;
 }
 
 html[mobile] .project {
@@ -1240,16 +1241,20 @@ html[mobile] .project {
   flex-direction: row-reverse;
 }
 
-/* Projects (media) */
+/* Projects -> Media */
 .projectMedia {
   height: 100%;
   width: 65%; 
+
   display: flex;
+  align-items: center;
   position: relative; 
+
   box-sizing: border-box;
   border: 1px solid var(--text); 
   border-radius: 20px;
-  transition: border .2s margin-bottom .2s;
+
+  transition: border .2s, margin-bottom .2s;
 }
 
 html[mobile] .projectMedia {
@@ -1257,21 +1262,21 @@ html[mobile] .projectMedia {
 }
 
 html:not([mobile]) .projectMedia:hover {
-  transition-delay: 0.5s;
+  border: 1px solid transparent; 
+  transition-delay: var(--projectHoverDelay);
 }
 
-/* Projects (media on hover) */
-html:not([mobile]) .projectMedia:hover,
 .projectMedia[video] {
   border: 1px solid transparent; 
+  transition-delay: 0s;
 }
 
 html[mobile] .projectMedia[video] {
-  margin-bottom: 20px; 
+  margin-bottom: 40px;
 }
 
-/* Projects (media -> tags) */
-.projectMedia > span:nth-of-type(1) {
+/* Projects -> Media -> Tags */
+.projectTags {
   padding: 8px 14px;
 
   position: absolute; 
@@ -1286,29 +1291,32 @@ html[mobile] .projectMedia[video] {
 
   transform: rotate(-10deg);
 
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 }
 
-.project[reverse] > .projectMedia > span:nth-of-type(1) {
+.projectTags[hidden] {
+  display: none;
+}
+
+.project[reverse] .projectTags {
   left: auto;  
   right: -12px;  
 
   transform: rotate(10deg);
 }
 
-/* Projects (media -> tags on media hover) */
-html:not([mobile]) .projectMedia:hover > span:nth-of-type(1) {
-  transition-delay: 0.5s;
+html:not([mobile]) .projectMedia:hover .projectTags {
   opacity: 0;
+  transition-delay: var(--projectHoverDelay);
 }
 
-.projectMedia[video] > span:nth-of-type(1) {
-  transition-delay: none;
+.projectMedia[video] .projectTags {
   opacity: 0;
+  transition-delay: 0s;
 }
 
-/* Projects (media -> video button) */
-.projectMedia > div:nth-of-type(1) {
+/* Projects -> Media -> Video button */
+.projectVideoButton {
   width: 100%;
 
   display: flex;
@@ -1322,7 +1330,11 @@ html:not([mobile]) .projectMedia:hover > span:nth-of-type(1) {
   pointer-events: none;
 }
 
-.projectMedia > div:nth-of-type(1) > span {
+.projectVideoButton[hidden] {
+  display: none;
+}
+
+.projectVideoButton > span {
   padding: 10px 15px;
 
   display: flex;
@@ -1340,34 +1352,67 @@ html:not([mobile]) .projectMedia:hover > span:nth-of-type(1) {
   transition: transform .3s;
 }
 
-.projectMedia[video] > div:nth-of-type(1) > span {
+.projectMedia[video] > .projectVideoButton > span {
   transform: translateY(40px);
 }
 
-.projectMedia > div:nth-of-type(1) > span > img {
+html[mobile] .projectMedia[video] > .projectVideoButton > span {
+  transform: translateY(55px);
+}
+
+.projectVideoButton > span > img {
   width: 12px;
   height: 12px;
 }
 
-/* Projects (media -> image & video) */
-.projectMedia > div:nth-of-type(2) {
+/* Projects -> Media -> Dummy */
+.projectMediaDummy {
   width: calc(100% - 40px); 
   margin: 20px; 
   aspect-ratio: 16/9;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-  background-color: var(--accent);
-  transition: width .2s, margin .2s;
 }
 
-.projectMedia > div:nth-of-type(2) > img {
+/* Projects -> Media -> Content */
+.projectMediaContent {
+  width: calc(100% - 40px); 
+  
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: 20px;
+  right: 20px;
+
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+
+  overflow: hidden;
+  background-color: var(--accent);
+
+  transition: width .2s, left .2s, right .2s;
+}
+
+html:not([mobile]) .projectMedia:hover > .projectMediaContent {
+  width: 100%; 
+  left: 0;
+  right: 0;
+  transition-delay: var(--projectHoverDelay);
+}
+
+.projectMedia[video] > .projectMediaContent {
+  width: 100%; 
+  left: 0;
+  right: 0;
+  transition-delay: 0s;
+}
+
+/* Projects -> Media -> Content -> Image/Video*/
+.projectMediaContent > img {
   width: 100%; 
   height: 100%;
   object-fit: cover;
 }
 
-.projectMedia > div:nth-of-type(2) > iframe {
+.projectMediaContent > iframe {
   width: 100%; 
   height: 100%;
   margin: 0;
@@ -1378,34 +1423,18 @@ html:not([mobile]) .projectMedia:hover > span:nth-of-type(1) {
   left: 0;
 
   border: none;
+  display: none;
 }
 
-.projectMedia[video] > div:nth-of-type(2) > iframe {
+.projectMedia[video] > .projectMediaContent > iframe {
   display: flex;
 }
 
-/* Projects (media -> image & video on media hover) */
-html:not([mobile]) .projectMedia:hover > div:nth-of-type(2) {
-  transition-delay: 0.5s;
-  width: 100%; 
-  margin: 9px 0px;
-}
-
-.projectMedia[video] > div:nth-of-type(2) {
-  transition-delay: none;
-  width: 100%; 
-  margin: 9px 0px;
-}
-
-html[mobile] .projectMedia[video] > div:nth-of-type(2) {
-  margin: 0 0 20px 0; 
-}
-
-/* Projects (description) */
-.projectDesc {
+/* Projects -> Info */
+.projectInfo {
   width: 50%; 
-  --prMar: -10%;
-  margin-left: var(--prMar); 
+  --prMargin: -10%;
+  margin-left: var(--prMargin); 
   display: flex;
   flex-direction: column;
   gap: 20px; 
@@ -1416,34 +1445,33 @@ html[mobile] .projectMedia[video] > div:nth-of-type(2) {
   transition: opacity .2s, z-index 0s;
 }
 
-html:not([mobile]) .project[reverse] > .projectDesc {
+html:not([mobile]) .project[reverse] > .projectInfo {
   margin-left: 0; 
-  margin-right: var(--prMar); 
+  margin-right: var(--prMargin); 
   align-items: flex-start;
   text-align: start; 
 }
 
-html[mobile] .projectDesc {
+html[mobile] .projectInfo {
   width: 100%; 
-  --prMar: 0;
+  --prMargin: 0;
   margin-top: 20px; 
 }
 
-/* Projects (description on media hover) */
-html:not([mobile]) .projectMedia:hover + .projectDesc {
-  transition-delay: 0.5s;
+html:not([mobile]) .projectMedia:hover + .projectInfo {
   opacity: .6;
   z-index: -1;
+  transition-delay: var(--projectHoverDelay);
 }
 
-html:not([mobile]) .projectMedia[video] + .projectDesc {
-  transition-delay: none;
+html:not([mobile]) .projectMedia[video] + .projectInfo {
   opacity: .6;
   z-index: -1;
+  transition-delay: 0s;
 }
 
-/* Projects (description -> skills) */
-.projectDesc > div:nth-child(1) {
+/* Projects -> Info -> Skills */
+.projectSkills {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1451,17 +1479,17 @@ html:not([mobile]) .projectMedia[video] + .projectDesc {
   gap: 10px;
 }
 
-.project[reverse] > .projectDesc > div:nth-child(1) {
+.project[reverse] > .projectSkills {
   justify-content: start;
 }
 
-html[mobile] .projectDesc > div:nth-child(1) {
+html[mobile] .projectSkills {
   justify-content: center;
   width: 100%;
 }
 
 /* Projects (description -> content) */
-.projectDesc > div:nth-child(2) {
+.projectInfoContent {
   width: 100%; 
   padding: 20px; 
   box-sizing: border-box; 
@@ -1473,20 +1501,23 @@ html[mobile] .projectDesc > div:nth-child(1) {
   pointer-events: auto;
 }
 
-.projectDesc > div:nth-child(2) span:nth-child(1) {
+.projectInfoContent > span:nth-child(1) {
   width: 100%; 
   font-family: phonk; 
   font-size: 1.46rem; 
 }
 
-.projectDesc > div:nth-child(2) span:nth-child(2) {
+.projectInfoContent > span:nth-child(2) {
   width: 100%; 
   text-align: justify; 
   opacity: .8;
 }
 
 /* Projects (description -> buttons) */
-.projectDesc > div:nth-child(3) {
+.projectButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   pointer-events: auto;
 }
 
@@ -1503,9 +1534,18 @@ html[mobile] .projectDesc > div:nth-child(1) {
   color: var(--text);
   background-color: var(--button);
   border-radius: 50px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
 
   pointer-events: auto;
   cursor: pointer;
+
+  transition: background-color .1s, border .1s;
+}
+
+.projectSkill:hover {
+  background-color: color-mix(in srgb, var(--button) 80%, var(--accent));
+  border: solid 2px var(--accent);
 }
 
 /* Project buttons */

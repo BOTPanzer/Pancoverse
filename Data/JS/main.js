@@ -1537,25 +1537,38 @@ function addProject(animate) {
   
   //Add project HTML content
   element.innerHTML = `
-    <div id="${id}Media" class="projectMedia">
-      <span id="${id}Tag" ${tags == '' ? 'style="display: none"' : ''}>${tags}</span>
-      <div ${vid ? '' : 'style="display: none;"'}>
+    <!-- Media (image, video & tags) -->
+    <div id="${id}-media" class="projectMedia">
+      <!-- Tags -->
+      <span class="projectTags" ${tags ? '' : 'hidden'}>${tags}</span>
+      <!-- Video button -->
+      <div class="projectVideoButton" ${vid ? '' : 'hidden'}>
         <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
-          <img src="Data/Images/Icons/play.png">${locales.vid}
+          <img src="Data/Images/Icons/play.png">
+          ${locales.vid}
         </span>
       </div>
-      <div>
-        <img id="${id}Img" src="Data/Images/Projects/${project.key}.jpg">
-        <iframe id="${id}Vid" allow="fullscreen;"></iframe>
+      <!-- Dummy -->
+      <div class="projectMediaDummy"></div>
+      <!-- Image & video -->
+      <div class="projectMediaContent">
+        <!-- Image -->
+        <img src="Data/Images/Projects/${project.key}.jpg">
+        <!-- Video -->
+        <iframe id="${id}-video" allow="fullscreen"></iframe>
       </div>
     </div>
-    <div class="projectDesc">
-      <div id="${id}Skl">${skills}</div>
-      <div>
-        <span id="${id}Tit">${locales.tit}</span>
-        <span id="${id}Con">${locales.con}</span>
+    <!-- Info (skills, title, description & buttons) -->
+    <div class="projectInfo">
+      <!-- Skills -->
+      <div class="projectSkills">${skills}</div>
+      <!-- Title & description -->
+      <div class="projectInfoContent">
+        <span>${locales.tit}</span>
+        <span>${locales.con}</span>
       </div>
-      <div id="${id}Btn" class="hc" style="gap: 20px;">${buttons}</div>
+      <!-- Buttons -->
+      <div class="projectButtons">${buttons}</div>
     </div>`
   document.getElementById('projectsList').appendChild(element)
 
@@ -1567,8 +1580,8 @@ function addProject(animate) {
 }
 
 function toggleVideo(number, url) {
-  const media = document.getElementById(`project${number}Media`)
-  const video = document.getElementById(`project${number}Vid`)
+  const media = document.getElementById(`project${number}-media`)
+  const video = document.getElementById(`project${number}-video`)
   if (media.getAttribute('video') != null) {
     media.removeAttribute('video')
     video.src = ''
