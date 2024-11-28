@@ -1184,17 +1184,17 @@ function giveAchievement(name) {
   switch(name) {
     case 'socials':
       if (ach.socials == true) return
-      createSnackbar(`🏆 ${lan.ach.ach1.tit}`, true)
+      createSnackbar(`🏆 ${lan.ach.ach1.title}`, true)
       given = true
       break
     case 'artyom':
       if (ach.artyom == true) return
-      createSnackbar(`🏆 ${lan.ach.ach2.tit}`, true)
+      createSnackbar(`🏆 ${lan.ach.ach2.title}`, true)
       given = true
       break
     case 'drill':
       if (ach.drill == true) return
-      createSnackbar(`🏆 ${lan.ach.ach3.tit}`, true)
+      createSnackbar(`🏆 ${lan.ach.ach3.title}`, true)
       given = true
       break
   }
@@ -1206,6 +1206,12 @@ function giveAchievement(name) {
       document.getElementById('navMenuDot1').style.opacity = '1'
     document.getElementById('navMenuDot2').style.opacity = '1'
   }
+}
+
+function giveAchievements() {
+  giveAchievement('socials')
+  giveAchievement('artyom')
+  giveAchievement('drill')
 }
 
 function addAchievement(name) {
@@ -1230,11 +1236,9 @@ function addAchievement(name) {
 
 function resetAchievements() {
   //Reset added
-  ach = {
-    socials: false,
-    artyom: false,
-    drill: false,
-  }
+  ach.socials = false
+  ach.artyom = false
+  ach.drill = false
 
   //Reset stored vlues
   localStorage.setItem('achSocials', '')
@@ -1242,9 +1246,9 @@ function resetAchievements() {
   localStorage.setItem('achDrill', '')
 
   //Reset UI
-  document.getElementById('achi1').setAttribute('locked', '')
-  document.getElementById('achi2').setAttribute('locked', '')
-  document.getElementById('achi3').setAttribute('locked', '')
+  document.getElementById('ach1').setAttribute('locked', '')
+  document.getElementById('ach2').setAttribute('locked', '')
+  document.getElementById('ach3').setAttribute('locked', '')
 }
 
 

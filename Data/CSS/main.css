@@ -552,10 +552,12 @@ html:not([mobile]) .navMenuButton:not([always]) {
   flex-direction: column; 
   align-items: center;
 
+  /*backdrop-filter: blur(5px);
   box-sizing: border-box; 
-  border: solid 2px var(--accent); 
-  border-radius: 25px; 
-  backdrop-filter: blur(5px);
+  border: solid 2px var(--accent); */
+  border-radius: 25px;
+  background-color: var(--button);
+  box-shadow: var(--shadowBig); 
 
   opacity: 0;
   pointer-events: none;
@@ -619,8 +621,8 @@ html[mobile] #achMenuTit {
 }
 
 .achMenuClose img {
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   filter: var(--textFilter);
 }
 
@@ -641,7 +643,7 @@ html[mobile] #achMenuTit {
 
   box-sizing: border-box; 
   border: solid 2px var(--accent); 
-  border-radius: 15px;
+  border-radius: 25px;
   background: var(--button);
   transition: transform .2s;
 }
@@ -653,7 +655,7 @@ html[mobile] #achMenuTit {
 .achievement > img {  
   height: 100%; 
   aspect-ratio: 1;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .achievement > div {
@@ -1388,13 +1390,14 @@ html[mobile] .projectVideoButton {
   overflow: hidden;
   background-color: var(--accent);
 
-  transition: width .2s, left .2s, right .2s;
+  transition: width .2s, left .2s, right .2s, border-radius .2s;
 }
 
 html:not([mobile]) .projectMedia:hover > .projectMediaContent {
   width: 100%; 
   left: 0;
   right: 0;
+  border-radius: 20px;
   transition-delay: var(--projectHoverDelay);
 }
 
@@ -1402,6 +1405,7 @@ html:not([mobile]) .projectMedia:hover > .projectMediaContent {
   width: 100%; 
   left: 0;
   right: 0;
+  border-radius: 20px;
   transition-delay: 0s;
 }
 
