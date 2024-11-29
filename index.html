@@ -119,6 +119,20 @@
         </div>
       </div>
 
+      <!-- Project Filter -->
+      <div id="filterMenuExit" onclick="toggleFiltersMenu()">
+        <div id="filterMenu" onclick="event.stopPropagation()">
+          <div></div>
+          <span id="filterMenuTitle">Filter by:</span>
+          <div class="filterMenuClose" onclick="toggleFiltersMenu()">
+            <img src="Data/Images/Icons/close.png">
+          </div>
+          <div id="filterMenuTags">
+            
+          </div>
+        </div>
+      </div>
+
       <!-- Socials -->
       <div class="socials">
         <div class="socialsLine"></div>
@@ -327,9 +341,14 @@
       
       <!-- List -->
       <span id="projectsFilterBox">
-        <span id="projectsFilterStart">Filtering projects containing:</span>
-        <span id="projectsFilterSkill" class="projectSkill" onclick="addProjects()">Bomba</span>
-        <span id="projectsFilterEnd">(click to remove)</span>
+        <span>
+          <span id="projectsSort">Sort by:</span>
+          <span id="projectsSortBy" class="projectTag" onclick="if (projs.sort == 'date') { projs.sort = ''; } else { projs.sort = 'date'; } refreshProjects();">Bomba Bomba</span>
+        </span>
+        <span>
+          <span id="projectsFilter">Filter by:</span>
+          <span id="projectsFilterBy" class="projectTag" onclick="toggleFiltersMenu()">Bomba Bomba Bomba</span>
+        </span>
       </span>
       <div id="projectsList"></div>
 
