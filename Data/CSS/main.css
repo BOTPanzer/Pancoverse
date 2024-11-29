@@ -1184,7 +1184,8 @@ html[mobile] .skillsTextBox {
 |__/      |__/  |__/ \______/  \______/ |________/ \______/    |__/   \_____*/ 
 
 #projects {
-  justify-content: center;
+ /* justify-content: center; */
+  min-height: 0; 
 }
 
 /* Title */
@@ -1388,7 +1389,7 @@ html[mobile] .projectVideoButton {
   border-radius: 10px;
 
   overflow: hidden;
-  background-color: var(--accent);
+  background-color: var(--button);
 
   transition: width .2s, left .2s, right .2s, border-radius .2s;
 }

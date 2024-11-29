@@ -125,7 +125,7 @@ const lans = {
       filter2: '(click to remove)',
       tags: {
         solo: '🦝 Solo Project',
-        team: '🍻 Team Project',
+        team: '🤝 Team Project',
         personal: '💖 Personal Project',
         jam: '💫 Jam Game',
       },
@@ -137,6 +137,13 @@ const lans = {
         sketching: 'Sketching',
         diy: 'DIY',
         electronics: 'Electronics',
+      },
+      stardewpets: {
+        tit: "Stardew Pets",
+        con: `Stardew Pets is a VS Code extension that lets you have Stardew Valley pets accompanying you while you code.
+              <br><br>
+              Right now you can have cats, dogs, dinos, turtles, raccoons, goats, sheeps, ostrichs, pigs, rabbits, chicken, cows and junimos as a pet, each with different variants.`,
+        b1:  "Install&nbsp<i>Stardew Pets</i>",
       },
       spyw4re: {
         tit: "Spyw4re",
@@ -399,7 +406,7 @@ const lans = {
       filter2: '(click para quitar)',
       tags: {
         solo: '🦝 Proyecto Solitario',
-        team: '🍻 Proyecto de Equipo',
+        team: '🤝 Proyecto de Equipo',
         personal: '💖 Proyecto Personal',
         jam: '💫 Juego de Jam',
       },
@@ -411,6 +418,13 @@ const lans = {
         sketching: 'Dibujo',
         diy: 'Manualidades',
         electronics: 'Electrónica',
+      },
+      stardewpets: {
+        tit: "Stardew Pets",
+        con: `Stardew Pets es una extensión para VS Code que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+              <br><br>
+              Actualmente puedes tener como mascota a gatos, perros, dinos, tortugas, mapaches, cabras, ovejas, avestruces, cerdos, conejos, pollos, vacas y junimos, cada uno con diferentes variantes.`,
+        b1:  "Instala&nbsp<i>Stardew Pets</i>",
       },
       spyw4re: {
         tit: "Spyw4re",
@@ -603,7 +617,8 @@ const Skills = Object.freeze({
   cpp: 'C++',
   html: 'HTML',
   css: 'CSS',
-  js: 'JS',
+  js: 'JavaScript',
+  ts: 'TypeScript',
   nodejs: 'NodeJS',
   electronjs: 'ElectronJS',
   cmd: 'CMD',
@@ -626,147 +641,188 @@ const Skills = Object.freeze({
   diy: 'diy',
 });
 
+const Projects = Object.freeze({
+  spyw4re: {
+    key: 'spyw4re',
+    year: 2024,
+    tags: ['team', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+    button: ['https://botpa.itch.io/spyw4re'],
+    vid: 'Qc3aWfPAxg0',
+  },
+  stardewpets: {
+    key: 'stardewpets',
+    year: 2024,
+    tags: ['solo', 'personal'],
+    skills: [Skills.ts, Skills.html, Skills.css, Skills.vscode, Skills.photoshop],
+    button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets'],
+  },
+  hackoon: {
+    key: 'hackoon',
+    tags: ['solo', 'personal'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+    button: ['https://www.tiktok.com/@botpanzer'],
+  },
+  hightime: {
+    key: 'hightime',
+    year: 2024,
+    tags: ['team', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop],
+    button: ['https://botpa.itch.io/high-on-time'],
+    vid: 'UGMQDJxov1M',
+  },
+  fresquita: {
+    key: 'fresquita',
+    year: 2024,
+    tags: ['solo', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+    button: ['https://botpa.itch.io/the-lost-fresquita'],
+    vid: 'SC_3TWWP46k',
+  },
+  raccoon: {
+    key: 'raccoon',
+    year: 2023,
+    tags: ['team', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+    button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
+    vid: 'UGH5wQYlAt4',
+  },
+  lmdshow: {
+    key: 'lmdshow',
+    year: 2023,
+    tags: ['solo', 'personal'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
+    button: ['https://botpa.itch.io/escape-from-lmdshow'],
+    vid: 'z0Qv5HZyZgU',
+  },
+  memory: {
+    key: 'memory',
+    year: 2023,
+    tags: ['solo', 'personal'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop, Skills.illustrator],
+    button: ['https://botpa.itch.io/memory-shift'],
+  },
+  spirits: {
+    key: 'spirits',
+    year: 2023,
+    tags: ['team', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
+    button: ['https://botpa.itch.io/twin-spirits'],
+    vid: 'SdIGAw2ABeU',
+  },
+  vaporcade: {
+    key: 'vaporcade',
+    year: 2022,
+    tags: ['solo', 'personal'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
+    button: ['https://botpa.itch.io/vaporcade']
+  },
+  papa: {
+    key: 'papa',
+    year: 2023,
+    tags: ['team', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
+    button: ['https://botpa.itch.io/cooking-papa']
+  },
+  otters: {
+    key: 'otters',
+    year: 2022,
+    tags: ['team', 'jam'],
+    skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.max3ds, Skills.substance, Skills.illustrator, Skills.photoshop],
+    button: ['https://botpa.itch.io/vaporcade']
+  },
+  assAn: {
+    key: 'assAn',
+    year: 2021,
+    tags: ['solo', 'personal'],
+    skills: [Skills.java, Skills.android, Skills.uiux],
+    button: ['Data/Orion Assistant 1.10.0.apk']
+  },
+  assPC: {
+    key: 'assPC',
+    year: 2022,
+    tags: ['solo', 'personal'],
+    skills: [Skills.html, Skills.css, Skills.js, Skills.nodejs, Skills.electronjs, Skills.vscode, Skills.uiux],
+    button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
+  },
+  frame: {
+    key: 'frame',
+    year: 2022,
+    tags: ['solo', 'personal'],
+    skills: [Skills.html, Skills.css, Skills.js, Skills.vscode, Skills.uiux],
+    button: ['https://botpanzer.github.io/Orion-Framework']
+  },
+  /*
+  disbots: {
+    key: 'disbots',
+    year: 2019,
+    tags: ['solo', 'personal'],
+    skills: [Skills.js, Skills.vscode, Skills.discordapi],
+    button: ["https://github.com/BOTPanzer/Syrup"]
+  },
+  mod: {
+    key: 'mod',
+    year: 2021,
+    tags: ['solo', 'personal'],
+    skills: [Skills.model3d, Skills.print3d, Skills.illustrator, Skills.sketching, Skills.diy],
+  },
+  t45: {
+    key: 't45',
+    year: 2018,
+    tags: ['solo', 'personal'],
+    skills: [Skills.print3d, Skills.diy],
+  },
+  usb: {
+    key: 'usb',
+    year: 2018,
+    tags: ['solo', 'personal'],
+    skills: [Skills.model3d, Skills.print3d, Skills.electronics, Skills.diy],
+  },
+  hoodie: {
+    key: 'hoodie',
+    year: 2021,
+    tags: ['solo', 'personal'],
+    skills: [Skills.illustrator, Skills.photoshop, Skills.sketching],
+  },
+  */
+})
+
 const projs = {
   //Created projects
   created: 0,
-  //Filtered list
+  //Filtering
   filter: '',
   filteredList: [],
-  //Unfiltered list
+  //Sorting
+  sort: '',
+  //List (filtered by preferences)
   list: [
-    {
-      key: 'spyw4re',
-      year: 2024,
-      tags: ['team', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
-      button: ['https://botpa.itch.io/spyw4re'],
-      vid: 'Qc3aWfPAxg0',
-    },
-    {
-      key: 'hackoon',
-      tags: ['solo', 'personal'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
-      button: ['https://www.tiktok.com/@botpanzer'],
-    },
-    {
-      key: 'hightime',
-      year: 2024,
-      tags: ['team', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop],
-      button: ['https://botpa.itch.io/high-on-time'],
-      vid: 'UGMQDJxov1M',
-    },
-    {
-      key: 'fresquita',
-      year: 2024,
-      tags: ['solo', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
-      button: ['https://botpa.itch.io/the-lost-fresquita'],
-      vid: 'SC_3TWWP46k',
-    },
-    {
-      key: 'raccoon',
-      year: 2023,
-      tags: ['team', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
-      button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
-      vid: 'UGH5wQYlAt4',
-    },
-    {
-      key: 'lmdshow',
-      year: 2023,
-      tags: ['solo', 'personal'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.blender, Skills.photoshop],
-      button: ['https://botpa.itch.io/escape-from-lmdshow'],
-      vid: 'z0Qv5HZyZgU',
-    },
-    {
-      key: 'memory',
-      year: 2023,
-      tags: ['solo', 'personal'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.photoshop, Skills.illustrator],
-      button: ['https://botpa.itch.io/memory-shift'],
-    },
-    {
-      key: 'spirits',
-      year: 2023,
-      tags: ['team', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
-      button: ['https://botpa.itch.io/twin-spirits'],
-      vid: 'SdIGAw2ABeU',
-    },
-    {
-      key: 'vaporcade',
-      year: 2022,
-      tags: ['solo', 'personal'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
-      button: ['https://botpa.itch.io/vaporcade']
-    },
-    {
-      key: 'papa',
-      year: 2023,
-      tags: ['team', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.illustrator, Skills.photoshop],
-      button: ['https://botpa.itch.io/cooking-papa']
-    },
-    {
-      key: 'otters',
-      year: 2022,
-      tags: ['team', 'jam'],
-      skills: [Skills.cs, Skills.unity, Skills.vscode, Skills.max3ds, Skills.substance, Skills.illustrator, Skills.photoshop],
-      button: ['https://botpa.itch.io/vaporcade']
-    },
-    {
-      key: 'assAn',
-      tags: ['solo', 'personal'],
-      skills: [Skills.java, Skills.android, Skills.uiux],
-      button: ['Data/Orion Assistant 1.10.0.apk']
-    },
-    {
-      key: 'assPC',
-      tags: ['solo', 'personal'],
-      skills: [Skills.html, Skills.css, Skills.js, Skills.nodejs, Skills.electronjs, Skills.vscode, Skills.uiux],
-      button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
-    },
-    {
-      key: 'frame',
-      tags: ['solo', 'personal'],
-      skills: [Skills.html, Skills.css, Skills.js, Skills.vscode, Skills.uiux],
-      button: ['https://botpanzer.github.io/Orion-Framework']
-    },
-    /*{
-      key: 'disbots',
-      year: 2019,
-      tags: ['solo', 'personal'],
-      skills: [Skills.js, Skills.vscode, Skills.discordapi],
-      button: ["https://github.com/BOTPanzer/Syrup"]
-    },
-    {
-      key: 'mod',
-      year: 2021,
-      tags: ['solo', 'personal'],
-      skills: [Skills.model3d, Skills.print3d, Skills.illustrator, Skills.sketching, Skills.diy],
-    },
-    {
-      key: 't45',
-      year: 2018,
-      tags: ['solo', 'personal'],
-      skills: [Skills.print3d, Skills.diy],
-    },
-    {
-      key: 'usb',
-      year: 2018,
-      tags: ['solo', 'personal'],
-      skills: [Skills.model3d, Skills.print3d, Skills.electronics, Skills.diy],
-    },
-    {
-      key: 'hoodie',
-      year: 2021,
-      tags: ['solo', 'personal'],
-      skills: [Skills.illustrator, Skills.photoshop, Skills.sketching],
-    },*/
+    Projects.spyw4re,
+    Projects.stardewpets,
+    Projects.hackoon,
+    Projects.hightime,
+    Projects.fresquita,
+    Projects.raccoon,
+    Projects.lmdshow,
+    Projects.memory,
+    Projects.spirits,
+    Projects.vaporcade,
+    Projects.papa,
+    Projects.otters,
+    Projects.assAn,
+    Projects.assPC,
+    Projects.frame,
+    /*
+    Projects.disbots,
+    Projects.mod,
+    Projects.t45,
+    Projects.usb,
+    Projects.hoodie,
+    */
   ],
 }
+
+
 
 
 
@@ -1614,7 +1670,7 @@ function toggleVideo(number, url) {
 //Bottom text quotes
 (() => {
   const quote  = [
-    'War never changes', 
+    'War, war never changes', 
     'Truth is, the game was rigged grom the start', 
     'OPA! Artyom!', 
     'See you in the major leagues, Jack', 
