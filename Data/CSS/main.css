@@ -1584,7 +1584,7 @@ html:not([mobile]) .projectMedia[video] + .projectInfo {
   gap: 10px;
 }
 
-.project[reverse] .projectTags {
+html:not([mobile]) .project[reverse] .projectTags {
   justify-content: start;
 }
 
