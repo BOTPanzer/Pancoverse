@@ -62,7 +62,7 @@ html[light] {
 html[mobile] {
   font-size: 13px;
   --menuHeight: 340px;
-  --pageW: 80vw;
+  --pageW: 90vw;
   --pageGap: 10px;
   --homeW: 100%;
 }
