@@ -1168,8 +1168,8 @@ function setLan() {
   document.getElementById('filterMenuTitle').innerText = lan.p.filter.filter
   document.getElementById('projectsTitle').innerText = lan.p.title
   document.getElementById('projectsMore').innerText = lan.p.more
-  document.getElementById('projectsSort').innerText = lan.p.filter.sort
-  document.getElementById('projectsSortBy').innerText = lan.p.filter.sort + ':'
+  document.getElementById('projectsSort').innerText = lan.p.filter.sort + ':'
+  document.getElementById('projectsSortBy').innerText = lan.p.filter.sort
   document.getElementById('projectsFilterBy').innerText = projs.getSortName(projs.sort)
   document.getElementById('projectsFilter').innerText = lan.p.filter.filter + ':'
   document.getElementById('projectsFilterBy').innerText = projs.getTagName(projs.filter)
