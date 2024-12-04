@@ -87,8 +87,9 @@ const lans = {
     },
     a: {
       title: 'About Me',
-      desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer spends time designing and programming indie games and apps.",
-      desc2: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
+      desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who likes spending time creating games and apps.",
+      desc2: "I started making games in 2015, at the age of 11. Then, in 2019, I took a break to learn web and app development and, since 2022, I've been doing all of them.",
+      desc3: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
       s: 'Check out my skills!',
       next: 'Click me!',
       names: [
@@ -377,8 +378,9 @@ const lans = {
     },
     a: {
       title: 'Sobre Mi',
-      desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español que se dedica a diseñar y programar juegos indie y aplicaciones.",
-      desc2: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
+      desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le gusta pasar tiempo creando juegos y aplicaciones.",
+      desc2: "Comencé a hacer juegos en 2015, con 11 años. Más tarde, en 2019, me tome un descanso para aprender desarrollo web y de aplicaciones y, desde 2022, he estado haciendo todos ellos.",
+      desc3: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
       s: '¡Ver mis habilidades!',
       next: '¡Hazme click!',
       names: [
@@ -1143,6 +1145,7 @@ function setLan() {
   document.getElementById('aboutTitle').innerText = lan.a.title
   document.getElementById('aboutDescription1').innerText = lan.a.desc1
   document.getElementById('aboutDescription2').innerText = lan.a.desc2
+  document.getElementById('aboutDescription3').innerText = lan.a.desc3
   document.getElementById('aboutSkills').innerText = lan.a.s
   document.getElementById('aboutImgName').innerText = lan.a.names[about.order[about.index]]
   document.getElementById('aboutImgNext').innerText = lan.a.next
