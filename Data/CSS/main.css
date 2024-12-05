@@ -319,6 +319,7 @@ html[mobile] .nav {
   background: transparent; 
   backdrop-filter: none;
   box-shadow: none;
+  pointer-events: none;
 }
 
 /* Navbar buttons */
@@ -1032,7 +1033,7 @@ html[mobile] .aboutTextBox {
 
 html[mobile] .aboutImgBox {
   height: min(50vh, 80vw); 
-  width: min(50vh, 80vw); 
+  width: min(50vh, 90vw); 
 }
 
 #aboutImg {
@@ -1416,6 +1417,7 @@ html:not([mobile]) .projectMedia:hover .projectScope {
 .projectMedia[video] .projectScope {
   opacity: 0;
   transition-delay: 0s;
+  pointer-events: none;
 }
 
 /* Projects -> Media -> Video button */

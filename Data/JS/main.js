@@ -668,7 +668,7 @@ const Projects = Object.freeze({
     key: 'spyw4re',
     year: 2024,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
+    tags: [Tags.cs, Tags.js, Tags.nodejs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
     button: ['https://botpa.itch.io/spyw4re'],
     vid: 'Qc3aWfPAxg0',
   },
