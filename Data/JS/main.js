@@ -105,7 +105,7 @@ const lans = {
     },
     s: {
       title: 'My Skills',
-      desc: "I've been interested in the world of technology ever since ever. Thanks to that, I've learnt and manage a large number of skills related to different topics.",
+      desc: "I've been interested in the world of technology since I was little. Thanks to that, I've learnt and manage a large number of skills related to different topics.",
       videogames: 'Videogame Development',
       apps: 'App Development',
       web: 'Web Development',
@@ -396,7 +396,7 @@ const lans = {
     },
     s: {
       title: 'Mis Habilidades',
-      desc: "He estado interesado en el mundo de la tecnología desde siempre. Debido a eso, he aprendido y manejo una gran cantidad de habilidades relacionadas con diferentes temas.",
+      desc: "He estado interesado en el mundo de la tecnología desde pequeño. Debido a eso, he aprendido y manejo una gran cantidad de habilidades relacionadas con diferentes temas.",
       videogames: 'Desarrollo de Videojuegos',
       apps: 'Desarrollo de Aplicaciones',
       web: 'Desarrollo Web',
