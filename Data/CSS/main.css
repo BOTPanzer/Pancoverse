@@ -65,7 +65,7 @@ html[light] {
 
 html[mobile] {
   font-size: 13px;
-  --menuHeight: 340px;
+  --menuHeight: 360px;
   --pageW: 90vw;
   --pageGap: 10px;
   --homeW: 100%;
@@ -138,6 +138,45 @@ a:not([class]) {
   justify-content: center;
 }
 
+/* Buttons */
+.button {
+  min-height: 48px;
+  width: fit-content;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: roboto;
+  font-size: .93rem;
+  white-space: nowrap;
+  color: var(--text);
+
+  box-sizing: border-box;
+  border: solid 1px var(--accent);
+  border-radius: 4px 8px;
+
+  cursor: pointer;
+  transition: background .2s, border-radius .2s;
+}
+
+.button:hover {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 4px 12px;
+}
+
+.button[small] {
+  min-height: 40px;
+  padding: 0 12px;
+  
+  border-radius: 8px 4px;
+}
+
+.button[small]:hover {
+  border-radius: 12px 4px;
+}
+
 /* Pages */
 .page {
   height: fit-content;
@@ -175,32 +214,6 @@ a:not([class]) {
   height: 1px; 
   flex-grow: 1; 
   background: var(--text);
-}
-
-.pageButton {
-  min-height: 50px;
-  width: fit-content;
-  padding: 0 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: roboto;
-  font-size: .93rem;
-  white-space: nowrap;
-  color: var(--text);
-
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
-  border-radius: 8px;
-
-  cursor: pointer;
-  transition: background .2s;
-}
-
-.pageButton:hover {
-  background: color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 /* Appear animation */
@@ -992,7 +1005,7 @@ html[mobile] .homeMe {
   position: absolute;
   
   border-radius: 50vh; 
-  border: solid var(--accent) 2px; 
+  border: solid var(--accent) 1px; 
 
   z-index: -1; 
 }
@@ -1665,33 +1678,6 @@ dialog .projectTag {
 .projectTag:hover {
   background-color: color-mix(in srgb, var(--button) 50%, var(--accent));
   border: solid 2px var(--accent);
-}
-
-/* Project buttons */
-.projectButton {
-  min-height: 40px;
-  width: fit-content;
-  padding: 0 12px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: roboto;
-  font-size: .93rem;
-  white-space: nowrap;
-  color: var(--text);
-
-  box-sizing: border-box;
-  border: solid 2px var(--accent);
-  border-radius: 10px;
-
-  cursor: pointer;
-  transition: background .1s;
-}
-
-.projectButton:hover {
-  background: color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 /* Projects show more */

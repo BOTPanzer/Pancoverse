@@ -66,6 +66,7 @@ const lans = {
       skills: 'Skills',
       projects: 'Projects',
       menu: 'Menu',
+      close: 'Close',
       theme: 'Theme',
       language: 'English',
       achievements: 'Achievements',
@@ -358,6 +359,7 @@ const lans = {
       skills: 'Habilidades',
       projects: 'Proyectos',
       menu: 'Menú',
+      close: 'Cerrar',
       theme: 'Tema',
       language: 'Español',
       achievements: 'Logros',
@@ -1111,6 +1113,7 @@ function setLan() {
   document.getElementById('navMenuOpen').innerText = lan.top.menu
 
   //Navbar menu
+  document.getElementById('navMenuClose').innerText = lan.top.close
   document.getElementById('navMenuHome').innerText = lan.top.home
   document.getElementById('navMenuAbout').innerText = lan.top.about
   document.getElementById('navMenuSkills').innerText = lan.top.skills
@@ -1621,7 +1624,7 @@ function addProject(animate) {
   if (Array.isArray(button)) {
     for (let i = 0; i < button.length; i++) {
       const buttonText = locales['b' + (i + 1)]
-      buttons += `<a id="${id}B${i}" class="projectButton" target="_blank" href="${button[i]}">${buttonText ? buttonText : locales.tit}</a>`
+      buttons += `<a id="${id}B${i}" class="button" small target="_blank" href="${button[i]}">${buttonText ? buttonText : locales.tit}</a>`
     }
   }
 

@@ -48,6 +48,10 @@
             <dot id="actionDot1" class="actionDot" style="margin: 3px 4px 0 0;"></dot>
           </div>
           <div onclick="event.stopPropagation()">
+            <div class="navMenuButton" always onclick="toggleMenu(false)">
+              <img src="Data/Images/Icons/close.png">
+              <span id="navMenuClose">Close</span>
+            </div>
             <div class="navMenuButton" onclick="goto('home')">
               <img src="Data/Images/Icons/home.png">
               <span id="navMenuHome">Home</span>
@@ -191,7 +195,7 @@
       </span>
 
       <!-- Go to about -->
-      <div id="homeAbout" class="pageButton" onclick="goto('about')">See more about me!</div>
+      <div id="homeAbout" class="button" onclick="goto('about')">See more about me!</div>
     </div>
     
     <!-- About -->
@@ -217,7 +221,7 @@
         </span>
 
         <!-- Go to skills -->
-        <div id="aboutSkills" class="pageButton" onclick="goto('skills')">Check out my skills!</div>
+        <div id="aboutSkills" class="button" onclick="goto('skills')">Check out my skills!</div>
       </div>
 
       <!-- Image -->
@@ -315,7 +319,7 @@
       </div>
       
       <!-- Go to projects -->
-      <div id="skillsProjects" class="pageButton" onclick="goto('projects')">Check out my projects!</div>
+      <div id="skillsProjects" class="button" onclick="goto('projects')">Check out my projects!</div>
     </div>
 
     <!-- Projects -->
@@ -344,7 +348,7 @@
 
       <!-- Show more -->
       <div id="projectsMoreBox" class="projectsMoreBox">
-        <div id="projectsMore" class="pageButton" onclick="addProject(); addProject();">Show more</div>
+        <div id="projectsMore" class="button" onclick="addProject(); addProject();">Show more</div>
       </div>
 
       <!-- Project Filter -->
