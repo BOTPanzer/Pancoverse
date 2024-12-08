@@ -65,6 +65,7 @@ const lans = {
       about: 'About',
       skills: 'Skills',
       projects: 'Projects',
+      menu: 'Menu',
       theme: 'Theme',
       language: 'English',
       achievements: 'Achievements',
@@ -356,6 +357,7 @@ const lans = {
       about: 'Sobre Mi',
       skills: 'Habilidades',
       projects: 'Proyectos',
+      menu: 'Menú',
       theme: 'Tema',
       language: 'Español',
       achievements: 'Logros',
@@ -977,7 +979,7 @@ function toggleMenu(open) {
   if (open == menuOpen) return
 
   //Hide ball
-  document.getElementById('navMenuDot1').style.opacity = '0'
+  document.getElementById('actionDot1').removeAttribute('active')
 
   //Elems
   const exit = document.getElementById('navMenuExit')
@@ -989,16 +991,12 @@ function toggleMenu(open) {
     //Open
     exit.style.pointerEvents = 'all'
     menu.setAttribute('menu', '')
-    setTimeout(() => { 
-      if (menuOpen) space.setAttribute('open', '')
-    }, 150)
+    space.setAttribute('open', '')
   } else {
     //Close
     exit.style.pointerEvents = ''
     space.removeAttribute('open', '')
-    setTimeout(() => { 
-      if (!menuOpen) menu.removeAttribute('menu') 
-    }, 150)
+    menu.removeAttribute('menu') 
   }
   menuOpen = open
 }
@@ -1110,6 +1108,7 @@ function setLan() {
   document.getElementById('navAbout').innerText = lan.top.about
   document.getElementById('navSkills').innerText = lan.top.skills
   document.getElementById('navProjects').innerText = lan.top.projects
+  document.getElementById('navMenuOpen').innerText = lan.top.menu
 
   //Navbar menu
   document.getElementById('navMenuHome').innerText = lan.top.home
@@ -1294,8 +1293,8 @@ function giveAchievement(name) {
   if (given) {
     addAchievement(name)
     if (!menuOpen)
-      document.getElementById('navMenuDot1').style.opacity = '1'
-    document.getElementById('navMenuDot2').style.opacity = '1'
+      document.getElementById('actionDot1').setAttribute('active', '')
+    document.getElementById('actionDot2').setAttribute('active', '')
   }
 }
 
@@ -1345,33 +1344,25 @@ function resetAchievements() {
 
 
 //Achievements menu
-let achiOpen = false
+const achievementsMenu = document.getElementById('achMenu')
+
+achievementsMenu.onclick = (event) => {
+  const rect = achievementsMenu.getBoundingClientRect()
+  const clickedBackdrop = !(rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width)
+  if (clickedBackdrop && achievementsMenu.open) toggleAchievements()
+}
 
 function toggleAchievements() {
   //Hide menu dot
-  document.getElementById('navMenuDot2').style.opacity = '0'
+  document.getElementById('actionDot2').removeAttribute('active')
 
-  //Get elements
-  const exit = document.getElementById('achMenuExit')
-  const menu = document.getElementById('achMenu')
-
-  //Toggle achievement menu
-  if (!achiOpen) {
-    exit.style.display = 'flex'
-    setTimeout(()=> { 
-      menu.style.opacity = '1'
-      menu.style.pointerEvents = 'all'
-      document.body.style.overflow = 'hidden'
-      achiOpen = true
-    }, 50)
+  //Toggle menu
+  if (!achievementsMenu.open) {
+    achievementsMenu.showModal()
+    document.body.style.overflow = 'hidden'
   } else {
-    menu.style.opacity = '0'
-    menu.style.pointerEvents = 'none'
+    achievementsMenu.close()
     document.body.style.overflow = 'auto'
-    setTimeout(()=> { 
-      exit.style.display = 'none' 
-      achiOpen = false
-    }, 200)
   }
 
   //Close navbar menu
@@ -1713,14 +1704,21 @@ function toggleVideo(number, url) {
   }
 }
 
+//Filters menu
+const filterMenu = document.getElementById('filterMenu')
+
+filterMenu.onclick = (event) => {
+  const rect = filterMenu.getBoundingClientRect()
+  const clickedBackdrop = !(rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width)
+  if (clickedBackdrop && filterMenu.open) toggleFiltersMenu()
+}
+
 function toggleFiltersMenu() {
   //Get elements
-  const exit = document.getElementById('filterMenuExit')
-  const menu = document.getElementById('filterMenu')
   const list = document.getElementById('filterMenuTags')
 
   //Toggle filter menu
-  if (!projs.menuOpen) {
+  if (!filterMenu.open) {
     //Get tags (only the ones used in projects)
     const usedTags = []
     projs.list.forEach(project => {
@@ -1741,22 +1739,12 @@ function toggleFiltersMenu() {
     tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}'); toggleFiltersMenu();">${projs.getTagName(tag)}</span>`)
 
     //Open
-    exit.style.display = 'flex'
-    setTimeout(() => { 
-      menu.style.opacity = '1'
-      menu.style.pointerEvents = 'all'
-      document.body.style.overflow = 'hidden'
-      projs.menuOpen = true
-    }, 50)
+    filterMenu.showModal()
+    document.body.style.overflow = 'hidden'
   } else {
     //Close
-    menu.style.opacity = '0'
-    menu.style.pointerEvents = 'none'
+    filterMenu.close()
     document.body.style.overflow = 'auto'
-    setTimeout(() => { 
-      exit.style.display = 'none' 
-      projs.menuOpen = false
-    }, 200)
   }
 }
 

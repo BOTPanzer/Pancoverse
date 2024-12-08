@@ -42,8 +42,11 @@
       <!-- Top menu -->
       <div id="navMenuExit" onclick="toggleMenu(false)"> 
         <div id="navMenu" onclick="event.stopPropagation(); if (!menuOpen) toggleMenu(true);">
-          <img src="Data/Images/Icons/more.png">
-          <dot id="navMenuDot1" class="navMenuDot"></dot>
+          <div class="navMenuOpen">
+            <img src="Data/Images/Icons/more.png">
+            <span id="navMenuOpen">Menu</span>
+            <dot id="actionDot1" class="actionDot" style="margin: 3px 4px 0 0;"></dot>
+          </div>
           <div onclick="event.stopPropagation()">
             <div class="navMenuButton" onclick="goto('home')">
               <img src="Data/Images/Icons/home.png">
@@ -76,62 +79,47 @@
             <div class="navMenuButton" always onclick="toggleAchievements()">
               <img src="Data/Images/Icons/cup.png">
               <span id="navMenuAchievements">Achievements</span>
-              <dot id="navMenuDot2" class="navMenuDot" style="left: 35px;"></dot>
+              <dot id="actionDot2" class="actionDot" style="left: 35px;"></dot>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Achievements -->
-      <div id="achMenuExit" onclick="toggleAchievements()">
-        <div id="achMenu" onclick="event.stopPropagation()">
-          <div></div>
-          <span id="achMenuTitle">ACHIEVEMENTS</span>
-          <div class="achMenuClose" onclick="toggleAchievements()">
-            <img src="Data/Images/Icons/close.png">
+      <dialog id="achMenu">
+        <!-- Title & close button -->
+        <span id="achMenuTitle" class="menuTitle">ACHIEVEMENTS</span>
+        <div class="menuClose" onclick="toggleAchievements()">
+          <img src="Data/Images/Icons/close.png">
+        </div>
+        <!-- Achievements list -->
+        <div class="achMenuList">
+          <div id="ach1" class="achievement" locked>
+            <img src="Data/Images/Achievements/socials.jpg">
+            <div>
+              <div id="ach1Title">Interested fellow</div>
+              <div id="ach1Description">Given after opening all my social links</div>
+            </div>
+            <span id="ach1Lock">LOCKED</span>
           </div>
-          <div>
-            <div id="ach1" class="achievement" locked>
-              <img src="Data/Images/Achievements/socials.jpg">
-              <div>
-                <div id="ach1Title">Interested fellow</div>
-                <div id="ach1Description">Given after opening all my social links</div>
-              </div>
-              <span id="ach1Lock">LOCKED</span>
+          <div id="ach2" class="achievement" locked>
+            <img src="Data/Images/Achievements/artyom.jpg">
+            <div>
+              <div id="ach2Title">Best friends</div>
+              <div id="ach2Description">Given after clicking 7 times on Artyom (my gecko)</div>
             </div>
-            <div id="ach2" class="achievement" locked>
-              <img src="Data/Images/Achievements/artyom.jpg">
-              <div>
-                <div id="ach2Title">Best friends</div>
-                <div id="ach2Description">Given after clicking 7 times on Artyom (my gecko)</div>
-              </div>
-              <span id="ach2Lock">LOCKED</span>
+            <span id="ach2Lock">LOCKED</span>
+          </div>
+          <div id="ach3" class="achievement" locked>
+            <img src="Data/Images/Achievements/drill.jpg">
+            <div>
+              <div id="ach3Title">Go with the flow</div>
+              <div id="ach3Description">Given after finding the secret Drill glasses</div>
             </div>
-            <div id="ach3" class="achievement" locked>
-              <img src="Data/Images/Achievements/drill.jpg">
-              <div>
-                <div id="ach3Title">Go with the flow</div>
-                <div id="ach3Description">Given after finding the secret Drill glasses</div>
-              </div>
-              <span id="ach3Lock">LOCKED</span>
-            </div>
+            <span id="ach3Lock">LOCKED</span>
           </div>
         </div>
-      </div>
-
-      <!-- Project Filter -->
-      <div id="filterMenuExit" onclick="toggleFiltersMenu()">
-        <div id="filterMenu" onclick="event.stopPropagation()">
-          <div></div>
-          <span id="filterMenuTitle">Filter by:</span>
-          <div class="filterMenuClose" onclick="toggleFiltersMenu()">
-            <img src="Data/Images/Icons/close.png">
-          </div>
-          <div id="filterMenuTags">
-            
-          </div>
-        </div>
-      </div>
+      </dialog>
 
       <!-- Socials -->
       <div class="socials">
@@ -358,6 +346,17 @@
       <div id="projectsMoreBox" class="projectsMoreBox">
         <div id="projectsMore" class="pageButton" onclick="addProject(); addProject();">Show more</div>
       </div>
+
+      <!-- Project Filter -->
+      <dialog id="filterMenu">
+        <!-- Title & close button -->
+        <span id="filterMenuTitle" class="menuTitle">FILTER BY</span>
+        <div class="menuClose" onclick="toggleFiltersMenu()">
+          <img src="Data/Images/Icons/close.png">
+        </div>
+        <!-- Tags list -->
+        <div id="filterMenuTags"></div>
+      </dialog>
     </div>
 
     <!-- Bottom -->
