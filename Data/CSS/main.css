@@ -1627,18 +1627,37 @@ html[mobile] .projectTags {
   background: var(--button); 
   border-radius: 20px;
   pointer-events: auto;
+  position: relative;
 }
 
-.projectInfoContent > span:nth-child(1) {
+.projectInfoContent > div:nth-child(1) {
   width: 100%; 
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
+
+html:not([mobile]) .project[reverse] .projectInfoContent > div:nth-child(1) {
+  flex-direction: row;
+}
+
+.projectInfoContent > div:nth-child(1) > span:nth-child(1) {
   font-family: phonk; 
   font-size: 1.46rem; 
+  flex: 1;
+}
+
+.projectInfoContent > div:nth-child(1) > span:nth-child(2) {
+  color: var(--textSoft);
+  font-family: roboto;
+  font-size: .86rem;
+  margin: -5px 0;
 }
 
 .projectInfoContent > span:nth-child(2) {
-  width: 100%; 
-  text-align: justify; 
-  opacity: .8;
+  text-align: justify;
 }
 
 /* Projects (description -> buttons) */

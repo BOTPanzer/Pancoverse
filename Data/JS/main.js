@@ -148,6 +148,9 @@ const lans = {
         diy: 'DIY',
         electronics: 'Electronics',
       },
+      date: {
+        present: 'Present'
+      },
       projects: {
         stardewpets: {
           tit: "Stardew Pets",
@@ -175,7 +178,7 @@ const lans = {
         },
         hightime: {
           tit: "High on Time",
-          con: `Submitted to the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
+          con: `Developed for the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
                 <br><br>
                 High on Time is a frenetic shooter in which, thanks to a drug, you are capable of controling time at the cost of your life.
                 <br><br>
@@ -187,10 +190,10 @@ const lans = {
         },
         fresquita: {
           tit: "The lost Fresquita",
-          con: `Finalist of the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+          con: `One of the awarded games of the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
                 <br><br>
                 In The lost Fresquita you will play the role of Juan in a day at night. 
-                The day before you celebrated a party in the forest and forgot some beers there but, since that's irresponsible, you came back for them. 
+                You celebrated a party in the forest the previous day and forgot some beers there but, since that's irresponsible, you came back for them. 
                 <br><br>
                 Your mission will be to find the 3 forgotten beers and take them back home safe and sound. 
                 What do I mean by safe? 
@@ -212,7 +215,7 @@ const lans = {
         },
         lmdshow: {
           tit: "Escape From LMDShow",
-          con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a> for playing!
+          con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a> for playing!
                 <br><br>
                 Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
                 <br><br>
@@ -224,7 +227,7 @@ const lans = {
           tit: "Memory Shift",
           con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
                 <br><br>
-                Inspired by Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
+                Inspired by games like Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
                 <br><br>
                 Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
           b1:  "Download&nbsp<i>Memory Shift</i>"
@@ -250,7 +253,7 @@ const lans = {
           tit: "Vaporcade",
           con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
                 <br><br>
-                Vaporcade is divided by waves. In each wave you'll find new enemies and, for every odd wave, a boss will appear.`,
+                Vaporcade is divided by waves. In each wave you'll find new enemies and, every two waves, a boss you will have to defeat.`,
           b1:  "Download&nbsp<i>Vaporcade</i>"
         },
         otters: {
@@ -441,6 +444,9 @@ const lans = {
         diy: 'Manualidades',
         electronics: 'Electrónica',
       },
+      date: {
+        present: 'Presente'
+      },
       projects: {
         stardewpets: {
           tit: "Stardew Pets",
@@ -468,7 +474,7 @@ const lans = {
         },
         hightime: {
           tit: "High on Time",
-          con: `Presentado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
+          con: `Des para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
                 <br><br>
                 High on Time es un shooter frenetico en el que, debido a una droga, eres capaz de controlar el tiempo a costo de tu vida.
                 <br><br>
@@ -480,10 +486,10 @@ const lans = {
         },
         fresquita: {
           tit: "The lost Fresquita",
-          con: `Finalista de la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+          con: `Uno de los juegos premiados de la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
                 <br><br>
                 En The lost Fresquita encarnaras el rol de Juan en un día por la noche. 
-                El día de antes celebrasteis una fiesta en el bosque y se te olvidó recoger unas cervezas pero, como eso es irresponsable, has vuelto a por ellas. 
+                El día anterior celebrasteis una fiesta en el bosque y se te olvidó recoger unas cervezas pero, como eso es irresponsable, has vuelto a por ellas. 
                 <br><br>
                 Tu misión será encontrar las 3 cervezas olvidadas y volver a casa a salvo. 
                 ¿Que a qué me refiero con a salvo? 
@@ -505,7 +511,7 @@ const lans = {
         },
         lmdshow: {
           tit: "Escape From LMDShow",
-          con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">Juan</a>!
+          con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>!
                 <br><br>
                 Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
                 <br><br>
@@ -517,9 +523,9 @@ const lans = {
           tit: "Memory Shift",
           con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
                 <br><br>
-                Inspirado por Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
+                Inspirado por juegos como Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
                 <br><br>
-                Disfruta de una aventura con historia, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
+                Disfruta de una aventura con narrativa, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
           b1:  "Descargar&nbsp<i>Memory Shift</i>"
         },
         spirits: {
@@ -543,7 +549,7 @@ const lans = {
           tit: "Vaporcade",
           con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
                 <br><br>
-                Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada oleada impar, un jefe aparecerá.`,
+                Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada dos oleadas, un jefe al que derrotar.`,
           b1:  "Descargar&nbsp<i>Vaporcade</i>"
         },
         otters: {
@@ -670,7 +676,8 @@ const Tags = Object.freeze({
 const Projects = Object.freeze({
   spyw4re: {
     key: 'spyw4re',
-    year: 2024,
+    dateStart: 2024,
+    dateEnd: 2024,
     scope: ['team', 'jam'],
     tags: [Tags.cs, Tags.js, Tags.nodejs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
     button: ['https://botpa.itch.io/spyw4re'],
@@ -678,21 +685,24 @@ const Projects = Object.freeze({
   },
   stardewpets: {
     key: 'stardewpets',
-    year: 2024,
+    dateStart: 2024,
+    dateEnd: 2024,
     scope: ['solo', 'personal'],
     tags: [Tags.ts, Tags.html, Tags.css, Tags.vscode, Tags.photoshop],
     button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets'],
   },
   hackoon: {
     key: 'hackoon',
-    year: Infinity,
+    dateStart: 2024,
+    dateEnd: Infinity,
     scope: ['solo', 'personal'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
     button: ['https://www.tiktok.com/@botpanzer'],
   },
   hightime: {
     key: 'hightime',
-    year: 2024,
+    dateStart: 2024,
+    dateEnd: 2024,
     scope: ['team', 'jam'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.photoshop],
     button: ['https://botpa.itch.io/high-on-time'],
@@ -700,7 +710,8 @@ const Projects = Object.freeze({
   },
   fresquita: {
     key: 'fresquita',
-    year: 2024,
+    dateStart: 2024,
+    dateEnd: 2024,
     scope: ['solo', 'jam'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
     button: ['https://botpa.itch.io/the-lost-fresquita'],
@@ -708,7 +719,8 @@ const Projects = Object.freeze({
   },
   raccoon: {
     key: 'raccoon',
-    year: 2023,
+    dateStart: 2023,
+    dateEnd: 2023,
     scope: ['team', 'jam'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
     button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
@@ -716,7 +728,8 @@ const Projects = Object.freeze({
   },
   lmdshow: {
     key: 'lmdshow',
-    year: 2023,
+    dateStart: 2023,
+    dateEnd: 2023,
     scope: ['solo', 'personal'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
     button: ['https://botpa.itch.io/escape-from-lmdshow'],
@@ -724,14 +737,16 @@ const Projects = Object.freeze({
   },
   memory: {
     key: 'memory',
-    year: 2023,
+    dateStart: 2023,
+    dateEnd: 2023,
     scope: ['solo', 'personal'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.photoshop, Tags.illustrator],
     button: ['https://botpa.itch.io/memory-shift'],
   },
   spirits: {
     key: 'spirits',
-    year: 2023,
+    dateStart: 2023,
+    dateEnd: 2023,
     scope: ['team', 'jam'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.illustrator, Tags.photoshop],
     button: ['https://botpa.itch.io/twin-spirits'],
@@ -739,42 +754,48 @@ const Projects = Object.freeze({
   },
   vaporcade: {
     key: 'vaporcade',
-    year: 2022,
+    dateStart: 2023,
+    dateEnd: 2023,
     scope: ['solo', 'personal'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.illustrator, Tags.photoshop],
     button: ['https://botpa.itch.io/vaporcade']
   },
   papa: {
     key: 'papa',
-    year: 2023,
+    dateStart: 2023,
+    dateEnd: 2023,
     scope: ['team', 'jam'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.illustrator, Tags.photoshop],
     button: ['https://botpa.itch.io/cooking-papa']
   },
   otters: {
     key: 'otters',
-    year: 2022,
+    dateStart: 2022,
+    dateEnd: 2022,
     scope: ['team', 'jam'],
     tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.max3ds, Tags.substance, Tags.illustrator, Tags.photoshop],
     button: ['https://botpa.itch.io/vaporcade']
   },
   assAn: {
     key: 'assAn',
-    year: 2021,
+    dateStart: 2021,
+    dateEnd: 2024,
     scope: ['solo', 'personal'],
     tags: [Tags.java, Tags.android, Tags.uiux],
     button: ['Data/Orion Assistant 1.10.0.apk']
   },
   assPC: {
     key: 'assPC',
-    year: 2022,
+    dateStart: 2022,
+    dateEnd: 2024,
     scope: ['solo', 'personal'],
     tags: [Tags.html, Tags.css, Tags.js, Tags.nodejs, Tags.electronjs, Tags.vscode, Tags.uiux],
     button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
   },
   frame: {
     key: 'frame',
-    year: 2022,
+    dateStart: 2022,
+    dateEnd: 2024,
     scope: ['solo', 'personal'],
     tags: [Tags.html, Tags.css, Tags.js, Tags.vscode, Tags.uiux],
     button: ['https://botpanzer.github.io/Orion-Framework']
@@ -782,32 +803,37 @@ const Projects = Object.freeze({
   //Usually hidden from here
   disbots: {
     key: 'disbots',
-    year: 2019,
+    dateStart: 2018,
+    dateEnd: 2020,
     scope: ['solo', 'personal'],
     tags: [Tags.js, Tags.vscode, Tags.discordapi],
     button: ["https://github.com/BOTPanzer/Syrup"]
   },
   mod: {
     key: 'mod',
-    year: 2021,
+    dateStart: 2021,
+    dateEnd: 2021,
     scope: ['solo', 'personal'],
     tags: [Tags.model3d, Tags.print3d, Tags.illustrator, Tags.sketching, Tags.diy],
   },
   t45: {
     key: 't45',
-    year: 2018,
+    dateStart: 2018,
+    dateEnd: 2018,
     scope: ['solo', 'personal'],
     tags: [Tags.print3d, Tags.diy],
   },
   usb: {
     key: 'usb',
-    year: 2018,
+    dateStart: 2018,
+    dateEnd: 2018,
     scope: ['solo', 'personal'],
     tags: [Tags.model3d, Tags.print3d, Tags.electronics, Tags.diy],
   },
   hoodie: {
     key: 'hoodie',
-    year: 2021,
+    dateStart: 2021,
+    dateEnd: 2021,
     scope: ['solo', 'personal'],
     tags: [Tags.illustrator, Tags.photoshop, Tags.sketching],
   },
@@ -1529,7 +1555,7 @@ function addProjects(sort, filter) {
 
   //Fix filter
   if (filter == null) filter = projs.filter
-  else if (typeof filter !== 'string' && typeof filter !== 'number' || filter == Tags.none) filter = ''
+  else if (typeof filter !== 'string' || filter == Tags.none) filter = ''
 
   //Check if refresh
   const isRefresh = projs.sort == sort && projs.filter == filter
@@ -1549,7 +1575,7 @@ function addProjects(sort, filter) {
     projs.list.forEach(project => {
       projs.sortedList.push(project)
     })
-    projs.sortedList.sort((a, b) => b.year - a.year)
+    projs.sortedList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
   } else {
     //No sorting -> Add all projects
     projs.sortedList = projs.list
@@ -1562,13 +1588,7 @@ function addProjects(sort, filter) {
     projs.filteredList = []
     projs.sortedList.forEach(project => {
       if (!Array.isArray(project.tags)) return
-      if (typeof filter === 'string') {
-        //String filter -> Look in tags
-        if (project.tags.includes(filter)) projs.filteredList.push(project)
-      } else {
-        //Number filter -> Look in year
-        if (project.year == filter) projs.filteredList.push(project)
-      }
+      if (project.tags.includes(filter)) projs.filteredList.push(project)
     })
     if (!isRefresh) goto('projects')
   } else {
@@ -1607,16 +1627,13 @@ function addProject(animate) {
 
   //Get tags
   let tags = ''
-
-  //Add year tag
-  if (project.year && project.year != Infinity) {
-    tags += `<span class="projectTag" year onclick="addProjects(null, ${project.year})">${project.year}</span>`
-  }
-  
-  //Add normal tags
   if (Array.isArray(project.tags)) project.tags.forEach(tag => {
     tags += `<span class="projectTag" onclick="addProjects(null, '${tag}')">${projs.getTagName(tag)}</span>`
   })
+
+  //Get date
+  const dateStart = project.dateStart
+  const dateEnd = project.dateEnd == Infinity ? lan.p.date.present : project.dateEnd
 
   //Get buttons
   let buttons = ''
@@ -1669,7 +1686,10 @@ function addProject(animate) {
       <div class="projectTags">${tags}</div>
       <!-- Title & description -->
       <div class="projectInfoContent">
-        <span>${locales.tit}</span>
+        <div>
+          <span>${locales.tit}</span>
+          <span class="projectDate">${dateStart == dateEnd ? dateEnd : dateStart + ' - ' + dateEnd}</span>
+        </div>
         <span>${locales.con}</span>
       </div>
       <!-- Buttons -->
