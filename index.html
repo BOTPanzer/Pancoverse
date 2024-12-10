@@ -40,15 +40,15 @@
       </div>
 
       <!-- Top menu -->
-      <div id="navMenuExit" onclick="toggleMenu(false)"> 
-        <div id="navMenu" onclick="event.stopPropagation(); if (!menuOpen) toggleMenu(true);">
+      <div id="navMenuExit" onclick="toggleNavMenu(false)"> 
+        <div id="navMenu" onclick="event.stopPropagation(); if (!menuOpen) toggleNavMenu(true);">
           <div class="navMenuOpen">
             <img src="Data/Images/Icons/more.png">
             <span id="navMenuOpen">Menu</span>
             <dot id="actionDot1" class="actionDot" style="margin: 3px 4px 0 0;"></dot>
           </div>
           <div onclick="event.stopPropagation()">
-            <div class="navMenuButton" always onclick="toggleMenu(false)">
+            <div class="navMenuButton" always onclick="toggleNavMenu(false)">
               <img src="Data/Images/Icons/close.png">
               <span id="navMenuClose">Close</span>
             </div>
@@ -333,25 +333,23 @@
         <div class="pageTitleLine"></div>
       </div>
       
-      <!-- List -->
+      <!-- Category, sort & filter -->
       <span id="projectsFilterBox">
         <span>
-          <span id="projectsSort">Sort by:</span>
-          <span id="projectsSortBy" class="projectTag" onclick="if (projs.sort == 'date') { projs.sort = ''; } else { projs.sort = 'date'; } refreshProjects();">Bomba Bomba</span>
+          <span id="projectsCategory">Category:</span>
+          <span id="projectsCategoryBy" class="projectTag" onclick="toggleFiltersMenu('category')">All</span>
         </span>
         <span>
           <span id="projectsFilter">Filter by:</span>
           <span id="projectsFilterBy" class="projectTag" onclick="toggleFiltersMenu()">Bomba Bomba Bomba</span>
         </span>
+        <span>
+          <span id="projectsSort">Sort by:</span>
+          <span id="projectsSortBy" class="projectTag" onclick="if (projs.sort == 'date') { projs.sort = ''; } else { projs.sort = 'date'; } refreshProjects();">Bomba Bomba</span>
+        </span>
       </span>
-      <div id="projectsList"></div>
 
-      <!-- Show more -->
-      <div id="projectsMoreBox" class="projectsMoreBox">
-        <div id="projectsMore" class="button" onclick="addProject(); addProject();">Show more</div>
-      </div>
-
-      <!-- Project Filter -->
+      <!-- Filters menu -->
       <dialog id="filterMenu">
         <!-- Title & close button -->
         <span id="filterMenuTitle" class="menuTitle">FILTER BY</span>
@@ -361,6 +359,14 @@
         <!-- Tags list -->
         <div id="filterMenuTags"></div>
       </dialog>
+
+      <!-- List -->
+      <div id="projectsList"></div>
+
+      <!-- Show more -->
+      <div id="projectsMoreBox" class="projectsMoreBox">
+        <div id="projectsMore" class="button" onclick="addProject(); addProject();">Show more</div>
+      </div>
     </div>
 
     <!-- Bottom -->

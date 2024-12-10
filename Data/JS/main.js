@@ -1,25 +1,37 @@
+ /*$      /$$           /$$          
+| $$$    /$$$          |__/          
+| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$ 
+| $$ $$/$$ $$ |____  $$| $$| $$__  $$
+| $$  $$$| $$  /$$$$$$$| $$| $$  \ $$
+| $$\  $ | $$ /$$__  $$| $$| $$  | $$
+| $$ \/  | $$|  $$$$$$$| $$| $$  | $$
+|__/     |__/ \_______/|__/|__/  |_*/
 
- /*$      /$$  /$$$$$$  /$$$$$$ /$$   /$$
-| $$$    /$$$ /$$__  $$|_  $$_/| $$$ | $$
-| $$$$  /$$$$| $$  \ $$  | $$  | $$$$| $$
-| $$ $$/$$ $$| $$$$$$$$  | $$  | $$ $$ $$
-| $$  $$$| $$| $$__  $$  | $$  | $$  $$$$
-| $$\  $ | $$| $$  | $$  | $$  | $$\  $$$
-| $$ \/  | $$| $$  | $$ /$$$$$$| $$ \  $$
-|__/     |__/|__/  |__/|______/|__/  \_*/
+//Get html element
+const html = document.querySelector('html')
+
+
 
 //Load portfolio
 window.onload = () => {
+  //Stop scroll
+  document.body.setAttribute('noscroll', '')
+
+  //Update page scroll & size
+  window.onresize()
+  window.onscroll()
+
+  //Update language
   setLan()
-  resized()
-  scrolled()
+
+  //Hide waves
   html.style.setProperty('--waveBot', '100vh')
   setTimeout(() => {
     homeType()
     document.getElementById('waves').style.opacity = '0'
     document.getElementById('waves').style.pointerEvents = 'none'
     setTimeout(() => { 
-      document.body.style.overflow = 'auto' 
+      document.body.removeAttribute('noscroll')
     }, 500)
   }, 500)
 }
@@ -28,14 +40,12 @@ window.onload = () => {
 
 //Socials achievement & title change
 window.onfocus = () => {
-  if (socialsOpen) giveAchievement('socials')
+  if (socialsOpen) {
+    giveAchievement('socials')
+    socialsOpen = false;
+  }
   changeTitle()
 }
-
-
-
-//Get html element
-const html = document.querySelector('html')
 
 
 
@@ -123,14 +133,21 @@ const lans = {
     },
     p: {
       title: 'My Projects',
+      none: 'No projects where found...<br>Try changing the selected filters.',
       more: 'Show more projects!',
       filter: {
+        category: 'Category',
+        categories: {
+          all: 'All',
+          games: 'Games',
+          other: 'Other'
+        },
+        filter: 'Filter',
         sort: 'Sort by',
         sortby: {
           none: 'None',
           date: 'Date',
         },
-        filter: 'Filter by',
       },
       scope: {
         solo: '🦝 Solo Project',
@@ -139,7 +156,7 @@ const lans = {
         jam: '💫 Jam Game',
       },
       tags: {
-        none: 'None',
+        all: 'All',
         uiux: 'UI/UX Design',
         discordapi: 'Discord API',
         '3dmodel': '3D Modeling',
@@ -419,14 +436,21 @@ const lans = {
     },
     p: {
       title: 'Mis Proyectos',
+      none: 'No se han encontrado proyectos...<br>Prueba a cambiar los filtros seleccionados.',
       more: '¡Ver más proyectos!',
       filter: {
+        category: 'Categoría',
+        categories: {
+          all: 'Todo',
+          games: 'Juegos',
+          other: 'Otros'
+        },
+        filter: 'Filtro',
         sort: 'Ordenar por',
         sortby: {
           none: 'Nada',
           date: 'Fecha',
         },
-        filter: 'Filtrar por',
       },
       scope: {
         solo: '🦝 Proyecto Solitario',
@@ -435,7 +459,7 @@ const lans = {
         jam: '💫 Juego de Jam',
       },
       tags: {
-        none: 'Nada',
+        all: 'Todo',
         uiux: 'Diseño UI/UX',
         discordapi: 'API de Discord',
         '3dmodel': 'Modelado 3D',
@@ -640,9 +664,15 @@ let lan = lans.es
 
 
 //Projects info
-const Tags = Object.freeze({
-  //None
-  none: 'none',
+const Category = Object.freeze({
+  all: 'all',
+  games: 'games',
+  other: 'other',
+});
+
+const Tag = Object.freeze({
+  //All
+  all: 'all',
   //Languages
   cs: 'C#',
   java: 'JAVA',
@@ -679,7 +709,8 @@ const Projects = Object.freeze({
     dateStart: 2024,
     dateEnd: 2024,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.js, Tags.nodejs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/spyw4re'],
     vid: 'Qc3aWfPAxg0',
   },
@@ -688,7 +719,8 @@ const Projects = Object.freeze({
     dateStart: 2024,
     dateEnd: 2024,
     scope: ['solo', 'personal'],
-    tags: [Tags.ts, Tags.html, Tags.css, Tags.vscode, Tags.photoshop],
+    category: Category.other,
+    tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
     button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets'],
   },
   hackoon: {
@@ -696,7 +728,8 @@ const Projects = Object.freeze({
     dateStart: 2024,
     dateEnd: Infinity,
     scope: ['solo', 'personal'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://www.tiktok.com/@botpanzer'],
   },
   hightime: {
@@ -704,7 +737,8 @@ const Projects = Object.freeze({
     dateStart: 2024,
     dateEnd: 2024,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop],
     button: ['https://botpa.itch.io/high-on-time'],
     vid: 'UGMQDJxov1M',
   },
@@ -713,7 +747,8 @@ const Projects = Object.freeze({
     dateStart: 2024,
     dateEnd: 2024,
     scope: ['solo', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/the-lost-fresquita'],
     vid: 'SC_3TWWP46k',
   },
@@ -722,7 +757,8 @@ const Projects = Object.freeze({
     dateStart: 2023,
     dateEnd: 2023,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
     vid: 'UGH5wQYlAt4',
   },
@@ -731,7 +767,8 @@ const Projects = Object.freeze({
     dateStart: 2023,
     dateEnd: 2023,
     scope: ['solo', 'personal'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.blender, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/escape-from-lmdshow'],
     vid: 'z0Qv5HZyZgU',
   },
@@ -740,7 +777,8 @@ const Projects = Object.freeze({
     dateStart: 2023,
     dateEnd: 2023,
     scope: ['solo', 'personal'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.photoshop, Tags.illustrator],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop, Tag.illustrator],
     button: ['https://botpa.itch.io/memory-shift'],
   },
   spirits: {
@@ -748,7 +786,8 @@ const Projects = Object.freeze({
     dateStart: 2023,
     dateEnd: 2023,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.illustrator, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/twin-spirits'],
     vid: 'SdIGAw2ABeU',
   },
@@ -757,7 +796,8 @@ const Projects = Object.freeze({
     dateStart: 2023,
     dateEnd: 2023,
     scope: ['solo', 'personal'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.illustrator, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/vaporcade']
   },
   papa: {
@@ -765,7 +805,8 @@ const Projects = Object.freeze({
     dateStart: 2023,
     dateEnd: 2023,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.illustrator, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/cooking-papa']
   },
   otters: {
@@ -773,7 +814,8 @@ const Projects = Object.freeze({
     dateStart: 2022,
     dateEnd: 2022,
     scope: ['team', 'jam'],
-    tags: [Tags.cs, Tags.unity, Tags.vscode, Tags.max3ds, Tags.substance, Tags.illustrator, Tags.photoshop],
+    category: Category.games,
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/vaporcade']
   },
   assAn: {
@@ -781,7 +823,8 @@ const Projects = Object.freeze({
     dateStart: 2021,
     dateEnd: 2024,
     scope: ['solo', 'personal'],
-    tags: [Tags.java, Tags.android, Tags.uiux],
+    category: Category.other,
+    tags: [Tag.java, Tag.android, Tag.uiux],
     button: ['Data/Orion Assistant 1.10.0.apk']
   },
   assPC: {
@@ -789,7 +832,8 @@ const Projects = Object.freeze({
     dateStart: 2022,
     dateEnd: 2024,
     scope: ['solo', 'personal'],
-    tags: [Tags.html, Tags.css, Tags.js, Tags.nodejs, Tags.electronjs, Tags.vscode, Tags.uiux],
+    category: Category.other,
+    tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
     button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
   },
   frame: {
@@ -797,7 +841,8 @@ const Projects = Object.freeze({
     dateStart: 2022,
     dateEnd: 2024,
     scope: ['solo', 'personal'],
-    tags: [Tags.html, Tags.css, Tags.js, Tags.vscode, Tags.uiux],
+    category: Category.other,
+    tags: [Tag.html, Tag.css, Tag.js, Tag.vscode, Tag.uiux],
     button: ['https://botpanzer.github.io/Orion-Framework']
   },
   //Usually hidden from here
@@ -806,7 +851,8 @@ const Projects = Object.freeze({
     dateStart: 2018,
     dateEnd: 2020,
     scope: ['solo', 'personal'],
-    tags: [Tags.js, Tags.vscode, Tags.discordapi],
+    category: Category.other,
+    tags: [Tag.js, Tag.vscode, Tag.discordapi],
     button: ["https://github.com/BOTPanzer/Syrup"]
   },
   mod: {
@@ -814,41 +860,44 @@ const Projects = Object.freeze({
     dateStart: 2021,
     dateEnd: 2021,
     scope: ['solo', 'personal'],
-    tags: [Tags.model3d, Tags.print3d, Tags.illustrator, Tags.sketching, Tags.diy],
+    category: Category.other,
+    tags: [Tag.model3d, Tag.print3d, Tag.illustrator, Tag.sketching, Tag.diy],
   },
   t45: {
     key: 't45',
     dateStart: 2018,
     dateEnd: 2018,
     scope: ['solo', 'personal'],
-    tags: [Tags.print3d, Tags.diy],
+    category: Category.other,
+    tags: [Tag.print3d, Tag.diy],
   },
   usb: {
     key: 'usb',
     dateStart: 2018,
     dateEnd: 2018,
     scope: ['solo', 'personal'],
-    tags: [Tags.model3d, Tags.print3d, Tags.electronics, Tags.diy],
+    category: Category.other,
+    tags: [Tag.model3d, Tag.print3d, Tag.electronics, Tag.diy],
   },
   hoodie: {
     key: 'hoodie',
     dateStart: 2021,
     dateEnd: 2021,
     scope: ['solo', 'personal'],
-    tags: [Tags.illustrator, Tags.photoshop, Tags.sketching],
+    category: Category.other,
+    tags: [Tag.illustrator, Tag.photoshop, Tag.sketching],
   },
 })
 
 const projs = {
   //Created projects
   created: 0,
-  //Filtering
-  filter: '',
-  filteredList: [],
-  //Sorting
+  //Category, filter & sorting
+  category: Category.all,
+  filter: Tag.all,
   sort: '',
-  sortedList: [],
   //List (sorted by preferences)
+  filteredList: [],
   list: [
     Projects.spyw4re,
     Projects.stardewpets,
@@ -865,23 +914,17 @@ const projs = {
     Projects.assAn,
     Projects.assPC,
     Projects.frame,
-    /*
+    /**/
     Projects.disbots,
     Projects.mod,
     Projects.t45,
     Projects.usb,
     Projects.hoodie,
-    */
   ],
   //Functions
-  getSortName: (sort) => {
-    return lan.p.filter.sortby[sort == 'date' ? 'date' : 'none']
-  },
-  getTagName: (tag) => {
-    if (tag == '') tag = Tags.none
-    const name = lan.p.tags[tag]
-    return name ? name : tag
-  },
+  getCategoryName: (category) => lan.p.filter.categories[category != Category.games && category != Category.other ? Category.all : category],
+  getSortName: (sort) => lan.p.filter.sortby[sort == 'date' ? 'date' : 'none'],
+  getTagName: (tag) => lan.p.tags[tag] ? lan.p.tags[tag] : tag,
 }
 
 
@@ -892,7 +935,8 @@ const about = {
   index: 0
 }
 
-for (let i = 1; i < lan.a.names.length; i++) about.order.push(i)
+for (let i = 1; i < lan.a.names.length; i++) 
+  about.order.push(i)
 for (let i = about.order.length - 1; i > 0; i--) {
   const randomIndex = Math.floor(Math.random() * i);
   [about.order[i], about.order[randomIndex]] = [about.order[randomIndex], about.order[i]];
@@ -901,12 +945,11 @@ about.order.push(0)
 
 
 
-//Goto & Visibility
+//Goto & visibility
 function goto(id) {
-  //Scroll to element
-  document.getElementById(id).scrollIntoView({behavior: "smooth"})
-  //Close menu
-  toggleMenu(false)
+  //Scroll to element & close nav menu
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+  toggleNavMenu(false)
 }
 
 function isVisible(elm) {
@@ -925,13 +968,16 @@ const ballProjects = document.getElementById('ballProjects')
 
 let scrollCount = 0
 
-window.onscroll = scrolled
+window.onscroll = (force) => {
+  //Fix args
+  if (typeof force != 'boolean') force = false
 
-function scrolled() {
   //Run code every 5 counts
-  scrollCount--
-  if (scrollCount > 0) return
-  scrollCount = 5
+  if (!force) {
+    scrollCount--
+    if (scrollCount > 0) return
+    scrollCount = 5
+  }
 
   //Balls
   if (isVisible(document.getElementById('home'))) {
@@ -985,23 +1031,21 @@ function scrolled() {
 
 
 //Resize
-resized()
-
-window.onresize = resized
-
-function resized() {
+window.onresize = () => {
   if (window.innerHeight < window.innerWidth)
     html.removeAttribute('mobile')
   else
     html.setAttribute('mobile', '')
 }
 
+window.onresize()
+
 
 
 //Menu
 let menuOpen = false
 
-function toggleMenu(open) {
+function toggleNavMenu(open) {
   //Check
   if (typeof open != 'boolean') open = !menuOpen
   if (open == menuOpen) return
@@ -1098,14 +1142,17 @@ function createConfetti() {
 
 
 
- /*$        /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$  /$$$$$$$$
-| $$       /$$__  $$| $$$ | $$ /$$__  $$| $$  | $$ /$$__  $$ /$$__  $$| $$_____/
-| $$      | $$  \ $$| $$$$| $$| $$  \__/| $$  | $$| $$  \ $$| $$  \__/| $$      
-| $$      | $$$$$$$$| $$ $$ $$| $$ /$$$$| $$  | $$| $$$$$$$$| $$ /$$$$| $$$$$   
-| $$      | $$__  $$| $$  $$$$| $$|_  $$| $$  | $$| $$__  $$| $$|_  $$| $$__/   
-| $$      | $$  | $$| $$\  $$$| $$  \ $$| $$  | $$| $$  | $$| $$  \ $$| $$      
-| $$$$$$$$| $$  | $$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$  | $$|  $$$$$$/| $$$$$$$$
-|________/|__/  |__/|__/  \__/ \______/  \______/ |__/  |__/ \______/ |_______*/
+ /*$                                                                            
+| $$                                                                            
+| $$        /$$$$$$  /$$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+| $$       |____  $$| $$__  $$ /$$__  $$| $$  | $$ |____  $$ /$$__  $$ /$$__  $$
+| $$        /$$$$$$$| $$  \ $$| $$  \ $$| $$  | $$  /$$$$$$$| $$  \ $$| $$$$$$$$
+| $$       /$$__  $$| $$  | $$| $$  | $$| $$  | $$ /$$__  $$| $$  | $$| $$_____/
+| $$$$$$$$|  $$$$$$$| $$  | $$|  $$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$|  $$$$$$$
+|________/ \_______/|__/  |__/ \____  $$ \______/  \_______/ \____  $$ \_______/
+                               /$$  \ $$                     /$$  \ $$
+                              |  $$$$$$/                    |  $$$$$$/
+                               \______/                      \_____*/
 
 //Recover saved language
 switch (localStorage.getItem('language')) {
@@ -1196,14 +1243,11 @@ function setLan() {
   document.getElementById('skillsProjects').innerText = lan.s.p
 
   //Projects
-  document.getElementById('filterMenuTitle').innerText = lan.p.filter.filter
   document.getElementById('projectsTitle').innerText = lan.p.title
   document.getElementById('projectsMore').innerText = lan.p.more
+  document.getElementById('projectsCategory').innerText = lan.p.filter.category + ':'
   document.getElementById('projectsSort').innerText = lan.p.filter.sort + ':'
-  document.getElementById('projectsSortBy').innerText = lan.p.filter.sort
-  document.getElementById('projectsFilterBy').innerText = projs.getSortName(projs.sort)
   document.getElementById('projectsFilter').innerText = lan.p.filter.filter + ':'
-  document.getElementById('projectsFilterBy').innerText = projs.getTagName(projs.filter)
   refreshProjects()
 }
 
@@ -1211,7 +1255,7 @@ function setLan() {
 
 //Switch language
 function switchLan() {
-  toggleMenu()
+  toggleNavMenu()
   if (lan == lans.en) 
     lan = lans.es
   else
@@ -1225,21 +1269,30 @@ function switchLan() {
 
 
 
- /*$$$$$$$ /$$   /$$ /$$$$$$$$ /$$      /$$ /$$$$$$$$
-|__  $$__/| $$  | $$| $$_____/| $$$    /$$$| $$_____/
-   | $$   | $$  | $$| $$      | $$$$  /$$$$| $$      
-   | $$   | $$$$$$$$| $$$$$   | $$ $$/$$ $$| $$$$$   
-   | $$   | $$__  $$| $$__/   | $$  $$$| $$| $$__/   
-   | $$   | $$  | $$| $$      | $$\  $ | $$| $$      
-   | $$   | $$  | $$| $$$$$$$$| $$ \/  | $$| $$$$$$$$
-   |__/   |__/  |__/|________/|__/     |__/|_______*/
+ /*$$$$$$$ /$$
+|__  $$__/| $$
+   | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
+   | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$
+   | $$   | $$  \ $$| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$
+   | $$   | $$  | $$| $$_____/| $$ | $$ | $$| $$_____/
+   | $$   | $$  | $$|  $$$$$$$| $$ | $$ | $$|  $$$$$$$
+   |__/   |__/  |__/ \_______/|__/ |__/ |__/ \______*/
 
 const theme = {
   changed: false,
   dark: !(localStorage.getItem('theme') == 'light')
 }
 
-setTheme()
+function switchTheme() {
+  //Switch theme
+  toggleNavMenu()
+  theme.dark = !theme.dark
+  setTheme()
+
+  //Achievement
+  if (theme.changed) giveAchievement('drill')
+  theme.changed = true
+}
 
 function setTheme() {
   if (theme.dark) {
@@ -1253,29 +1306,20 @@ function setTheme() {
   }
 }
 
-function switchTheme() {
-  //Switch theme
-  toggleMenu()
-  theme.dark = !theme.dark
-  setTheme()
-
-  //Achievement
-  if (theme.changed) giveAchievement('drill')
-  theme.changed = true
-}
+setTheme()
 
 
 
 
 
-  /*$$$$$   /$$$$$$  /$$   /$$ /$$$$$$ /$$$$$$$$ /$$    /$$ /$$$$$$$$ /$$      /$$ /$$$$$$$$ /$$   /$$ /$$$$$$$$
- /$$__  $$ /$$__  $$| $$  | $$|_  $$_/| $$_____/| $$   | $$| $$_____/| $$$    /$$$| $$_____/| $$$ | $$|__  $$__/
-| $$  \ $$| $$  \__/| $$  | $$  | $$  | $$      | $$   | $$| $$      | $$$$  /$$$$| $$      | $$$$| $$   | $$   
-| $$$$$$$$| $$      | $$$$$$$$  | $$  | $$$$$   |  $$ / $$/| $$$$$   | $$ $$/$$ $$| $$$$$   | $$ $$ $$   | $$   
-| $$__  $$| $$      | $$__  $$  | $$  | $$__/    \  $$ $$/ | $$__/   | $$  $$$| $$| $$__/   | $$  $$$$   | $$   
-| $$  | $$| $$    $$| $$  | $$  | $$  | $$        \  $$$/  | $$      | $$\  $ | $$| $$      | $$\  $$$   | $$   
-| $$  | $$|  $$$$$$/| $$  | $$ /$$$$$$| $$$$$$$$   \  $/   | $$$$$$$$| $$ \/  | $$| $$$$$$$$| $$ \  $$   | $$   
-|__/  |__/ \______/ |__/  |__/|______/|________/    \_/    |________/|__/     |__/|________/|__/  \__/   |_*/   
+  /*$$$$$            /$$       /$$                                                                   /$$
+ /$$__  $$          | $$      |__/                                                                  | $$
+| $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
+| $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
+| $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
+| $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
+| $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
+|__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |______*/ 
 
 //Given achievements
 const ach = {
@@ -1388,28 +1432,28 @@ function toggleAchievements() {
   //Toggle menu
   if (!achievementsMenu.open) {
     achievementsMenu.showModal()
-    document.body.style.overflow = 'hidden'
+    document.body.setAttribute('noscroll', '')
   } else {
     achievementsMenu.close()
-    document.body.style.overflow = 'auto'
+    document.body.removeAttribute('noscroll')
   }
 
   //Close navbar menu
-  if (menuOpen) toggleMenu()
+  if (menuOpen) toggleNavMenu()
 }
 
 
 
 
 
- /*$   /$$  /$$$$$$  /$$      /$$ /$$$$$$$$
-| $$  | $$ /$$__  $$| $$$    /$$$| $$_____/
-| $$  | $$| $$  \ $$| $$$$  /$$$$| $$      
-| $$$$$$$$| $$  | $$| $$ $$/$$ $$| $$$$$   
-| $$__  $$| $$  | $$| $$  $$$| $$| $$__/   
-| $$  | $$| $$  | $$| $$\  $ | $$| $$      
-| $$  | $$|  $$$$$$/| $$ \/  | $$| $$$$$$$$
-|__/  |__/ \______/ |__/     |__/|_______*/
+ /*$   /$$                                  
+| $$  | $$                                  
+| $$  | $$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
+| $$$$$$$$ /$$__  $$| $$_  $$_  $$ /$$__  $$
+| $$__  $$| $$  \ $$| $$ \ $$ \ $$| $$$$$$$$
+| $$  | $$| $$  | $$| $$ | $$ | $$| $$_____/
+| $$  | $$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
+|__/  |__/ \______/ |__/ |__/ |__/ \______*/
 
 //Type animation
 function homeType() {
@@ -1466,14 +1510,14 @@ function homeType() {
 
 
 
-  /*$$$$$  /$$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$$
- /$$__  $$| $$__  $$ /$$__  $$| $$  | $$|__  $$__/
-| $$  \ $$| $$  \ $$| $$  \ $$| $$  | $$   | $$   
-| $$$$$$$$| $$$$$$$ | $$  | $$| $$  | $$   | $$   
-| $$__  $$| $$__  $$| $$  | $$| $$  | $$   | $$   
-| $$  | $$| $$  \ $$| $$  | $$| $$  | $$   | $$   
-| $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
-|__/  |__/|_______/  \______/  \______/    |_*/
+  /*$$$$$  /$$                             /$$    
+ /$$__  $$| $$                            | $$    
+| $$  \ $$| $$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$  
+| $$$$$$$$| $$__  $$ /$$__  $$| $$  | $$|_  $$_/  
+| $$__  $$| $$  \ $$| $$  \ $$| $$  | $$  | $$    
+| $$  | $$| $$  | $$| $$  | $$| $$  | $$  | $$ /$$
+| $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/  |  $$$$/
+|__/  |__/|_______/  \______/  \______/    \___*/
 
 //About elements
 const aboutImg = document.getElementById('aboutImg')
@@ -1539,69 +1583,89 @@ function aboutClick() {
 
 
 
- /*$$$$$$  /$$$$$$$   /$$$$$$     /$$$$$ /$$$$$$$$  /$$$$$$  /$$$$$$$$ /$$$$$$ 
-| $$__  $$| $$__  $$ /$$__  $$   |__  $$| $$_____/ /$$__  $$|__  $$__//$$__  $$
-| $$  \ $$| $$  \ $$| $$  \ $$      | $$| $$      | $$  \__/   | $$  | $$  \__/
-| $$$$$$$/| $$$$$$$/| $$  | $$      | $$| $$$$$   | $$         | $$  |  $$$$$$ 
-| $$____/ | $$__  $$| $$  | $$ /$$  | $$| $$__/   | $$         | $$   \____  $$
-| $$      | $$  \ $$| $$  | $$| $$  | $$| $$      | $$    $$   | $$   /$$  \ $$
-| $$      | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$|  $$$$$$/   | $$  |  $$$$$$/
-|__/      |__/  |__/ \______/  \______/ |________/ \______/    |__/   \_____*/ 
+ /*$$$$$$                                               /$$             
+| $$__  $$                                             | $$             
+| $$  \ $$ /$$$$$$   /$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$   /$$$$$$$
+| $$$$$$$//$$__  $$ /$$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/  /$$_____/
+| $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$ 
+| $$     | $$      | $$  | $$| $$| $$_____/| $$        | $$ /$$\____  $$
+| $$     | $$      |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$  |  $$$$//$$$$$$$/
+|__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/ 
+                        /$$  | $$
+                       |  $$$$$$/
+                        \_____*/
 
-function addProjects(sort, filter) {
+function addProjects(category, filter, sort) {
+  //Fix category
+  if (category == null) category = projs.category
+  else if (typeof category !== 'string') category = Category.all
+
+  //Fix filter
+  if (filter == null) filter = projs.filter
+  else if (typeof filter !== 'string' || filter == Tag.all) filter = Tag.all
+
   //Fix sort
   if (sort == null) sort = projs.sort
   else if (typeof sort !== 'string') sort = ''
 
-  //Fix filter
-  if (filter == null) filter = projs.filter
-  else if (typeof filter !== 'string' || filter == Tags.none) filter = ''
-
-  //Check if refresh
-  const isRefresh = projs.sort == sort && projs.filter == filter
+  //Check if is refresh
+  const isRefresh = projs.category == category && projs.filter == filter && projs.sort == sort
   
-  //Save sort & filter
-  projs.sort = sort
+  //Save category, filter & sorting
+  projs.category = category
   projs.filter = filter
+  projs.sort = sort
+
+  //Update category, filter & sorting names
+  document.getElementById('projectsCategoryBy').innerText = projs.getCategoryName(category)
+  document.getElementById('projectsFilterBy').innerText = projs.getTagName(filter)
+  document.getElementById('projectsSortBy').innerText = projs.getSortName(sort)
 
   //Get animate & projects length (minimum of 4)
   const animate = projs.created == 0
   const length = isRefresh ? Math.max(projs.created, 4) : 4
 
-  //Sorted list
-  if (sort == 'date') {
-    //Date sorting -> Add all projects
-    projs.sortedList = []
-    projs.list.forEach(project => {
-      projs.sortedList.push(project)
-    })
-    projs.sortedList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
-  } else {
-    //No sorting -> Add all projects
-    projs.sortedList = projs.list
-  }
-  document.getElementById('projectsSortBy').innerText = projs.getSortName(sort)
+  //Copy projects list
+  projs.filteredList = []
+  projs.list.forEach(project => projs.filteredList.push(project))
 
-  //Filtered list
-  if (filter != '') {
-    //Has filter -> Filter projects
-    projs.filteredList = []
-    projs.sortedList.forEach(project => {
-      if (!Array.isArray(project.tags)) return
-      if (project.tags.includes(filter)) projs.filteredList.push(project)
-    })
-    if (!isRefresh) goto('projects')
-  } else {
-    //No filter -> Add all projects
-    projs.filteredList = projs.sortedList
+  //Remove projects of different categories
+  if (category != Category.all) {
+    for (let i = projs.filteredList.length - 1; i >= 0; i--) {
+      const project = projs.filteredList[i]
+      if (project.category == category) continue
+      projs.filteredList.splice(i, 1)
+    }
   }
-  document.getElementById('projectsFilterBy').innerText = projs.getTagName(filter)
+
+  //Filter projects
+  if (filter != Tag.all) {
+    for (let i = projs.filteredList.length - 1; i >= 0; i--) {
+      const project = projs.filteredList[i]
+      if (project.tags.includes(filter)) continue
+      projs.filteredList.splice(i, 1)
+    }
+  }
+
+  //Sort list (by date)
+  if (sort == 'date') projs.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
+
+  //Scroll to projects if not refresh (changed some filter)
+  if (!isRefresh) goto('projects')
 
   //Clear
   clearProjects()
 
   //Add projects
   for (let i = 0; i < length; i++) addProject(animate, filter)
+
+  //Has projects?
+  if (projs.created == 0) 
+    //No -> Show no projects text
+    document.getElementById('projectsList').innerHTML += `<div class="projectsNone"><div>🥲</div><div>${lan.p.none}</div></div>`
+  else
+    //Yes -> Animate projects appear (just in case)
+    window.onscroll(true)
 }
 
 function addProject(animate) {
@@ -1627,9 +1691,8 @@ function addProject(animate) {
 
   //Get tags
   let tags = ''
-  if (Array.isArray(project.tags)) project.tags.forEach(tag => {
-    tags += `<span class="projectTag" onclick="addProjects(null, '${tag}')">${projs.getTagName(tag)}</span>`
-  })
+  if (Array.isArray(project.tags)) 
+    project.tags.forEach(tag => tags += `<span class="projectTag" onclick="addProjects(null, '${tag}', null)">${projs.getTagName(tag)}</span>`)
 
   //Get date
   const dateStart = project.dateStart
@@ -1712,7 +1775,7 @@ function clearProjects() {
 }
 
 function refreshProjects() {
-  addProjects(projs.sort, projs.filter)
+  addProjects(projs.category, projs.filter, projs.sort)
 }
 
 function toggleVideo(number, url) {
@@ -1729,6 +1792,7 @@ function toggleVideo(number, url) {
 
 //Filters menu
 const filterMenu = document.getElementById('filterMenu')
+const filterMenuTitle = document.getElementById('filterMenuTitle')
 
 filterMenu.onclick = (event) => {
   const rect = filterMenu.getBoundingClientRect()
@@ -1736,38 +1800,70 @@ filterMenu.onclick = (event) => {
   if (clickedBackdrop && filterMenu.open) toggleFiltersMenu()
 }
 
-function toggleFiltersMenu() {
+function toggleFiltersMenu(type) {
+  const types = ['filter', 'category']
+  if (!types.includes(type)) type = 'filter'
+
   //Get elements
   const list = document.getElementById('filterMenuTags')
 
-  //Toggle filter menu
+  //Toggle menu
   if (!filterMenu.open) {
-    //Get tags (only the ones used in projects)
-    const usedTags = []
-    projs.list.forEach(project => {
-      project.tags.forEach(tag => {
-        if (!usedTags.includes(tag)) usedTags.push(tag)
-      })
-    })
-    
-    //Get tags (ordered and with none first)
-    const tags = [ Tags.none ]
-    Object.keys(Tags).forEach(key => { 
-      const tag = Tags[key]
-      if (usedTags.includes(tag)) tags.push(tag)
-    })
-
-    //Add tags to list
+    //Clear list
     list.innerHTML = ''
-    tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}'); toggleFiltersMenu();">${projs.getTagName(tag)}</span>`)
+
+    //Execute menu logic
+    switch (type) {
+      //Category menu
+      case 'category': {
+        //Change menu title
+        filterMenuTitle.innerText = lan.p.filter.category
+
+        //Get tags
+        const tags = []
+        Object.keys(Category).forEach(key => { 
+          tags.push(Category[key])
+        })
+
+        //Add tags
+        tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects('${tag}', null, null); toggleFiltersMenu();">${projs.getCategoryName(tag)}</span>`)
+        break
+      }
+
+      //Filter menu
+      default: {
+        //Change menu title
+        filterMenuTitle.innerText = lan.p.filter.filter
+
+        //Get tags (only the ones used in projects)
+        const usedTags = []
+        projs.list.forEach(project => {
+          project.tags.forEach(tag => {
+            if (!usedTags.includes(tag)) usedTags.push(tag)
+          })
+        })
+        
+        //Get tags (ordered and with all first)
+        const tags = [Tag.all]
+        Object.keys(Tag).forEach(key => { 
+          const tag = Tag[key]
+          if (!usedTags.includes(tag)) return
+          tags.push(tag)
+        })
+
+        //Add tags
+        tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}', null); toggleFiltersMenu();">${projs.getTagName(tag)}</span>`)
+        break
+      }
+    }
 
     //Open
     filterMenu.showModal()
-    document.body.style.overflow = 'hidden'
+    document.body.setAttribute('noscroll', '')
   } else {
     //Close
     filterMenu.close()
-    document.body.style.overflow = 'auto'
+    document.body.removeAttribute('noscroll')
   }
 }
 
@@ -1775,14 +1871,14 @@ function toggleFiltersMenu() {
 
 
 
- /*$$$$$$   /$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$  /$$      /$$
-| $$__  $$ /$$__  $$|__  $$__/|__  $$__//$$__  $$| $$$    /$$$
-| $$  \ $$| $$  \ $$   | $$      | $$  | $$  \ $$| $$$$  /$$$$
-| $$$$$$$ | $$  | $$   | $$      | $$  | $$  | $$| $$ $$/$$ $$
-| $$__  $$| $$  | $$   | $$      | $$  | $$  | $$| $$  $$$| $$
-| $$  \ $$| $$  | $$   | $$      | $$  | $$  | $$| $$\  $ | $$
-| $$$$$$$/|  $$$$$$/   | $$      | $$  |  $$$$$$/| $$ \/  | $$
-|_______/  \______/    |__/      |__/   \______/ |__/     |_*/
+ /*$$$$$$              /$$     /$$
+| $$__  $$            | $$    | $$
+| $$  \ $$  /$$$$$$  /$$$$$$ /$$$$$$    /$$$$$$  /$$$$$$/$$$$ 
+| $$$$$$$  /$$__  $$|_  $$_/|_  $$_/   /$$__  $$| $$_  $$_  $$
+| $$__  $$| $$  \ $$  | $$    | $$    | $$  \ $$| $$ \ $$ \ $$
+| $$  \ $$| $$  | $$  | $$ /$$| $$ /$$| $$  | $$| $$ | $$ | $$
+| $$$$$$$/|  $$$$$$/  |  $$$$/|  $$$$/|  $$$$$$/| $$ | $$ | $$
+|_______/  \______/    \___/   \___/   \______/ |__/ |__/ |_*/
 
 //Bottom text quotes
 (() => {
