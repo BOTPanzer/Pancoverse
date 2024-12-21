@@ -12,32 +12,6 @@ const html = document.querySelector('html')
 
 
 
-//Load portfolio
-window.onload = () => {
-  //Stop scroll
-  document.body.setAttribute('noscroll', '')
-
-  //Update page scroll & size
-  window.onresize()
-  window.onscroll()
-
-  //Update language
-  setLan()
-
-  //Hide waves
-  html.style.setProperty('--waveBot', '100vh')
-  setTimeout(() => {
-    homeType()
-    document.getElementById('waves').style.opacity = '0'
-    document.getElementById('waves').style.pointerEvents = 'none'
-    setTimeout(() => { 
-      document.body.removeAttribute('noscroll')
-    }, 500)
-  }, 500)
-}
-
-
-
 //Socials achievement & title change
 window.onfocus = () => {
   if (socialsOpen) {
@@ -1922,3 +1896,37 @@ function toggleFiltersMenu(type) {
   document.getElementById('botQuote').innerHTML = quote[q]
   document.getElementById('botFrom').innerHTML = from[q]
 })()
+
+
+
+
+
+ /*$                                 /$$
+| $$                                | $$
+| $$        /$$$$$$   /$$$$$$   /$$$$$$$
+| $$       /$$__  $$ |____  $$ /$$__  $$
+| $$      | $$  \ $$  /$$$$$$$| $$  | $$
+| $$      | $$  | $$ /$$__  $$| $$  | $$
+| $$$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$
+|________/ \______/  \_______/ \______*/
+
+//Stop scroll
+document.body.setAttribute('noscroll', '')
+
+//Update page scroll & size
+window.onresize()
+window.onscroll()
+
+//Update language
+setLan()
+
+//Hide waves
+html.style.setProperty('--waveBot', '100vh')
+setTimeout(() => {
+  homeType()
+  document.getElementById('waves').style.opacity = '0'
+  document.getElementById('waves').style.pointerEvents = 'none'
+  setTimeout(() => { 
+    document.body.removeAttribute('noscroll')
+  }, 500)
+}, 500)
