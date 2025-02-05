@@ -691,7 +691,7 @@ const Projects = Object.freeze({
   stardewpets: {
     key: 'stardewpets',
     dateStart: 2024,
-    dateEnd: 2024,
+    dateEnd: Infinity,
     scope: ['solo', 'personal'],
     category: Category.other,
     tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
@@ -742,7 +742,7 @@ const Projects = Object.freeze({
     dateEnd: 2023,
     scope: ['solo', 'personal'],
     category: Category.games,
-    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+    tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop, Tag.substance],
     button: ['https://botpa.itch.io/escape-from-lmdshow'],
     vid: 'z0Qv5HZyZgU',
   },
@@ -790,7 +790,7 @@ const Projects = Object.freeze({
     scope: ['team', 'jam'],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
-    button: ['https://botpa.itch.io/vaporcade']
+    button: ['https://botpa.itch.io/otters-odyssey']
   },
   assAn: {
     key: 'assAn',
@@ -803,7 +803,7 @@ const Projects = Object.freeze({
   },
   assPC: {
     key: 'assPC',
-    dateStart: 2022,
+    dateStart: 2021,
     dateEnd: 2024,
     scope: ['solo', 'personal'],
     category: Category.other,
