@@ -114,6 +114,7 @@ const lans = {
         categories: {
           all: 'All',
           games: 'Games',
+          apps: 'Apps',
           other: 'Other'
         },
         filter: 'Filter',
@@ -143,6 +144,13 @@ const lans = {
         present: 'Present'
       },
       projects: {
+        stealer: {
+          tit: "TurboStealer",
+          con: `For educational purposes only, TurboStealer is a command line application programmed in python that is able to steal information from the computer running it.
+                <br><br>
+                Currently, it is capable of stealing emails, usernames and passwords from saved credentials in browsers.`,
+          b1:  "Download&nbsp<i>Turbo Stealer</i>",
+        },
         stardewpets: {
           tit: "Stardew Pets",
           con: `Stardew Pets is a VS Code extension that lets you have Stardew Valley pets accompanying you while you code.
@@ -417,6 +425,7 @@ const lans = {
         categories: {
           all: 'Todo',
           games: 'Juegos',
+          apps: 'Apps',
           other: 'Otros'
         },
         filter: 'Filtro',
@@ -446,12 +455,19 @@ const lans = {
         present: 'Presente'
       },
       projects: {
+        stealer: {
+          tit: "TurboStealer",
+          con: `Solo por motivos educacionales, TurboStealer es una aplicación de línea de comandos programada en Python capaz de robar información del ordenador en que se ejecuta.
+                <br><br>
+                Actualmente, es capaz de robar correos electrónicos, nombres de usuario y contraseñas de credenciales guardadas en los navegadores.`,
+          b1:  "Descargar&nbsp<i>Turbo Stealer</i>",
+        },
         stardewpets: {
           tit: "Stardew Pets",
           con: `Stardew Pets es una extensión para VS Code que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                 <br><br>
                 Actualmente puedes tener como mascota a gatos, perros, dinos, tortugas, mapaches, cabras, ovejas, avestruces, cerdos, conejos, pollos, vacas y junimos, cada uno con diferentes variantes.`,
-          b1:  "Instala&nbsp<i>Stardew Pets</i>",
+          b1:  "Instalar&nbsp<i>Stardew Pets</i>",
         },
         spyw4re: {
           tit: "Spyw4re",
@@ -460,7 +476,7 @@ const lans = {
                 En Spyw4re, eres un operador de CCTV en un asilo. El edificio se está derrumbando y un paciente todavía está dentro, por lo que tendrás que ayudarlo a salir.
                 <br><br>
                 Para lograrlo, tendrás que resolver algunos acertijos y derrotar a algunos enemigos, pero no creas que será tan fácil, alguien no quiere que lo ayudes...`,
-          b1:  "Descarga&nbsp<i>Spyw4re</i>",
+          b1:  "Descargar&nbsp<i>Spyw4re</i>",
           vid: 'Ver Gameplay'
         },
         hackoon:{
@@ -641,6 +657,7 @@ let lan = lans.es
 const Category = Object.freeze({
   all: 'all',
   games: 'games',
+  apps: 'apps',
   other: 'other',
 });
 
@@ -651,6 +668,7 @@ const Tag = Object.freeze({
   cs: 'C#',
   java: 'JAVA',
   cpp: 'C++',
+  python: 'Python',
   html: 'HTML',
   css: 'CSS',
   js: 'JavaScript',
@@ -677,12 +695,28 @@ const Tag = Object.freeze({
   diy: 'diy',
 });
 
+const Scope = Object.freeze({
+  team: 'team',
+  solo: 'solo',
+  personal: 'personal',
+  jam: 'jam'
+});
+
 const Projects = Object.freeze({
+  stealer: {
+    key: 'stealer',
+    dateStart: 2024,
+    dateEnd: 2024,
+    scope: [Scope.solo, Scope.personal],
+    category: Category.apps,
+    tags: [Tag.python, Tag.vscode],
+    button: ['https://github.com/BOTPanzer/TurboStealer'],
+  },
   spyw4re: {
     key: 'spyw4re',
     dateStart: 2024,
     dateEnd: 2024,
-    scope: ['team', 'jam'],
+    scope: [Scope.team, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/spyw4re'],
@@ -692,7 +726,7 @@ const Projects = Object.freeze({
     key: 'stardewpets',
     dateStart: 2024,
     dateEnd: Infinity,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
     button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets'],
@@ -701,7 +735,7 @@ const Projects = Object.freeze({
     key: 'hackoon',
     dateStart: 2024,
     dateEnd: Infinity,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://www.tiktok.com/@botpanzer'],
@@ -710,7 +744,7 @@ const Projects = Object.freeze({
     key: 'hightime',
     dateStart: 2024,
     dateEnd: 2024,
-    scope: ['team', 'jam'],
+    scope: [Scope.team, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop],
     button: ['https://botpa.itch.io/high-on-time'],
@@ -720,7 +754,7 @@ const Projects = Object.freeze({
     key: 'fresquita',
     dateStart: 2024,
     dateEnd: 2024,
-    scope: ['solo', 'jam'],
+    scope: [Scope.solo, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/the-lost-fresquita'],
@@ -730,7 +764,7 @@ const Projects = Object.freeze({
     key: 'raccoon',
     dateStart: 2023,
     dateEnd: 2023,
-    scope: ['team', 'jam'],
+    scope: [Scope.team, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
     button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
@@ -740,7 +774,7 @@ const Projects = Object.freeze({
     key: 'lmdshow',
     dateStart: 2023,
     dateEnd: 2023,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop, Tag.substance],
     button: ['https://botpa.itch.io/escape-from-lmdshow'],
@@ -750,7 +784,7 @@ const Projects = Object.freeze({
     key: 'memory',
     dateStart: 2023,
     dateEnd: 2023,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop, Tag.illustrator],
     button: ['https://botpa.itch.io/memory-shift'],
@@ -759,7 +793,7 @@ const Projects = Object.freeze({
     key: 'spirits',
     dateStart: 2023,
     dateEnd: 2023,
-    scope: ['team', 'jam'],
+    scope: [Scope.team, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/twin-spirits'],
@@ -769,7 +803,7 @@ const Projects = Object.freeze({
     key: 'vaporcade',
     dateStart: 2023,
     dateEnd: 2023,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/vaporcade']
@@ -778,7 +812,7 @@ const Projects = Object.freeze({
     key: 'papa',
     dateStart: 2023,
     dateEnd: 2023,
-    scope: ['team', 'jam'],
+    scope: [Scope.team, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/cooking-papa']
@@ -787,7 +821,7 @@ const Projects = Object.freeze({
     key: 'otters',
     dateStart: 2022,
     dateEnd: 2022,
-    scope: ['team', 'jam'],
+    scope: [Scope.team, Scope.jam],
     category: Category.games,
     tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
     button: ['https://botpa.itch.io/otters-odyssey']
@@ -796,8 +830,8 @@ const Projects = Object.freeze({
     key: 'assAn',
     dateStart: 2021,
     dateEnd: 2024,
-    scope: ['solo', 'personal'],
-    category: Category.other,
+    scope: [Scope.solo, Scope.personal],
+    category: Category.apps,
     tags: [Tag.java, Tag.android, Tag.uiux],
     button: ['Data/Orion Assistant 1.10.0.apk']
   },
@@ -805,8 +839,8 @@ const Projects = Object.freeze({
     key: 'assPC',
     dateStart: 2021,
     dateEnd: 2024,
-    scope: ['solo', 'personal'],
-    category: Category.other,
+    scope: [Scope.solo, Scope.personal],
+    category: Category.apps,
     tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
     button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
   },
@@ -814,7 +848,7 @@ const Projects = Object.freeze({
     key: 'frame',
     dateStart: 2022,
     dateEnd: 2024,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.html, Tag.css, Tag.js, Tag.vscode, Tag.uiux],
     button: ['https://botpanzer.github.io/Orion-Framework']
@@ -824,7 +858,7 @@ const Projects = Object.freeze({
     key: 'disbots',
     dateStart: 2018,
     dateEnd: 2020,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.js, Tag.vscode, Tag.discordapi],
     button: ["https://github.com/BOTPanzer/Syrup"]
@@ -833,7 +867,7 @@ const Projects = Object.freeze({
     key: 'mod',
     dateStart: 2021,
     dateEnd: 2021,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.model3d, Tag.print3d, Tag.illustrator, Tag.sketching, Tag.diy],
   },
@@ -841,7 +875,7 @@ const Projects = Object.freeze({
     key: 't45',
     dateStart: 2018,
     dateEnd: 2018,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.print3d, Tag.diy],
   },
@@ -849,7 +883,7 @@ const Projects = Object.freeze({
     key: 'usb',
     dateStart: 2018,
     dateEnd: 2018,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.model3d, Tag.print3d, Tag.electronics, Tag.diy],
   },
@@ -857,7 +891,7 @@ const Projects = Object.freeze({
     key: 'hoodie',
     dateStart: 2021,
     dateEnd: 2021,
-    scope: ['solo', 'personal'],
+    scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.illustrator, Tag.photoshop, Tag.sketching],
   },
@@ -875,6 +909,7 @@ const projs = {
   list: [
     Projects.spyw4re,
     Projects.stardewpets,
+    Projects.stealer,
     Projects.hackoon,
     Projects.hightime,
     Projects.fresquita,
@@ -896,9 +931,9 @@ const projs = {
     Projects.hoodie,
   ],
   //Functions
-  getCategoryName: (category) => lan.p.filter.categories[category != Category.games && category != Category.other ? Category.all : category],
+  getCategoryName: (category) => lan.p.filter.categories[category in Category ? category : Category.all],
   getSortName: (sort) => lan.p.filter.sortby[sort == 'date' ? 'date' : 'none'],
-  getTagName: (tag) => lan.p.tags[tag] ? lan.p.tags[tag] : tag,
+  getTagName: (tag) => tag in lan.p.tags ? lan.p.tags[tag] : tag,
 }
 
 
