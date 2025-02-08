@@ -710,7 +710,7 @@ const Projects = Object.freeze({
     scope: [Scope.solo, Scope.personal],
     category: Category.apps,
     tags: [Tag.python, Tag.vscode],
-    button: ['https://github.com/BOTPanzer/TurboStealer'],
+    button: ['https://github.com/BOTPanzer/Turbo-Stealer'],
   },
   spyw4re: {
     key: 'spyw4re',
