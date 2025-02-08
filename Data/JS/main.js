@@ -725,7 +725,7 @@ const Projects = Object.freeze({
   stardewpets: {
     key: 'stardewpets',
     dateStart: 2024,
-    dateEnd: Infinity,
+    dateEnd: 2025,
     scope: [Scope.solo, Scope.personal],
     category: Category.other,
     tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
