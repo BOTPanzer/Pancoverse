@@ -145,8 +145,8 @@ const lans = {
       },
       projects: {
         stealer: {
-          tit: "TurboStealer",
-          con: `For educational purposes only, TurboStealer is a command line application programmed in python that is able to steal information from the computer running it.
+          tit: "Turbo Stealer",
+          con: `For educational purposes only, Turbo Stealer is a command line application programmed in python that is able to steal information from the computer running it.
                 <br><br>
                 Currently, it is capable of stealing emails, usernames and passwords from saved credentials in browsers.`,
           b1:  "Download&nbsp<i>Turbo Stealer</i>",
@@ -456,8 +456,8 @@ const lans = {
       },
       projects: {
         stealer: {
-          tit: "TurboStealer",
-          con: `Solo por motivos educacionales, TurboStealer es una aplicación de línea de comandos programada en Python capaz de robar información del ordenador en que se ejecuta.
+          tit: "Turbo Stealer",
+          con: `Solo por motivos educacionales, Turbo Stealer es una aplicación de línea de comandos programada en Python capaz de robar información del ordenador en que se ejecuta.
                 <br><br>
                 Actualmente, es capaz de robar correos electrónicos, nombres de usuario y contraseñas de credenciales guardadas en los navegadores.`,
           b1:  "Descargar&nbsp<i>Turbo Stealer</i>",
