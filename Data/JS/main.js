@@ -833,12 +833,12 @@ const Projects = Object.freeze({
     scope: [Scope.solo, Scope.personal],
     category: Category.apps,
     tags: [Tag.java, Tag.android, Tag.uiux],
-    button: ['Data/Orion Assistant 1.10.0.apk']
+    button: ['Data/Orion Assistant 1.10.4.apk']
   },
   assPC: {
     key: 'assPC',
     dateStart: 2021,
-    dateEnd: 2024,
+    dateEnd: 2025,
     scope: [Scope.solo, Scope.personal],
     category: Category.apps,
     tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
